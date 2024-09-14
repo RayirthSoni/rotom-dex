@@ -71,3 +71,6 @@ venv.bak/
 
 # Ignore database files
 *.sqlite3
+
+# Local testing
+local_testing/*
