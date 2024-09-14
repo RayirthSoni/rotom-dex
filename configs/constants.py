@@ -7,6 +7,7 @@ Constants
 
 import os
 
+
 class Constants:
     """
     Constants configurations
@@ -20,7 +21,8 @@ class Constants:
         "abilities": "ability",
         "items": "item",
         "evolution": "evolution",
-        "pokemon_locations": 'location',
-        "sprite_gallery": "sprites"
+        "pokemon_locations": "location",
+        "sprite_gallery": "sprites",
     }
-    POKEMON_STATS_URL = 
+    POKEMON_STATS_URL = os.path.join(POKEMON_DB_URL, POKEMON_DATA.get("pokedex"), "all")
+    
