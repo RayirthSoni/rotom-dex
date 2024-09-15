@@ -17,10 +17,11 @@ from configs.constants import Constants
 POKEMONDB_URL = Constants.POKEMON_DB_URL
 POKEMON_DATA = Constants.POKEMON_DATA
 POKEMON_STATS_URL = Constants.POKEMON_STATS_URL
+POKEMON_EVOLUTION_URL = Constants.POKEMON_EVOLUTION_URL
 
 
 def get_pokemon_stats() -> list:
-    """Function to scrape pokemon stats from pokemondb.net
+    """Function to get pokemon stats from pokemondb.net
 
     Returns:
         list: List of dictionaries containing pokemon stats
@@ -40,4 +41,23 @@ def get_pokemon_stats() -> list:
     )
     return response
 
-def get_pokemon_evolution_data(**kwargs):
+
+def get_pokemon_evolution_data():
+    """Function to get pokemon evolution data from pokemondb.net
+
+    Returns:
+        list: List of dictionaries containing pokemon evolution data
+    """
+    pokemon_evolution_response = requests.get(POKEMON_EVOLUTION_URL)
+    pokemon_site_data = pokemon_evolution_response.text
+    response = soup = BeautifulSoup(pokemon_site_data, "lxml")
+    scraping_helpers.scrape_pokemon_evolution_data(
+        soup=soup,
+        section_class="infocard-list-evo",
+        pokemon_class="infocard",
+        image_class="img-fixed img-sprite",
+        types_class="itype",
+        level_class="infocard infocard-arrow",
+        condition_class="infocard-arrow",
+    )
+    return response

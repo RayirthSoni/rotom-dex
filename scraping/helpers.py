@@ -102,46 +102,51 @@ def scrape_pokemon_evolution_data(**kwargs) -> list:
         list: List of dictionaries containing pokémon evolution data
     """
     soup = kwargs.get("soup")
-    evolution_section_class = kwargs.get("evolution_section_class")
+    section_class = kwargs.get("section_class")
     pokemon_class = kwargs.get("pokemon_class")
     image_class = kwargs.get("image_class")
     types_class = kwargs.get("types_class")
-    evolution_level_class = kwargs.get("evolution_level_class")
+    level_class = kwargs.get("evolution_level_class")
+    condition_class = kwargs.get("condition_class")
 
     response = []
-    for evolution_section in soup.find_all("div", class_=evolution_section_class):
-        for pokemon in evolution_section.find_all("div", class_=pokemon_class):
-            pokemon_img = pokemon.find("img", class_=image_class)
+    for section in soup.find_all("div", class_=section_class):
+        cards = section.find_all("div", class_=pokemon_class)
+
+        for i, card in enumerate(cards):
+            pokemon_img = card.find("img", class_=image_class)
             img_url = pokemon_img.get("src")
             name = pokemon_img.get("alt").strip()
-            types = [
-                pokemon_type.text
-                for pokemon_type in pokemon.find_all("a", class_=types_class)
-            ]
-            types = " ".join(types)
+            types = " ".join([t.text for t in card.find_all("a", class_=types_class)])
 
-            evolution_level = pokemon.find_next_sibling(
-                "span", class_=evolution_level_class
-            )
-            evolution_level = (
-                preprocess_text(evolution_level.text.strip())
-                if evolution_level
-                else None
-            )
-            next_pokemon_div = pokemon.find_next_sibling("div", class_=pokemon_class)
-            if next_pokemon_div:
-                next_pokemon_img = next_pokemon_div.find("img", class_=image_class)
-                evolves_to = next_pokemon_img.get("alt").strip()
-            else:
-                evolves_to = None
+            level_info = card.find_next_sibling("span", class_=level_class)
+            level_text = level_info.text.strip() if level_info else None
 
+            # Prepare data for the current Pokémon
+            evolution_paths = []
+
+            # Find next Pokémon cards in the same evolution section
+            for next_card in section.find_all("div", class_="infocard")[i + 1 :]:
+                next_pokemon_img = next_card.find("img", class_=image_class)
+                if next_pokemon_img:
+                    evolves_to = next_pokemon_img.get("alt").strip()
+                    # Find the condition for the evolution
+                    condition = next_card.find_previous_sibling(
+                        "span", class_=condition_class
+                    )
+                    condition_text = condition.text.strip() if condition else None
+                    evolution_paths.append(
+                        {"evolves_to": evolves_to, "condition": condition_text}
+                    )
+
+            # Append the current Pokémon data to the result list
             response.append(
                 {
                     "name": name,
                     "img_url": img_url,
                     "types": types,
-                    "level": evolution_level,
-                    "evolves_to": evolves_to,
+                    "level": level_text,
+                    "evolution_paths": evolution_paths,
                 }
             )
 
