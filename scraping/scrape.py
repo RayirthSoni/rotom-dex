@@ -18,9 +18,11 @@ POKEMONDB_URL = Constants.POKEMON_DB_URL
 POKEMON_DATA = Constants.POKEMON_DATA
 POKEMON_STATS_URL = Constants.POKEMON_STATS_URL
 
-pokemon_stats_response = requests.get(POKEMON_STATS_URL)
-pokemon_site_data = pokemon_stats_response.text
 
-pokemon_stats_table = scraping_helpers.extract_table_data(
-    data=pokemon_site_data, tag="table", id="pokedex"
-)
+def scrape_pokemon_stats():
+    pokemon_stats_response = requests.get(POKEMON_STATS_URL)
+    pokemon_site_data = pokemon_stats_response.text
+    soup = BeautifulSoup(pokemon_site_data, "lxml")
+    pokemon_stats_table = scraping_helpers.extract_table_data(
+        soup=soup, tag="table", id="pokedex"
+    )
