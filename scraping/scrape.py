@@ -19,10 +19,26 @@ POKEMON_DATA = Constants.POKEMON_DATA
 POKEMON_STATS_URL = Constants.POKEMON_STATS_URL
 
 
-def scrape_pokemon_stats():
+def scrape_pokemon_stats() -> list:
+    """Function to scrape pokemon stats from pokemondb.net
+
+    Args:
+        None
+
+    Returns:
+        list: List of dictionaries containing pokemon stats
+    """
     pokemon_stats_response = requests.get(POKEMON_STATS_URL)
     pokemon_site_data = pokemon_stats_response.text
     soup = BeautifulSoup(pokemon_site_data, "lxml")
-    pokemon_stats_table = scraping_helpers.extract_table_data(
-        soup=soup, tag="table", id="pokedex"
+    response = scraping_helpers.extract_pokemon_stats(
+        soup=soup,
+        tag="td",
+        target_cell_classes=[
+            ["cell-name"],
+            ["cell-icon"],
+            ["cell-num", "cell-total"],
+            ["cell-num"],
+        ],
     )
+    return response
