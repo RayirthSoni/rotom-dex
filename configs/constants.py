@@ -25,4 +25,4 @@ class Constants:
         "sprite_gallery": "sprites",
     }
     POKEMON_STATS_URL = os.path.join(POKEMON_DB_URL, POKEMON_DATA.get("pokedex"), "all")
-    
+    POKEMON_EVOLUTION_URL = os.path.join(POKEMON_DB_URL, POKEMON_DATA.get("evolution"))
