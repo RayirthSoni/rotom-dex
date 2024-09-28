@@ -24,11 +24,11 @@ POKEMONS_LIST_URL = Constants.POKEMONS_LIST_URL
 # TODO: ADD PARALLEL PROCESSING FOR SCRAPING FOR FASTER SCRAPING
 
 
-def get_pokemons() -> list:
+def get_pokemon_metadata() -> list:
     website = requests.get(POKEMONS_LIST_URL)
     pokemon_data = website.text
     soup = BeautifulSoup(pokemon_data, "lxml")
-    response = scraping_helpers.scrape_pokemons(
+    response = scraping_helpers.scrape_pokemon_metadata(
         soup=soup,
         generation_tag="h2",
         generation_data_tag="div",

@@ -26,7 +26,7 @@ def clean_name(text: str) -> str:
     return " ".join(words[1:]) if first_word in words[1:] else text
 
 
-def scrape_pokemons(**kwargs) -> list:
+def scrape_pokemon_metadata(**kwargs) -> list:
     """Function is used to scrape pokémon data
 
     Returns:
