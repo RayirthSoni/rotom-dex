@@ -26,33 +26,42 @@ def clean_name(text: str) -> str:
     return " ".join(words[1:]) if first_word in words[1:] else text
 
 
-def preprocess_text(text):
-    """Preprocess and clean text by removing unnecessary characters.
-
-    Args:
-        text (str): The raw text to be cleaned.
+def scrape_pokemons(**kwargs) -> list:
+    """Function is used to scrape pokémon data
 
     Returns:
-        str: The cleaned text.
-    """
-    cleaned_text = re.sub(r"[()\.,]", "", text)
-
-    cleaned_text = re.sub(r"\s+", " ", cleaned_text).strip()
-
-    return cleaned_text
-
-
-def scrape_table_data(**kwargs) -> Tag:
-    """Function is used to scrape html table content
-
-    Returns:
-        bs4.element.Tag: The first matching tag found or None if no match found
+        list: List of dictionaries containing pokémon data
     """
     soup = kwargs.get("soup")
-    tag = kwargs.get("tag")
-    data_id = kwargs.get("data_id")
+    generation_tag = kwargs.get("generation_tag")
+    generation_data_tag = kwargs.get("generation_data_tag")
+    generation_data_class = kwargs.get("generation_data_class")
+    pokemon_tag = kwargs.get("pokemon_tag")
+    pokemon_class = kwargs.get("pokemon_class")
+    name_class = kwargs.get("name_class")
+    type_class = kwargs.get("type_class")
+    image_tag = kwargs.get("image_tag")
 
-    return soup.find(tag, id=data_id)
+    response = []
+    for generation in soup.find_all(generation_tag):
+        generation_data = generation.find_next_sibling(
+            generation_data_tag, class_=generation_data_class
+        )
+        for pokemon in generation_data.find_all(pokemon_tag, class_=pokemon_class):
+            name = pokemon.find("a", class_=name_class).text.strip()
+            types = [
+                type.text.strip() for type in pokemon.find_all("a", class_=type_class)
+            ]
+            image_url = pokemon.find(image_tag)["src"]
+            response.append(
+                {
+                    "name": name,
+                    "types": types,
+                    "image": image_url,
+                    "generation": generation.text.strip(),
+                }
+            )
+    return response
 
 
 def scrape_pokemon_stats(**kwargs) -> list:
@@ -63,35 +72,43 @@ def scrape_pokemon_stats(**kwargs) -> list:
     """
     soup = kwargs.get("soup")
     tag = kwargs.get("tag")
-    target_cell_classes = kwargs.get("target_cell_classes")
 
     response = []
-    pokemon_data = {}
-    for num, cell in enumerate(soup.find_all(tag)):
-        img_tag = cell.find("img")
-        if img_tag:
-            pokemon_data["image_url"] = img_tag.get("src")
-        if cell.get("class") in target_cell_classes:
-            if num % 10 == 1:
-                pokemon_data["name"] = clean_name(cell.text.strip())
-            elif num % 10 == 2:
-                pokemon_data["type"] = cell.text.strip()
-            elif num % 10 == 3:
-                pokemon_data["total"] = int(cell.text.strip())
-            elif num % 10 == 4:
-                pokemon_data["hp"] = int(cell.text.strip())
-            elif num % 10 == 5:
-                pokemon_data["attack"] = int(cell.text.strip())
-            elif num % 10 == 6:
-                pokemon_data["defense"] = int(cell.text.strip())
-            elif num % 10 == 7:
-                pokemon_data["sp_attack"] = int(cell.text.strip())
-            elif num % 10 == 8:
-                pokemon_data["sp_defense"] = int(cell.text.strip())
-            elif num % 10 == 9:
-                pokemon_data["speed"] = int(cell.text.strip())
-                response.append(pokemon_data)
-                pokemon_data = {}
+    for idx, cell in enumerate(soup.find_all(tag)):
+        if idx % 10 == 0:
+            image = cell.find("img")["src"]
+        elif idx % 10 == 1:
+            name = clean_name(cell.text.strip())
+        elif idx % 10 == 2:
+            types = cell.text.strip()
+        elif idx % 10 == 3:
+            total = int(cell.text.strip())
+        elif idx % 10 == 4:
+            hp = int(cell.text.strip())
+        elif idx % 10 == 5:
+            attack = int(cell.text.strip())
+        elif idx % 10 == 6:
+            defense = int(cell.text.strip())
+        elif idx % 10 == 7:
+            sp_atk = int(cell.text.strip())
+        elif idx % 10 == 8:
+            sp_def = int(cell.text.strip())
+        elif idx % 10 == 9:
+            speed = int(cell.text.strip())
+            response.append(
+                {
+                    "image": image,
+                    "name": name,
+                    "types": types,
+                    "total": total,
+                    "hp": hp,
+                    "attack": attack,
+                    "defense": defense,
+                    "sp_atk": sp_atk,
+                    "sp_def": sp_def,
+                    "speed": speed,
+                }
+            )
     return response
 
 

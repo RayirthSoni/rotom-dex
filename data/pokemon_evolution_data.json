@@ -3214,6 +3214,10 @@
             {
                 "evolves_to": "Beautifly",
                 "condition": "(Level 10)"
+            },
+            {
+                "evolves_to": "Dustox",
+                "condition": "(Level 10)"
             }
         ]
     },
@@ -3516,12 +3520,7 @@
         "img_url": "https://img.pokemondb.net/sprites/home/normal/2x/ninjask.jpg",
         "types": "Bug Flying",
         "level": null,
-        "evolution_paths": [
-            {
-                "evolves_to": "Shedinja",
-                "condition": "(Level 20, empty spot in party, Pok\u00e9ball in bag)"
-            }
-        ]
+        "evolution_paths": []
     },
     {
         "name": "Shedinja",
@@ -3542,12 +3541,7 @@
         "img_url": "https://img.pokemondb.net/sprites/home/normal/2x/ninjask.jpg",
         "types": "Bug Flying",
         "level": null,
-        "evolution_paths": [
-            {
-                "evolves_to": "Shedinja",
-                "condition": "(Level 20, empty spot in party, Pok\u00e9ball in bag)"
-            }
-        ]
+        "evolution_paths": []
     },
     {
         "name": "Shedinja",
