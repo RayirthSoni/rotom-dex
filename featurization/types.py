@@ -3,7 +3,7 @@ Script contains definitions for Functions exectuor classes
 """
 
 
-class FunctionInvoker:
+class FunctionExecutor:
     """
     Class for invoking functions with their arguments
     """
