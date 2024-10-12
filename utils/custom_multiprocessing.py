@@ -7,7 +7,7 @@ from concurrent import futures
 
 class ProcessExecutor:
     def __init__(self):
-        self.executor = futures.ProcessPoolExecutor(max_workers=4)
+        self.executor = futures.ProcessPoolExecutor()
 
     def __del__(self):
         self.executor.shutdown()
