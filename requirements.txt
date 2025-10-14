@@ -1,0 +1,8 @@
+beautifulsoup4
+lxml
+requests
+pandas
+chromadb
+sentence-transformers
+rank-bm25
+sqlalchemy

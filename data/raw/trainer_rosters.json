@@ -1,0 +1,149 @@
+[
+  {
+    "generation": "generation-i",
+    "generation_label": "Generation I",
+    "trainer_id": "1",
+    "trainer_name": "Brock",
+    "trainer_class": "Gym Leader",
+    "location": "pewter-city-gym",
+    "version_group": "red-blue",
+    "reward": 1386,
+    "team": [
+      {"pokemon": "geodude", "level": 12, "moves": ["tackle", "defense-curl"]},
+      {"pokemon": "onix", "level": 14, "moves": ["tackle", "bind", "rock-throw"]}
+    ],
+    "regions": ["kanto"]
+  },
+  {
+    "generation": "generation-ii",
+    "generation_label": "Generation II",
+    "trainer_id": "45",
+    "trainer_name": "Whitney",
+    "trainer_class": "Gym Leader",
+    "location": "goldenrod-gym",
+    "version_group": "gold-silver",
+    "reward": 2160,
+    "team": [
+      {"pokemon": "clefairy", "level": 18, "moves": ["metronome", "doubleslap"]},
+      {"pokemon": "miltank", "level": 20, "moves": ["rollout", "stomp", "milk-drink"]}
+    ],
+    "regions": ["johto"]
+  },
+  {
+    "generation": "generation-iii",
+    "generation_label": "Generation III",
+    "trainer_id": "102",
+    "trainer_name": "Flannery",
+    "trainer_class": "Gym Leader",
+    "location": "lavaridge-gym",
+    "version_group": "emerald",
+    "reward": 2880,
+    "team": [
+      {"pokemon": "slugma", "level": 26, "moves": ["overheat", "light-screen"]},
+      {"pokemon": "slugma", "level": 26, "moves": ["overheat", "rock-slide"]},
+      {"pokemon": "torkoal", "level": 29, "moves": ["overheat", "sunny-day", "body-slam"]}
+    ],
+    "regions": ["hoenn"]
+  },
+  {
+    "generation": "generation-iv",
+    "generation_label": "Generation IV",
+    "trainer_id": "205",
+    "trainer_name": "Volkner",
+    "trainer_class": "Gym Leader",
+    "location": "sunyshore-gym",
+    "version_group": "platinum",
+    "reward": 7200,
+    "team": [
+      {"pokemon": "jolteon", "level": 48, "moves": ["thunder", "double-team"]},
+      {"pokemon": "raichu", "level": 46, "moves": ["volt-tackle", "brick-break"]},
+      {"pokemon": "luxray", "level": 50, "moves": ["thunder-fang", "ice-fang"]},
+      {"pokemon": "electivire", "level": 50, "moves": ["thunder", "flamethrower"]}
+    ],
+    "regions": ["sinnoh"]
+  },
+  {
+    "generation": "generation-v",
+    "generation_label": "Generation V",
+    "trainer_id": "314",
+    "trainer_name": "Elesa",
+    "trainer_class": "Gym Leader",
+    "location": "nimbasa-gym",
+    "version_group": "black-2-white-2",
+    "reward": 6240,
+    "team": [
+      {"pokemon": "emolga", "level": 28, "moves": ["volt-switch", "aerial-ace"]},
+      {"pokemon": "flaaffy", "level": 28, "moves": ["thunder-wave", "volt-switch"]},
+      {"pokemon": "zebstrika", "level": 30, "moves": ["volt-switch", "flame-charge"]}
+    ],
+    "regions": ["unova"]
+  },
+  {
+    "generation": "generation-vi",
+    "generation_label": "Generation VI",
+    "trainer_id": "410",
+    "trainer_name": "Clemont",
+    "trainer_class": "Gym Leader",
+    "location": "lumiose-gym",
+    "version_group": "x-y",
+    "reward": 6720,
+    "team": [
+      {"pokemon": "emolga", "level": 35, "moves": ["volt-switch", "acrobatics"]},
+      {"pokemon": "magneton", "level": 35, "moves": ["mirror-shot", "electric-terrain"]},
+      {"pokemon": "heliolisk", "level": 37, "moves": ["parabolic-charge", "quick-attack"]}
+    ],
+    "regions": ["kalos"]
+  },
+  {
+    "generation": "generation-vii",
+    "generation_label": "Generation VII",
+    "trainer_id": "512",
+    "trainer_name": "Kahili",
+    "trainer_class": "Elite Four",
+    "location": "alola-pokemon-league",
+    "version_group": "ultra-sun-ultra-moon",
+    "reward": 12960,
+    "team": [
+      {"pokemon": "skarmory", "level": 56, "moves": ["steel-wing", "spikes"]},
+      {"pokemon": "mandibuzz", "level": 55, "moves": ["bone-rush", "air-slash"]},
+      {"pokemon": "oricorio", "level": 55, "moves": ["hurricane", "revelation-dance"]},
+      {"pokemon": "toucanon", "level": 56, "moves": ["beak-blast", "bullet-seed"]},
+      {"pokemon": "braviary", "level": 58, "moves": ["brave-bird", "crush-claw"]}
+    ],
+    "regions": ["alola"]
+  },
+  {
+    "generation": "generation-viii",
+    "generation_label": "Generation VIII",
+    "trainer_id": "618",
+    "trainer_name": "Raihan",
+    "trainer_class": "Gym Leader",
+    "location": "hammerlocke-stadium",
+    "version_group": "sword-shield",
+    "reward": 15600,
+    "team": [
+      {"pokemon": "gigalith", "level": 46, "moves": ["stealth-rock", "rock-blast"]},
+      {"pokemon": "flygon", "level": 47, "moves": ["sandstorm", "dragon-claw"]},
+      {"pokemon": "sandaconda", "level": 46, "moves": ["sandstorm", "fire-fang"]},
+      {"pokemon": "duraludon", "level": 48, "moves": ["g-max-depletion", "breaking-swipe"]}
+    ],
+    "regions": ["galar"]
+  },
+  {
+    "generation": "generation-ix",
+    "generation_label": "Generation IX",
+    "trainer_id": "702",
+    "trainer_name": "Grusha",
+    "trainer_class": "Gym Leader",
+    "location": "glaseado-gym",
+    "version_group": "scarlet-violet",
+    "reward": 13000,
+    "team": [
+      {"pokemon": "frosmoth", "level": 47, "moves": ["blizzard", "tailwind"]},
+      {"pokemon": "beartic", "level": 47, "moves": ["ice-hammer", "liquidation"]},
+      {"pokemon": "cetitan", "level": 48, "moves": ["ice-spinner", "earthquake"]},
+      {"pokemon": "altaria", "level": 48, "moves": ["hurricane", "moonblast"]}
+    ],
+    "regions": ["paldea"]
+  }
+]
