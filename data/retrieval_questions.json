@@ -1,0 +1,18 @@
+[
+  {
+    "question": "What types does Bulbasaur have?",
+    "answers": ["Bulbasaur"]
+  },
+  {
+    "question": "Show me information about Charmander",
+    "answers": ["Charmander"]
+  },
+  {
+    "question": "Which generation introduced Chikorita?",
+    "answers": ["Chikorita"]
+  },
+  {
+    "question": "Tell me about a grass poison pokemon from generation 1",
+    "answers": ["Bulbasaur"]
+  }
+]
