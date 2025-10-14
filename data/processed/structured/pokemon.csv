@@ -1,0 +1,1026 @@
+name,display_name,types,image,generation,generation_label,total,hp,attack,defense,sp_atk,sp_def,speed,level,evolution_paths
+bulbasaur,Bulbasaur,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/bulbasaur.jpg,generation-i,Generation I,318.0,45.0,49.0,49.0,,,45.0,(Level 16),"[{""evolves_to"": ""Ivysaur"", ""condition"": ""(Level 16)""}]"
+ivysaur,Ivysaur,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/ivysaur.jpg,generation-i,Generation I,405.0,60.0,62.0,63.0,,,60.0,(Level 32),"[{""evolves_to"": ""Venusaur"", ""condition"": ""(Level 32)""}]"
+venusaur,Venusaur,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/venusaur.jpg,generation-i,Generation I,525.0,80.0,82.0,83.0,,,80.0,,[]
+charmander,Charmander,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/charmander.jpg,generation-i,Generation I,309.0,39.0,52.0,43.0,,,65.0,(Level 16),"[{""evolves_to"": ""Charmeleon"", ""condition"": ""(Level 16)""}]"
+charmeleon,Charmeleon,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/charmeleon.jpg,generation-i,Generation I,405.0,58.0,64.0,58.0,,,80.0,(Level 36),"[{""evolves_to"": ""Charizard"", ""condition"": ""(Level 36)""}]"
+charizard,Charizard,"[""Fire"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/charizard.jpg,generation-i,Generation I,534.0,78.0,84.0,78.0,,,100.0,,[]
+squirtle,Squirtle,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/squirtle.jpg,generation-i,Generation I,314.0,44.0,48.0,65.0,,,43.0,(Level 16),"[{""evolves_to"": ""Wartortle"", ""condition"": ""(Level 16)""}]"
+wartortle,Wartortle,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/wartortle.jpg,generation-i,Generation I,405.0,59.0,63.0,80.0,,,58.0,(Level 36),"[{""evolves_to"": ""Blastoise"", ""condition"": ""(Level 36)""}]"
+blastoise,Blastoise,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/blastoise.jpg,generation-i,Generation I,530.0,79.0,83.0,100.0,,,78.0,,[]
+caterpie,Caterpie,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/caterpie.jpg,generation-i,Generation I,195.0,45.0,30.0,35.0,,,45.0,(Level 7),"[{""evolves_to"": ""Metapod"", ""condition"": ""(Level 7)""}]"
+metapod,Metapod,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/metapod.jpg,generation-i,Generation I,205.0,50.0,20.0,55.0,,,30.0,(Level 10),"[{""evolves_to"": ""Butterfree"", ""condition"": ""(Level 10)""}]"
+butterfree,Butterfree,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/butterfree.jpg,generation-i,Generation I,395.0,60.0,45.0,50.0,,,70.0,,[]
+weedle,Weedle,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/weedle.jpg,generation-i,Generation I,195.0,40.0,35.0,30.0,,,50.0,(Level 7),"[{""evolves_to"": ""Kakuna"", ""condition"": ""(Level 7)""}]"
+kakuna,Kakuna,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/kakuna.jpg,generation-i,Generation I,205.0,45.0,25.0,50.0,,,35.0,(Level 10),"[{""evolves_to"": ""Beedrill"", ""condition"": ""(Level 10)""}]"
+beedrill,Beedrill,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/beedrill.jpg,generation-i,Generation I,395.0,65.0,90.0,40.0,,,75.0,,[]
+pidgey,Pidgey,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/pidgey.jpg,generation-i,Generation I,251.0,40.0,45.0,40.0,,,56.0,(Level 18),"[{""evolves_to"": ""Pidgeotto"", ""condition"": ""(Level 18)""}]"
+pidgeotto,Pidgeotto,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/pidgeotto.jpg,generation-i,Generation I,349.0,63.0,60.0,55.0,,,71.0,(Level 36),"[{""evolves_to"": ""Pidgeot"", ""condition"": ""(Level 36)""}]"
+pidgeot,Pidgeot,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/pidgeot.jpg,generation-i,Generation I,479.0,83.0,80.0,75.0,,,101.0,,[]
+rattata,Rattata,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/rattata.jpg,generation-i,Generation I,253.0,30.0,56.0,35.0,,,72.0,(Level 20),"[{""evolves_to"": ""Raticate"", ""condition"": ""(Level 20)""}]"
+raticate,Raticate,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/raticate.jpg,generation-i,Generation I,413.0,55.0,81.0,60.0,,,97.0,,[]
+spearow,Spearow,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/spearow.jpg,generation-i,Generation I,262.0,40.0,60.0,30.0,,,70.0,(Level 20),"[{""evolves_to"": ""Fearow"", ""condition"": ""(Level 20)""}]"
+fearow,Fearow,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/fearow.jpg,generation-i,Generation I,442.0,65.0,90.0,65.0,,,100.0,,[]
+ekans,Ekans,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/ekans.jpg,generation-i,Generation I,288.0,35.0,60.0,44.0,,,55.0,(Level 22),"[{""evolves_to"": ""Arbok"", ""condition"": ""(Level 22)""}]"
+arbok,Arbok,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/arbok.jpg,generation-i,Generation I,448.0,60.0,95.0,69.0,,,80.0,,[]
+pikachu,Pikachu,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/pikachu.jpg,generation-i,Generation I,320.0,35.0,55.0,40.0,,,90.0,,[]
+raichu,Raichu,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/raichu.jpg,generation-i,Generation I,485.0,60.0,90.0,55.0,,,110.0,,[]
+sandshrew,Sandshrew,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/sandshrew.jpg,generation-i,Generation I,300.0,50.0,75.0,85.0,,,40.0,(Level 22),"[{""evolves_to"": ""Sandslash"", ""condition"": ""(Level 22)""}]"
+sandslash,Sandslash,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/sandslash.jpg,generation-i,Generation I,450.0,75.0,100.0,110.0,,,65.0,,[]
+nidoran♀,Nidoran♀,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/nidoran-f.jpg,generation-i,Generation I,275.0,55.0,47.0,52.0,,,41.0,(Level 16),"[{""evolves_to"": ""Nidorina"", ""condition"": ""(Level 16)""}]"
+nidorina,Nidorina,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/nidorina.jpg,generation-i,Generation I,365.0,70.0,62.0,67.0,,,56.0,(use Moon Stone),"[{""evolves_to"": ""Nidoqueen"", ""condition"": ""(use Moon Stone)""}]"
+nidoqueen,Nidoqueen,"[""Poison"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/nidoqueen.jpg,generation-i,Generation I,505.0,90.0,92.0,87.0,,,76.0,,[]
+nidoran♂,Nidoran♂,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/nidoran-m.jpg,generation-i,Generation I,273.0,46.0,57.0,40.0,,,50.0,(Level 16),"[{""evolves_to"": ""Nidorino"", ""condition"": ""(Level 16)""}]"
+nidorino,Nidorino,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/nidorino.jpg,generation-i,Generation I,365.0,61.0,72.0,57.0,,,65.0,(use Moon Stone),"[{""evolves_to"": ""Nidoking"", ""condition"": ""(use Moon Stone)""}]"
+nidoking,Nidoking,"[""Poison"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/nidoking.jpg,generation-i,Generation I,505.0,81.0,102.0,77.0,,,85.0,,[]
+clefairy,Clefairy,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/clefairy.jpg,generation-i,Generation I,323.0,70.0,45.0,48.0,,,35.0,(use Moon Stone),"[{""evolves_to"": ""Clefable"", ""condition"": ""(use Moon Stone)""}]"
+clefable,Clefable,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/clefable.jpg,generation-i,Generation I,483.0,95.0,70.0,73.0,,,60.0,,[]
+vulpix,Vulpix,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/vulpix.jpg,generation-i,Generation I,299.0,38.0,41.0,40.0,,,65.0,(use Fire Stone),"[{""evolves_to"": ""Ninetales"", ""condition"": ""(use Fire Stone)""}]"
+ninetales,Ninetales,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/ninetales.jpg,generation-i,Generation I,505.0,73.0,76.0,75.0,,,100.0,,[]
+jigglypuff,Jigglypuff,"[""Normal"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/jigglypuff.jpg,generation-i,Generation I,270.0,115.0,45.0,20.0,,,20.0,(use Moon Stone),"[{""evolves_to"": ""Wigglytuff"", ""condition"": ""(use Moon Stone)""}]"
+wigglytuff,Wigglytuff,"[""Normal"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/wigglytuff.jpg,generation-i,Generation I,435.0,140.0,70.0,45.0,,,45.0,,[]
+zubat,Zubat,"[""Poison"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/zubat.jpg,generation-i,Generation I,245.0,40.0,45.0,35.0,,,55.0,(Level 22),"[{""evolves_to"": ""Golbat"", ""condition"": ""(Level 22)""}]"
+golbat,Golbat,"[""Poison"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/golbat.jpg,generation-i,Generation I,455.0,75.0,80.0,70.0,,,90.0,(high Friendship),"[{""evolves_to"": ""Crobat"", ""condition"": ""(high Friendship)""}]"
+oddish,Oddish,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/oddish.jpg,generation-i,Generation I,320.0,45.0,50.0,55.0,,,30.0,(Level 21),"[{""evolves_to"": ""Gloom"", ""condition"": ""(Level 21)""}]"
+gloom,Gloom,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/gloom.jpg,generation-i,Generation I,395.0,60.0,65.0,70.0,,,40.0,,[]
+vileplume,Vileplume,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/vileplume.jpg,generation-i,Generation I,490.0,75.0,80.0,85.0,,,50.0,,[]
+paras,Paras,"[""Bug"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/paras.jpg,generation-i,Generation I,285.0,35.0,70.0,55.0,,,25.0,(Level 24),"[{""evolves_to"": ""Parasect"", ""condition"": ""(Level 24)""}]"
+parasect,Parasect,"[""Bug"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/parasect.jpg,generation-i,Generation I,405.0,60.0,95.0,80.0,,,30.0,,[]
+venonat,Venonat,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/venonat.jpg,generation-i,Generation I,305.0,60.0,55.0,50.0,,,45.0,(Level 31),"[{""evolves_to"": ""Venomoth"", ""condition"": ""(Level 31)""}]"
+venomoth,Venomoth,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/venomoth.jpg,generation-i,Generation I,450.0,70.0,65.0,60.0,,,90.0,,[]
+diglett,Diglett,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/diglett.jpg,generation-i,Generation I,265.0,10.0,55.0,25.0,,,95.0,(Level 26),"[{""evolves_to"": ""Dugtrio"", ""condition"": ""(Level 26)""}]"
+dugtrio,Dugtrio,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/dugtrio.jpg,generation-i,Generation I,425.0,35.0,100.0,50.0,,,120.0,,[]
+meowth,Meowth,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/meowth.jpg,generation-i,Generation I,290.0,40.0,45.0,35.0,,,90.0,(Level 28),"[{""evolves_to"": ""Persian"", ""condition"": ""(Level 28)""}]"
+persian,Persian,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/persian.jpg,generation-i,Generation I,440.0,65.0,70.0,60.0,,,115.0,,[]
+psyduck,Psyduck,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/psyduck.jpg,generation-i,Generation I,320.0,50.0,52.0,48.0,,,55.0,(Level 33),"[{""evolves_to"": ""Golduck"", ""condition"": ""(Level 33)""}]"
+golduck,Golduck,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/golduck.jpg,generation-i,Generation I,500.0,80.0,82.0,78.0,,,85.0,,[]
+mankey,Mankey,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/mankey.jpg,generation-i,Generation I,305.0,40.0,80.0,35.0,,,70.0,(Level 28),"[{""evolves_to"": ""Primeape"", ""condition"": ""(Level 28)""}]"
+primeape,Primeape,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/primeape.jpg,generation-i,Generation I,455.0,65.0,105.0,60.0,,,95.0,(Use Rage Fist 20 times),"[{""evolves_to"": ""Annihilape"", ""condition"": ""(Use Rage Fist 20 times)""}]"
+growlithe,Growlithe,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/growlithe.jpg,generation-i,Generation I,350.0,55.0,70.0,45.0,,,60.0,(use Fire Stone),"[{""evolves_to"": ""Arcanine"", ""condition"": ""(use Fire Stone)""}]"
+arcanine,Arcanine,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/arcanine.jpg,generation-i,Generation I,555.0,90.0,110.0,80.0,,,95.0,,[]
+poliwag,Poliwag,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/poliwag.jpg,generation-i,Generation I,300.0,40.0,50.0,40.0,,,90.0,(Level 25),"[{""evolves_to"": ""Poliwhirl"", ""condition"": ""(Level 25)""}]"
+poliwhirl,Poliwhirl,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/poliwhirl.jpg,generation-i,Generation I,385.0,65.0,65.0,65.0,,,90.0,,[]
+poliwrath,Poliwrath,"[""Water"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/poliwrath.jpg,generation-i,Generation I,510.0,90.0,95.0,95.0,,,70.0,,[]
+abra,Abra,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/abra.jpg,generation-i,Generation I,310.0,25.0,20.0,15.0,,,90.0,(Level 16),"[{""evolves_to"": ""Kadabra"", ""condition"": ""(Level 16)""}]"
+kadabra,Kadabra,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/kadabra.jpg,generation-i,Generation I,400.0,40.0,35.0,30.0,,,105.0,(Trade),"[{""evolves_to"": ""Alakazam"", ""condition"": ""(Trade)""}]"
+alakazam,Alakazam,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/alakazam.jpg,generation-i,Generation I,500.0,55.0,50.0,45.0,,,120.0,,[]
+machop,Machop,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/machop.jpg,generation-i,Generation I,305.0,70.0,80.0,50.0,,,35.0,(Level 28),"[{""evolves_to"": ""Machoke"", ""condition"": ""(Level 28)""}]"
+machoke,Machoke,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/machoke.jpg,generation-i,Generation I,405.0,80.0,100.0,70.0,,,45.0,(Trade),"[{""evolves_to"": ""Machamp"", ""condition"": ""(Trade)""}]"
+machamp,Machamp,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/machamp.jpg,generation-i,Generation I,505.0,90.0,130.0,80.0,,,55.0,,[]
+bellsprout,Bellsprout,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/bellsprout.jpg,generation-i,Generation I,300.0,50.0,75.0,35.0,,,40.0,(Level 21),"[{""evolves_to"": ""Weepinbell"", ""condition"": ""(Level 21)""}]"
+weepinbell,Weepinbell,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/weepinbell.jpg,generation-i,Generation I,390.0,65.0,90.0,50.0,,,55.0,(use Leaf Stone),"[{""evolves_to"": ""Victreebel"", ""condition"": ""(use Leaf Stone)""}]"
+victreebel,Victreebel,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/victreebel.jpg,generation-i,Generation I,490.0,80.0,105.0,65.0,,,70.0,,[]
+tentacool,Tentacool,"[""Water"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/tentacool.jpg,generation-i,Generation I,335.0,40.0,40.0,35.0,,,70.0,(Level 30),"[{""evolves_to"": ""Tentacruel"", ""condition"": ""(Level 30)""}]"
+tentacruel,Tentacruel,"[""Water"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/tentacruel.jpg,generation-i,Generation I,515.0,80.0,70.0,65.0,,,100.0,,[]
+geodude,Geodude,"[""Rock"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/geodude.jpg,generation-i,Generation I,300.0,40.0,80.0,100.0,,,20.0,(Level 25),"[{""evolves_to"": ""Graveler"", ""condition"": ""(Level 25)""}]"
+graveler,Graveler,"[""Rock"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/graveler.jpg,generation-i,Generation I,390.0,55.0,95.0,115.0,,,35.0,(Trade),"[{""evolves_to"": ""Golem"", ""condition"": ""(Trade)""}]"
+golem,Golem,"[""Rock"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/golem.jpg,generation-i,Generation I,495.0,80.0,120.0,130.0,,,45.0,,[]
+ponyta,Ponyta,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/ponyta.jpg,generation-i,Generation I,410.0,50.0,85.0,55.0,,,90.0,(Level 40),"[{""evolves_to"": ""Rapidash"", ""condition"": ""(Level 40)""}]"
+rapidash,Rapidash,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/rapidash.jpg,generation-i,Generation I,500.0,65.0,100.0,70.0,,,105.0,,[]
+slowpoke,Slowpoke,"[""Water"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/slowpoke.jpg,generation-i,Generation I,315.0,90.0,65.0,65.0,,,15.0,,[]
+slowbro,Slowbro,"[""Water"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/slowbro.jpg,generation-i,Generation I,490.0,95.0,75.0,110.0,,,30.0,,[]
+magnemite,Magnemite,"[""Electric"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/magnemite.jpg,generation-i,Generation I,325.0,25.0,35.0,70.0,,,45.0,(Level 30),"[{""evolves_to"": ""Magneton"", ""condition"": ""(Level 30)""}]"
+magneton,Magneton,"[""Electric"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/magneton.jpg,generation-i,Generation I,465.0,50.0,60.0,95.0,,,70.0,"(use Thunder Stone, in Gen 8+, or level up in a Magnetic Field area)","[{""evolves_to"": ""Magnezone"", ""condition"": ""(use Thunder Stone, in Gen 8+, or level up in a Magnetic Field area)""}]"
+farfetch'd,Farfetch'd,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/farfetchd.jpg,generation-i,Generation I,377.0,52.0,90.0,55.0,,,60.0,,
+doduo,Doduo,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/doduo.jpg,generation-i,Generation I,310.0,35.0,85.0,45.0,,,75.0,(Level 31),"[{""evolves_to"": ""Dodrio"", ""condition"": ""(Level 31)""}]"
+dodrio,Dodrio,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/dodrio.jpg,generation-i,Generation I,470.0,60.0,110.0,70.0,,,110.0,,[]
+seel,Seel,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/seel.jpg,generation-i,Generation I,325.0,65.0,45.0,55.0,,,45.0,(Level 34),"[{""evolves_to"": ""Dewgong"", ""condition"": ""(Level 34)""}]"
+dewgong,Dewgong,"[""Water"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/dewgong.jpg,generation-i,Generation I,475.0,90.0,70.0,80.0,,,70.0,,[]
+grimer,Grimer,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/grimer.jpg,generation-i,Generation I,325.0,80.0,80.0,50.0,,,25.0,(Level 38),"[{""evolves_to"": ""Muk"", ""condition"": ""(Level 38)""}]"
+muk,Muk,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/muk.jpg,generation-i,Generation I,500.0,105.0,105.0,75.0,,,50.0,,[]
+shellder,Shellder,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/shellder.jpg,generation-i,Generation I,305.0,30.0,65.0,100.0,,,40.0,(use Water Stone),"[{""evolves_to"": ""Cloyster"", ""condition"": ""(use Water Stone)""}]"
+cloyster,Cloyster,"[""Water"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/cloyster.jpg,generation-i,Generation I,525.0,50.0,95.0,180.0,,,70.0,,[]
+gastly,Gastly,"[""Ghost"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/gastly.jpg,generation-i,Generation I,310.0,30.0,35.0,30.0,,,80.0,(Level 25),"[{""evolves_to"": ""Haunter"", ""condition"": ""(Level 25)""}]"
+haunter,Haunter,"[""Ghost"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/haunter.jpg,generation-i,Generation I,405.0,45.0,50.0,45.0,,,95.0,(Trade),"[{""evolves_to"": ""Gengar"", ""condition"": ""(Trade)""}]"
+gengar,Gengar,"[""Ghost"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/gengar.jpg,generation-i,Generation I,500.0,60.0,65.0,60.0,,,110.0,,[]
+onix,Onix,"[""Rock"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/onix.jpg,generation-i,Generation I,385.0,35.0,45.0,160.0,,,70.0,(trade holding Metal Coat),"[{""evolves_to"": ""Steelix"", ""condition"": ""(trade holding Metal Coat)""}]"
+drowzee,Drowzee,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/drowzee.jpg,generation-i,Generation I,328.0,60.0,48.0,45.0,,,42.0,(Level 26),"[{""evolves_to"": ""Hypno"", ""condition"": ""(Level 26)""}]"
+hypno,Hypno,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/hypno.jpg,generation-i,Generation I,483.0,85.0,73.0,70.0,,,67.0,,[]
+krabby,Krabby,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/krabby.jpg,generation-i,Generation I,325.0,30.0,105.0,90.0,,,50.0,(Level 28),"[{""evolves_to"": ""Kingler"", ""condition"": ""(Level 28)""}]"
+kingler,Kingler,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/kingler.jpg,generation-i,Generation I,475.0,55.0,130.0,115.0,,,75.0,,[]
+voltorb,Voltorb,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/voltorb.jpg,generation-i,Generation I,330.0,40.0,30.0,50.0,,,100.0,(Level 30),"[{""evolves_to"": ""Electrode"", ""condition"": ""(Level 30)""}]"
+electrode,Electrode,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/electrode.jpg,generation-i,Generation I,490.0,60.0,50.0,70.0,,,150.0,,[]
+exeggcute,Exeggcute,"[""Grass"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/exeggcute.jpg,generation-i,Generation I,325.0,60.0,40.0,80.0,,,40.0,,[]
+exeggutor,Exeggutor,"[""Grass"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/exeggutor.jpg,generation-i,Generation I,530.0,95.0,95.0,85.0,,,55.0,,[]
+cubone,Cubone,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/cubone.jpg,generation-i,Generation I,320.0,50.0,50.0,95.0,,,35.0,,[]
+marowak,Marowak,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/marowak.jpg,generation-i,Generation I,425.0,60.0,80.0,110.0,,,45.0,,[]
+hitmonlee,Hitmonlee,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/hitmonlee.jpg,generation-i,Generation I,455.0,50.0,120.0,53.0,,,87.0,,[]
+hitmonchan,Hitmonchan,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/hitmonchan.jpg,generation-i,Generation I,455.0,50.0,105.0,79.0,,,76.0,,[]
+lickitung,Lickitung,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/lickitung.jpg,generation-i,Generation I,385.0,90.0,55.0,75.0,,,30.0,(after Rollout learned),"[{""evolves_to"": ""Lickilicky"", ""condition"": ""(after Rollout learned)""}]"
+koffing,Koffing,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/koffing.jpg,generation-i,Generation I,340.0,40.0,65.0,95.0,,,35.0,,[]
+weezing,Weezing,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/weezing.jpg,generation-i,Generation I,490.0,65.0,90.0,120.0,,,60.0,,[]
+rhyhorn,Rhyhorn,"[""Ground"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/rhyhorn.jpg,generation-i,Generation I,345.0,80.0,85.0,95.0,,,25.0,(Level 42),"[{""evolves_to"": ""Rhydon"", ""condition"": ""(Level 42)""}]"
+rhydon,Rhydon,"[""Ground"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/rhydon.jpg,generation-i,Generation I,485.0,105.0,130.0,120.0,,,40.0,(trade holding Protector),"[{""evolves_to"": ""Rhyperior"", ""condition"": ""(trade holding Protector)""}]"
+chansey,Chansey,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/chansey.jpg,generation-i,Generation I,450.0,250.0,5.0,5.0,,,50.0,(high Friendship),"[{""evolves_to"": ""Blissey"", ""condition"": ""(high Friendship)""}]"
+tangela,Tangela,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/tangela.jpg,generation-i,Generation I,435.0,65.0,55.0,115.0,,,60.0,(after Ancient Power learned),"[{""evolves_to"": ""Tangrowth"", ""condition"": ""(after Ancient Power learned)""}]"
+kangaskhan,Kangaskhan,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/kangaskhan.jpg,generation-i,Generation I,490.0,105.0,95.0,80.0,,,90.0,,
+horsea,Horsea,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/horsea.jpg,generation-i,Generation I,295.0,30.0,40.0,70.0,,,60.0,(Level 32),"[{""evolves_to"": ""Seadra"", ""condition"": ""(Level 32)""}]"
+seadra,Seadra,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/seadra.jpg,generation-i,Generation I,440.0,55.0,65.0,95.0,,,85.0,(trade holding Dragon Scale),"[{""evolves_to"": ""Kingdra"", ""condition"": ""(trade holding Dragon Scale)""}]"
+goldeen,Goldeen,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/goldeen.jpg,generation-i,Generation I,320.0,45.0,67.0,60.0,,,63.0,(Level 33),"[{""evolves_to"": ""Seaking"", ""condition"": ""(Level 33)""}]"
+seaking,Seaking,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/seaking.jpg,generation-i,Generation I,450.0,80.0,92.0,65.0,,,68.0,,[]
+staryu,Staryu,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/staryu.jpg,generation-i,Generation I,340.0,30.0,45.0,55.0,,,85.0,(use Water Stone),"[{""evolves_to"": ""Starmie"", ""condition"": ""(use Water Stone)""}]"
+starmie,Starmie,"[""Water"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/starmie.jpg,generation-i,Generation I,520.0,60.0,75.0,85.0,,,115.0,,[]
+mr. mime,Mr. Mime,"[""Psychic"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/mr-mime.jpg,generation-i,Generation I,460.0,40.0,45.0,65.0,,,90.0,,[]
+scyther,Scyther,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/scyther.jpg,generation-i,Generation I,500.0,70.0,110.0,80.0,,,105.0,,[]
+jynx,Jynx,"[""Ice"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/jynx.jpg,generation-i,Generation I,455.0,65.0,50.0,35.0,,,95.0,,[]
+electabuzz,Electabuzz,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/electabuzz.jpg,generation-i,Generation I,490.0,65.0,83.0,57.0,,,105.0,(trade holding Electirizer),"[{""evolves_to"": ""Electivire"", ""condition"": ""(trade holding Electirizer)""}]"
+magmar,Magmar,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/magmar.jpg,generation-i,Generation I,495.0,65.0,95.0,57.0,,,93.0,(trade holding Magmarizer),"[{""evolves_to"": ""Magmortar"", ""condition"": ""(trade holding Magmarizer)""}]"
+pinsir,Pinsir,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/pinsir.jpg,generation-i,Generation I,500.0,65.0,125.0,100.0,,,85.0,,
+tauros,Tauros,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/tauros.jpg,generation-i,Generation I,490.0,75.0,100.0,95.0,,,110.0,,
+magikarp,Magikarp,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/magikarp.jpg,generation-i,Generation I,200.0,20.0,10.0,55.0,,,80.0,(Level 20),"[{""evolves_to"": ""Gyarados"", ""condition"": ""(Level 20)""}]"
+gyarados,Gyarados,"[""Water"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/gyarados.jpg,generation-i,Generation I,540.0,95.0,125.0,79.0,,,81.0,,[]
+lapras,Lapras,"[""Water"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/lapras.jpg,generation-i,Generation I,535.0,130.0,85.0,80.0,,,60.0,,
+ditto,Ditto,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/ditto.jpg,generation-i,Generation I,288.0,48.0,48.0,48.0,,,48.0,,
+eevee,Eevee,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/eevee.jpg,generation-i,Generation I,325.0,55.0,55.0,50.0,,,55.0,,[]
+vaporeon,Vaporeon,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/vaporeon.jpg,generation-i,Generation I,525.0,130.0,65.0,60.0,,,65.0,,[]
+jolteon,Jolteon,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/jolteon.jpg,generation-i,Generation I,525.0,65.0,65.0,60.0,,,130.0,,[]
+flareon,Flareon,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/flareon.jpg,generation-i,Generation I,525.0,65.0,130.0,60.0,,,65.0,,[]
+porygon,Porygon,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/porygon.jpg,generation-i,Generation I,395.0,65.0,60.0,70.0,,,40.0,(trade holding Upgrade),"[{""evolves_to"": ""Porygon2"", ""condition"": ""(trade holding Upgrade)""}]"
+omanyte,Omanyte,"[""Rock"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/omanyte.jpg,generation-i,Generation I,355.0,35.0,40.0,100.0,,,35.0,(Level 40),"[{""evolves_to"": ""Omastar"", ""condition"": ""(Level 40)""}]"
+omastar,Omastar,"[""Rock"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/omastar.jpg,generation-i,Generation I,495.0,70.0,60.0,125.0,,,55.0,,[]
+kabuto,Kabuto,"[""Rock"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/kabuto.jpg,generation-i,Generation I,355.0,30.0,80.0,90.0,,,55.0,(Level 40),"[{""evolves_to"": ""Kabutops"", ""condition"": ""(Level 40)""}]"
+kabutops,Kabutops,"[""Rock"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/kabutops.jpg,generation-i,Generation I,495.0,60.0,115.0,105.0,,,80.0,,[]
+aerodactyl,Aerodactyl,"[""Rock"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/aerodactyl.jpg,generation-i,Generation I,515.0,80.0,105.0,65.0,,,130.0,,
+snorlax,Snorlax,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/snorlax.jpg,generation-i,Generation I,540.0,160.0,110.0,65.0,,,30.0,,[]
+articuno,Articuno,"[""Ice"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/articuno.jpg,generation-i,Generation I,580.0,90.0,85.0,100.0,,,85.0,,
+zapdos,Zapdos,"[""Electric"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/zapdos.jpg,generation-i,Generation I,580.0,90.0,90.0,85.0,,,100.0,,
+moltres,Moltres,"[""Fire"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/moltres.jpg,generation-i,Generation I,580.0,90.0,100.0,90.0,,,90.0,,
+dratini,Dratini,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/dratini.jpg,generation-i,Generation I,300.0,41.0,64.0,45.0,,,50.0,(Level 30),"[{""evolves_to"": ""Dragonair"", ""condition"": ""(Level 30)""}]"
+dragonair,Dragonair,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/dragonair.jpg,generation-i,Generation I,420.0,61.0,84.0,65.0,,,70.0,(Level 55),"[{""evolves_to"": ""Dragonite"", ""condition"": ""(Level 55)""}]"
+dragonite,Dragonite,"[""Dragon"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/dragonite.jpg,generation-i,Generation I,600.0,91.0,134.0,95.0,,,80.0,,[]
+mewtwo,Mewtwo,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/mewtwo.jpg,generation-i,Generation I,680.0,106.0,110.0,90.0,,,130.0,,
+mew,Mew,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/mew.jpg,generation-i,Generation I,600.0,100.0,100.0,100.0,,,100.0,,
+chikorita,Chikorita,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/chikorita.jpg,generation-ii,Generation II,318.0,45.0,49.0,65.0,,,45.0,(Level 16),"[{""evolves_to"": ""Bayleef"", ""condition"": ""(Level 16)""}]"
+bayleef,Bayleef,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/bayleef.jpg,generation-ii,Generation II,405.0,60.0,62.0,80.0,,,60.0,(Level 32),"[{""evolves_to"": ""Meganium"", ""condition"": ""(Level 32)""}]"
+meganium,Meganium,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/meganium.jpg,generation-ii,Generation II,525.0,80.0,82.0,100.0,,,80.0,,[]
+cyndaquil,Cyndaquil,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/cyndaquil.jpg,generation-ii,Generation II,309.0,39.0,52.0,43.0,,,65.0,"(Level 14, or Level 17 in Legends: Arceus)","[{""evolves_to"": ""Quilava"", ""condition"": ""(Level 14, or Level 17 in Legends: Arceus)""}]"
+quilava,Quilava,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/quilava.jpg,generation-ii,Generation II,405.0,58.0,64.0,58.0,,,80.0,,[]
+typhlosion,Typhlosion,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/typhlosion.jpg,generation-ii,Generation II,534.0,78.0,84.0,78.0,,,100.0,,[]
+totodile,Totodile,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/totodile.jpg,generation-ii,Generation II,314.0,50.0,65.0,64.0,,,43.0,(Level 18),"[{""evolves_to"": ""Croconaw"", ""condition"": ""(Level 18)""}]"
+croconaw,Croconaw,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/croconaw.jpg,generation-ii,Generation II,405.0,65.0,80.0,80.0,,,58.0,(Level 30),"[{""evolves_to"": ""Feraligatr"", ""condition"": ""(Level 30)""}]"
+feraligatr,Feraligatr,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/feraligatr.jpg,generation-ii,Generation II,530.0,85.0,105.0,100.0,,,78.0,,[]
+sentret,Sentret,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/sentret.jpg,generation-ii,Generation II,215.0,35.0,46.0,34.0,,,20.0,(Level 15),"[{""evolves_to"": ""Furret"", ""condition"": ""(Level 15)""}]"
+furret,Furret,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/furret.jpg,generation-ii,Generation II,415.0,85.0,76.0,64.0,,,90.0,,[]
+hoothoot,Hoothoot,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/hoothoot.jpg,generation-ii,Generation II,262.0,60.0,30.0,30.0,,,50.0,(Level 20),"[{""evolves_to"": ""Noctowl"", ""condition"": ""(Level 20)""}]"
+noctowl,Noctowl,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/noctowl.jpg,generation-ii,Generation II,452.0,100.0,50.0,50.0,,,70.0,,[]
+ledyba,Ledyba,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/ledyba.jpg,generation-ii,Generation II,265.0,40.0,20.0,30.0,,,55.0,(Level 18),"[{""evolves_to"": ""Ledian"", ""condition"": ""(Level 18)""}]"
+ledian,Ledian,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/ledian.jpg,generation-ii,Generation II,390.0,55.0,35.0,50.0,,,85.0,,[]
+spinarak,Spinarak,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/spinarak.jpg,generation-ii,Generation II,250.0,40.0,60.0,40.0,,,30.0,(Level 22),"[{""evolves_to"": ""Ariados"", ""condition"": ""(Level 22)""}]"
+ariados,Ariados,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/ariados.jpg,generation-ii,Generation II,400.0,70.0,90.0,70.0,,,40.0,,[]
+crobat,Crobat,"[""Poison"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/crobat.jpg,generation-ii,Generation II,535.0,85.0,90.0,80.0,,,130.0,,[]
+chinchou,Chinchou,"[""Water"", ""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/chinchou.jpg,generation-ii,Generation II,330.0,75.0,38.0,38.0,,,67.0,(Level 27),"[{""evolves_to"": ""Lanturn"", ""condition"": ""(Level 27)""}]"
+lanturn,Lanturn,"[""Water"", ""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/lanturn.jpg,generation-ii,Generation II,460.0,125.0,58.0,58.0,,,67.0,,[]
+pichu,Pichu,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/pichu.jpg,generation-ii,Generation II,205.0,20.0,40.0,15.0,,,60.0,(high Friendship),"[{""evolves_to"": ""Pikachu"", ""condition"": ""(high Friendship)""}]"
+cleffa,Cleffa,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/cleffa.jpg,generation-ii,Generation II,218.0,50.0,25.0,28.0,,,15.0,(high Friendship),"[{""evolves_to"": ""Clefairy"", ""condition"": ""(high Friendship)""}]"
+igglybuff,Igglybuff,"[""Normal"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/igglybuff.jpg,generation-ii,Generation II,210.0,90.0,30.0,15.0,,,15.0,(high Friendship),"[{""evolves_to"": ""Jigglypuff"", ""condition"": ""(high Friendship)""}]"
+togepi,Togepi,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/togepi.jpg,generation-ii,Generation II,245.0,35.0,20.0,65.0,,,20.0,(high Friendship),"[{""evolves_to"": ""Togetic"", ""condition"": ""(high Friendship)""}]"
+togetic,Togetic,"[""Fairy"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/togetic.jpg,generation-ii,Generation II,405.0,55.0,40.0,85.0,,,40.0,(use Shiny Stone),"[{""evolves_to"": ""Togekiss"", ""condition"": ""(use Shiny Stone)""}]"
+natu,Natu,"[""Psychic"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/natu.jpg,generation-ii,Generation II,320.0,40.0,50.0,45.0,,,70.0,(Level 25),"[{""evolves_to"": ""Xatu"", ""condition"": ""(Level 25)""}]"
+xatu,Xatu,"[""Psychic"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/xatu.jpg,generation-ii,Generation II,470.0,65.0,75.0,70.0,,,95.0,,[]
+mareep,Mareep,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/mareep.jpg,generation-ii,Generation II,280.0,55.0,40.0,40.0,,,35.0,(Level 15),"[{""evolves_to"": ""Flaaffy"", ""condition"": ""(Level 15)""}]"
+flaaffy,Flaaffy,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/flaaffy.jpg,generation-ii,Generation II,365.0,70.0,55.0,55.0,,,45.0,(Level 30),"[{""evolves_to"": ""Ampharos"", ""condition"": ""(Level 30)""}]"
+ampharos,Ampharos,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/ampharos.jpg,generation-ii,Generation II,510.0,90.0,75.0,85.0,,,55.0,,[]
+bellossom,Bellossom,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/bellossom.jpg,generation-ii,Generation II,490.0,75.0,80.0,95.0,,,50.0,,[]
+marill,Marill,"[""Water"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/marill.jpg,generation-ii,Generation II,250.0,70.0,20.0,50.0,,,40.0,(Level 18),"[{""evolves_to"": ""Azumarill"", ""condition"": ""(Level 18)""}]"
+azumarill,Azumarill,"[""Water"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/azumarill.jpg,generation-ii,Generation II,420.0,100.0,50.0,80.0,,,50.0,,[]
+sudowoodo,Sudowoodo,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/sudowoodo.jpg,generation-ii,Generation II,410.0,70.0,100.0,115.0,,,30.0,,[]
+politoed,Politoed,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/politoed.jpg,generation-ii,Generation II,500.0,90.0,75.0,75.0,,,70.0,,[]
+hoppip,Hoppip,"[""Grass"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/hoppip.jpg,generation-ii,Generation II,250.0,35.0,35.0,40.0,,,50.0,(Level 18),"[{""evolves_to"": ""Skiploom"", ""condition"": ""(Level 18)""}]"
+skiploom,Skiploom,"[""Grass"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/skiploom.jpg,generation-ii,Generation II,340.0,55.0,45.0,50.0,,,80.0,(Level 27),"[{""evolves_to"": ""Jumpluff"", ""condition"": ""(Level 27)""}]"
+jumpluff,Jumpluff,"[""Grass"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/jumpluff.jpg,generation-ii,Generation II,460.0,75.0,55.0,70.0,,,110.0,,[]
+aipom,Aipom,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/aipom.jpg,generation-ii,Generation II,360.0,55.0,70.0,55.0,,,85.0,(after Double Hit learned),"[{""evolves_to"": ""Ambipom"", ""condition"": ""(after Double Hit learned)""}]"
+sunkern,Sunkern,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/sunkern.jpg,generation-ii,Generation II,180.0,30.0,30.0,30.0,,,30.0,(use Sun Stone),"[{""evolves_to"": ""Sunflora"", ""condition"": ""(use Sun Stone)""}]"
+sunflora,Sunflora,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/sunflora.jpg,generation-ii,Generation II,425.0,75.0,75.0,55.0,,,30.0,,[]
+yanma,Yanma,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/yanma.jpg,generation-ii,Generation II,390.0,65.0,65.0,45.0,,,95.0,(after Ancient Power learned),"[{""evolves_to"": ""Yanmega"", ""condition"": ""(after Ancient Power learned)""}]"
+wooper,Wooper,"[""Water"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/wooper.jpg,generation-ii,Generation II,210.0,55.0,45.0,45.0,,,15.0,(Level 20),"[{""evolves_to"": ""Quagsire"", ""condition"": ""(Level 20)""}]"
+quagsire,Quagsire,"[""Water"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/quagsire.jpg,generation-ii,Generation II,430.0,95.0,85.0,85.0,,,35.0,,[]
+espeon,Espeon,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/espeon.jpg,generation-ii,Generation II,525.0,65.0,65.0,60.0,,,110.0,,[]
+umbreon,Umbreon,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/umbreon.jpg,generation-ii,Generation II,525.0,95.0,65.0,110.0,,,65.0,,[]
+murkrow,Murkrow,"[""Dark"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/murkrow.jpg,generation-ii,Generation II,405.0,60.0,85.0,42.0,,,91.0,(use Dusk Stone),"[{""evolves_to"": ""Honchkrow"", ""condition"": ""(use Dusk Stone)""}]"
+slowking,Slowking,"[""Water"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/slowking.jpg,generation-ii,Generation II,490.0,95.0,75.0,80.0,,,30.0,,[]
+misdreavus,Misdreavus,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/misdreavus.jpg,generation-ii,Generation II,435.0,60.0,60.0,60.0,,,85.0,(use Dusk Stone),"[{""evolves_to"": ""Mismagius"", ""condition"": ""(use Dusk Stone)""}]"
+unown,Unown,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/unown.jpg,generation-ii,Generation II,336.0,48.0,72.0,48.0,,,48.0,,
+wobbuffet,Wobbuffet,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/wobbuffet.jpg,generation-ii,Generation II,405.0,190.0,33.0,58.0,,,33.0,,[]
+girafarig,Girafarig,"[""Normal"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/girafarig.jpg,generation-ii,Generation II,455.0,70.0,80.0,65.0,,,85.0,(after Twin Beam learned),"[{""evolves_to"": ""Farigiraf"", ""condition"": ""(after Twin Beam learned)""}]"
+pineco,Pineco,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/pineco.jpg,generation-ii,Generation II,290.0,50.0,65.0,90.0,,,15.0,(Level 31),"[{""evolves_to"": ""Forretress"", ""condition"": ""(Level 31)""}]"
+forretress,Forretress,"[""Bug"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/forretress.jpg,generation-ii,Generation II,465.0,75.0,90.0,140.0,,,40.0,,[]
+dunsparce,Dunsparce,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/dunsparce.jpg,generation-ii,Generation II,415.0,100.0,70.0,70.0,,,45.0,,[]
+gligar,Gligar,"[""Ground"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/gligar.jpg,generation-ii,Generation II,430.0,65.0,75.0,105.0,,,85.0,"(hold Razor Fang, Nighttime)","[{""evolves_to"": ""Gliscor"", ""condition"": ""(hold Razor Fang, Nighttime)""}]"
+steelix,Steelix,"[""Steel"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/steelix.jpg,generation-ii,Generation II,510.0,75.0,85.0,200.0,,,30.0,,[]
+snubbull,Snubbull,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/snubbull.jpg,generation-ii,Generation II,300.0,60.0,80.0,50.0,,,30.0,(Level 23),"[{""evolves_to"": ""Granbull"", ""condition"": ""(Level 23)""}]"
+granbull,Granbull,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/granbull.jpg,generation-ii,Generation II,450.0,90.0,120.0,75.0,,,45.0,,[]
+qwilfish,Qwilfish,"[""Water"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/qwilfish.jpg,generation-ii,Generation II,440.0,65.0,95.0,85.0,,,85.0,,
+scizor,Scizor,"[""Bug"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/scizor.jpg,generation-ii,Generation II,500.0,70.0,130.0,100.0,,,65.0,,[]
+shuckle,Shuckle,"[""Bug"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/shuckle.jpg,generation-ii,Generation II,505.0,20.0,10.0,230.0,,,5.0,,
+heracross,Heracross,"[""Bug"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/heracross.jpg,generation-ii,Generation II,500.0,80.0,125.0,75.0,,,85.0,,
+sneasel,Sneasel,"[""Dark"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/sneasel.jpg,generation-ii,Generation II,430.0,55.0,95.0,55.0,,,115.0,"(hold Razor Claw, Nighttime)","[{""evolves_to"": ""Weavile"", ""condition"": ""(hold Razor Claw, Nighttime)""}]"
+teddiursa,Teddiursa,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/teddiursa.jpg,generation-ii,Generation II,330.0,60.0,80.0,50.0,,,40.0,(Level 30),"[{""evolves_to"": ""Ursaring"", ""condition"": ""(Level 30)""}]"
+ursaring,Ursaring,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/ursaring.jpg,generation-ii,Generation II,500.0,90.0,130.0,75.0,,,55.0,"(use Peat Block, under a full moon, in Legends: Arceus)","[{""evolves_to"": ""Ursaluna"", ""condition"": ""(use Peat Block, under a full moon, in Legends: Arceus)""}]"
+slugma,Slugma,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/slugma.jpg,generation-ii,Generation II,250.0,40.0,40.0,40.0,,,20.0,(Level 38),"[{""evolves_to"": ""Magcargo"", ""condition"": ""(Level 38)""}]"
+magcargo,Magcargo,"[""Fire"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/magcargo.jpg,generation-ii,Generation II,430.0,60.0,50.0,120.0,,,30.0,,[]
+swinub,Swinub,"[""Ice"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/swinub.jpg,generation-ii,Generation II,250.0,50.0,50.0,40.0,,,50.0,(Level 33),"[{""evolves_to"": ""Piloswine"", ""condition"": ""(Level 33)""}]"
+piloswine,Piloswine,"[""Ice"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/piloswine.jpg,generation-ii,Generation II,450.0,100.0,100.0,80.0,,,50.0,(after Ancient Power learned),"[{""evolves_to"": ""Mamoswine"", ""condition"": ""(after Ancient Power learned)""}]"
+corsola,Corsola,"[""Water"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/corsola.jpg,generation-ii,Generation II,410.0,65.0,55.0,95.0,,,35.0,,
+remoraid,Remoraid,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/remoraid.jpg,generation-ii,Generation II,300.0,35.0,65.0,35.0,,,65.0,(Level 25),"[{""evolves_to"": ""Octillery"", ""condition"": ""(Level 25)""}]"
+octillery,Octillery,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/octillery.jpg,generation-ii,Generation II,480.0,75.0,105.0,75.0,,,45.0,,[]
+delibird,Delibird,"[""Ice"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/delibird.jpg,generation-ii,Generation II,330.0,45.0,55.0,45.0,,,75.0,,
+mantine,Mantine,"[""Water"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/mantine.jpg,generation-ii,Generation II,485.0,85.0,40.0,70.0,,,70.0,,[]
+skarmory,Skarmory,"[""Steel"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/skarmory.jpg,generation-ii,Generation II,465.0,65.0,80.0,140.0,,,70.0,,
+houndour,Houndour,"[""Dark"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/houndour.jpg,generation-ii,Generation II,330.0,45.0,60.0,30.0,,,65.0,(Level 24),"[{""evolves_to"": ""Houndoom"", ""condition"": ""(Level 24)""}]"
+houndoom,Houndoom,"[""Dark"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/houndoom.jpg,generation-ii,Generation II,500.0,75.0,90.0,50.0,,,95.0,,[]
+kingdra,Kingdra,"[""Water"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/kingdra.jpg,generation-ii,Generation II,540.0,75.0,95.0,95.0,,,85.0,,[]
+phanpy,Phanpy,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/phanpy.jpg,generation-ii,Generation II,330.0,90.0,60.0,60.0,,,40.0,(Level 25),"[{""evolves_to"": ""Donphan"", ""condition"": ""(Level 25)""}]"
+donphan,Donphan,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/donphan.jpg,generation-ii,Generation II,500.0,90.0,120.0,120.0,,,50.0,,[]
+porygon2,Porygon2,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/porygon2.jpg,generation-ii,Generation II,515.0,85.0,80.0,90.0,,,60.0,(trade holding Dubious Disc),"[{""evolves_to"": ""Porygon-Z"", ""condition"": ""(trade holding Dubious Disc)""}]"
+stantler,Stantler,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/stantler.jpg,generation-ii,Generation II,465.0,73.0,95.0,62.0,,,85.0,(use Psyshield Bash 20 times in Agile Style),"[{""evolves_to"": ""Wyrdeer"", ""condition"": ""(use Psyshield Bash 20 times in Agile Style)""}]"
+smeargle,Smeargle,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/smeargle.jpg,generation-ii,Generation II,250.0,55.0,20.0,35.0,,,75.0,,
+tyrogue,Tyrogue,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/tyrogue.jpg,generation-ii,Generation II,210.0,35.0,35.0,35.0,,,35.0,,[]
+hitmontop,Hitmontop,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/hitmontop.jpg,generation-ii,Generation II,455.0,50.0,95.0,95.0,,,70.0,,[]
+smoochum,Smoochum,"[""Ice"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/smoochum.jpg,generation-ii,Generation II,305.0,45.0,30.0,15.0,,,65.0,(Level 30),"[{""evolves_to"": ""Jynx"", ""condition"": ""(Level 30)""}]"
+elekid,Elekid,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/elekid.jpg,generation-ii,Generation II,360.0,45.0,63.0,37.0,,,95.0,(Level 30),"[{""evolves_to"": ""Electabuzz"", ""condition"": ""(Level 30)""}]"
+magby,Magby,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/magby.jpg,generation-ii,Generation II,365.0,45.0,75.0,37.0,,,83.0,(Level 30),"[{""evolves_to"": ""Magmar"", ""condition"": ""(Level 30)""}]"
+miltank,Miltank,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/miltank.jpg,generation-ii,Generation II,490.0,95.0,80.0,105.0,,,100.0,,
+blissey,Blissey,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/blissey.jpg,generation-ii,Generation II,540.0,255.0,10.0,10.0,,,55.0,,[]
+raikou,Raikou,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/raikou.jpg,generation-ii,Generation II,580.0,90.0,85.0,75.0,,,115.0,,
+entei,Entei,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/entei.jpg,generation-ii,Generation II,580.0,115.0,115.0,85.0,,,100.0,,
+suicune,Suicune,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/suicune.jpg,generation-ii,Generation II,580.0,100.0,75.0,115.0,,,85.0,,
+larvitar,Larvitar,"[""Rock"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/larvitar.jpg,generation-ii,Generation II,300.0,50.0,64.0,50.0,,,41.0,(Level 30),"[{""evolves_to"": ""Pupitar"", ""condition"": ""(Level 30)""}]"
+pupitar,Pupitar,"[""Rock"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/pupitar.jpg,generation-ii,Generation II,410.0,70.0,84.0,70.0,,,51.0,(Level 55),"[{""evolves_to"": ""Tyranitar"", ""condition"": ""(Level 55)""}]"
+tyranitar,Tyranitar,"[""Rock"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/tyranitar.jpg,generation-ii,Generation II,600.0,100.0,134.0,110.0,,,61.0,,[]
+lugia,Lugia,"[""Psychic"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/lugia.jpg,generation-ii,Generation II,680.0,106.0,90.0,130.0,,,110.0,,
+ho-oh,Ho-oh,"[""Fire"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/ho-oh.jpg,generation-ii,Generation II,680.0,106.0,130.0,90.0,,,90.0,,
+celebi,Celebi,"[""Psychic"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/celebi.jpg,generation-ii,Generation II,600.0,100.0,100.0,100.0,,,100.0,,
+treecko,Treecko,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/treecko.jpg,generation-iii,Generation III,310.0,40.0,45.0,35.0,,,70.0,(Level 16),"[{""evolves_to"": ""Grovyle"", ""condition"": ""(Level 16)""}]"
+grovyle,Grovyle,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/grovyle.jpg,generation-iii,Generation III,405.0,50.0,65.0,45.0,,,95.0,(Level 36),"[{""evolves_to"": ""Sceptile"", ""condition"": ""(Level 36)""}]"
+sceptile,Sceptile,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/sceptile.jpg,generation-iii,Generation III,530.0,70.0,85.0,65.0,,,120.0,,[]
+torchic,Torchic,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/torchic.jpg,generation-iii,Generation III,310.0,45.0,60.0,40.0,,,45.0,(Level 16),"[{""evolves_to"": ""Combusken"", ""condition"": ""(Level 16)""}]"
+combusken,Combusken,"[""Fire"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/combusken.jpg,generation-iii,Generation III,405.0,60.0,85.0,60.0,,,55.0,(Level 36),"[{""evolves_to"": ""Blaziken"", ""condition"": ""(Level 36)""}]"
+blaziken,Blaziken,"[""Fire"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/blaziken.jpg,generation-iii,Generation III,530.0,80.0,120.0,70.0,,,80.0,,[]
+mudkip,Mudkip,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/mudkip.jpg,generation-iii,Generation III,310.0,50.0,70.0,50.0,,,40.0,(Level 16),"[{""evolves_to"": ""Marshtomp"", ""condition"": ""(Level 16)""}]"
+marshtomp,Marshtomp,"[""Water"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/marshtomp.jpg,generation-iii,Generation III,405.0,70.0,85.0,70.0,,,50.0,(Level 36),"[{""evolves_to"": ""Swampert"", ""condition"": ""(Level 36)""}]"
+swampert,Swampert,"[""Water"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/swampert.jpg,generation-iii,Generation III,535.0,100.0,110.0,90.0,,,60.0,,[]
+poochyena,Poochyena,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/poochyena.jpg,generation-iii,Generation III,220.0,35.0,55.0,35.0,,,35.0,(Level 18),"[{""evolves_to"": ""Mightyena"", ""condition"": ""(Level 18)""}]"
+mightyena,Mightyena,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/mightyena.jpg,generation-iii,Generation III,420.0,70.0,90.0,70.0,,,70.0,,[]
+zigzagoon,Zigzagoon,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/zigzagoon.jpg,generation-iii,Generation III,240.0,38.0,30.0,41.0,,,60.0,(Level 20),"[{""evolves_to"": ""Linoone"", ""condition"": ""(Level 20)""}]"
+linoone,Linoone,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/linoone.jpg,generation-iii,Generation III,420.0,78.0,70.0,61.0,,,100.0,,[]
+wurmple,Wurmple,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/wurmple.jpg,generation-iii,Generation III,195.0,45.0,45.0,35.0,,,20.0,,[]
+silcoon,Silcoon,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/silcoon.jpg,generation-iii,Generation III,205.0,50.0,35.0,55.0,,,15.0,(Level 10),"[{""evolves_to"": ""Beautifly"", ""condition"": ""(Level 10)""}, {""evolves_to"": ""Dustox"", ""condition"": ""(Level 10)""}]"
+beautifly,Beautifly,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/beautifly.jpg,generation-iii,Generation III,395.0,60.0,70.0,50.0,,,65.0,,[]
+cascoon,Cascoon,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/cascoon.jpg,generation-iii,Generation III,205.0,50.0,35.0,55.0,,,15.0,(Level 10),"[{""evolves_to"": ""Dustox"", ""condition"": ""(Level 10)""}]"
+dustox,Dustox,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/dustox.jpg,generation-iii,Generation III,385.0,60.0,50.0,70.0,,,65.0,,[]
+lotad,Lotad,"[""Water"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/lotad.jpg,generation-iii,Generation III,220.0,40.0,30.0,30.0,,,30.0,(Level 14),"[{""evolves_to"": ""Lombre"", ""condition"": ""(Level 14)""}]"
+lombre,Lombre,"[""Water"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/lombre.jpg,generation-iii,Generation III,340.0,60.0,50.0,50.0,,,50.0,(use Water Stone),"[{""evolves_to"": ""Ludicolo"", ""condition"": ""(use Water Stone)""}]"
+ludicolo,Ludicolo,"[""Water"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/ludicolo.jpg,generation-iii,Generation III,480.0,80.0,70.0,70.0,,,70.0,,[]
+seedot,Seedot,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/seedot.jpg,generation-iii,Generation III,220.0,40.0,40.0,50.0,,,30.0,(Level 14),"[{""evolves_to"": ""Nuzleaf"", ""condition"": ""(Level 14)""}]"
+nuzleaf,Nuzleaf,"[""Grass"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/nuzleaf.jpg,generation-iii,Generation III,340.0,70.0,70.0,40.0,,,60.0,(use Leaf Stone),"[{""evolves_to"": ""Shiftry"", ""condition"": ""(use Leaf Stone)""}]"
+shiftry,Shiftry,"[""Grass"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/shiftry.jpg,generation-iii,Generation III,480.0,90.0,100.0,60.0,,,80.0,,[]
+taillow,Taillow,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/taillow.jpg,generation-iii,Generation III,270.0,40.0,55.0,30.0,,,85.0,(Level 22),"[{""evolves_to"": ""Swellow"", ""condition"": ""(Level 22)""}]"
+swellow,Swellow,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/swellow.jpg,generation-iii,Generation III,455.0,60.0,85.0,60.0,,,125.0,,[]
+wingull,Wingull,"[""Water"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/wingull.jpg,generation-iii,Generation III,270.0,40.0,30.0,30.0,,,85.0,(Level 25),"[{""evolves_to"": ""Pelipper"", ""condition"": ""(Level 25)""}]"
+pelipper,Pelipper,"[""Water"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/pelipper.jpg,generation-iii,Generation III,440.0,60.0,50.0,100.0,,,65.0,,[]
+ralts,Ralts,"[""Psychic"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/ralts.jpg,generation-iii,Generation III,198.0,28.0,25.0,25.0,,,40.0,(Level 20),"[{""evolves_to"": ""Kirlia"", ""condition"": ""(Level 20)""}]"
+kirlia,Kirlia,"[""Psychic"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/kirlia.jpg,generation-iii,Generation III,278.0,38.0,35.0,35.0,,,50.0,,[]
+gardevoir,Gardevoir,"[""Psychic"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/gardevoir.jpg,generation-iii,Generation III,518.0,68.0,65.0,65.0,,,80.0,,[]
+surskit,Surskit,"[""Bug"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/surskit.jpg,generation-iii,Generation III,269.0,40.0,30.0,32.0,,,65.0,(Level 22),"[{""evolves_to"": ""Masquerain"", ""condition"": ""(Level 22)""}]"
+masquerain,Masquerain,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/masquerain.jpg,generation-iii,Generation III,454.0,70.0,60.0,62.0,,,80.0,,[]
+shroomish,Shroomish,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/shroomish.jpg,generation-iii,Generation III,295.0,60.0,40.0,60.0,,,35.0,(Level 23),"[{""evolves_to"": ""Breloom"", ""condition"": ""(Level 23)""}]"
+breloom,Breloom,"[""Grass"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/breloom.jpg,generation-iii,Generation III,460.0,60.0,130.0,80.0,,,70.0,,[]
+slakoth,Slakoth,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/slakoth.jpg,generation-iii,Generation III,280.0,60.0,60.0,60.0,,,30.0,(Level 18),"[{""evolves_to"": ""Vigoroth"", ""condition"": ""(Level 18)""}]"
+vigoroth,Vigoroth,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/vigoroth.jpg,generation-iii,Generation III,440.0,80.0,80.0,80.0,,,90.0,(Level 36),"[{""evolves_to"": ""Slaking"", ""condition"": ""(Level 36)""}]"
+slaking,Slaking,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/slaking.jpg,generation-iii,Generation III,670.0,150.0,160.0,100.0,,,100.0,,[]
+nincada,Nincada,"[""Bug"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/nincada.jpg,generation-iii,Generation III,266.0,31.0,45.0,90.0,,,40.0,,[]
+ninjask,Ninjask,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/ninjask.jpg,generation-iii,Generation III,456.0,61.0,90.0,45.0,,,160.0,,[]
+shedinja,Shedinja,"[""Bug"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/shedinja.jpg,generation-iii,Generation III,236.0,1.0,90.0,45.0,,,40.0,,[]
+whismur,Whismur,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/whismur.jpg,generation-iii,Generation III,240.0,64.0,51.0,23.0,,,28.0,(Level 20),"[{""evolves_to"": ""Loudred"", ""condition"": ""(Level 20)""}]"
+loudred,Loudred,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/loudred.jpg,generation-iii,Generation III,360.0,84.0,71.0,43.0,,,48.0,(Level 40),"[{""evolves_to"": ""Exploud"", ""condition"": ""(Level 40)""}]"
+exploud,Exploud,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/exploud.jpg,generation-iii,Generation III,490.0,104.0,91.0,63.0,,,68.0,,[]
+makuhita,Makuhita,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/makuhita.jpg,generation-iii,Generation III,237.0,72.0,60.0,30.0,,,25.0,(Level 24),"[{""evolves_to"": ""Hariyama"", ""condition"": ""(Level 24)""}]"
+hariyama,Hariyama,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/hariyama.jpg,generation-iii,Generation III,474.0,144.0,120.0,60.0,,,50.0,,[]
+azurill,Azurill,"[""Normal"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/azurill.jpg,generation-iii,Generation III,190.0,50.0,20.0,40.0,,,20.0,(high Friendship),"[{""evolves_to"": ""Marill"", ""condition"": ""(high Friendship)""}]"
+nosepass,Nosepass,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/nosepass.jpg,generation-iii,Generation III,375.0,30.0,45.0,135.0,,,30.0,(level up in a Magnetic Field area),"[{""evolves_to"": ""Probopass"", ""condition"": ""(level up in a Magnetic Field area)""}]"
+skitty,Skitty,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/skitty.jpg,generation-iii,Generation III,260.0,50.0,45.0,45.0,,,50.0,(use Moon Stone),"[{""evolves_to"": ""Delcatty"", ""condition"": ""(use Moon Stone)""}]"
+delcatty,Delcatty,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/delcatty.jpg,generation-iii,Generation III,400.0,70.0,65.0,65.0,,,90.0,,[]
+sableye,Sableye,"[""Dark"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/sableye.jpg,generation-iii,Generation III,380.0,50.0,75.0,75.0,,,50.0,,
+mawile,Mawile,"[""Steel"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/mawile.jpg,generation-iii,Generation III,380.0,50.0,85.0,85.0,,,50.0,,
+aron,Aron,"[""Steel"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/aron.jpg,generation-iii,Generation III,330.0,50.0,70.0,100.0,,,30.0,(Level 32),"[{""evolves_to"": ""Lairon"", ""condition"": ""(Level 32)""}]"
+lairon,Lairon,"[""Steel"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/lairon.jpg,generation-iii,Generation III,430.0,60.0,90.0,140.0,,,40.0,(Level 42),"[{""evolves_to"": ""Aggron"", ""condition"": ""(Level 42)""}]"
+aggron,Aggron,"[""Steel"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/aggron.jpg,generation-iii,Generation III,530.0,70.0,110.0,180.0,,,50.0,,[]
+meditite,Meditite,"[""Fighting"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/meditite.jpg,generation-iii,Generation III,280.0,30.0,40.0,55.0,,,60.0,(Level 37),"[{""evolves_to"": ""Medicham"", ""condition"": ""(Level 37)""}]"
+medicham,Medicham,"[""Fighting"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/medicham.jpg,generation-iii,Generation III,410.0,60.0,60.0,75.0,,,80.0,,[]
+electrike,Electrike,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/electrike.jpg,generation-iii,Generation III,295.0,40.0,45.0,40.0,,,65.0,(Level 26),"[{""evolves_to"": ""Manectric"", ""condition"": ""(Level 26)""}]"
+manectric,Manectric,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/manectric.jpg,generation-iii,Generation III,475.0,70.0,75.0,60.0,,,105.0,,[]
+plusle,Plusle,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/plusle.jpg,generation-iii,Generation III,405.0,60.0,50.0,40.0,,,95.0,,
+minun,Minun,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/minun.jpg,generation-iii,Generation III,405.0,60.0,40.0,50.0,,,95.0,,
+volbeat,Volbeat,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/volbeat.jpg,generation-iii,Generation III,430.0,65.0,73.0,75.0,,,85.0,,
+illumise,Illumise,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/illumise.jpg,generation-iii,Generation III,430.0,65.0,47.0,75.0,,,85.0,,
+roselia,Roselia,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/roselia.jpg,generation-iii,Generation III,400.0,50.0,60.0,45.0,,,65.0,(use Shiny Stone),"[{""evolves_to"": ""Roserade"", ""condition"": ""(use Shiny Stone)""}]"
+gulpin,Gulpin,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/gulpin.jpg,generation-iii,Generation III,302.0,70.0,43.0,53.0,,,40.0,(Level 26),"[{""evolves_to"": ""Swalot"", ""condition"": ""(Level 26)""}]"
+swalot,Swalot,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/swalot.jpg,generation-iii,Generation III,467.0,100.0,73.0,83.0,,,55.0,,[]
+carvanha,Carvanha,"[""Water"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/carvanha.jpg,generation-iii,Generation III,305.0,45.0,90.0,20.0,,,65.0,(Level 30),"[{""evolves_to"": ""Sharpedo"", ""condition"": ""(Level 30)""}]"
+sharpedo,Sharpedo,"[""Water"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/sharpedo.jpg,generation-iii,Generation III,460.0,70.0,120.0,40.0,,,95.0,,[]
+wailmer,Wailmer,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/wailmer.jpg,generation-iii,Generation III,400.0,130.0,70.0,35.0,,,60.0,(Level 40),"[{""evolves_to"": ""Wailord"", ""condition"": ""(Level 40)""}]"
+wailord,Wailord,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/wailord.jpg,generation-iii,Generation III,500.0,170.0,90.0,45.0,,,60.0,,[]
+numel,Numel,"[""Fire"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/numel.jpg,generation-iii,Generation III,305.0,60.0,60.0,40.0,,,35.0,(Level 33),"[{""evolves_to"": ""Camerupt"", ""condition"": ""(Level 33)""}]"
+camerupt,Camerupt,"[""Fire"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/camerupt.jpg,generation-iii,Generation III,460.0,70.0,100.0,70.0,,,40.0,,[]
+torkoal,Torkoal,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/torkoal.jpg,generation-iii,Generation III,470.0,70.0,85.0,140.0,,,20.0,,
+spoink,Spoink,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/spoink.jpg,generation-iii,Generation III,330.0,60.0,25.0,35.0,,,60.0,(Level 32),"[{""evolves_to"": ""Grumpig"", ""condition"": ""(Level 32)""}]"
+grumpig,Grumpig,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/grumpig.jpg,generation-iii,Generation III,470.0,80.0,45.0,65.0,,,80.0,,[]
+spinda,Spinda,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/spinda.jpg,generation-iii,Generation III,360.0,60.0,60.0,60.0,,,60.0,,
+trapinch,Trapinch,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/trapinch.jpg,generation-iii,Generation III,290.0,45.0,100.0,45.0,,,10.0,(Level 35),"[{""evolves_to"": ""Vibrava"", ""condition"": ""(Level 35)""}]"
+vibrava,Vibrava,"[""Ground"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/vibrava.jpg,generation-iii,Generation III,340.0,50.0,70.0,50.0,,,70.0,(Level 45),"[{""evolves_to"": ""Flygon"", ""condition"": ""(Level 45)""}]"
+flygon,Flygon,"[""Ground"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/flygon.jpg,generation-iii,Generation III,520.0,80.0,100.0,80.0,,,100.0,,[]
+cacnea,Cacnea,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/cacnea.jpg,generation-iii,Generation III,335.0,50.0,85.0,40.0,,,35.0,(Level 32),"[{""evolves_to"": ""Cacturne"", ""condition"": ""(Level 32)""}]"
+cacturne,Cacturne,"[""Grass"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/cacturne.jpg,generation-iii,Generation III,475.0,70.0,115.0,60.0,,,55.0,,[]
+swablu,Swablu,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/swablu.jpg,generation-iii,Generation III,310.0,45.0,40.0,60.0,,,50.0,(Level 35),"[{""evolves_to"": ""Altaria"", ""condition"": ""(Level 35)""}]"
+altaria,Altaria,"[""Dragon"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/altaria.jpg,generation-iii,Generation III,490.0,75.0,70.0,90.0,,,80.0,,[]
+zangoose,Zangoose,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/zangoose.jpg,generation-iii,Generation III,458.0,73.0,115.0,60.0,,,90.0,,
+seviper,Seviper,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/seviper.jpg,generation-iii,Generation III,458.0,73.0,100.0,60.0,,,65.0,,
+lunatone,Lunatone,"[""Rock"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/lunatone.jpg,generation-iii,Generation III,460.0,90.0,55.0,65.0,,,70.0,,
+solrock,Solrock,"[""Rock"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/solrock.jpg,generation-iii,Generation III,460.0,90.0,95.0,85.0,,,70.0,,
+barboach,Barboach,"[""Water"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/barboach.jpg,generation-iii,Generation III,288.0,50.0,48.0,43.0,,,60.0,(Level 30),"[{""evolves_to"": ""Whiscash"", ""condition"": ""(Level 30)""}]"
+whiscash,Whiscash,"[""Water"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/whiscash.jpg,generation-iii,Generation III,468.0,110.0,78.0,73.0,,,60.0,,[]
+corphish,Corphish,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/corphish.jpg,generation-iii,Generation III,308.0,43.0,80.0,65.0,,,35.0,(Level 30),"[{""evolves_to"": ""Crawdaunt"", ""condition"": ""(Level 30)""}]"
+crawdaunt,Crawdaunt,"[""Water"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/crawdaunt.jpg,generation-iii,Generation III,468.0,63.0,120.0,85.0,,,55.0,,[]
+baltoy,Baltoy,"[""Ground"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/baltoy.jpg,generation-iii,Generation III,300.0,40.0,40.0,55.0,,,55.0,(Level 36),"[{""evolves_to"": ""Claydol"", ""condition"": ""(Level 36)""}]"
+claydol,Claydol,"[""Ground"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/claydol.jpg,generation-iii,Generation III,500.0,60.0,70.0,105.0,,,75.0,,[]
+lileep,Lileep,"[""Rock"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/lileep.jpg,generation-iii,Generation III,355.0,66.0,41.0,77.0,,,23.0,(Level 40),"[{""evolves_to"": ""Cradily"", ""condition"": ""(Level 40)""}]"
+cradily,Cradily,"[""Rock"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/cradily.jpg,generation-iii,Generation III,495.0,86.0,81.0,97.0,,,43.0,,[]
+anorith,Anorith,"[""Rock"", ""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/anorith.jpg,generation-iii,Generation III,355.0,45.0,95.0,50.0,,,75.0,(Level 40),"[{""evolves_to"": ""Armaldo"", ""condition"": ""(Level 40)""}]"
+armaldo,Armaldo,"[""Rock"", ""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/armaldo.jpg,generation-iii,Generation III,495.0,75.0,125.0,100.0,,,45.0,,[]
+feebas,Feebas,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/feebas.jpg,generation-iii,Generation III,200.0,20.0,15.0,20.0,,,80.0,"(trade holding Prism Scale, or level up with max Beauty)","[{""evolves_to"": ""Milotic"", ""condition"": ""(trade holding Prism Scale, or level up with max Beauty)""}]"
+milotic,Milotic,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/milotic.jpg,generation-iii,Generation III,540.0,95.0,60.0,79.0,,,81.0,,[]
+castform,Castform,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/castform.jpg,generation-iii,Generation III,420.0,70.0,70.0,70.0,,,70.0,,
+kecleon,Kecleon,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/kecleon.jpg,generation-iii,Generation III,440.0,60.0,90.0,70.0,,,40.0,,
+shuppet,Shuppet,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/shuppet.jpg,generation-iii,Generation III,295.0,44.0,75.0,35.0,,,45.0,(Level 37),"[{""evolves_to"": ""Banette"", ""condition"": ""(Level 37)""}]"
+banette,Banette,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/banette.jpg,generation-iii,Generation III,455.0,64.0,115.0,65.0,,,65.0,,[]
+duskull,Duskull,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/duskull.jpg,generation-iii,Generation III,295.0,20.0,40.0,90.0,,,25.0,(Level 37),"[{""evolves_to"": ""Dusclops"", ""condition"": ""(Level 37)""}]"
+dusclops,Dusclops,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/dusclops.jpg,generation-iii,Generation III,455.0,40.0,70.0,130.0,,,25.0,(trade holding Reaper Cloth),"[{""evolves_to"": ""Dusknoir"", ""condition"": ""(trade holding Reaper Cloth)""}]"
+tropius,Tropius,"[""Grass"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/tropius.jpg,generation-iii,Generation III,460.0,99.0,68.0,83.0,,,51.0,,
+chimecho,Chimecho,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/chimecho.jpg,generation-iii,Generation III,455.0,75.0,50.0,80.0,,,65.0,,[]
+absol,Absol,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/absol.jpg,generation-iii,Generation III,465.0,65.0,130.0,60.0,,,75.0,,
+wynaut,Wynaut,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/wynaut.jpg,generation-iii,Generation III,260.0,95.0,23.0,48.0,,,23.0,(Level 15),"[{""evolves_to"": ""Wobbuffet"", ""condition"": ""(Level 15)""}]"
+snorunt,Snorunt,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/snorunt.jpg,generation-iii,Generation III,300.0,50.0,50.0,50.0,,,50.0,,[]
+glalie,Glalie,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/glalie.jpg,generation-iii,Generation III,480.0,80.0,80.0,80.0,,,80.0,,[]
+spheal,Spheal,"[""Ice"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/spheal.jpg,generation-iii,Generation III,290.0,70.0,40.0,50.0,,,25.0,(Level 32),"[{""evolves_to"": ""Sealeo"", ""condition"": ""(Level 32)""}]"
+sealeo,Sealeo,"[""Ice"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/sealeo.jpg,generation-iii,Generation III,410.0,90.0,60.0,70.0,,,45.0,(Level 44),"[{""evolves_to"": ""Walrein"", ""condition"": ""(Level 44)""}]"
+walrein,Walrein,"[""Ice"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/walrein.jpg,generation-iii,Generation III,530.0,110.0,80.0,90.0,,,65.0,,[]
+clamperl,Clamperl,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/clamperl.jpg,generation-iii,Generation III,345.0,35.0,64.0,85.0,,,32.0,,[]
+huntail,Huntail,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/huntail.jpg,generation-iii,Generation III,485.0,55.0,104.0,105.0,,,52.0,,[]
+gorebyss,Gorebyss,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/gorebyss.jpg,generation-iii,Generation III,485.0,55.0,84.0,105.0,,,52.0,,[]
+relicanth,Relicanth,"[""Water"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/relicanth.jpg,generation-iii,Generation III,485.0,100.0,90.0,130.0,,,55.0,,
+luvdisc,Luvdisc,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/luvdisc.jpg,generation-iii,Generation III,330.0,43.0,30.0,55.0,,,97.0,,
+bagon,Bagon,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/bagon.jpg,generation-iii,Generation III,300.0,45.0,75.0,60.0,,,50.0,(Level 30),"[{""evolves_to"": ""Shelgon"", ""condition"": ""(Level 30)""}]"
+shelgon,Shelgon,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/shelgon.jpg,generation-iii,Generation III,420.0,65.0,95.0,100.0,,,50.0,(Level 50),"[{""evolves_to"": ""Salamence"", ""condition"": ""(Level 50)""}]"
+salamence,Salamence,"[""Dragon"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/salamence.jpg,generation-iii,Generation III,600.0,95.0,135.0,80.0,,,100.0,,[]
+beldum,Beldum,"[""Steel"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/beldum.jpg,generation-iii,Generation III,300.0,40.0,55.0,80.0,,,30.0,(Level 20),"[{""evolves_to"": ""Metang"", ""condition"": ""(Level 20)""}]"
+metang,Metang,"[""Steel"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/metang.jpg,generation-iii,Generation III,420.0,60.0,75.0,100.0,,,50.0,(Level 45),"[{""evolves_to"": ""Metagross"", ""condition"": ""(Level 45)""}]"
+metagross,Metagross,"[""Steel"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/metagross.jpg,generation-iii,Generation III,600.0,80.0,135.0,130.0,,,70.0,,[]
+regirock,Regirock,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/regirock.jpg,generation-iii,Generation III,580.0,80.0,100.0,200.0,,,50.0,,
+regice,Regice,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/regice.jpg,generation-iii,Generation III,580.0,80.0,50.0,100.0,,,50.0,,
+registeel,Registeel,"[""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/registeel.jpg,generation-iii,Generation III,580.0,80.0,75.0,150.0,,,50.0,,
+latias,Latias,"[""Dragon"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/latias.jpg,generation-iii,Generation III,600.0,80.0,80.0,90.0,,,110.0,,
+latios,Latios,"[""Dragon"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/latios.jpg,generation-iii,Generation III,600.0,80.0,90.0,80.0,,,110.0,,
+kyogre,Kyogre,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/kyogre.jpg,generation-iii,Generation III,670.0,100.0,100.0,90.0,,,90.0,,
+groudon,Groudon,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/groudon.jpg,generation-iii,Generation III,670.0,100.0,150.0,140.0,,,90.0,,
+rayquaza,Rayquaza,"[""Dragon"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/rayquaza.jpg,generation-iii,Generation III,680.0,105.0,150.0,90.0,,,95.0,,
+jirachi,Jirachi,"[""Steel"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/jirachi.jpg,generation-iii,Generation III,600.0,100.0,100.0,100.0,,,100.0,,
+deoxys,Deoxys,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/deoxys.jpg,generation-iii,Generation III,,,,,,,,,
+turtwig,Turtwig,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/turtwig.jpg,generation-iv,Generation IV,318.0,55.0,68.0,64.0,,,31.0,(Level 18),"[{""evolves_to"": ""Grotle"", ""condition"": ""(Level 18)""}]"
+grotle,Grotle,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/grotle.jpg,generation-iv,Generation IV,405.0,75.0,89.0,85.0,,,36.0,(Level 32),"[{""evolves_to"": ""Torterra"", ""condition"": ""(Level 32)""}]"
+torterra,Torterra,"[""Grass"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/torterra.jpg,generation-iv,Generation IV,525.0,95.0,109.0,105.0,,,56.0,,[]
+chimchar,Chimchar,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/chimchar.jpg,generation-iv,Generation IV,309.0,44.0,58.0,44.0,,,61.0,(Level 14),"[{""evolves_to"": ""Monferno"", ""condition"": ""(Level 14)""}]"
+monferno,Monferno,"[""Fire"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/monferno.jpg,generation-iv,Generation IV,405.0,64.0,78.0,52.0,,,81.0,(Level 36),"[{""evolves_to"": ""Infernape"", ""condition"": ""(Level 36)""}]"
+infernape,Infernape,"[""Fire"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/infernape.jpg,generation-iv,Generation IV,534.0,76.0,104.0,71.0,,,108.0,,[]
+piplup,Piplup,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/piplup.jpg,generation-iv,Generation IV,314.0,53.0,51.0,53.0,,,40.0,(Level 16),"[{""evolves_to"": ""Prinplup"", ""condition"": ""(Level 16)""}]"
+prinplup,Prinplup,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/prinplup.jpg,generation-iv,Generation IV,405.0,64.0,66.0,68.0,,,50.0,(Level 36),"[{""evolves_to"": ""Empoleon"", ""condition"": ""(Level 36)""}]"
+empoleon,Empoleon,"[""Water"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/empoleon.jpg,generation-iv,Generation IV,530.0,84.0,86.0,88.0,,,60.0,,[]
+starly,Starly,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/starly.jpg,generation-iv,Generation IV,245.0,40.0,55.0,30.0,,,60.0,(Level 14),"[{""evolves_to"": ""Staravia"", ""condition"": ""(Level 14)""}]"
+staravia,Staravia,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/staravia.jpg,generation-iv,Generation IV,340.0,55.0,75.0,50.0,,,80.0,(Level 34),"[{""evolves_to"": ""Staraptor"", ""condition"": ""(Level 34)""}]"
+staraptor,Staraptor,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/staraptor.jpg,generation-iv,Generation IV,485.0,85.0,120.0,70.0,,,100.0,,[]
+bidoof,Bidoof,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/bidoof.jpg,generation-iv,Generation IV,250.0,59.0,45.0,40.0,,,31.0,(Level 15),"[{""evolves_to"": ""Bibarel"", ""condition"": ""(Level 15)""}]"
+bibarel,Bibarel,"[""Normal"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/bibarel.jpg,generation-iv,Generation IV,410.0,79.0,85.0,60.0,,,71.0,,[]
+kricketot,Kricketot,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/kricketot.jpg,generation-iv,Generation IV,194.0,37.0,25.0,41.0,,,25.0,(Level 10),"[{""evolves_to"": ""Kricketune"", ""condition"": ""(Level 10)""}]"
+kricketune,Kricketune,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/kricketune.jpg,generation-iv,Generation IV,384.0,77.0,85.0,51.0,,,65.0,,[]
+shinx,Shinx,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/shinx.jpg,generation-iv,Generation IV,263.0,45.0,65.0,34.0,,,45.0,(Level 15),"[{""evolves_to"": ""Luxio"", ""condition"": ""(Level 15)""}]"
+luxio,Luxio,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/luxio.jpg,generation-iv,Generation IV,363.0,60.0,85.0,49.0,,,60.0,(Level 30),"[{""evolves_to"": ""Luxray"", ""condition"": ""(Level 30)""}]"
+luxray,Luxray,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/luxray.jpg,generation-iv,Generation IV,523.0,80.0,120.0,79.0,,,70.0,,[]
+budew,Budew,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/budew.jpg,generation-iv,Generation IV,280.0,40.0,30.0,35.0,,,55.0,"(high Friendship, Daytime)","[{""evolves_to"": ""Roselia"", ""condition"": ""(high Friendship, Daytime)""}]"
+roserade,Roserade,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/roserade.jpg,generation-iv,Generation IV,515.0,60.0,70.0,65.0,,,90.0,,[]
+cranidos,Cranidos,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/cranidos.jpg,generation-iv,Generation IV,350.0,67.0,125.0,40.0,,,58.0,(Level 30),"[{""evolves_to"": ""Rampardos"", ""condition"": ""(Level 30)""}]"
+rampardos,Rampardos,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/rampardos.jpg,generation-iv,Generation IV,495.0,97.0,165.0,60.0,,,58.0,,[]
+shieldon,Shieldon,"[""Rock"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/shieldon.jpg,generation-iv,Generation IV,350.0,30.0,42.0,118.0,,,30.0,(Level 30),"[{""evolves_to"": ""Bastiodon"", ""condition"": ""(Level 30)""}]"
+bastiodon,Bastiodon,"[""Rock"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/bastiodon.jpg,generation-iv,Generation IV,495.0,60.0,52.0,168.0,,,30.0,,[]
+burmy,Burmy,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/burmy.jpg,generation-iv,Generation IV,,,,,,,,,
+wormadam,Wormadam,"[""Bug"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/wormadam.jpg,generation-iv,Generation IV,,,,,,,,,
+mothim,Mothim,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/mothim.jpg,generation-iv,Generation IV,424.0,70.0,94.0,50.0,,,66.0,,[]
+combee,Combee,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/combee.jpg,generation-iv,Generation IV,244.0,30.0,30.0,42.0,,,70.0,"(Level 21, Female)","[{""evolves_to"": ""Vespiquen"", ""condition"": ""(Level 21, Female)""}]"
+vespiquen,Vespiquen,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/vespiquen.jpg,generation-iv,Generation IV,474.0,70.0,80.0,102.0,,,40.0,,[]
+pachirisu,Pachirisu,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/pachirisu.jpg,generation-iv,Generation IV,405.0,60.0,45.0,70.0,,,95.0,,
+buizel,Buizel,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/buizel.jpg,generation-iv,Generation IV,330.0,55.0,65.0,35.0,,,85.0,(Level 26),"[{""evolves_to"": ""Floatzel"", ""condition"": ""(Level 26)""}]"
+floatzel,Floatzel,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/floatzel.jpg,generation-iv,Generation IV,495.0,85.0,105.0,55.0,,,115.0,,[]
+cherubi,Cherubi,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/cherubi.jpg,generation-iv,Generation IV,275.0,45.0,35.0,45.0,,,35.0,(Level 25),"[{""evolves_to"": ""Cherrim"", ""condition"": ""(Level 25)""}]"
+cherrim,Cherrim,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/cherrim.jpg,generation-iv,Generation IV,450.0,70.0,60.0,70.0,,,85.0,,[]
+shellos,Shellos,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/shellos.jpg,generation-iv,Generation IV,325.0,76.0,48.0,48.0,,,34.0,(Level 30),"[{""evolves_to"": ""Gastrodon"", ""condition"": ""(Level 30)""}]"
+gastrodon,Gastrodon,"[""Water"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/gastrodon.jpg,generation-iv,Generation IV,475.0,111.0,83.0,68.0,,,39.0,,[]
+ambipom,Ambipom,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/ambipom.jpg,generation-iv,Generation IV,482.0,75.0,100.0,66.0,,,115.0,,[]
+drifloon,Drifloon,"[""Ghost"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/drifloon.jpg,generation-iv,Generation IV,348.0,90.0,50.0,34.0,,,70.0,(Level 28),"[{""evolves_to"": ""Drifblim"", ""condition"": ""(Level 28)""}]"
+drifblim,Drifblim,"[""Ghost"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/drifblim.jpg,generation-iv,Generation IV,498.0,150.0,80.0,44.0,,,80.0,,[]
+buneary,Buneary,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/buneary.jpg,generation-iv,Generation IV,350.0,55.0,66.0,44.0,,,85.0,(high Friendship),"[{""evolves_to"": ""Lopunny"", ""condition"": ""(high Friendship)""}]"
+lopunny,Lopunny,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/lopunny.jpg,generation-iv,Generation IV,480.0,65.0,76.0,84.0,,,105.0,,[]
+mismagius,Mismagius,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/mismagius.jpg,generation-iv,Generation IV,495.0,60.0,60.0,60.0,,,105.0,,[]
+honchkrow,Honchkrow,"[""Dark"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/honchkrow.jpg,generation-iv,Generation IV,505.0,100.0,125.0,52.0,,,71.0,,[]
+glameow,Glameow,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/glameow.jpg,generation-iv,Generation IV,310.0,49.0,55.0,42.0,,,85.0,(Level 38),"[{""evolves_to"": ""Purugly"", ""condition"": ""(Level 38)""}]"
+purugly,Purugly,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/purugly.jpg,generation-iv,Generation IV,452.0,71.0,82.0,64.0,,,112.0,,[]
+chingling,Chingling,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/chingling.jpg,generation-iv,Generation IV,285.0,45.0,30.0,50.0,,,45.0,"(high Friendship, Nighttime)","[{""evolves_to"": ""Chimecho"", ""condition"": ""(high Friendship, Nighttime)""}]"
+stunky,Stunky,"[""Poison"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/stunky.jpg,generation-iv,Generation IV,329.0,63.0,63.0,47.0,,,74.0,(Level 34),"[{""evolves_to"": ""Skuntank"", ""condition"": ""(Level 34)""}]"
+skuntank,Skuntank,"[""Poison"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/skuntank.jpg,generation-iv,Generation IV,479.0,103.0,93.0,67.0,,,84.0,,[]
+bronzor,Bronzor,"[""Steel"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/bronzor.jpg,generation-iv,Generation IV,300.0,57.0,24.0,86.0,,,23.0,(Level 33),"[{""evolves_to"": ""Bronzong"", ""condition"": ""(Level 33)""}]"
+bronzong,Bronzong,"[""Steel"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/bronzong.jpg,generation-iv,Generation IV,500.0,67.0,89.0,116.0,,,33.0,,[]
+bonsly,Bonsly,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/bonsly.jpg,generation-iv,Generation IV,290.0,50.0,80.0,95.0,,,10.0,(after Mimic learned),"[{""evolves_to"": ""Sudowoodo"", ""condition"": ""(after Mimic learned)""}]"
+mime jr.,Mime Jr.,"[""Psychic"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/mime-jr.jpg,generation-iv,Generation IV,310.0,20.0,25.0,45.0,,,60.0,,[]
+happiny,Happiny,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/happiny.jpg,generation-iv,Generation IV,220.0,100.0,5.0,5.0,,,30.0,"(hold Oval Stone, Daytime)","[{""evolves_to"": ""Chansey"", ""condition"": ""(hold Oval Stone, Daytime)""}]"
+chatot,Chatot,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/chatot.jpg,generation-iv,Generation IV,411.0,76.0,65.0,45.0,,,91.0,,
+spiritomb,Spiritomb,"[""Ghost"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/spiritomb.jpg,generation-iv,Generation IV,485.0,50.0,92.0,108.0,,,35.0,,
+gible,Gible,"[""Dragon"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/gible.jpg,generation-iv,Generation IV,300.0,58.0,70.0,45.0,,,42.0,(Level 24),"[{""evolves_to"": ""Gabite"", ""condition"": ""(Level 24)""}]"
+gabite,Gabite,"[""Dragon"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/gabite.jpg,generation-iv,Generation IV,410.0,68.0,90.0,65.0,,,82.0,(Level 48),"[{""evolves_to"": ""Garchomp"", ""condition"": ""(Level 48)""}]"
+garchomp,Garchomp,"[""Dragon"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/garchomp.jpg,generation-iv,Generation IV,600.0,108.0,130.0,95.0,,,102.0,,[]
+munchlax,Munchlax,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/munchlax.jpg,generation-iv,Generation IV,390.0,135.0,85.0,40.0,,,5.0,(high Friendship),"[{""evolves_to"": ""Snorlax"", ""condition"": ""(high Friendship)""}]"
+riolu,Riolu,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/riolu.jpg,generation-iv,Generation IV,285.0,40.0,70.0,40.0,,,60.0,"(high Friendship, Daytime)","[{""evolves_to"": ""Lucario"", ""condition"": ""(high Friendship, Daytime)""}]"
+lucario,Lucario,"[""Fighting"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/lucario.jpg,generation-iv,Generation IV,525.0,70.0,110.0,70.0,,,90.0,,[]
+hippopotas,Hippopotas,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/hippopotas.jpg,generation-iv,Generation IV,330.0,68.0,72.0,78.0,,,32.0,(Level 34),"[{""evolves_to"": ""Hippowdon"", ""condition"": ""(Level 34)""}]"
+hippowdon,Hippowdon,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/hippowdon.jpg,generation-iv,Generation IV,525.0,108.0,112.0,118.0,,,47.0,,[]
+skorupi,Skorupi,"[""Poison"", ""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/skorupi.jpg,generation-iv,Generation IV,330.0,40.0,50.0,90.0,,,65.0,(Level 40),"[{""evolves_to"": ""Drapion"", ""condition"": ""(Level 40)""}]"
+drapion,Drapion,"[""Poison"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/drapion.jpg,generation-iv,Generation IV,500.0,70.0,90.0,110.0,,,95.0,,[]
+croagunk,Croagunk,"[""Poison"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/croagunk.jpg,generation-iv,Generation IV,300.0,48.0,61.0,40.0,,,50.0,(Level 37),"[{""evolves_to"": ""Toxicroak"", ""condition"": ""(Level 37)""}]"
+toxicroak,Toxicroak,"[""Poison"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/toxicroak.jpg,generation-iv,Generation IV,490.0,83.0,106.0,65.0,,,85.0,,[]
+carnivine,Carnivine,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/carnivine.jpg,generation-iv,Generation IV,454.0,74.0,100.0,72.0,,,46.0,,
+finneon,Finneon,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/finneon.jpg,generation-iv,Generation IV,330.0,49.0,49.0,56.0,,,66.0,(Level 31),"[{""evolves_to"": ""Lumineon"", ""condition"": ""(Level 31)""}]"
+lumineon,Lumineon,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/lumineon.jpg,generation-iv,Generation IV,460.0,69.0,69.0,76.0,,,91.0,,[]
+mantyke,Mantyke,"[""Water"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/mantyke.jpg,generation-iv,Generation IV,345.0,45.0,20.0,50.0,,,50.0,(with Remoraid in party),"[{""evolves_to"": ""Mantine"", ""condition"": ""(with Remoraid in party)""}]"
+snover,Snover,"[""Grass"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/snover.jpg,generation-iv,Generation IV,334.0,60.0,62.0,50.0,,,40.0,(Level 40),"[{""evolves_to"": ""Abomasnow"", ""condition"": ""(Level 40)""}]"
+abomasnow,Abomasnow,"[""Grass"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/abomasnow.jpg,generation-iv,Generation IV,494.0,90.0,92.0,75.0,,,60.0,,[]
+weavile,Weavile,"[""Dark"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/weavile.jpg,generation-iv,Generation IV,510.0,70.0,120.0,65.0,,,125.0,,[]
+magnezone,Magnezone,"[""Electric"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/magnezone.jpg,generation-iv,Generation IV,535.0,70.0,70.0,115.0,,,60.0,,[]
+lickilicky,Lickilicky,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/lickilicky.jpg,generation-iv,Generation IV,515.0,110.0,85.0,95.0,,,50.0,,[]
+rhyperior,Rhyperior,"[""Ground"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/rhyperior.jpg,generation-iv,Generation IV,535.0,115.0,140.0,130.0,,,40.0,,[]
+tangrowth,Tangrowth,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/tangrowth.jpg,generation-iv,Generation IV,535.0,100.0,100.0,125.0,,,50.0,,[]
+electivire,Electivire,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/electivire.jpg,generation-iv,Generation IV,540.0,75.0,123.0,67.0,,,95.0,,[]
+magmortar,Magmortar,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/magmortar.jpg,generation-iv,Generation IV,540.0,75.0,95.0,67.0,,,83.0,,[]
+togekiss,Togekiss,"[""Fairy"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/togekiss.jpg,generation-iv,Generation IV,545.0,85.0,50.0,95.0,,,80.0,,[]
+yanmega,Yanmega,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/yanmega.jpg,generation-iv,Generation IV,515.0,86.0,76.0,86.0,,,95.0,,[]
+leafeon,Leafeon,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/leafeon.jpg,generation-iv,Generation IV,525.0,65.0,110.0,130.0,,,95.0,,[]
+glaceon,Glaceon,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/glaceon.jpg,generation-iv,Generation IV,525.0,65.0,60.0,110.0,,,65.0,,[]
+gliscor,Gliscor,"[""Ground"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/gliscor.jpg,generation-iv,Generation IV,510.0,75.0,95.0,125.0,,,95.0,,[]
+mamoswine,Mamoswine,"[""Ice"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/mamoswine.jpg,generation-iv,Generation IV,530.0,110.0,130.0,80.0,,,80.0,,[]
+porygon-z,Porygon-Z,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/porygon-z.jpg,generation-iv,Generation IV,535.0,85.0,80.0,70.0,,,90.0,,[]
+gallade,Gallade,"[""Psychic"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/gallade.jpg,generation-iv,Generation IV,518.0,68.0,125.0,65.0,,,80.0,,[]
+probopass,Probopass,"[""Rock"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/probopass.jpg,generation-iv,Generation IV,525.0,60.0,55.0,145.0,,,40.0,,[]
+dusknoir,Dusknoir,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/dusknoir.jpg,generation-iv,Generation IV,525.0,45.0,100.0,135.0,,,45.0,,[]
+froslass,Froslass,"[""Ice"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/froslass.jpg,generation-iv,Generation IV,480.0,70.0,80.0,70.0,,,110.0,,[]
+rotom,Rotom,"[""Electric"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/rotom.jpg,generation-iv,Generation IV,440.0,50.0,50.0,77.0,,,91.0,,
+uxie,Uxie,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/uxie.jpg,generation-iv,Generation IV,580.0,75.0,75.0,130.0,,,95.0,,
+mesprit,Mesprit,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/mesprit.jpg,generation-iv,Generation IV,580.0,80.0,105.0,105.0,,,80.0,,
+azelf,Azelf,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/azelf.jpg,generation-iv,Generation IV,580.0,75.0,125.0,70.0,,,115.0,,
+dialga,Dialga,"[""Steel"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/dialga.jpg,generation-iv,Generation IV,680.0,100.0,120.0,120.0,,,90.0,,
+palkia,Palkia,"[""Water"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/palkia.jpg,generation-iv,Generation IV,680.0,90.0,120.0,100.0,,,100.0,,
+heatran,Heatran,"[""Fire"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/heatran.jpg,generation-iv,Generation IV,600.0,91.0,90.0,106.0,,,77.0,,
+regigigas,Regigigas,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/regigigas.jpg,generation-iv,Generation IV,670.0,110.0,160.0,110.0,,,100.0,,
+giratina,Giratina,"[""Ghost"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/giratina.jpg,generation-iv,Generation IV,,,,,,,,,
+cresselia,Cresselia,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/cresselia.jpg,generation-iv,Generation IV,580.0,120.0,70.0,110.0,,,85.0,,
+phione,Phione,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/phione.jpg,generation-iv,Generation IV,480.0,80.0,80.0,80.0,,,80.0,,
+manaphy,Manaphy,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/manaphy.jpg,generation-iv,Generation IV,600.0,100.0,100.0,100.0,,,100.0,,
+darkrai,Darkrai,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/darkrai.jpg,generation-iv,Generation IV,600.0,70.0,90.0,90.0,,,125.0,,
+shaymin,Shaymin,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/shaymin.jpg,generation-iv,Generation IV,,,,,,,,,
+arceus,Arceus,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/arceus.jpg,generation-iv,Generation IV,720.0,120.0,120.0,120.0,,,120.0,,
+victini,Victini,"[""Psychic"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/victini.jpg,generation-v,Generation V,600.0,100.0,100.0,100.0,,,100.0,,
+snivy,Snivy,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/snivy.jpg,generation-v,Generation V,308.0,45.0,45.0,55.0,,,63.0,(Level 17),"[{""evolves_to"": ""Servine"", ""condition"": ""(Level 17)""}]"
+servine,Servine,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/servine.jpg,generation-v,Generation V,413.0,60.0,60.0,75.0,,,83.0,(Level 36),"[{""evolves_to"": ""Serperior"", ""condition"": ""(Level 36)""}]"
+serperior,Serperior,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/serperior.jpg,generation-v,Generation V,528.0,75.0,75.0,95.0,,,113.0,,[]
+tepig,Tepig,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/tepig.jpg,generation-v,Generation V,308.0,65.0,63.0,45.0,,,45.0,(Level 17),"[{""evolves_to"": ""Pignite"", ""condition"": ""(Level 17)""}]"
+pignite,Pignite,"[""Fire"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/pignite.jpg,generation-v,Generation V,418.0,90.0,93.0,55.0,,,55.0,(Level 36),"[{""evolves_to"": ""Emboar"", ""condition"": ""(Level 36)""}]"
+emboar,Emboar,"[""Fire"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/emboar.jpg,generation-v,Generation V,528.0,110.0,123.0,65.0,,,65.0,,[]
+oshawott,Oshawott,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/oshawott.jpg,generation-v,Generation V,308.0,55.0,55.0,45.0,,,45.0,(Level 17),"[{""evolves_to"": ""Dewott"", ""condition"": ""(Level 17)""}]"
+dewott,Dewott,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/dewott.jpg,generation-v,Generation V,413.0,75.0,75.0,60.0,,,60.0,,[]
+samurott,Samurott,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/samurott.jpg,generation-v,Generation V,528.0,95.0,100.0,85.0,,,70.0,,[]
+patrat,Patrat,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/patrat.jpg,generation-v,Generation V,255.0,45.0,55.0,39.0,,,42.0,(Level 20),"[{""evolves_to"": ""Watchog"", ""condition"": ""(Level 20)""}]"
+watchog,Watchog,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/watchog.jpg,generation-v,Generation V,420.0,60.0,85.0,69.0,,,77.0,,[]
+lillipup,Lillipup,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/lillipup.jpg,generation-v,Generation V,275.0,45.0,60.0,45.0,,,55.0,(Level 16),"[{""evolves_to"": ""Herdier"", ""condition"": ""(Level 16)""}]"
+herdier,Herdier,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/herdier.jpg,generation-v,Generation V,370.0,65.0,80.0,65.0,,,60.0,(Level 32),"[{""evolves_to"": ""Stoutland"", ""condition"": ""(Level 32)""}]"
+stoutland,Stoutland,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/stoutland.jpg,generation-v,Generation V,500.0,85.0,110.0,90.0,,,80.0,,[]
+purrloin,Purrloin,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/purrloin.jpg,generation-v,Generation V,281.0,41.0,50.0,37.0,,,66.0,(Level 20),"[{""evolves_to"": ""Liepard"", ""condition"": ""(Level 20)""}]"
+liepard,Liepard,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/liepard.jpg,generation-v,Generation V,446.0,64.0,88.0,50.0,,,106.0,,[]
+pansage,Pansage,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/pansage.jpg,generation-v,Generation V,316.0,50.0,53.0,48.0,,,64.0,(use Leaf Stone),"[{""evolves_to"": ""Simisage"", ""condition"": ""(use Leaf Stone)""}]"
+simisage,Simisage,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/simisage.jpg,generation-v,Generation V,498.0,75.0,98.0,63.0,,,101.0,,[]
+pansear,Pansear,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/pansear.jpg,generation-v,Generation V,316.0,50.0,53.0,48.0,,,64.0,(use Fire Stone),"[{""evolves_to"": ""Simisear"", ""condition"": ""(use Fire Stone)""}]"
+simisear,Simisear,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/simisear.jpg,generation-v,Generation V,498.0,75.0,98.0,63.0,,,101.0,,[]
+panpour,Panpour,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/panpour.jpg,generation-v,Generation V,316.0,50.0,53.0,48.0,,,64.0,(use Water Stone),"[{""evolves_to"": ""Simipour"", ""condition"": ""(use Water Stone)""}]"
+simipour,Simipour,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/simipour.jpg,generation-v,Generation V,498.0,75.0,98.0,63.0,,,101.0,,[]
+munna,Munna,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/munna.jpg,generation-v,Generation V,292.0,76.0,25.0,45.0,,,24.0,(use Moon Stone),"[{""evolves_to"": ""Musharna"", ""condition"": ""(use Moon Stone)""}]"
+musharna,Musharna,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/musharna.jpg,generation-v,Generation V,487.0,116.0,55.0,85.0,,,29.0,,[]
+pidove,Pidove,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/pidove.jpg,generation-v,Generation V,264.0,50.0,55.0,50.0,,,43.0,(Level 21),"[{""evolves_to"": ""Tranquill"", ""condition"": ""(Level 21)""}]"
+tranquill,Tranquill,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/tranquill.jpg,generation-v,Generation V,358.0,62.0,77.0,62.0,,,65.0,(Level 32),"[{""evolves_to"": ""Unfezant"", ""condition"": ""(Level 32)""}]"
+unfezant,Unfezant,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/unfezant.jpg,generation-v,Generation V,488.0,80.0,115.0,80.0,,,93.0,,[]
+blitzle,Blitzle,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/blitzle.jpg,generation-v,Generation V,295.0,45.0,60.0,32.0,,,76.0,(Level 27),"[{""evolves_to"": ""Zebstrika"", ""condition"": ""(Level 27)""}]"
+zebstrika,Zebstrika,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/zebstrika.jpg,generation-v,Generation V,497.0,75.0,100.0,63.0,,,116.0,,[]
+roggenrola,Roggenrola,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/roggenrola.jpg,generation-v,Generation V,280.0,55.0,75.0,85.0,,,15.0,(Level 25),"[{""evolves_to"": ""Boldore"", ""condition"": ""(Level 25)""}]"
+boldore,Boldore,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/boldore.jpg,generation-v,Generation V,390.0,70.0,105.0,105.0,,,20.0,(Trade),"[{""evolves_to"": ""Gigalith"", ""condition"": ""(Trade)""}]"
+gigalith,Gigalith,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/gigalith.jpg,generation-v,Generation V,515.0,85.0,135.0,130.0,,,25.0,,[]
+woobat,Woobat,"[""Psychic"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/woobat.jpg,generation-v,Generation V,323.0,65.0,45.0,43.0,,,72.0,(high Friendship),"[{""evolves_to"": ""Swoobat"", ""condition"": ""(high Friendship)""}]"
+swoobat,Swoobat,"[""Psychic"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/swoobat.jpg,generation-v,Generation V,425.0,67.0,57.0,55.0,,,114.0,,[]
+drilbur,Drilbur,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/drilbur.jpg,generation-v,Generation V,328.0,60.0,85.0,40.0,,,68.0,(Level 31),"[{""evolves_to"": ""Excadrill"", ""condition"": ""(Level 31)""}]"
+excadrill,Excadrill,"[""Ground"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/excadrill.jpg,generation-v,Generation V,508.0,110.0,135.0,60.0,,,88.0,,[]
+audino,Audino,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/audino.jpg,generation-v,Generation V,445.0,103.0,60.0,86.0,,,50.0,,
+timburr,Timburr,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/timburr.jpg,generation-v,Generation V,305.0,75.0,80.0,55.0,,,35.0,(Level 25),"[{""evolves_to"": ""Gurdurr"", ""condition"": ""(Level 25)""}]"
+gurdurr,Gurdurr,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/gurdurr.jpg,generation-v,Generation V,405.0,85.0,105.0,85.0,,,40.0,(Trade),"[{""evolves_to"": ""Conkeldurr"", ""condition"": ""(Trade)""}]"
+conkeldurr,Conkeldurr,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/conkeldurr.jpg,generation-v,Generation V,505.0,105.0,140.0,95.0,,,45.0,,[]
+tympole,Tympole,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/tympole.jpg,generation-v,Generation V,294.0,50.0,50.0,40.0,,,64.0,(Level 25),"[{""evolves_to"": ""Palpitoad"", ""condition"": ""(Level 25)""}]"
+palpitoad,Palpitoad,"[""Water"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/palpitoad.jpg,generation-v,Generation V,384.0,75.0,65.0,55.0,,,69.0,(Level 36),"[{""evolves_to"": ""Seismitoad"", ""condition"": ""(Level 36)""}]"
+seismitoad,Seismitoad,"[""Water"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/seismitoad.jpg,generation-v,Generation V,509.0,105.0,95.0,75.0,,,74.0,,[]
+throh,Throh,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/throh.jpg,generation-v,Generation V,465.0,120.0,100.0,85.0,,,45.0,,
+sawk,Sawk,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/sawk.jpg,generation-v,Generation V,465.0,75.0,125.0,75.0,,,85.0,,
+sewaddle,Sewaddle,"[""Bug"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/sewaddle.jpg,generation-v,Generation V,310.0,45.0,53.0,70.0,,,42.0,(Level 20),"[{""evolves_to"": ""Swadloon"", ""condition"": ""(Level 20)""}]"
+swadloon,Swadloon,"[""Bug"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/swadloon.jpg,generation-v,Generation V,380.0,55.0,63.0,90.0,,,42.0,(high Friendship),"[{""evolves_to"": ""Leavanny"", ""condition"": ""(high Friendship)""}]"
+leavanny,Leavanny,"[""Bug"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/leavanny.jpg,generation-v,Generation V,500.0,75.0,103.0,80.0,,,92.0,,[]
+venipede,Venipede,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/venipede.jpg,generation-v,Generation V,260.0,30.0,45.0,59.0,,,57.0,(Level 22),"[{""evolves_to"": ""Whirlipede"", ""condition"": ""(Level 22)""}]"
+whirlipede,Whirlipede,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/whirlipede.jpg,generation-v,Generation V,360.0,40.0,55.0,99.0,,,47.0,(Level 30),"[{""evolves_to"": ""Scolipede"", ""condition"": ""(Level 30)""}]"
+scolipede,Scolipede,"[""Bug"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/scolipede.jpg,generation-v,Generation V,485.0,60.0,100.0,89.0,,,112.0,,[]
+cottonee,Cottonee,"[""Grass"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/cottonee.jpg,generation-v,Generation V,280.0,40.0,27.0,60.0,,,66.0,(use Sun Stone),"[{""evolves_to"": ""Whimsicott"", ""condition"": ""(use Sun Stone)""}]"
+whimsicott,Whimsicott,"[""Grass"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/whimsicott.jpg,generation-v,Generation V,480.0,60.0,67.0,85.0,,,116.0,,[]
+petilil,Petilil,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/petilil.jpg,generation-v,Generation V,280.0,45.0,35.0,50.0,,,30.0,,[]
+lilligant,Lilligant,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/lilligant.jpg,generation-v,Generation V,480.0,70.0,60.0,75.0,,,90.0,,[]
+basculin,Basculin,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/basculin.jpg,generation-v,Generation V,,,,,,,,,
+sandile,Sandile,"[""Ground"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/sandile.jpg,generation-v,Generation V,292.0,50.0,72.0,35.0,,,65.0,(Level 29),"[{""evolves_to"": ""Krokorok"", ""condition"": ""(Level 29)""}]"
+krokorok,Krokorok,"[""Ground"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/krokorok.jpg,generation-v,Generation V,351.0,60.0,82.0,45.0,,,74.0,(Level 40),"[{""evolves_to"": ""Krookodile"", ""condition"": ""(Level 40)""}]"
+krookodile,Krookodile,"[""Ground"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/krookodile.jpg,generation-v,Generation V,519.0,95.0,117.0,80.0,,,92.0,,[]
+darumaka,Darumaka,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/darumaka.jpg,generation-v,Generation V,315.0,70.0,90.0,45.0,,,50.0,(Level 35),"[{""evolves_to"": ""Darmanitan (Standard Mode)"", ""condition"": ""(Level 35)""}]"
+darmanitan,Darmanitan,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/darmanitan.jpg,generation-v,Generation V,,,,,,,,,
+maractus,Maractus,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/maractus.jpg,generation-v,Generation V,461.0,75.0,86.0,67.0,,,60.0,,
+dwebble,Dwebble,"[""Bug"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/dwebble.jpg,generation-v,Generation V,325.0,50.0,65.0,85.0,,,55.0,(Level 34),"[{""evolves_to"": ""Crustle"", ""condition"": ""(Level 34)""}]"
+crustle,Crustle,"[""Bug"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/crustle.jpg,generation-v,Generation V,485.0,70.0,105.0,125.0,,,45.0,,[]
+scraggy,Scraggy,"[""Dark"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/scraggy.jpg,generation-v,Generation V,348.0,50.0,75.0,70.0,,,48.0,(Level 39),"[{""evolves_to"": ""Scrafty"", ""condition"": ""(Level 39)""}]"
+scrafty,Scrafty,"[""Dark"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/scrafty.jpg,generation-v,Generation V,488.0,65.0,90.0,115.0,,,58.0,,[]
+sigilyph,Sigilyph,"[""Psychic"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/sigilyph.jpg,generation-v,Generation V,490.0,72.0,58.0,80.0,,,97.0,,
+yamask,Yamask,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/yamask.jpg,generation-v,Generation V,303.0,38.0,30.0,85.0,,,30.0,(Level 34),"[{""evolves_to"": ""Cofagrigus"", ""condition"": ""(Level 34)""}]"
+cofagrigus,Cofagrigus,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/cofagrigus.jpg,generation-v,Generation V,483.0,58.0,50.0,145.0,,,30.0,,[]
+tirtouga,Tirtouga,"[""Water"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/tirtouga.jpg,generation-v,Generation V,355.0,54.0,78.0,103.0,,,22.0,(Level 37),"[{""evolves_to"": ""Carracosta"", ""condition"": ""(Level 37)""}]"
+carracosta,Carracosta,"[""Water"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/carracosta.jpg,generation-v,Generation V,495.0,74.0,108.0,133.0,,,32.0,,[]
+archen,Archen,"[""Rock"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/archen.jpg,generation-v,Generation V,401.0,55.0,112.0,45.0,,,70.0,(Level 37),"[{""evolves_to"": ""Archeops"", ""condition"": ""(Level 37)""}]"
+archeops,Archeops,"[""Rock"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/archeops.jpg,generation-v,Generation V,567.0,75.0,140.0,65.0,,,110.0,,[]
+trubbish,Trubbish,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/trubbish.jpg,generation-v,Generation V,329.0,50.0,50.0,62.0,,,65.0,(Level 36),"[{""evolves_to"": ""Garbodor"", ""condition"": ""(Level 36)""}]"
+garbodor,Garbodor,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/garbodor.jpg,generation-v,Generation V,474.0,80.0,95.0,82.0,,,75.0,,[]
+zorua,Zorua,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/zorua.jpg,generation-v,Generation V,330.0,40.0,65.0,40.0,,,65.0,(Level 30),"[{""evolves_to"": ""Zoroark"", ""condition"": ""(Level 30)""}]"
+zoroark,Zoroark,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/zoroark.jpg,generation-v,Generation V,510.0,60.0,105.0,60.0,,,105.0,,[]
+minccino,Minccino,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/minccino.jpg,generation-v,Generation V,300.0,55.0,50.0,40.0,,,75.0,(use Shiny Stone),"[{""evolves_to"": ""Cinccino"", ""condition"": ""(use Shiny Stone)""}]"
+cinccino,Cinccino,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/cinccino.jpg,generation-v,Generation V,470.0,75.0,95.0,60.0,,,115.0,,[]
+gothita,Gothita,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/gothita.jpg,generation-v,Generation V,290.0,45.0,30.0,50.0,,,45.0,(Level 32),"[{""evolves_to"": ""Gothorita"", ""condition"": ""(Level 32)""}]"
+gothorita,Gothorita,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/gothorita.jpg,generation-v,Generation V,390.0,60.0,45.0,70.0,,,55.0,(Level 41),"[{""evolves_to"": ""Gothitelle"", ""condition"": ""(Level 41)""}]"
+gothitelle,Gothitelle,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/gothitelle.jpg,generation-v,Generation V,490.0,70.0,55.0,95.0,,,65.0,,[]
+solosis,Solosis,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/solosis.jpg,generation-v,Generation V,290.0,45.0,30.0,40.0,,,20.0,(Level 32),"[{""evolves_to"": ""Duosion"", ""condition"": ""(Level 32)""}]"
+duosion,Duosion,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/duosion.jpg,generation-v,Generation V,370.0,65.0,40.0,50.0,,,30.0,(Level 41),"[{""evolves_to"": ""Reuniclus"", ""condition"": ""(Level 41)""}]"
+reuniclus,Reuniclus,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/reuniclus.jpg,generation-v,Generation V,490.0,110.0,65.0,75.0,,,30.0,,[]
+ducklett,Ducklett,"[""Water"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/ducklett.jpg,generation-v,Generation V,305.0,62.0,44.0,50.0,,,55.0,(Level 35),"[{""evolves_to"": ""Swanna"", ""condition"": ""(Level 35)""}]"
+swanna,Swanna,"[""Water"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/swanna.jpg,generation-v,Generation V,473.0,75.0,87.0,63.0,,,98.0,,[]
+vanillite,Vanillite,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/vanillite.jpg,generation-v,Generation V,305.0,36.0,50.0,50.0,,,44.0,(Level 35),"[{""evolves_to"": ""Vanillish"", ""condition"": ""(Level 35)""}]"
+vanillish,Vanillish,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/vanillish.jpg,generation-v,Generation V,395.0,51.0,65.0,65.0,,,59.0,(Level 47),"[{""evolves_to"": ""Vanilluxe"", ""condition"": ""(Level 47)""}]"
+vanilluxe,Vanilluxe,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/vanilluxe.jpg,generation-v,Generation V,535.0,71.0,95.0,85.0,,,79.0,,[]
+deerling,Deerling,"[""Normal"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/deerling.jpg,generation-v,Generation V,335.0,60.0,60.0,50.0,,,75.0,(Level 34),"[{""evolves_to"": ""Sawsbuck"", ""condition"": ""(Level 34)""}]"
+sawsbuck,Sawsbuck,"[""Normal"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/sawsbuck.jpg,generation-v,Generation V,475.0,80.0,100.0,70.0,,,95.0,,[]
+emolga,Emolga,"[""Electric"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/emolga.jpg,generation-v,Generation V,428.0,55.0,75.0,60.0,,,103.0,,
+karrablast,Karrablast,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/karrablast.jpg,generation-v,Generation V,315.0,50.0,75.0,45.0,,,60.0,(Trade with Shelmet),"[{""evolves_to"": ""Escavalier"", ""condition"": ""(Trade with Shelmet)""}]"
+escavalier,Escavalier,"[""Bug"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/escavalier.jpg,generation-v,Generation V,495.0,70.0,135.0,105.0,,,20.0,,[]
+foongus,Foongus,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/foongus.jpg,generation-v,Generation V,294.0,69.0,55.0,45.0,,,15.0,(Level 39),"[{""evolves_to"": ""Amoonguss"", ""condition"": ""(Level 39)""}]"
+amoonguss,Amoonguss,"[""Grass"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/amoonguss.jpg,generation-v,Generation V,464.0,114.0,85.0,70.0,,,30.0,,[]
+frillish,Frillish,"[""Water"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/frillish.jpg,generation-v,Generation V,335.0,55.0,40.0,50.0,,,40.0,(Level 40),"[{""evolves_to"": ""Jellicent"", ""condition"": ""(Level 40)""}]"
+jellicent,Jellicent,"[""Water"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/jellicent.jpg,generation-v,Generation V,480.0,100.0,60.0,70.0,,,60.0,,[]
+alomomola,Alomomola,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/alomomola.jpg,generation-v,Generation V,470.0,165.0,75.0,80.0,,,65.0,,
+joltik,Joltik,"[""Bug"", ""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/joltik.jpg,generation-v,Generation V,319.0,50.0,47.0,50.0,,,65.0,(Level 36),"[{""evolves_to"": ""Galvantula"", ""condition"": ""(Level 36)""}]"
+galvantula,Galvantula,"[""Bug"", ""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/galvantula.jpg,generation-v,Generation V,472.0,70.0,77.0,60.0,,,108.0,,[]
+ferroseed,Ferroseed,"[""Grass"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/ferroseed.jpg,generation-v,Generation V,305.0,44.0,50.0,91.0,,,10.0,(Level 40),"[{""evolves_to"": ""Ferrothorn"", ""condition"": ""(Level 40)""}]"
+ferrothorn,Ferrothorn,"[""Grass"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/ferrothorn.jpg,generation-v,Generation V,489.0,74.0,94.0,131.0,,,20.0,,[]
+klink,Klink,"[""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/klink.jpg,generation-v,Generation V,300.0,40.0,55.0,70.0,,,30.0,(Level 38),"[{""evolves_to"": ""Klang"", ""condition"": ""(Level 38)""}]"
+klang,Klang,"[""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/klang.jpg,generation-v,Generation V,440.0,60.0,80.0,95.0,,,50.0,(Level 49),"[{""evolves_to"": ""Klinklang"", ""condition"": ""(Level 49)""}]"
+klinklang,Klinklang,"[""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/klinklang.jpg,generation-v,Generation V,520.0,60.0,100.0,115.0,,,90.0,,[]
+tynamo,Tynamo,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/tynamo.jpg,generation-v,Generation V,275.0,35.0,55.0,40.0,,,60.0,(Level 39),"[{""evolves_to"": ""Eelektrik"", ""condition"": ""(Level 39)""}]"
+eelektrik,Eelektrik,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/eelektrik.jpg,generation-v,Generation V,405.0,65.0,85.0,70.0,,,40.0,(use Thunder Stone),"[{""evolves_to"": ""Eelektross"", ""condition"": ""(use Thunder Stone)""}]"
+eelektross,Eelektross,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/eelektross.jpg,generation-v,Generation V,515.0,85.0,115.0,80.0,,,50.0,,[]
+elgyem,Elgyem,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/elgyem.jpg,generation-v,Generation V,335.0,55.0,55.0,55.0,,,30.0,(Level 42),"[{""evolves_to"": ""Beheeyem"", ""condition"": ""(Level 42)""}]"
+beheeyem,Beheeyem,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/beheeyem.jpg,generation-v,Generation V,485.0,75.0,75.0,75.0,,,40.0,,[]
+litwick,Litwick,"[""Ghost"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/litwick.jpg,generation-v,Generation V,275.0,50.0,30.0,55.0,,,20.0,(Level 41),"[{""evolves_to"": ""Lampent"", ""condition"": ""(Level 41)""}]"
+lampent,Lampent,"[""Ghost"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/lampent.jpg,generation-v,Generation V,370.0,60.0,40.0,60.0,,,55.0,(use Dusk Stone),"[{""evolves_to"": ""Chandelure"", ""condition"": ""(use Dusk Stone)""}]"
+chandelure,Chandelure,"[""Ghost"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/chandelure.jpg,generation-v,Generation V,520.0,60.0,55.0,90.0,,,80.0,,[]
+axew,Axew,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/axew.jpg,generation-v,Generation V,320.0,46.0,87.0,60.0,,,57.0,(Level 38),"[{""evolves_to"": ""Fraxure"", ""condition"": ""(Level 38)""}]"
+fraxure,Fraxure,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/fraxure.jpg,generation-v,Generation V,410.0,66.0,117.0,70.0,,,67.0,(Level 48),"[{""evolves_to"": ""Haxorus"", ""condition"": ""(Level 48)""}]"
+haxorus,Haxorus,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/haxorus.jpg,generation-v,Generation V,540.0,76.0,147.0,90.0,,,97.0,,[]
+cubchoo,Cubchoo,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/cubchoo.jpg,generation-v,Generation V,305.0,55.0,70.0,40.0,,,40.0,(Level 37),"[{""evolves_to"": ""Beartic"", ""condition"": ""(Level 37)""}]"
+beartic,Beartic,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/beartic.jpg,generation-v,Generation V,505.0,95.0,130.0,80.0,,,50.0,,[]
+cryogonal,Cryogonal,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/cryogonal.jpg,generation-v,Generation V,515.0,80.0,50.0,50.0,,,105.0,,
+shelmet,Shelmet,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/shelmet.jpg,generation-v,Generation V,305.0,50.0,40.0,85.0,,,25.0,(Trade with Karrablast),"[{""evolves_to"": ""Accelgor"", ""condition"": ""(Trade with Karrablast)""}]"
+accelgor,Accelgor,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/accelgor.jpg,generation-v,Generation V,495.0,80.0,70.0,40.0,,,145.0,,[]
+stunfisk,Stunfisk,"[""Ground"", ""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/stunfisk.jpg,generation-v,Generation V,471.0,109.0,66.0,84.0,,,32.0,,
+mienfoo,Mienfoo,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/mienfoo.jpg,generation-v,Generation V,350.0,45.0,85.0,50.0,,,65.0,(Level 50),"[{""evolves_to"": ""Mienshao"", ""condition"": ""(Level 50)""}]"
+mienshao,Mienshao,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/mienshao.jpg,generation-v,Generation V,510.0,65.0,125.0,60.0,,,105.0,,[]
+druddigon,Druddigon,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/druddigon.jpg,generation-v,Generation V,485.0,77.0,120.0,90.0,,,48.0,,
+golett,Golett,"[""Ground"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/golett.jpg,generation-v,Generation V,303.0,59.0,74.0,50.0,,,35.0,(Level 43),"[{""evolves_to"": ""Golurk"", ""condition"": ""(Level 43)""}]"
+golurk,Golurk,"[""Ground"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/golurk.jpg,generation-v,Generation V,483.0,89.0,124.0,80.0,,,55.0,,[]
+pawniard,Pawniard,"[""Dark"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/pawniard.jpg,generation-v,Generation V,340.0,45.0,85.0,70.0,,,60.0,(Level 52),"[{""evolves_to"": ""Bisharp"", ""condition"": ""(Level 52)""}]"
+bisharp,Bisharp,"[""Dark"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/bisharp.jpg,generation-v,Generation V,490.0,65.0,125.0,100.0,,,70.0,(defeat 3 Bisharp that are holding Leader's Crest),"[{""evolves_to"": ""Kingambit"", ""condition"": ""(defeat 3 Bisharp that are holding Leader's Crest)""}]"
+bouffalant,Bouffalant,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/bouffalant.jpg,generation-v,Generation V,490.0,95.0,110.0,95.0,,,55.0,,
+rufflet,Rufflet,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/rufflet.jpg,generation-v,Generation V,350.0,70.0,83.0,50.0,,,60.0,,[]
+braviary,Braviary,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/braviary.jpg,generation-v,Generation V,510.0,100.0,123.0,75.0,,,80.0,,[]
+vullaby,Vullaby,"[""Dark"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/vullaby.jpg,generation-v,Generation V,370.0,70.0,55.0,75.0,,,60.0,(Level 54),"[{""evolves_to"": ""Mandibuzz"", ""condition"": ""(Level 54)""}]"
+mandibuzz,Mandibuzz,"[""Dark"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/mandibuzz.jpg,generation-v,Generation V,510.0,110.0,65.0,105.0,,,80.0,,[]
+heatmor,Heatmor,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/heatmor.jpg,generation-v,Generation V,484.0,85.0,97.0,66.0,,,65.0,,
+durant,Durant,"[""Bug"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/durant.jpg,generation-v,Generation V,484.0,58.0,109.0,112.0,,,109.0,,
+deino,Deino,"[""Dark"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/deino.jpg,generation-v,Generation V,300.0,52.0,65.0,50.0,,,38.0,(Level 50),"[{""evolves_to"": ""Zweilous"", ""condition"": ""(Level 50)""}]"
+zweilous,Zweilous,"[""Dark"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/zweilous.jpg,generation-v,Generation V,420.0,72.0,85.0,70.0,,,58.0,(Level 64),"[{""evolves_to"": ""Hydreigon"", ""condition"": ""(Level 64)""}]"
+hydreigon,Hydreigon,"[""Dark"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/hydreigon.jpg,generation-v,Generation V,600.0,92.0,105.0,90.0,,,98.0,,[]
+larvesta,Larvesta,"[""Bug"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/larvesta.jpg,generation-v,Generation V,360.0,55.0,85.0,55.0,,,60.0,(Level 59),"[{""evolves_to"": ""Volcarona"", ""condition"": ""(Level 59)""}]"
+volcarona,Volcarona,"[""Bug"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/volcarona.jpg,generation-v,Generation V,550.0,85.0,60.0,65.0,,,100.0,,[]
+cobalion,Cobalion,"[""Steel"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/cobalion.jpg,generation-v,Generation V,580.0,91.0,90.0,129.0,,,108.0,,
+terrakion,Terrakion,"[""Rock"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/terrakion.jpg,generation-v,Generation V,580.0,91.0,129.0,90.0,,,108.0,,
+virizion,Virizion,"[""Grass"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/virizion.jpg,generation-v,Generation V,580.0,91.0,90.0,72.0,,,108.0,,
+tornadus,Tornadus,"[""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/tornadus.jpg,generation-v,Generation V,,,,,,,,,
+thundurus,Thundurus,"[""Electric"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/thundurus.jpg,generation-v,Generation V,,,,,,,,,
+reshiram,Reshiram,"[""Dragon"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/reshiram.jpg,generation-v,Generation V,680.0,100.0,120.0,100.0,,,90.0,,
+zekrom,Zekrom,"[""Dragon"", ""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/zekrom.jpg,generation-v,Generation V,680.0,100.0,150.0,120.0,,,90.0,,
+landorus,Landorus,"[""Ground"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/landorus.jpg,generation-v,Generation V,,,,,,,,,
+kyurem,Kyurem,"[""Dragon"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/kyurem.jpg,generation-v,Generation V,660.0,125.0,130.0,90.0,,,95.0,,
+keldeo,Keldeo,"[""Water"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/keldeo.jpg,generation-v,Generation V,,,,,,,,,
+meloetta,Meloetta,"[""Normal"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/meloetta.jpg,generation-v,Generation V,,,,,,,,,
+genesect,Genesect,"[""Bug"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/genesect.jpg,generation-v,Generation V,600.0,71.0,120.0,95.0,,,99.0,,
+chespin,Chespin,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/chespin.jpg,generation-vi,Generation VI,313.0,56.0,61.0,65.0,,,38.0,(Level 16),"[{""evolves_to"": ""Quilladin"", ""condition"": ""(Level 16)""}]"
+quilladin,Quilladin,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/quilladin.jpg,generation-vi,Generation VI,405.0,61.0,78.0,95.0,,,57.0,(Level 36),"[{""evolves_to"": ""Chesnaught"", ""condition"": ""(Level 36)""}]"
+chesnaught,Chesnaught,"[""Grass"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/chesnaught.jpg,generation-vi,Generation VI,530.0,88.0,107.0,122.0,,,64.0,,[]
+fennekin,Fennekin,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/fennekin.jpg,generation-vi,Generation VI,307.0,40.0,45.0,40.0,,,60.0,(Level 16),"[{""evolves_to"": ""Braixen"", ""condition"": ""(Level 16)""}]"
+braixen,Braixen,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/braixen.jpg,generation-vi,Generation VI,409.0,59.0,59.0,58.0,,,73.0,(Level 36),"[{""evolves_to"": ""Delphox"", ""condition"": ""(Level 36)""}]"
+delphox,Delphox,"[""Fire"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/delphox.jpg,generation-vi,Generation VI,534.0,75.0,69.0,72.0,,,104.0,,[]
+froakie,Froakie,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/froakie.jpg,generation-vi,Generation VI,314.0,41.0,56.0,40.0,,,71.0,(Level 16),"[{""evolves_to"": ""Frogadier"", ""condition"": ""(Level 16)""}]"
+frogadier,Frogadier,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/frogadier.jpg,generation-vi,Generation VI,405.0,54.0,63.0,52.0,,,97.0,(Level 36),"[{""evolves_to"": ""Greninja"", ""condition"": ""(Level 36)""}]"
+greninja,Greninja,"[""Water"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/greninja.jpg,generation-vi,Generation VI,530.0,72.0,95.0,67.0,,,122.0,,[]
+bunnelby,Bunnelby,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/bunnelby.jpg,generation-vi,Generation VI,237.0,38.0,36.0,38.0,,,57.0,(Level 20),"[{""evolves_to"": ""Diggersby"", ""condition"": ""(Level 20)""}]"
+diggersby,Diggersby,"[""Normal"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/diggersby.jpg,generation-vi,Generation VI,423.0,85.0,56.0,77.0,,,78.0,,[]
+fletchling,Fletchling,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/fletchling.jpg,generation-vi,Generation VI,278.0,45.0,50.0,43.0,,,62.0,(Level 17),"[{""evolves_to"": ""Fletchinder"", ""condition"": ""(Level 17)""}]"
+fletchinder,Fletchinder,"[""Fire"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/fletchinder.jpg,generation-vi,Generation VI,382.0,62.0,73.0,55.0,,,84.0,(Level 35),"[{""evolves_to"": ""Talonflame"", ""condition"": ""(Level 35)""}]"
+talonflame,Talonflame,"[""Fire"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/talonflame.jpg,generation-vi,Generation VI,499.0,78.0,81.0,71.0,,,126.0,,[]
+scatterbug,Scatterbug,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/scatterbug.jpg,generation-vi,Generation VI,200.0,38.0,35.0,40.0,,,35.0,(Level 9),"[{""evolves_to"": ""Spewpa"", ""condition"": ""(Level 9)""}]"
+spewpa,Spewpa,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/spewpa.jpg,generation-vi,Generation VI,213.0,45.0,22.0,60.0,,,29.0,(Level 12),"[{""evolves_to"": ""Vivillon"", ""condition"": ""(Level 12)""}]"
+vivillon,Vivillon,"[""Bug"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/vivillon.jpg,generation-vi,Generation VI,411.0,80.0,52.0,50.0,,,89.0,,[]
+litleo,Litleo,"[""Fire"", ""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/litleo.jpg,generation-vi,Generation VI,369.0,62.0,50.0,58.0,,,72.0,(Level 35),"[{""evolves_to"": ""Pyroar"", ""condition"": ""(Level 35)""}]"
+pyroar,Pyroar,"[""Fire"", ""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/pyroar.jpg,generation-vi,Generation VI,507.0,86.0,68.0,72.0,,,106.0,,[]
+flabébé,Flabébé,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/flabebe.jpg,generation-vi,Generation VI,303.0,44.0,38.0,39.0,,,42.0,(Level 19),"[{""evolves_to"": ""Floette"", ""condition"": ""(Level 19)""}]"
+floette,Floette,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/floette.jpg,generation-vi,Generation VI,371.0,54.0,45.0,47.0,,,52.0,(use Shiny Stone),"[{""evolves_to"": ""Florges"", ""condition"": ""(use Shiny Stone)""}]"
+florges,Florges,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/florges.jpg,generation-vi,Generation VI,552.0,78.0,65.0,68.0,,,75.0,,[]
+skiddo,Skiddo,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/skiddo.jpg,generation-vi,Generation VI,350.0,66.0,65.0,48.0,,,52.0,(Level 32),"[{""evolves_to"": ""Gogoat"", ""condition"": ""(Level 32)""}]"
+gogoat,Gogoat,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/gogoat.jpg,generation-vi,Generation VI,531.0,123.0,100.0,62.0,,,68.0,,[]
+pancham,Pancham,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/pancham.jpg,generation-vi,Generation VI,348.0,67.0,82.0,62.0,,,43.0,"(Level 32, Dark type Pokémon in party)","[{""evolves_to"": ""Pangoro"", ""condition"": ""(Level 32, Dark type Pokémon in party)""}]"
+pangoro,Pangoro,"[""Fighting"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/pangoro.jpg,generation-vi,Generation VI,495.0,95.0,124.0,78.0,,,58.0,,[]
+furfrou,Furfrou,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/furfrou.jpg,generation-vi,Generation VI,472.0,75.0,80.0,60.0,,,102.0,,
+espurr,Espurr,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/espurr.jpg,generation-vi,Generation VI,355.0,62.0,48.0,54.0,,,68.0,,[]
+meowstic,Meowstic,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/meowstic.jpg,generation-vi,Generation VI,,,,,,,,,
+honedge,Honedge,"[""Steel"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/honedge.jpg,generation-vi,Generation VI,325.0,45.0,80.0,100.0,,,28.0,(Level 35),"[{""evolves_to"": ""Doublade"", ""condition"": ""(Level 35)""}]"
+doublade,Doublade,"[""Steel"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/doublade.jpg,generation-vi,Generation VI,448.0,59.0,110.0,150.0,,,35.0,(use Dusk Stone),"[{""evolves_to"": ""Aegislash (Shield Forme)"", ""condition"": ""(use Dusk Stone)""}]"
+aegislash,Aegislash,"[""Steel"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/aegislash.jpg,generation-vi,Generation VI,,,,,,,,,
+spritzee,Spritzee,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/spritzee.jpg,generation-vi,Generation VI,341.0,78.0,52.0,60.0,,,23.0,(trade holding Sachet),"[{""evolves_to"": ""Aromatisse"", ""condition"": ""(trade holding Sachet)""}]"
+aromatisse,Aromatisse,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/aromatisse.jpg,generation-vi,Generation VI,462.0,101.0,72.0,72.0,,,29.0,,[]
+swirlix,Swirlix,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/swirlix.jpg,generation-vi,Generation VI,341.0,62.0,48.0,66.0,,,49.0,(trade holding Whipped Dream),"[{""evolves_to"": ""Slurpuff"", ""condition"": ""(trade holding Whipped Dream)""}]"
+slurpuff,Slurpuff,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/slurpuff.jpg,generation-vi,Generation VI,480.0,82.0,80.0,86.0,,,72.0,,[]
+inkay,Inkay,"[""Dark"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/inkay.jpg,generation-vi,Generation VI,288.0,53.0,54.0,53.0,,,45.0,"(Level 30, holding console upside down)","[{""evolves_to"": ""Malamar"", ""condition"": ""(Level 30, holding console upside down)""}]"
+malamar,Malamar,"[""Dark"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/malamar.jpg,generation-vi,Generation VI,482.0,86.0,92.0,88.0,,,73.0,,[]
+binacle,Binacle,"[""Rock"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/binacle.jpg,generation-vi,Generation VI,306.0,42.0,52.0,67.0,,,50.0,(Level 39),"[{""evolves_to"": ""Barbaracle"", ""condition"": ""(Level 39)""}]"
+barbaracle,Barbaracle,"[""Rock"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/barbaracle.jpg,generation-vi,Generation VI,500.0,72.0,105.0,115.0,,,68.0,,[]
+skrelp,Skrelp,"[""Poison"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/skrelp.jpg,generation-vi,Generation VI,320.0,50.0,60.0,60.0,,,30.0,(Level 48),"[{""evolves_to"": ""Dragalge"", ""condition"": ""(Level 48)""}]"
+dragalge,Dragalge,"[""Poison"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/dragalge.jpg,generation-vi,Generation VI,494.0,65.0,75.0,90.0,,,44.0,,[]
+clauncher,Clauncher,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/clauncher.jpg,generation-vi,Generation VI,330.0,50.0,53.0,62.0,,,44.0,(Level 37),"[{""evolves_to"": ""Clawitzer"", ""condition"": ""(Level 37)""}]"
+clawitzer,Clawitzer,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/clawitzer.jpg,generation-vi,Generation VI,500.0,71.0,73.0,88.0,,,59.0,,[]
+helioptile,Helioptile,"[""Electric"", ""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/helioptile.jpg,generation-vi,Generation VI,289.0,44.0,38.0,33.0,,,70.0,(use Sun Stone),"[{""evolves_to"": ""Heliolisk"", ""condition"": ""(use Sun Stone)""}]"
+heliolisk,Heliolisk,"[""Electric"", ""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/heliolisk.jpg,generation-vi,Generation VI,481.0,62.0,55.0,52.0,,,109.0,,[]
+tyrunt,Tyrunt,"[""Rock"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/tyrunt.jpg,generation-vi,Generation VI,362.0,58.0,89.0,77.0,,,48.0,"(Level 39, Daytime)","[{""evolves_to"": ""Tyrantrum"", ""condition"": ""(Level 39, Daytime)""}]"
+tyrantrum,Tyrantrum,"[""Rock"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/tyrantrum.jpg,generation-vi,Generation VI,521.0,82.0,121.0,119.0,,,71.0,,[]
+amaura,Amaura,"[""Rock"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/amaura.jpg,generation-vi,Generation VI,362.0,77.0,59.0,50.0,,,46.0,"(Level 39, Nighttime)","[{""evolves_to"": ""Aurorus"", ""condition"": ""(Level 39, Nighttime)""}]"
+aurorus,Aurorus,"[""Rock"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/aurorus.jpg,generation-vi,Generation VI,521.0,123.0,77.0,72.0,,,58.0,,[]
+sylveon,Sylveon,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/sylveon.jpg,generation-vi,Generation VI,525.0,95.0,65.0,65.0,,,60.0,,[]
+hawlucha,Hawlucha,"[""Fighting"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/hawlucha.jpg,generation-vi,Generation VI,500.0,78.0,92.0,75.0,,,118.0,,
+dedenne,Dedenne,"[""Electric"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/dedenne.jpg,generation-vi,Generation VI,431.0,67.0,58.0,57.0,,,101.0,,
+carbink,Carbink,"[""Rock"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/carbink.jpg,generation-vi,Generation VI,500.0,50.0,50.0,150.0,,,50.0,,
+goomy,Goomy,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/goomy.jpg,generation-vi,Generation VI,300.0,45.0,50.0,35.0,,,40.0,,[]
+sliggoo,Sliggoo,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/sliggoo.jpg,generation-vi,Generation VI,452.0,68.0,75.0,53.0,,,60.0,"(Level 50, during rain)","[{""evolves_to"": ""Goodra"", ""condition"": ""(Level 50, during rain)""}]"
+goodra,Goodra,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/goodra.jpg,generation-vi,Generation VI,600.0,90.0,100.0,70.0,,,80.0,,[]
+klefki,Klefki,"[""Steel"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/klefki.jpg,generation-vi,Generation VI,470.0,57.0,80.0,91.0,,,75.0,,
+phantump,Phantump,"[""Ghost"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/phantump.jpg,generation-vi,Generation VI,309.0,43.0,70.0,48.0,,,38.0,(Trade),"[{""evolves_to"": ""Trevenant"", ""condition"": ""(Trade)""}]"
+trevenant,Trevenant,"[""Ghost"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/trevenant.jpg,generation-vi,Generation VI,474.0,85.0,110.0,76.0,,,56.0,,[]
+pumpkaboo,Pumpkaboo,"[""Ghost"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/pumpkaboo.jpg,generation-vi,Generation VI,,,,,,,,,
+gourgeist,Gourgeist,"[""Ghost"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/gourgeist.jpg,generation-vi,Generation VI,,,,,,,,,
+bergmite,Bergmite,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/bergmite.jpg,generation-vi,Generation VI,304.0,55.0,69.0,85.0,,,28.0,,[]
+avalugg,Avalugg,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/avalugg.jpg,generation-vi,Generation VI,514.0,95.0,117.0,184.0,,,28.0,,[]
+noibat,Noibat,"[""Flying"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/noibat.jpg,generation-vi,Generation VI,245.0,40.0,30.0,35.0,,,55.0,(Level 48),"[{""evolves_to"": ""Noivern"", ""condition"": ""(Level 48)""}]"
+noivern,Noivern,"[""Flying"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/noivern.jpg,generation-vi,Generation VI,535.0,85.0,70.0,80.0,,,123.0,,[]
+xerneas,Xerneas,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/xerneas.jpg,generation-vi,Generation VI,680.0,126.0,131.0,95.0,,,99.0,,
+yveltal,Yveltal,"[""Dark"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/yveltal.jpg,generation-vi,Generation VI,680.0,126.0,131.0,95.0,,,99.0,,
+zygarde,Zygarde,"[""Dragon"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/zygarde.jpg,generation-vi,Generation VI,,,,,,,,,
+diancie,Diancie,"[""Rock"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/diancie.jpg,generation-vi,Generation VI,600.0,50.0,100.0,150.0,,,50.0,,
+hoopa,Hoopa,"[""Psychic"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/hoopa.jpg,generation-vi,Generation VI,,,,,,,,,
+volcanion,Volcanion,"[""Fire"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/volcanion.jpg,generation-vi,Generation VI,600.0,80.0,110.0,120.0,,,70.0,,
+rowlet,Rowlet,"[""Grass"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/rowlet.jpg,generation-vii,Generation VII,320.0,68.0,55.0,55.0,,,42.0,(Level 17),"[{""evolves_to"": ""Dartrix"", ""condition"": ""(Level 17)""}]"
+dartrix,Dartrix,"[""Grass"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/dartrix.jpg,generation-vii,Generation VII,420.0,78.0,75.0,75.0,,,52.0,,[]
+decidueye,Decidueye,"[""Grass"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/decidueye.jpg,generation-vii,Generation VII,530.0,78.0,107.0,75.0,,,70.0,,[]
+litten,Litten,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/litten.jpg,generation-vii,Generation VII,320.0,45.0,65.0,40.0,,,70.0,(Level 17),"[{""evolves_to"": ""Torracat"", ""condition"": ""(Level 17)""}]"
+torracat,Torracat,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/torracat.jpg,generation-vii,Generation VII,420.0,65.0,85.0,50.0,,,90.0,(Level 34),"[{""evolves_to"": ""Incineroar"", ""condition"": ""(Level 34)""}]"
+incineroar,Incineroar,"[""Fire"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/incineroar.jpg,generation-vii,Generation VII,530.0,95.0,115.0,90.0,,,60.0,,[]
+popplio,Popplio,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/popplio.jpg,generation-vii,Generation VII,320.0,50.0,54.0,54.0,,,40.0,(Level 17),"[{""evolves_to"": ""Brionne"", ""condition"": ""(Level 17)""}]"
+brionne,Brionne,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/brionne.jpg,generation-vii,Generation VII,420.0,60.0,69.0,69.0,,,50.0,(Level 34),"[{""evolves_to"": ""Primarina"", ""condition"": ""(Level 34)""}]"
+primarina,Primarina,"[""Water"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/primarina.jpg,generation-vii,Generation VII,530.0,80.0,74.0,74.0,,,60.0,,[]
+pikipek,Pikipek,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/pikipek.jpg,generation-vii,Generation VII,265.0,35.0,75.0,30.0,,,65.0,(Level 14),"[{""evolves_to"": ""Trumbeak"", ""condition"": ""(Level 14)""}]"
+trumbeak,Trumbeak,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/trumbeak.jpg,generation-vii,Generation VII,355.0,55.0,85.0,50.0,,,75.0,(Level 28),"[{""evolves_to"": ""Toucannon"", ""condition"": ""(Level 28)""}]"
+toucannon,Toucannon,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/toucannon.jpg,generation-vii,Generation VII,485.0,80.0,120.0,75.0,,,60.0,,[]
+yungoos,Yungoos,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/yungoos.jpg,generation-vii,Generation VII,253.0,48.0,70.0,30.0,,,45.0,"(Level 20, Daytime)","[{""evolves_to"": ""Gumshoos"", ""condition"": ""(Level 20, Daytime)""}]"
+gumshoos,Gumshoos,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/gumshoos.jpg,generation-vii,Generation VII,418.0,88.0,110.0,60.0,,,45.0,,[]
+grubbin,Grubbin,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/grubbin.jpg,generation-vii,Generation VII,300.0,47.0,62.0,45.0,,,46.0,(Level 20),"[{""evolves_to"": ""Charjabug"", ""condition"": ""(Level 20)""}]"
+charjabug,Charjabug,"[""Bug"", ""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/charjabug.jpg,generation-vii,Generation VII,400.0,57.0,82.0,95.0,,,36.0,"(use Thunder Stone, in Gen 8, or level up in a Magnetic Field area)","[{""evolves_to"": ""Vikavolt"", ""condition"": ""(use Thunder Stone, in Gen 8, or level up in a Magnetic Field area)""}]"
+vikavolt,Vikavolt,"[""Bug"", ""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/vikavolt.jpg,generation-vii,Generation VII,500.0,77.0,70.0,90.0,,,43.0,,[]
+crabrawler,Crabrawler,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/crabrawler.jpg,generation-vii,Generation VII,338.0,47.0,82.0,57.0,,,63.0,"(use Ice Stone, or at Mount Lanakila in Alola)","[{""evolves_to"": ""Crabominable"", ""condition"": ""(use Ice Stone, or at Mount Lanakila in Alola)""}]"
+crabominable,Crabominable,"[""Fighting"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/crabominable.jpg,generation-vii,Generation VII,478.0,97.0,132.0,77.0,,,43.0,,[]
+oricorio,Oricorio,"[""Fire"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/oricorio.jpg,generation-vii,Generation VII,,,,,,,,,
+cutiefly,Cutiefly,"[""Bug"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/cutiefly.jpg,generation-vii,Generation VII,304.0,40.0,45.0,40.0,,,84.0,(Level 25),"[{""evolves_to"": ""Ribombee"", ""condition"": ""(Level 25)""}]"
+ribombee,Ribombee,"[""Bug"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/ribombee.jpg,generation-vii,Generation VII,464.0,60.0,55.0,60.0,,,124.0,,[]
+rockruff,Rockruff,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/rockruff.jpg,generation-vii,Generation VII,280.0,45.0,65.0,40.0,,,60.0,,[]
+lycanroc,Lycanroc,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/lycanroc.jpg,generation-vii,Generation VII,,,,,,,,,
+wishiwashi,Wishiwashi,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/wishiwashi.jpg,generation-vii,Generation VII,,,,,,,,,
+mareanie,Mareanie,"[""Poison"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/mareanie.jpg,generation-vii,Generation VII,305.0,50.0,53.0,62.0,,,45.0,(Level 38),"[{""evolves_to"": ""Toxapex"", ""condition"": ""(Level 38)""}]"
+toxapex,Toxapex,"[""Poison"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/toxapex.jpg,generation-vii,Generation VII,495.0,50.0,63.0,152.0,,,35.0,,[]
+mudbray,Mudbray,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/mudbray.jpg,generation-vii,Generation VII,385.0,70.0,100.0,70.0,,,45.0,(Level 30),"[{""evolves_to"": ""Mudsdale"", ""condition"": ""(Level 30)""}]"
+mudsdale,Mudsdale,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/mudsdale.jpg,generation-vii,Generation VII,500.0,100.0,125.0,100.0,,,35.0,,[]
+dewpider,Dewpider,"[""Water"", ""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/dewpider.jpg,generation-vii,Generation VII,269.0,38.0,40.0,52.0,,,27.0,(Level 22),"[{""evolves_to"": ""Araquanid"", ""condition"": ""(Level 22)""}]"
+araquanid,Araquanid,"[""Water"", ""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/araquanid.jpg,generation-vii,Generation VII,454.0,68.0,70.0,92.0,,,42.0,,[]
+fomantis,Fomantis,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/fomantis.jpg,generation-vii,Generation VII,250.0,40.0,55.0,35.0,,,35.0,"(Level 34, Daytime)","[{""evolves_to"": ""Lurantis"", ""condition"": ""(Level 34, Daytime)""}]"
+lurantis,Lurantis,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/lurantis.jpg,generation-vii,Generation VII,480.0,70.0,105.0,90.0,,,45.0,,[]
+morelull,Morelull,"[""Grass"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/morelull.jpg,generation-vii,Generation VII,285.0,40.0,35.0,55.0,,,15.0,(Level 24),"[{""evolves_to"": ""Shiinotic"", ""condition"": ""(Level 24)""}]"
+shiinotic,Shiinotic,"[""Grass"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/shiinotic.jpg,generation-vii,Generation VII,405.0,60.0,45.0,80.0,,,30.0,,[]
+salandit,Salandit,"[""Poison"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/salandit.jpg,generation-vii,Generation VII,320.0,48.0,44.0,40.0,,,77.0,"(Level 33, Female)","[{""evolves_to"": ""Salazzle"", ""condition"": ""(Level 33, Female)""}]"
+salazzle,Salazzle,"[""Poison"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/salazzle.jpg,generation-vii,Generation VII,480.0,68.0,64.0,60.0,,,117.0,,[]
+stufful,Stufful,"[""Normal"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/stufful.jpg,generation-vii,Generation VII,340.0,70.0,75.0,50.0,,,50.0,(Level 27),"[{""evolves_to"": ""Bewear"", ""condition"": ""(Level 27)""}]"
+bewear,Bewear,"[""Normal"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/bewear.jpg,generation-vii,Generation VII,500.0,120.0,125.0,80.0,,,60.0,,[]
+bounsweet,Bounsweet,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/bounsweet.jpg,generation-vii,Generation VII,210.0,42.0,30.0,38.0,,,32.0,(Level 18),"[{""evolves_to"": ""Steenee"", ""condition"": ""(Level 18)""}]"
+steenee,Steenee,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/steenee.jpg,generation-vii,Generation VII,290.0,52.0,40.0,48.0,,,62.0,(after Stomp learned),"[{""evolves_to"": ""Tsareena"", ""condition"": ""(after Stomp learned)""}]"
+tsareena,Tsareena,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/tsareena.jpg,generation-vii,Generation VII,510.0,72.0,120.0,98.0,,,72.0,,[]
+comfey,Comfey,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/comfey.jpg,generation-vii,Generation VII,485.0,51.0,52.0,90.0,,,100.0,,
+oranguru,Oranguru,"[""Normal"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/oranguru.jpg,generation-vii,Generation VII,490.0,90.0,60.0,80.0,,,60.0,,
+passimian,Passimian,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/passimian.jpg,generation-vii,Generation VII,490.0,100.0,120.0,90.0,,,80.0,,
+wimpod,Wimpod,"[""Bug"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/wimpod.jpg,generation-vii,Generation VII,230.0,25.0,35.0,40.0,,,80.0,(Level 30),"[{""evolves_to"": ""Golisopod"", ""condition"": ""(Level 30)""}]"
+golisopod,Golisopod,"[""Bug"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/golisopod.jpg,generation-vii,Generation VII,530.0,75.0,125.0,140.0,,,40.0,,[]
+sandygast,Sandygast,"[""Ghost"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/sandygast.jpg,generation-vii,Generation VII,320.0,55.0,55.0,80.0,,,15.0,(Level 42),"[{""evolves_to"": ""Palossand"", ""condition"": ""(Level 42)""}]"
+palossand,Palossand,"[""Ghost"", ""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/palossand.jpg,generation-vii,Generation VII,480.0,85.0,75.0,110.0,,,35.0,,[]
+pyukumuku,Pyukumuku,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/pyukumuku.jpg,generation-vii,Generation VII,410.0,55.0,60.0,130.0,,,5.0,,
+type: null,Type: Null,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/type-null.jpg,generation-vii,Generation VII,534.0,95.0,95.0,95.0,,,59.0,(high Friendship),"[{""evolves_to"": ""Silvally"", ""condition"": ""(high Friendship)""}]"
+silvally,Silvally,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/silvally.jpg,generation-vii,Generation VII,570.0,95.0,95.0,95.0,,,95.0,,[]
+minior,Minior,"[""Rock"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/minior.jpg,generation-vii,Generation VII,,,,,,,,,
+komala,Komala,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/komala.jpg,generation-vii,Generation VII,480.0,65.0,115.0,65.0,,,65.0,,
+turtonator,Turtonator,"[""Fire"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/turtonator.jpg,generation-vii,Generation VII,485.0,60.0,78.0,135.0,,,36.0,,
+togedemaru,Togedemaru,"[""Electric"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/togedemaru.jpg,generation-vii,Generation VII,435.0,65.0,98.0,63.0,,,96.0,,
+mimikyu,Mimikyu,"[""Ghost"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/mimikyu.jpg,generation-vii,Generation VII,476.0,55.0,90.0,80.0,,,96.0,,
+bruxish,Bruxish,"[""Water"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/bruxish.jpg,generation-vii,Generation VII,475.0,68.0,105.0,70.0,,,92.0,,
+drampa,Drampa,"[""Normal"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/drampa.jpg,generation-vii,Generation VII,485.0,78.0,60.0,85.0,,,36.0,,
+dhelmise,Dhelmise,"[""Ghost"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/dhelmise.jpg,generation-vii,Generation VII,517.0,70.0,131.0,100.0,,,40.0,,
+jangmo-o,Jangmo-o,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/jangmo-o.jpg,generation-vii,Generation VII,300.0,45.0,55.0,65.0,,,45.0,(Level 35),"[{""evolves_to"": ""Hakamo-o"", ""condition"": ""(Level 35)""}]"
+hakamo-o,Hakamo-o,"[""Dragon"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/hakamo-o.jpg,generation-vii,Generation VII,420.0,55.0,75.0,90.0,,,65.0,(Level 45),"[{""evolves_to"": ""Kommo-o"", ""condition"": ""(Level 45)""}]"
+kommo-o,Kommo-o,"[""Dragon"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/kommo-o.jpg,generation-vii,Generation VII,600.0,75.0,110.0,125.0,,,85.0,,[]
+tapu koko,Tapu Koko,"[""Electric"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/tapu-koko.jpg,generation-vii,Generation VII,570.0,70.0,115.0,85.0,,,130.0,,
+tapu lele,Tapu Lele,"[""Psychic"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/tapu-lele.jpg,generation-vii,Generation VII,570.0,70.0,85.0,75.0,,,95.0,,
+tapu bulu,Tapu Bulu,"[""Grass"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/tapu-bulu.jpg,generation-vii,Generation VII,570.0,70.0,130.0,115.0,,,75.0,,
+tapu fini,Tapu Fini,"[""Water"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/tapu-fini.jpg,generation-vii,Generation VII,570.0,70.0,75.0,115.0,,,85.0,,
+cosmog,Cosmog,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/cosmog.jpg,generation-vii,Generation VII,200.0,43.0,29.0,31.0,,,37.0,(Level 43),"[{""evolves_to"": ""Cosmoem"", ""condition"": ""(Level 43)""}]"
+cosmoem,Cosmoem,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/cosmoem.jpg,generation-vii,Generation VII,400.0,43.0,29.0,131.0,,,37.0,,[]
+solgaleo,Solgaleo,"[""Psychic"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/solgaleo.jpg,generation-vii,Generation VII,680.0,137.0,137.0,107.0,,,97.0,,[]
+lunala,Lunala,"[""Psychic"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/lunala.jpg,generation-vii,Generation VII,680.0,137.0,113.0,89.0,,,97.0,,[]
+nihilego,Nihilego,"[""Rock"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/nihilego.jpg,generation-vii,Generation VII,570.0,109.0,53.0,47.0,,,103.0,,
+buzzwole,Buzzwole,"[""Bug"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/buzzwole.jpg,generation-vii,Generation VII,570.0,107.0,139.0,139.0,,,79.0,,
+pheromosa,Pheromosa,"[""Bug"", ""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/pheromosa.jpg,generation-vii,Generation VII,570.0,71.0,137.0,37.0,,,151.0,,
+xurkitree,Xurkitree,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/xurkitree.jpg,generation-vii,Generation VII,570.0,83.0,89.0,71.0,,,83.0,,
+celesteela,Celesteela,"[""Steel"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/celesteela.jpg,generation-vii,Generation VII,570.0,97.0,101.0,103.0,,,61.0,,
+kartana,Kartana,"[""Grass"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/kartana.jpg,generation-vii,Generation VII,570.0,59.0,181.0,131.0,,,109.0,,
+guzzlord,Guzzlord,"[""Dark"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/guzzlord.jpg,generation-vii,Generation VII,570.0,223.0,101.0,53.0,,,43.0,,
+necrozma,Necrozma,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/necrozma.jpg,generation-vii,Generation VII,600.0,97.0,107.0,101.0,,,79.0,,
+magearna,Magearna,"[""Steel"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/magearna.jpg,generation-vii,Generation VII,600.0,80.0,95.0,115.0,,,65.0,,
+marshadow,Marshadow,"[""Fighting"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/marshadow.jpg,generation-vii,Generation VII,600.0,90.0,125.0,80.0,,,125.0,,
+poipole,Poipole,"[""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/poipole.jpg,generation-vii,Generation VII,420.0,67.0,73.0,67.0,,,73.0,(after Dragon Pulse learned),"[{""evolves_to"": ""Naganadel"", ""condition"": ""(after Dragon Pulse learned)""}]"
+naganadel,Naganadel,"[""Poison"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/naganadel.jpg,generation-vii,Generation VII,540.0,73.0,73.0,73.0,,,121.0,,[]
+stakataka,Stakataka,"[""Rock"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/stakataka.jpg,generation-vii,Generation VII,570.0,61.0,131.0,211.0,,,13.0,,
+blacephalon,Blacephalon,"[""Fire"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/blacephalon.jpg,generation-vii,Generation VII,570.0,53.0,127.0,53.0,,,107.0,,
+zeraora,Zeraora,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/zeraora.jpg,generation-vii,Generation VII,600.0,88.0,112.0,75.0,,,143.0,,
+meltan,Meltan,"[""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/meltan.jpg,generation-vii,Generation VII,300.0,46.0,65.0,65.0,,,34.0,"(Pokémon GO only, 400 Meltan Candies)","[{""evolves_to"": ""Melmetal"", ""condition"": ""(Pokémon GO only, 400 Meltan Candies)""}]"
+melmetal,Melmetal,"[""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/melmetal.jpg,generation-vii,Generation VII,600.0,135.0,143.0,143.0,,,34.0,,[]
+grookey,Grookey,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/grookey.jpg,generation-viii,Generation VIII,310.0,50.0,65.0,50.0,,,65.0,(Level 16),"[{""evolves_to"": ""Thwackey"", ""condition"": ""(Level 16)""}]"
+thwackey,Thwackey,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/thwackey.jpg,generation-viii,Generation VIII,420.0,70.0,85.0,70.0,,,80.0,(Level 35),"[{""evolves_to"": ""Rillaboom"", ""condition"": ""(Level 35)""}]"
+rillaboom,Rillaboom,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/rillaboom.jpg,generation-viii,Generation VIII,530.0,100.0,125.0,90.0,,,85.0,,[]
+scorbunny,Scorbunny,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/scorbunny.jpg,generation-viii,Generation VIII,310.0,50.0,71.0,40.0,,,69.0,(Level 16),"[{""evolves_to"": ""Raboot"", ""condition"": ""(Level 16)""}]"
+raboot,Raboot,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/raboot.jpg,generation-viii,Generation VIII,420.0,65.0,86.0,60.0,,,94.0,(Level 35),"[{""evolves_to"": ""Cinderace"", ""condition"": ""(Level 35)""}]"
+cinderace,Cinderace,"[""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/cinderace.jpg,generation-viii,Generation VIII,530.0,80.0,116.0,75.0,,,119.0,,[]
+sobble,Sobble,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/sobble.jpg,generation-viii,Generation VIII,310.0,50.0,40.0,40.0,,,70.0,(Level 16),"[{""evolves_to"": ""Drizzile"", ""condition"": ""(Level 16)""}]"
+drizzile,Drizzile,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/drizzile.jpg,generation-viii,Generation VIII,420.0,65.0,60.0,55.0,,,90.0,(Level 35),"[{""evolves_to"": ""Inteleon"", ""condition"": ""(Level 35)""}]"
+inteleon,Inteleon,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/inteleon.jpg,generation-viii,Generation VIII,530.0,70.0,85.0,65.0,,,120.0,,[]
+skwovet,Skwovet,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/skwovet.jpg,generation-viii,Generation VIII,275.0,70.0,55.0,55.0,,,25.0,(Level 24),"[{""evolves_to"": ""Greedent"", ""condition"": ""(Level 24)""}]"
+greedent,Greedent,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/greedent.jpg,generation-viii,Generation VIII,460.0,120.0,95.0,95.0,,,20.0,,[]
+rookidee,Rookidee,"[""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/rookidee.jpg,generation-viii,Generation VIII,245.0,38.0,47.0,35.0,,,57.0,(Level 18),"[{""evolves_to"": ""Corvisquire"", ""condition"": ""(Level 18)""}]"
+corvisquire,Corvisquire,"[""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/corvisquire.jpg,generation-viii,Generation VIII,365.0,68.0,67.0,55.0,,,77.0,(Level 38),"[{""evolves_to"": ""Corviknight"", ""condition"": ""(Level 38)""}]"
+corviknight,Corviknight,"[""Flying"", ""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/corviknight.jpg,generation-viii,Generation VIII,495.0,98.0,87.0,105.0,,,67.0,,[]
+blipbug,Blipbug,"[""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/blipbug.jpg,generation-viii,Generation VIII,180.0,25.0,20.0,20.0,,,45.0,(Level 10),"[{""evolves_to"": ""Dottler"", ""condition"": ""(Level 10)""}]"
+dottler,Dottler,"[""Bug"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/dottler.jpg,generation-viii,Generation VIII,335.0,50.0,35.0,80.0,,,30.0,(Level 30),"[{""evolves_to"": ""Orbeetle"", ""condition"": ""(Level 30)""}]"
+orbeetle,Orbeetle,"[""Bug"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/orbeetle.jpg,generation-viii,Generation VIII,505.0,60.0,45.0,110.0,,,90.0,,[]
+nickit,Nickit,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/nickit.jpg,generation-viii,Generation VIII,245.0,40.0,28.0,28.0,,,50.0,(Level 18),"[{""evolves_to"": ""Thievul"", ""condition"": ""(Level 18)""}]"
+thievul,Thievul,"[""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/thievul.jpg,generation-viii,Generation VIII,455.0,70.0,58.0,58.0,,,90.0,,[]
+gossifleur,Gossifleur,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/gossifleur.jpg,generation-viii,Generation VIII,250.0,40.0,40.0,60.0,,,10.0,(Level 20),"[{""evolves_to"": ""Eldegoss"", ""condition"": ""(Level 20)""}]"
+eldegoss,Eldegoss,"[""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/eldegoss.jpg,generation-viii,Generation VIII,460.0,60.0,50.0,90.0,,,60.0,,[]
+wooloo,Wooloo,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/wooloo.jpg,generation-viii,Generation VIII,270.0,42.0,40.0,55.0,,,48.0,(Level 24),"[{""evolves_to"": ""Dubwool"", ""condition"": ""(Level 24)""}]"
+dubwool,Dubwool,"[""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/dubwool.jpg,generation-viii,Generation VIII,490.0,72.0,80.0,100.0,,,88.0,,[]
+chewtle,Chewtle,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/chewtle.jpg,generation-viii,Generation VIII,284.0,50.0,64.0,50.0,,,44.0,(Level 22),"[{""evolves_to"": ""Drednaw"", ""condition"": ""(Level 22)""}]"
+drednaw,Drednaw,"[""Water"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/drednaw.jpg,generation-viii,Generation VIII,485.0,90.0,115.0,90.0,,,74.0,,[]
+yamper,Yamper,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/yamper.jpg,generation-viii,Generation VIII,270.0,59.0,45.0,50.0,,,26.0,(Level 25),"[{""evolves_to"": ""Boltund"", ""condition"": ""(Level 25)""}]"
+boltund,Boltund,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/boltund.jpg,generation-viii,Generation VIII,490.0,69.0,90.0,60.0,,,121.0,,[]
+rolycoly,Rolycoly,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/rolycoly.jpg,generation-viii,Generation VIII,240.0,30.0,40.0,50.0,,,30.0,(Level 18),"[{""evolves_to"": ""Carkol"", ""condition"": ""(Level 18)""}]"
+carkol,Carkol,"[""Rock"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/carkol.jpg,generation-viii,Generation VIII,410.0,80.0,60.0,90.0,,,50.0,(Level 34),"[{""evolves_to"": ""Coalossal"", ""condition"": ""(Level 34)""}]"
+coalossal,Coalossal,"[""Rock"", ""Fire""]",https://img.pokemondb.net/sprites/home/normal/2x/coalossal.jpg,generation-viii,Generation VIII,510.0,110.0,80.0,120.0,,,30.0,,[]
+applin,Applin,"[""Grass"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/applin.jpg,generation-viii,Generation VIII,260.0,40.0,40.0,80.0,,,20.0,,[]
+flapple,Flapple,"[""Grass"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/flapple.jpg,generation-viii,Generation VIII,485.0,70.0,110.0,80.0,,,70.0,,[]
+appletun,Appletun,"[""Grass"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/appletun.jpg,generation-viii,Generation VIII,485.0,110.0,85.0,80.0,,,30.0,,[]
+silicobra,Silicobra,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/silicobra.jpg,generation-viii,Generation VIII,315.0,52.0,57.0,75.0,,,46.0,(Level 36),"[{""evolves_to"": ""Sandaconda"", ""condition"": ""(Level 36)""}]"
+sandaconda,Sandaconda,"[""Ground""]",https://img.pokemondb.net/sprites/home/normal/2x/sandaconda.jpg,generation-viii,Generation VIII,510.0,72.0,107.0,125.0,,,71.0,,[]
+cramorant,Cramorant,"[""Flying"", ""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/cramorant.jpg,generation-viii,Generation VIII,475.0,70.0,85.0,55.0,,,85.0,,
+arrokuda,Arrokuda,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/arrokuda.jpg,generation-viii,Generation VIII,280.0,41.0,63.0,40.0,,,66.0,(Level 26),"[{""evolves_to"": ""Barraskewda"", ""condition"": ""(Level 26)""}]"
+barraskewda,Barraskewda,"[""Water""]",https://img.pokemondb.net/sprites/home/normal/2x/barraskewda.jpg,generation-viii,Generation VIII,490.0,61.0,123.0,60.0,,,136.0,,[]
+toxel,Toxel,"[""Electric"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/toxel.jpg,generation-viii,Generation VIII,242.0,40.0,38.0,35.0,,,40.0,,[]
+toxtricity,Toxtricity,"[""Electric"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/toxtricity.jpg,generation-viii,Generation VIII,,,,,,,,,
+sizzlipede,Sizzlipede,"[""Fire"", ""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/sizzlipede.jpg,generation-viii,Generation VIII,305.0,50.0,65.0,45.0,,,45.0,(Level 28),"[{""evolves_to"": ""Centiskorch"", ""condition"": ""(Level 28)""}]"
+centiskorch,Centiskorch,"[""Fire"", ""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/centiskorch.jpg,generation-viii,Generation VIII,525.0,100.0,115.0,65.0,,,65.0,,[]
+clobbopus,Clobbopus,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/clobbopus.jpg,generation-viii,Generation VIII,310.0,50.0,68.0,60.0,,,32.0,(after Taunt learned),"[{""evolves_to"": ""Grapploct"", ""condition"": ""(after Taunt learned)""}]"
+grapploct,Grapploct,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/grapploct.jpg,generation-viii,Generation VIII,480.0,80.0,118.0,90.0,,,42.0,,[]
+sinistea,Sinistea,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/sinistea.jpg,generation-viii,Generation VIII,308.0,40.0,45.0,45.0,,,50.0,(use Cracked Pot),"[{""evolves_to"": ""Polteageist"", ""condition"": ""(use Cracked Pot)""}]"
+polteageist,Polteageist,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/polteageist.jpg,generation-viii,Generation VIII,508.0,60.0,65.0,65.0,,,70.0,,[]
+hatenna,Hatenna,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/hatenna.jpg,generation-viii,Generation VIII,265.0,42.0,30.0,45.0,,,39.0,(Level 32),"[{""evolves_to"": ""Hattrem"", ""condition"": ""(Level 32)""}]"
+hattrem,Hattrem,"[""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/hattrem.jpg,generation-viii,Generation VIII,370.0,57.0,40.0,65.0,,,49.0,(Level 42),"[{""evolves_to"": ""Hatterene"", ""condition"": ""(Level 42)""}]"
+hatterene,Hatterene,"[""Psychic"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/hatterene.jpg,generation-viii,Generation VIII,510.0,57.0,90.0,95.0,,,29.0,,[]
+impidimp,Impidimp,"[""Dark"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/impidimp.jpg,generation-viii,Generation VIII,265.0,45.0,45.0,30.0,,,50.0,(Level 32),"[{""evolves_to"": ""Morgrem"", ""condition"": ""(Level 32)""}]"
+morgrem,Morgrem,"[""Dark"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/morgrem.jpg,generation-viii,Generation VIII,370.0,65.0,60.0,45.0,,,70.0,(Level 42),"[{""evolves_to"": ""Grimmsnarl"", ""condition"": ""(Level 42)""}]"
+grimmsnarl,Grimmsnarl,"[""Dark"", ""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/grimmsnarl.jpg,generation-viii,Generation VIII,510.0,95.0,120.0,65.0,,,60.0,,[]
+obstagoon,Obstagoon,"[""Dark"", ""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/obstagoon.jpg,generation-viii,Generation VIII,520.0,93.0,90.0,101.0,,,95.0,,[]
+perrserker,Perrserker,"[""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/perrserker.jpg,generation-viii,Generation VIII,440.0,70.0,110.0,100.0,,,50.0,,[]
+cursola,Cursola,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/cursola.jpg,generation-viii,Generation VIII,510.0,60.0,95.0,50.0,,,30.0,,[]
+sirfetch'd,Sirfetch'd,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/sirfetchd.jpg,generation-viii,Generation VIII,507.0,62.0,135.0,95.0,,,65.0,,[]
+mr. rime,Mr. Rime,"[""Ice"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/mr-rime.jpg,generation-viii,Generation VIII,520.0,80.0,85.0,75.0,,,70.0,,[]
+runerigus,Runerigus,"[""Ground"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/runerigus.jpg,generation-viii,Generation VIII,483.0,58.0,95.0,145.0,,,30.0,,[]
+milcery,Milcery,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/milcery.jpg,generation-viii,Generation VIII,270.0,45.0,40.0,40.0,,,34.0,(spin around holding Sweet),"[{""evolves_to"": ""Alcremie"", ""condition"": ""(spin around holding Sweet)""}]"
+alcremie,Alcremie,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/alcremie.jpg,generation-viii,Generation VIII,495.0,65.0,60.0,75.0,,,64.0,,[]
+falinks,Falinks,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/falinks.jpg,generation-viii,Generation VIII,470.0,65.0,100.0,100.0,,,75.0,,
+pincurchin,Pincurchin,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/pincurchin.jpg,generation-viii,Generation VIII,435.0,48.0,101.0,95.0,,,15.0,,
+snom,Snom,"[""Ice"", ""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/snom.jpg,generation-viii,Generation VIII,185.0,30.0,25.0,35.0,,,20.0,"(high Friendship, Nighttime)","[{""evolves_to"": ""Frosmoth"", ""condition"": ""(high Friendship, Nighttime)""}]"
+frosmoth,Frosmoth,"[""Ice"", ""Bug""]",https://img.pokemondb.net/sprites/home/normal/2x/frosmoth.jpg,generation-viii,Generation VIII,475.0,70.0,65.0,60.0,,,65.0,,[]
+stonjourner,Stonjourner,"[""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/stonjourner.jpg,generation-viii,Generation VIII,470.0,100.0,125.0,135.0,,,70.0,,
+eiscue,Eiscue,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/eiscue.jpg,generation-viii,Generation VIII,,,,,,,,,
+indeedee,Indeedee,"[""Psychic"", ""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/indeedee.jpg,generation-viii,Generation VIII,,,,,,,,,
+morpeko,Morpeko,"[""Electric"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/morpeko.jpg,generation-viii,Generation VIII,,,,,,,,,
+cufant,Cufant,"[""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/cufant.jpg,generation-viii,Generation VIII,330.0,72.0,80.0,49.0,,,40.0,(Level 34),"[{""evolves_to"": ""Copperajah"", ""condition"": ""(Level 34)""}]"
+copperajah,Copperajah,"[""Steel""]",https://img.pokemondb.net/sprites/home/normal/2x/copperajah.jpg,generation-viii,Generation VIII,500.0,122.0,130.0,69.0,,,30.0,,[]
+dracozolt,Dracozolt,"[""Electric"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/dracozolt.jpg,generation-viii,Generation VIII,505.0,90.0,100.0,90.0,,,75.0,,
+arctozolt,Arctozolt,"[""Electric"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/arctozolt.jpg,generation-viii,Generation VIII,505.0,90.0,100.0,90.0,,,55.0,,
+dracovish,Dracovish,"[""Water"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/dracovish.jpg,generation-viii,Generation VIII,505.0,90.0,90.0,100.0,,,75.0,,
+arctovish,Arctovish,"[""Water"", ""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/arctovish.jpg,generation-viii,Generation VIII,505.0,90.0,90.0,100.0,,,55.0,,
+duraludon,Duraludon,"[""Steel"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/duraludon.jpg,generation-viii,Generation VIII,535.0,70.0,95.0,115.0,,,85.0,(use Metal Alloy),"[{""evolves_to"": ""Archaludon"", ""condition"": ""(use Metal Alloy)""}]"
+dreepy,Dreepy,"[""Dragon"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/dreepy.jpg,generation-viii,Generation VIII,270.0,28.0,60.0,30.0,,,82.0,(Level 50),"[{""evolves_to"": ""Drakloak"", ""condition"": ""(Level 50)""}]"
+drakloak,Drakloak,"[""Dragon"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/drakloak.jpg,generation-viii,Generation VIII,410.0,68.0,80.0,50.0,,,102.0,(Level 60),"[{""evolves_to"": ""Dragapult"", ""condition"": ""(Level 60)""}]"
+dragapult,Dragapult,"[""Dragon"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/dragapult.jpg,generation-viii,Generation VIII,600.0,88.0,120.0,75.0,,,142.0,,[]
+zacian,Zacian,"[""Fairy""]",https://img.pokemondb.net/sprites/home/normal/2x/zacian.jpg,generation-viii,Generation VIII,,,,,,,,,
+zamazenta,Zamazenta,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/zamazenta.jpg,generation-viii,Generation VIII,,,,,,,,,
+eternatus,Eternatus,"[""Poison"", ""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/eternatus.jpg,generation-viii,Generation VIII,690.0,140.0,85.0,95.0,,,130.0,,
+kubfu,Kubfu,"[""Fighting""]",https://img.pokemondb.net/sprites/home/normal/2x/kubfu.jpg,generation-viii,Generation VIII,385.0,60.0,90.0,60.0,,,72.0,,[]
+urshifu,Urshifu,"[""Fighting"", ""Dark""]",https://img.pokemondb.net/sprites/home/normal/2x/urshifu.jpg,generation-viii,Generation VIII,,,,,,,,,
+zarude,Zarude,"[""Dark"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/zarude.jpg,generation-viii,Generation VIII,600.0,105.0,120.0,105.0,,,105.0,,
+regieleki,Regieleki,"[""Electric""]",https://img.pokemondb.net/sprites/home/normal/2x/regieleki.jpg,generation-viii,Generation VIII,580.0,80.0,100.0,50.0,,,200.0,,
+regidrago,Regidrago,"[""Dragon""]",https://img.pokemondb.net/sprites/home/normal/2x/regidrago.jpg,generation-viii,Generation VIII,580.0,200.0,100.0,50.0,,,80.0,,
+glastrier,Glastrier,"[""Ice""]",https://img.pokemondb.net/sprites/home/normal/2x/glastrier.jpg,generation-viii,Generation VIII,580.0,100.0,145.0,130.0,,,30.0,,
+spectrier,Spectrier,"[""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/spectrier.jpg,generation-viii,Generation VIII,580.0,100.0,65.0,60.0,,,130.0,,
+calyrex,Calyrex,"[""Psychic"", ""Grass""]",https://img.pokemondb.net/sprites/home/normal/2x/calyrex.jpg,generation-viii,Generation VIII,500.0,100.0,80.0,80.0,,,80.0,,
+wyrdeer,Wyrdeer,"[""Normal"", ""Psychic""]",https://img.pokemondb.net/sprites/home/normal/2x/wyrdeer.jpg,generation-viii,Generation VIII,525.0,103.0,105.0,72.0,,,65.0,,[]
+kleavor,Kleavor,"[""Bug"", ""Rock""]",https://img.pokemondb.net/sprites/home/normal/2x/kleavor.jpg,generation-viii,Generation VIII,500.0,70.0,135.0,95.0,,,85.0,,[]
+ursaluna,Ursaluna,"[""Ground"", ""Normal""]",https://img.pokemondb.net/sprites/home/normal/2x/ursaluna.jpg,generation-viii,Generation VIII,550.0,130.0,140.0,105.0,,,50.0,,[]
+basculegion,Basculegion,"[""Water"", ""Ghost""]",https://img.pokemondb.net/sprites/home/normal/2x/basculegion.jpg,generation-viii,Generation VIII,,,,,,,,,
+sneasler,Sneasler,"[""Fighting"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/sneasler.jpg,generation-viii,Generation VIII,510.0,80.0,130.0,60.0,,,120.0,,[]
+overqwil,Overqwil,"[""Dark"", ""Poison""]",https://img.pokemondb.net/sprites/home/normal/2x/overqwil.jpg,generation-viii,Generation VIII,510.0,85.0,115.0,95.0,,,85.0,,[]
+enamorus,Enamorus,"[""Fairy"", ""Flying""]",https://img.pokemondb.net/sprites/home/normal/2x/enamorus.jpg,generation-viii,Generation VIII,,,,,,,,,
+sprigatito,Sprigatito,"[""Grass""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/sprigatito.png,generation-ix,Generation IX,310.0,40.0,61.0,54.0,,,65.0,(Level 16),"[{""evolves_to"": ""Floragato"", ""condition"": ""(Level 16)""}]"
+floragato,Floragato,"[""Grass""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/floragato.png,generation-ix,Generation IX,410.0,61.0,80.0,63.0,,,83.0,(Level 36),"[{""evolves_to"": ""Meowscarada"", ""condition"": ""(Level 36)""}]"
+meowscarada,Meowscarada,"[""Grass"", ""Dark""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/meowscarada.png,generation-ix,Generation IX,530.0,76.0,110.0,70.0,,,123.0,,[]
+fuecoco,Fuecoco,"[""Fire""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/fuecoco.png,generation-ix,Generation IX,310.0,67.0,45.0,59.0,,,36.0,(Level 16),"[{""evolves_to"": ""Crocalor"", ""condition"": ""(Level 16)""}]"
+crocalor,Crocalor,"[""Fire""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/crocalor.png,generation-ix,Generation IX,411.0,81.0,55.0,78.0,,,49.0,(Level 36),"[{""evolves_to"": ""Skeledirge"", ""condition"": ""(Level 36)""}]"
+skeledirge,Skeledirge,"[""Fire"", ""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/skeledirge.png,generation-ix,Generation IX,530.0,104.0,75.0,100.0,,,66.0,,[]
+quaxly,Quaxly,"[""Water""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/quaxly.png,generation-ix,Generation IX,310.0,55.0,65.0,45.0,,,50.0,(Level 16),"[{""evolves_to"": ""Quaxwell"", ""condition"": ""(Level 16)""}]"
+quaxwell,Quaxwell,"[""Water""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/quaxwell.png,generation-ix,Generation IX,410.0,70.0,85.0,65.0,,,65.0,(Level 36),"[{""evolves_to"": ""Quaquaval"", ""condition"": ""(Level 36)""}]"
+quaquaval,Quaquaval,"[""Water"", ""Fighting""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/quaquaval.png,generation-ix,Generation IX,530.0,85.0,120.0,80.0,,,85.0,,[]
+lechonk,Lechonk,"[""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/lechonk.png,generation-ix,Generation IX,254.0,54.0,45.0,40.0,,,35.0,,[]
+oinkologne,Oinkologne,"[""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/oinkologne.png,generation-ix,Generation IX,,,,,,,,,
+tarountula,Tarountula,"[""Bug""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/tarountula.png,generation-ix,Generation IX,210.0,35.0,41.0,45.0,,,20.0,(Level 15),"[{""evolves_to"": ""Spidops"", ""condition"": ""(Level 15)""}]"
+spidops,Spidops,"[""Bug""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/spidops.png,generation-ix,Generation IX,404.0,60.0,79.0,92.0,,,35.0,,[]
+nymble,Nymble,"[""Bug""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/nymble.png,generation-ix,Generation IX,210.0,33.0,46.0,40.0,,,45.0,(Level 24),"[{""evolves_to"": ""Lokix"", ""condition"": ""(Level 24)""}]"
+lokix,Lokix,"[""Bug"", ""Dark""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/lokix.png,generation-ix,Generation IX,450.0,71.0,102.0,78.0,,,92.0,,[]
+pawmi,Pawmi,"[""Electric""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/pawmi.png,generation-ix,Generation IX,240.0,45.0,50.0,20.0,,,60.0,(Level 18),"[{""evolves_to"": ""Pawmo"", ""condition"": ""(Level 18)""}]"
+pawmo,Pawmo,"[""Electric"", ""Fighting""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/pawmo.png,generation-ix,Generation IX,350.0,60.0,75.0,40.0,,,85.0,"(walk 1,000 steps in Let's Go mode)","[{""evolves_to"": ""Pawmot"", ""condition"": ""(walk 1,000 steps in Let's Go mode)""}]"
+pawmot,Pawmot,"[""Electric"", ""Fighting""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/pawmot.png,generation-ix,Generation IX,490.0,70.0,115.0,70.0,,,105.0,,[]
+tandemaus,Tandemaus,"[""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/tandemaus.png,generation-ix,Generation IX,305.0,50.0,50.0,45.0,,,75.0,,[]
+maushold,Maushold,"[""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/maushold.png,generation-ix,Generation IX,,,,,,,,,
+fidough,Fidough,"[""Fairy""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/fidough.png,generation-ix,Generation IX,312.0,37.0,55.0,70.0,,,65.0,(Level 26),"[{""evolves_to"": ""Dachsbun"", ""condition"": ""(Level 26)""}]"
+dachsbun,Dachsbun,"[""Fairy""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/dachsbun.png,generation-ix,Generation IX,477.0,57.0,80.0,115.0,,,95.0,,[]
+smoliv,Smoliv,"[""Grass"", ""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/smoliv.png,generation-ix,Generation IX,260.0,41.0,35.0,45.0,,,30.0,(Level 25),"[{""evolves_to"": ""Dolliv"", ""condition"": ""(Level 25)""}]"
+dolliv,Dolliv,"[""Grass"", ""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/dolliv.png,generation-ix,Generation IX,354.0,52.0,53.0,60.0,,,33.0,(Level 35),"[{""evolves_to"": ""Arboliva"", ""condition"": ""(Level 35)""}]"
+arboliva,Arboliva,"[""Grass"", ""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/arboliva.png,generation-ix,Generation IX,510.0,78.0,69.0,90.0,,,39.0,,[]
+squawkabilly,Squawkabilly,"[""Normal"", ""Flying""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/squawkabilly.png,generation-ix,Generation IX,,,,,,,,,
+nacli,Nacli,"[""Rock""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/nacli.png,generation-ix,Generation IX,280.0,55.0,55.0,75.0,,,25.0,(Level 24),"[{""evolves_to"": ""Naclstack"", ""condition"": ""(Level 24)""}]"
+naclstack,Naclstack,"[""Rock""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/naclstack.png,generation-ix,Generation IX,355.0,60.0,60.0,100.0,,,35.0,(Level 38),"[{""evolves_to"": ""Garganacl"", ""condition"": ""(Level 38)""}]"
+garganacl,Garganacl,"[""Rock""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/garganacl.png,generation-ix,Generation IX,500.0,100.0,100.0,130.0,,,35.0,,[]
+charcadet,Charcadet,"[""Fire""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/charcadet.png,generation-ix,Generation IX,255.0,40.0,50.0,40.0,,,35.0,,[]
+armarouge,Armarouge,"[""Fire"", ""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/armarouge.png,generation-ix,Generation IX,525.0,85.0,60.0,100.0,,,75.0,,[]
+ceruledge,Ceruledge,"[""Fire"", ""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/ceruledge.png,generation-ix,Generation IX,525.0,75.0,125.0,80.0,,,85.0,,[]
+tadbulb,Tadbulb,"[""Electric""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/tadbulb.png,generation-ix,Generation IX,272.0,61.0,31.0,41.0,,,45.0,(use Thunder Stone),"[{""evolves_to"": ""Bellibolt"", ""condition"": ""(use Thunder Stone)""}]"
+bellibolt,Bellibolt,"[""Electric""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/bellibolt.png,generation-ix,Generation IX,495.0,109.0,64.0,91.0,,,45.0,,[]
+wattrel,Wattrel,"[""Electric"", ""Flying""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/wattrel.png,generation-ix,Generation IX,280.0,40.0,40.0,35.0,,,70.0,(Level 25),"[{""evolves_to"": ""Kilowattrel"", ""condition"": ""(Level 25)""}]"
+kilowattrel,Kilowattrel,"[""Electric"", ""Flying""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/kilowattrel.png,generation-ix,Generation IX,490.0,70.0,70.0,60.0,,,125.0,,[]
+maschiff,Maschiff,"[""Dark""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/maschiff.png,generation-ix,Generation IX,340.0,60.0,78.0,60.0,,,51.0,(Level 30),"[{""evolves_to"": ""Mabosstiff"", ""condition"": ""(Level 30)""}]"
+mabosstiff,Mabosstiff,"[""Dark""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/mabosstiff.png,generation-ix,Generation IX,505.0,80.0,120.0,90.0,,,85.0,,[]
+shroodle,Shroodle,"[""Poison"", ""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/shroodle.png,generation-ix,Generation IX,290.0,40.0,65.0,35.0,,,75.0,(Level 28),"[{""evolves_to"": ""Grafaiai"", ""condition"": ""(Level 28)""}]"
+grafaiai,Grafaiai,"[""Poison"", ""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/grafaiai.png,generation-ix,Generation IX,485.0,63.0,95.0,65.0,,,110.0,,[]
+bramblin,Bramblin,"[""Grass"", ""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/bramblin.png,generation-ix,Generation IX,275.0,40.0,65.0,30.0,,,60.0,"(walk 1,000 steps in Let's Go mode)","[{""evolves_to"": ""Brambleghast"", ""condition"": ""(walk 1,000 steps in Let's Go mode)""}]"
+brambleghast,Brambleghast,"[""Grass"", ""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/brambleghast.png,generation-ix,Generation IX,480.0,55.0,115.0,70.0,,,90.0,,[]
+toedscool,Toedscool,"[""Ground"", ""Grass""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/toedscool.png,generation-ix,Generation IX,335.0,40.0,40.0,35.0,,,70.0,(Level 30),"[{""evolves_to"": ""Toedscruel"", ""condition"": ""(Level 30)""}]"
+toedscruel,Toedscruel,"[""Ground"", ""Grass""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/toedscruel.png,generation-ix,Generation IX,515.0,80.0,70.0,65.0,,,100.0,,[]
+klawf,Klawf,"[""Rock""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/klawf.png,generation-ix,Generation IX,450.0,70.0,100.0,115.0,,,75.0,,
+capsakid,Capsakid,"[""Grass""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/capsakid.png,generation-ix,Generation IX,304.0,50.0,62.0,40.0,,,50.0,(use Fire Stone),"[{""evolves_to"": ""Scovillain"", ""condition"": ""(use Fire Stone)""}]"
+scovillain,Scovillain,"[""Grass"", ""Fire""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/scovillain.png,generation-ix,Generation IX,486.0,65.0,108.0,65.0,,,75.0,,[]
+rellor,Rellor,"[""Bug""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/rellor.png,generation-ix,Generation IX,270.0,41.0,50.0,60.0,,,30.0,"(walk 1,000 steps in Let's Go mode)","[{""evolves_to"": ""Rabsca"", ""condition"": ""(walk 1,000 steps in Let's Go mode)""}]"
+rabsca,Rabsca,"[""Bug"", ""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/rabsca.png,generation-ix,Generation IX,470.0,75.0,50.0,85.0,,,45.0,,[]
+flittle,Flittle,"[""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/flittle.png,generation-ix,Generation IX,255.0,30.0,35.0,30.0,,,75.0,(Level 35),"[{""evolves_to"": ""Espathra"", ""condition"": ""(Level 35)""}]"
+espathra,Espathra,"[""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/espathra.png,generation-ix,Generation IX,481.0,95.0,60.0,60.0,,,105.0,,[]
+tinkatink,Tinkatink,"[""Fairy"", ""Steel""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/tinkatink.png,generation-ix,Generation IX,297.0,50.0,45.0,45.0,,,58.0,(Level 24),"[{""evolves_to"": ""Tinkatuff"", ""condition"": ""(Level 24)""}]"
+tinkatuff,Tinkatuff,"[""Fairy"", ""Steel""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/tinkatuff.png,generation-ix,Generation IX,380.0,65.0,55.0,55.0,,,78.0,(Level 38),"[{""evolves_to"": ""Tinkaton"", ""condition"": ""(Level 38)""}]"
+tinkaton,Tinkaton,"[""Fairy"", ""Steel""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/tinkaton.png,generation-ix,Generation IX,506.0,85.0,75.0,77.0,,,94.0,,[]
+wiglett,Wiglett,"[""Water""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/wiglett.png,generation-ix,Generation IX,245.0,10.0,55.0,25.0,,,95.0,(Level 26),"[{""evolves_to"": ""Wugtrio"", ""condition"": ""(Level 26)""}]"
+wugtrio,Wugtrio,"[""Water""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/wugtrio.png,generation-ix,Generation IX,425.0,35.0,100.0,50.0,,,120.0,,[]
+bombirdier,Bombirdier,"[""Flying"", ""Dark""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/bombirdier.png,generation-ix,Generation IX,485.0,70.0,103.0,85.0,,,82.0,,
+finizen,Finizen,"[""Water""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/finizen.png,generation-ix,Generation IX,315.0,70.0,45.0,40.0,,,75.0,"(Level 38, while in multiplayer)","[{""evolves_to"": ""Palafin (Zero Form)"", ""condition"": ""(Level 38, while in multiplayer)""}]"
+palafin,Palafin,"[""Water""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/palafin.png,generation-ix,Generation IX,,,,,,,,,
+varoom,Varoom,"[""Steel"", ""Poison""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/varoom.png,generation-ix,Generation IX,300.0,45.0,70.0,63.0,,,47.0,(Level 40),"[{""evolves_to"": ""Revavroom"", ""condition"": ""(Level 40)""}]"
+revavroom,Revavroom,"[""Steel"", ""Poison""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/revavroom.png,generation-ix,Generation IX,500.0,80.0,119.0,90.0,,,90.0,,[]
+cyclizar,Cyclizar,"[""Dragon"", ""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/cyclizar.png,generation-ix,Generation IX,501.0,70.0,95.0,65.0,,,121.0,,
+orthworm,Orthworm,"[""Steel""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/orthworm.png,generation-ix,Generation IX,480.0,70.0,85.0,145.0,,,65.0,,
+glimmet,Glimmet,"[""Rock"", ""Poison""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/glimmet.png,generation-ix,Generation IX,350.0,48.0,35.0,42.0,,,60.0,(Level 35),"[{""evolves_to"": ""Glimmora"", ""condition"": ""(Level 35)""}]"
+glimmora,Glimmora,"[""Rock"", ""Poison""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/glimmora.png,generation-ix,Generation IX,525.0,83.0,55.0,90.0,,,86.0,,[]
+greavard,Greavard,"[""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/greavard.png,generation-ix,Generation IX,290.0,50.0,61.0,60.0,,,34.0,"(Level 30, Nighttime)","[{""evolves_to"": ""Houndstone"", ""condition"": ""(Level 30, Nighttime)""}]"
+houndstone,Houndstone,"[""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/houndstone.png,generation-ix,Generation IX,488.0,72.0,101.0,100.0,,,68.0,,[]
+flamigo,Flamigo,"[""Flying"", ""Fighting""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/flamigo.png,generation-ix,Generation IX,500.0,82.0,115.0,74.0,,,90.0,,
+cetoddle,Cetoddle,"[""Ice""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/cetoddle.png,generation-ix,Generation IX,334.0,108.0,68.0,45.0,,,43.0,(use Ice Stone),"[{""evolves_to"": ""Cetitan"", ""condition"": ""(use Ice Stone)""}]"
+cetitan,Cetitan,"[""Ice""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/cetitan.png,generation-ix,Generation IX,521.0,170.0,113.0,65.0,,,73.0,,[]
+veluza,Veluza,"[""Water"", ""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/veluza.png,generation-ix,Generation IX,478.0,90.0,102.0,73.0,,,70.0,,
+dondozo,Dondozo,"[""Water""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/dondozo.png,generation-ix,Generation IX,530.0,150.0,100.0,115.0,,,35.0,,
+tatsugiri,Tatsugiri,"[""Dragon"", ""Water""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/tatsugiri.png,generation-ix,Generation IX,,,,,,,,,
+annihilape,Annihilape,"[""Fighting"", ""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/annihilape.png,generation-ix,Generation IX,535.0,110.0,115.0,80.0,,,90.0,,[]
+clodsire,Clodsire,"[""Poison"", ""Ground""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/clodsire.png,generation-ix,Generation IX,430.0,130.0,75.0,60.0,,,20.0,,[]
+farigiraf,Farigiraf,"[""Normal"", ""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/farigiraf.png,generation-ix,Generation IX,520.0,120.0,90.0,70.0,,,60.0,,[]
+dudunsparce,Dudunsparce,"[""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/dudunsparce.png,generation-ix,Generation IX,,,,,,,,,
+kingambit,Kingambit,"[""Dark"", ""Steel""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/kingambit.png,generation-ix,Generation IX,550.0,100.0,135.0,120.0,,,50.0,,[]
+great tusk,Great Tusk,"[""Ground"", ""Fighting""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/great-tusk.png,generation-ix,Generation IX,570.0,115.0,131.0,131.0,,,87.0,,
+scream tail,Scream Tail,"[""Fairy"", ""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/scream-tail.png,generation-ix,Generation IX,570.0,115.0,65.0,99.0,,,111.0,,
+brute bonnet,Brute Bonnet,"[""Grass"", ""Dark""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/brute-bonnet.png,generation-ix,Generation IX,570.0,111.0,127.0,99.0,,,55.0,,
+flutter mane,Flutter Mane,"[""Ghost"", ""Fairy""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/flutter-mane.png,generation-ix,Generation IX,570.0,55.0,55.0,55.0,,,135.0,,
+slither wing,Slither Wing,"[""Bug"", ""Fighting""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/slither-wing.png,generation-ix,Generation IX,570.0,85.0,135.0,79.0,,,81.0,,
+sandy shocks,Sandy Shocks,"[""Electric"", ""Ground""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/sandy-shocks.png,generation-ix,Generation IX,570.0,85.0,81.0,97.0,,,101.0,,
+iron treads,Iron Treads,"[""Ground"", ""Steel""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-treads.png,generation-ix,Generation IX,570.0,90.0,112.0,120.0,,,106.0,,
+iron bundle,Iron Bundle,"[""Ice"", ""Water""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-bundle.png,generation-ix,Generation IX,570.0,56.0,80.0,114.0,,,136.0,,
+iron hands,Iron Hands,"[""Fighting"", ""Electric""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-hands.png,generation-ix,Generation IX,570.0,154.0,140.0,108.0,,,50.0,,
+iron jugulis,Iron Jugulis,"[""Dark"", ""Flying""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-jugulis.png,generation-ix,Generation IX,570.0,94.0,80.0,86.0,,,108.0,,
+iron moth,Iron Moth,"[""Fire"", ""Poison""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-moth.png,generation-ix,Generation IX,570.0,80.0,70.0,60.0,,,110.0,,
+iron thorns,Iron Thorns,"[""Rock"", ""Electric""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-thorns.png,generation-ix,Generation IX,570.0,100.0,134.0,110.0,,,72.0,,
+frigibax,Frigibax,"[""Dragon"", ""Ice""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/frigibax.png,generation-ix,Generation IX,320.0,65.0,75.0,45.0,,,55.0,(Level 35),"[{""evolves_to"": ""Arctibax"", ""condition"": ""(Level 35)""}]"
+arctibax,Arctibax,"[""Dragon"", ""Ice""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/arctibax.png,generation-ix,Generation IX,423.0,90.0,95.0,66.0,,,62.0,(Level 54),"[{""evolves_to"": ""Baxcalibur"", ""condition"": ""(Level 54)""}]"
+baxcalibur,Baxcalibur,"[""Dragon"", ""Ice""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/baxcalibur.png,generation-ix,Generation IX,600.0,115.0,145.0,92.0,,,87.0,,[]
+gimmighoul,Gimmighoul,"[""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/gimmighoul.png,generation-ix,Generation IX,,,,,,,,,
+gholdengo,Gholdengo,"[""Steel"", ""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/gholdengo.png,generation-ix,Generation IX,550.0,87.0,60.0,95.0,,,84.0,,[]
+wo-chien,Wo-Chien,"[""Dark"", ""Grass""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/wo-chien.png,generation-ix,Generation IX,570.0,85.0,85.0,100.0,,,70.0,,
+chien-pao,Chien-Pao,"[""Dark"", ""Ice""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/chien-pao.png,generation-ix,Generation IX,570.0,80.0,120.0,80.0,,,135.0,,
+ting-lu,Ting-Lu,"[""Dark"", ""Ground""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/ting-lu.png,generation-ix,Generation IX,570.0,155.0,110.0,125.0,,,45.0,,
+chi-yu,Chi-Yu,"[""Dark"", ""Fire""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/chi-yu.png,generation-ix,Generation IX,570.0,55.0,80.0,80.0,,,100.0,,
+roaring moon,Roaring Moon,"[""Dragon"", ""Dark""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/roaring-moon.png,generation-ix,Generation IX,590.0,105.0,139.0,71.0,,,119.0,,
+iron valiant,Iron Valiant,"[""Fairy"", ""Fighting""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-valiant.png,generation-ix,Generation IX,590.0,74.0,130.0,90.0,,,116.0,,
+koraidon,Koraidon,"[""Fighting"", ""Dragon""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/koraidon.png,generation-ix,Generation IX,670.0,100.0,135.0,115.0,,,135.0,,
+miraidon,Miraidon,"[""Electric"", ""Dragon""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/miraidon.png,generation-ix,Generation IX,670.0,100.0,85.0,100.0,,,135.0,,
+walking wake,Walking Wake,"[""Water"", ""Dragon""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/walking-wake.png,generation-ix,Generation IX,590.0,99.0,83.0,91.0,,,109.0,,
+iron leaves,Iron Leaves,"[""Grass"", ""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-leaves.png,generation-ix,Generation IX,590.0,90.0,130.0,88.0,,,104.0,,
+dipplin,Dipplin,"[""Grass"", ""Dragon""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/dipplin.png,generation-ix,Generation IX,485.0,80.0,80.0,110.0,,,40.0,(after Dragon Cheer learned),"[{""evolves_to"": ""Hydrapple"", ""condition"": ""(after Dragon Cheer learned)""}]"
+poltchageist,Poltchageist,"[""Grass"", ""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/poltchageist.png,generation-ix,Generation IX,308.0,40.0,45.0,45.0,,,50.0,(use Unremarkable Teacup),"[{""evolves_to"": ""Sinistcha"", ""condition"": ""(use Unremarkable Teacup)""}]"
+sinistcha,Sinistcha,"[""Grass"", ""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/sinistcha.png,generation-ix,Generation IX,508.0,71.0,60.0,106.0,,,70.0,,[]
+okidogi,Okidogi,"[""Poison"", ""Fighting""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/okidogi.png,generation-ix,Generation IX,555.0,88.0,128.0,115.0,,,80.0,,
+munkidori,Munkidori,"[""Poison"", ""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/munkidori.png,generation-ix,Generation IX,555.0,88.0,75.0,66.0,,,106.0,,
+fezandipiti,Fezandipiti,"[""Poison"", ""Fairy""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/fezandipiti.png,generation-ix,Generation IX,555.0,88.0,91.0,82.0,,,99.0,,
+ogerpon,Ogerpon,"[""Grass""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/ogerpon.png,generation-ix,Generation IX,,,,,,,,,
+archaludon,Archaludon,"[""Steel"", ""Dragon""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/archaludon.png,generation-ix,Generation IX,600.0,90.0,105.0,130.0,,,85.0,,[]
+hydrapple,Hydrapple,"[""Grass"", ""Dragon""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/hydrapple.png,generation-ix,Generation IX,540.0,106.0,80.0,110.0,,,44.0,,[]
+gouging fire,Gouging Fire,"[""Fire"", ""Dragon""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/gouging-fire.png,generation-ix,Generation IX,590.0,105.0,115.0,121.0,,,91.0,,
+raging bolt,Raging Bolt,"[""Electric"", ""Dragon""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/raging-bolt.png,generation-ix,Generation IX,590.0,125.0,73.0,91.0,,,75.0,,
+iron boulder,Iron Boulder,"[""Rock"", ""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-boulder.png,generation-ix,Generation IX,590.0,90.0,120.0,80.0,,,124.0,,
+iron crown,Iron Crown,"[""Steel"", ""Psychic""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/iron-crown.png,generation-ix,Generation IX,590.0,90.0,72.0,100.0,,,98.0,,
+terapagos,Terapagos,"[""Normal""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/terapagos.png,generation-ix,Generation IX,,,,,,,,,
+pecharunt,Pecharunt,"[""Poison"", ""Ghost""]",https://img.pokemondb.net/sprites/scarlet-violet/normal/pecharunt.png,generation-ix,Generation IX,600.0,88.0,88.0,160.0,,,88.0,,

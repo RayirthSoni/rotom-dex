@@ -8,6 +8,8 @@ from typing import Callable, Dict, Iterable, List, Optional, Protocol, Sequence,
 
 from fastapi import FastAPI, HTTPException
 from fastapi.concurrency import run_in_threadpool
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 try:  # pragma: no cover - optional dependency
@@ -249,6 +251,14 @@ def get_conversation_manager() -> ConversationManager:
         manager = _build_default_manager()
         app.state.conversation_manager = manager
     return manager
+
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
+@app.get("/")
+async def read_index():
+    return FileResponse('static/index.html')
 
 
 @app.post("/chat", response_model=ChatResponse)

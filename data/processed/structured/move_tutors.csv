@@ -1,0 +1,10 @@
+generation,generation_label,regions,pokemon,move,version_group,source,location,notes
+generation-i,Generation I,"[""kanto""]",pikachu,thunder-punch,yellow,Saffron City tutor,Saffron City Dojo,Teaches the signature Thunder Punch in Pokémon Yellow.
+generation-ii,Generation II,"[""johto""]",typhlosion,thunder-punch,crystal,Goldenrod Game Corner,Goldenrod City,Crystal introduced repeatable elemental punch tutors.
+generation-iii,Generation III,"[""hoenn""]",metagross,meteor-mash,emerald,Battle Frontier,Battle Frontier,Emerald scattered move tutors throughout the Battle Frontier.
+generation-iv,Generation IV,"[""sinnoh""]",garchomp,draco-meteor,platinum,Move Tutor on Route 210,Sinnoh Route 210,Draco Meteor tutor appears once the trainer is Champion.
+generation-v,Generation V,"[""unova""]",hydreigon,dark-pulse,black-2-white-2,Driftveil Move Tutor,Driftveil City,Shards return as currency for the Unova tutors.
+generation-vi,Generation VI,"[""kalos""]",greninja,gunk-shot,omega-ruby-alpha-sapphire,Battle Resort,Battle Resort,ORAS concentrated the major tutors on the Battle Resort.
+generation-vii,Generation VII,"[""alola""]",kommo-o,draco-meteor,ultra-sun-ultra-moon,Heahea City Tutor,Heahea City,Battle Tree shops unlock premium tutor moves in the post-game.
+generation-viii,Generation VIII,"[""galar""]",dragapult,dragon-darts,the-isle-of-armor,Master Dojo Tutor,Isle of Armor Dojo,Armorite Ore powers the IoA tutor move economy.
+generation-ix,Generation IX,"[""paldea""]",ceruledge,bitter-blade,scarlet-violet,TM Machine Craft,Mesagoza Academy,Scarlet & Violet reframe tutors as craftable TM records.

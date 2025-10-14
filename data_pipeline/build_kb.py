@@ -497,13 +497,14 @@ def build_pokemon_documents(df: pd.DataFrame) -> List[DocumentRecord]:
         stat_text = ", ".join(f"{label} {value}" for label, value in stats if value is not None)
         if stat_text:
             text += f"Base stats: {stat_text}. "
-        if row.get("evolution_paths"):
-            evo_text = ", ".join(
-                f"evolves to {path.get('evolves_to')} ({path.get('condition')})"
-                for path in _ensure_list(row.get("evolution_paths"))
-            )
-            if evo_text:
-                text += f"Evolution: {evo_text}."
+        evolution_paths = _ensure_list(row.get("evolution_paths"))
+        if evolution_paths:
+            evo_texts = []
+            for path in evolution_paths:
+                if isinstance(path, dict):
+                    evo_texts.append(f"evolves to {path.get('evolves_to')} ({path.get('condition')})")
+            if evo_texts:
+                text += f"Evolution: {', '.join(evo_texts)}."
         metadata = _clean_metadata(
             {
                 "entity_type": "pokemon",
