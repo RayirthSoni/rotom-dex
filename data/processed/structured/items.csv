@@ -1,0 +1,10 @@
+generation,generation_label,item_id,item,category,cost,fling_power,effect,version_group,region
+generation-i,Generation I,1,Potion,medicine,300.0,,Restores 20 HP.,red-blue,kanto
+generation-ii,Generation II,50,Leftovers,held-items,20000.0,60.0,Restores HP every turn when held.,gold-silver,johto
+generation-iii,Generation III,150,Choice Band,held-items,100000.0,10.0,Boosts Attack but locks move selection.,emerald,hoenn
+generation-iv,Generation IV,250,Life Orb,held-items,20000.0,30.0,Boosts move power at the cost of HP.,platinum,sinnoh
+generation-v,Generation V,350,Rocky Helmet,held-items,48000.0,60.0,Damages contact attackers.,black-white,unova
+generation-vi,Generation VI,450,Assault Vest,held-items,25000.0,80.0,Boosts Sp. Def but locks status moves.,x-y,kalos
+generation-vii,Generation VII,550,Z-Ring,key-items,,,Allows Z-Move usage.,sun-moon,alola
+generation-viii,Generation VIII,650,Dynamax Band,key-items,,,Unlocks Dynamax transformations.,sword-shield,galar
+generation-ix,Generation IX,750,Tera Orb,key-items,,,Enables Terastallization in battle.,scarlet-violet,paldea

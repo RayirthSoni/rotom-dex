@@ -10,7 +10,7 @@ if str(PROJECT_ROOT) not in sys.path:
 import pytest
 from fastapi.testclient import TestClient
 
-from app import service
+import service
 
 
 class DummyLLM:
