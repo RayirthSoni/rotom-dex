@@ -1,5 +1,0 @@
-beautifulsoup4
-lxml
-numpy
-pytest
-flake8
