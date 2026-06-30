@@ -35,3 +35,12 @@ class Pokemon:
     egg_groups: list[str]
     gender_ratio: dict[str, float]
     egg_cycles: int
+
+
+    @property
+    def total_stats(self) -> int:
+        return self.hp + self.attack + self.defense + self.special_attack + self.special_defense + self.speed
+
+    @property
+    def average_stats(self) -> float:
+        return self.total_stats / 6
