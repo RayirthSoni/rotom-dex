@@ -1,0 +1,2 @@
+# No third-party dependencies for the data foundation.
+# Python >=3.10 with SQLite JSON support is required.

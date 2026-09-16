@@ -1,0 +1,12 @@
+{
+  "format_version": 1,
+  "game_id": 9,
+  "version_group_id": 6,
+  "generation": 3,
+  "roster": [252, 253, 254, 263, 264, 280, 281, 282, 285, 286],
+  "reviewed_evolution_ids": [130, 131, 137, 148, 149, 151],
+  "extra_item_ids": [4, 17],
+  "reviewed_at": "2026-09-17",
+  "policy": "PokéAPI supplies source-derived facts. The six default level-up evolution rules introduced in Ruby/Sapphire are explicitly mapped to Emerald for this roster. Only default forms are selected. Types/stats/abilities use the nearest historical generation endpoint at or after generation 3. Moves rewind changelog entries after Emerald, with the generation-3 type-based damage class. Natures apply to Emerald. No independent ROM validation has been performed.",
+  "gaps": "Progression gates, starter choice restrictions, breeding/trade routes, item shops/ground gifts, tutor access and complete move/ability effects are not reviewed. Encounter rows establish methods and levels, not current reachability. Held-item acquisitions derive only from Emerald wild encounters and exact-version held-item records."
+}

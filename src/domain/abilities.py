@@ -1,15 +1,4 @@
-"""
+"""Ability identity; hidden status belongs to PokemonAbility."""
+from .models import Ability, PokemonAbility
 
-"""
-
-
-from dataclasses import dataclass
-
-
-@dataclass(kw_only=True)
-class Ability:
-
-    name: str
-    description: str
-    is_hidden: bool
-    generation_introduced: int
+__all__ = ['Ability', 'PokemonAbility']

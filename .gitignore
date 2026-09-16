@@ -201,3 +201,9 @@ local_testing/*
 
 dmi_test/
 snakeviz.py
+
+# Reproducible source metadata and reviewed game packs
+!data/sources/**/*.json
+!data/game-packs/**/*.json
+*.sqlite3
+*.sqlite3-journal
