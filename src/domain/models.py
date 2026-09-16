@@ -1,11 +1,12 @@
 """Immutable records for the SQLite foundation; IDs follow PokéAPI where possible."""
+
 from dataclasses import dataclass
 from typing import ClassVar
 
 
 @dataclass(frozen=True)
 class GameVersion:
-    table: ClassVar[str] = 'game_versions'
+    table: ClassVar[str] = "game_versions"
     id: int
     slug: str
     version_group_id: int
@@ -17,7 +18,7 @@ class GameVersion:
 
 @dataclass(frozen=True)
 class Species:
-    table: ClassVar[str] = 'species'
+    table: ClassVar[str] = "species"
     id: int
     slug: str
     evidence_id: str
@@ -25,7 +26,7 @@ class Species:
 
 @dataclass(frozen=True)
 class PokemonForm:
-    table: ClassVar[str] = 'pokemon_forms'
+    table: ClassVar[str] = "pokemon_forms"
     id: int
     species_id: int
     slug: str
@@ -37,7 +38,7 @@ class PokemonForm:
 
 @dataclass(frozen=True)
 class PokemonGameData:
-    table: ClassVar[str] = 'pokemon_game_data'
+    table: ClassVar[str] = "pokemon_game_data"
     form_id: int
     game_id: int
     availability: str
@@ -46,7 +47,7 @@ class PokemonGameData:
 
 @dataclass(frozen=True)
 class PokemonType:
-    table: ClassVar[str] = 'pokemon_types'
+    table: ClassVar[str] = "pokemon_types"
     form_id: int
     game_id: int
     slot: int
@@ -56,7 +57,7 @@ class PokemonType:
 
 @dataclass(frozen=True)
 class PokemonStat:
-    table: ClassVar[str] = 'pokemon_stats'
+    table: ClassVar[str] = "pokemon_stats"
     form_id: int
     game_id: int
     stat: str
@@ -66,7 +67,7 @@ class PokemonStat:
 
 @dataclass(frozen=True)
 class Ability:
-    table: ClassVar[str] = 'abilities'
+    table: ClassVar[str] = "abilities"
     id: int
     slug: str
     evidence_id: str
@@ -74,7 +75,7 @@ class Ability:
 
 @dataclass(frozen=True)
 class PokemonAbility:
-    table: ClassVar[str] = 'pokemon_abilities'
+    table: ClassVar[str] = "pokemon_abilities"
     form_id: int
     game_id: int
     slot: int
@@ -85,7 +86,7 @@ class PokemonAbility:
 
 @dataclass(frozen=True)
 class Move:
-    table: ClassVar[str] = 'moves'
+    table: ClassVar[str] = "moves"
     id: int
     slug: str
     evidence_id: str
@@ -93,7 +94,7 @@ class Move:
 
 @dataclass(frozen=True)
 class MoveGameData:
-    table: ClassVar[str] = 'move_game_data'
+    table: ClassVar[str] = "move_game_data"
     move_id: int
     game_id: int
     type_id: int
@@ -107,7 +108,7 @@ class MoveGameData:
 
 @dataclass(frozen=True)
 class LearnsetEntry:
-    table: ClassVar[str] = 'learnsets'
+    table: ClassVar[str] = "learnsets"
     form_id: int
     game_id: int
     move_id: int
@@ -119,7 +120,7 @@ class LearnsetEntry:
 
 @dataclass(frozen=True)
 class EvolutionRule:
-    table: ClassVar[str] = 'evolution_rules'
+    table: ClassVar[str] = "evolution_rules"
     id: int
     game_id: int
     from_form_id: int
@@ -131,7 +132,7 @@ class EvolutionRule:
 
 @dataclass(frozen=True)
 class Item:
-    table: ClassVar[str] = 'items'
+    table: ClassVar[str] = "items"
     id: int
     slug: str
     evidence_id: str
@@ -139,7 +140,7 @@ class Item:
 
 @dataclass(frozen=True)
 class ItemGameData:
-    table: ClassVar[str] = 'item_game_data'
+    table: ClassVar[str] = "item_game_data"
     item_id: int
     game_id: int
     effect: str | None
@@ -148,7 +149,7 @@ class ItemGameData:
 
 @dataclass(frozen=True)
 class Location:
-    table: ClassVar[str] = 'locations'
+    table: ClassVar[str] = "locations"
     id: int
     game_id: int
     slug: str
@@ -158,7 +159,7 @@ class Location:
 
 @dataclass(frozen=True)
 class Acquisition:
-    table: ClassVar[str] = 'acquisitions'
+    table: ClassVar[str] = "acquisitions"
     id: str
     game_id: int
     form_id: int | None
@@ -176,7 +177,7 @@ class Acquisition:
 
 @dataclass(frozen=True)
 class Nature:
-    table: ClassVar[str] = 'natures'
+    table: ClassVar[str] = "natures"
     id: int
     game_id: int
     slug: str
@@ -187,7 +188,7 @@ class Nature:
 
 @dataclass(frozen=True)
 class Type:
-    table: ClassVar[str] = 'types'
+    table: ClassVar[str] = "types"
     id: int
     slug: str
     evidence_id: str
@@ -195,7 +196,7 @@ class Type:
 
 @dataclass(frozen=True)
 class TypeEffectiveness:
-    table: ClassVar[str] = 'type_effectiveness'
+    table: ClassVar[str] = "type_effectiveness"
     game_id: int
     attack_type_id: int
     defense_type_id: int
@@ -205,7 +206,7 @@ class TypeEffectiveness:
 
 @dataclass(frozen=True)
 class SourceReference:
-    table: ClassVar[str] = 'sources'
+    table: ClassVar[str] = "sources"
     id: str
     url: str
     retrieved_at: str
@@ -217,7 +218,7 @@ class SourceReference:
 
 @dataclass(frozen=True)
 class Coverage:
-    table: ClassVar[str] = 'coverage'
+    table: ClassVar[str] = "coverage"
     game_id: int
     subject: str
     feature: str
