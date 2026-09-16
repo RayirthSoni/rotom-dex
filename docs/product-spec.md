@@ -142,23 +142,17 @@ Type coverage is a helpful signal, not a battle guarantee. Use actual move types
 
 ## Fit with the current repository
 
-The repository contains three small dataclasses (`Pokemon`, `Ability`, `Accessory`); the API, ingestion, assistant, database, services, retrieval, calculators, and web are placeholders. The README and requirements are empty. No runnable application or test suite is present.
+Status update 2026-09-17: the data foundation and read API described above are implemented (see the
+README, `docs/data-model.md`, `docs/api.md`, `docs/sources.md`, `docs/coverage.md`). The package is
+`rotom_dex/` (uv project): `db/` (migrations), `domain/` (records, typed conditions), `ingestion/`
+(pinned cache, registry, packs, importers, coverage), `repositories/`, `calculators/`, `api/`. Curated
+content lives in `data/game-packs/<game>/pack.json`; mechanics flags in `data/mechanics/`; the support
+policy in `data/games/registry.json`. Assistant, retrieval and web layers remain future work and should
+call the repository functions rather than SQL directly.
 
-Retain its separation of concerns:
-
-- `src/domain/`: expand models; separate species, form, and game-specific data.
-- `src/ingestion/`: cached imports, normalization, game-pack overrides, coverage reports.
-- `src/database/` and `src/repositories/`: schema, migrations, fact/evidence queries.
-- `src/services/`: acquisition, evolution, learnset, and boss-preparation logic.
-- `src/calculators/`: deterministic matchup and coverage calculations.
-- `src/assistant/`: provider adapter, typed tools, evidence-bound responses.
-- `src/retrieval/`: game-filtered strategy-note search.
-- `src/api/`: request/response contracts and endpoints.
-- `web/`: responsive interface and local playthrough persistence.
-- `data/game-packs/emerald/`: proposed location for reviewed game-specific content.
-- `tests/` and `evals/`: proposed locations for deterministic checks and assistant scenarios.
-
-During implementation, rename `type_effictiveness.py` to `type_effectiveness.py`; use `Item` instead of `Accessory`; put `is_hidden` on the Pokémon–ability relationship, not the ability definition. Preserve explicit units for height and weight when importing data.
+The implementation keeps standard-library `sqlite3` with a constrained SQL schema and a numbered
+migration runner instead of SQLAlchemy/Alembic: the evidence model and composite foreign keys are
+expressed directly in SQL and the read side is a thin query layer. Revisit if PostgreSQL becomes necessary.
 
 ## Delivery plan and completion criteria
 
