@@ -207,3 +207,11 @@ snakeviz.py
 !data/game-packs/**/*.json
 *.sqlite3
 *.sqlite3-journal
+
+# Rotom Dex
+.ruff_cache/
+data/build/
+
+# Rotom Dex
+.ruff_cache/
+data/build/
