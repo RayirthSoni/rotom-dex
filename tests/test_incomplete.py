@@ -4,12 +4,7 @@ import json
 
 
 def test_game_without_source_encounters(db, client):
-    assert (
-        db.execute(
-            "SELECT count(*) FROM acquisitions WHERE game_id=40 AND method NOT IN ('evolution','breeding')"
-        ).fetchone()[0]
-        == 0
-    )
+    assert db.execute("SELECT count(*) FROM acquisitions WHERE game_id=40 AND method NOT IN ('evolution','breeding')").fetchone()[0] == 0
     status = db.execute("SELECT status FROM coverage WHERE game_id=40 AND feature='encounters'").fetchone()[0]
     assert status == "missing"
     assert db.execute("SELECT count(*) FROM data_issues WHERE id='source:scarlet:encounters'").fetchone()[0] == 1
@@ -24,10 +19,7 @@ def test_null_values_are_preserved(db):
     assert row[0] is None  # Seismic Toss has no fixed power
     row = db.execute("SELECT accuracy FROM move_game_data WHERE move_id=14 AND version_group_id=6").fetchone()
     assert row[0] is None  # Swords Dance has no accuracy check
-    assert (
-        db.execute("SELECT price_provenance FROM item_game_data WHERE item_id=4 AND version_group_id=6").fetchone()[0]
-        == "default-cost"
-    )
+    assert db.execute("SELECT price_provenance FROM item_game_data WHERE item_id=4 AND version_group_id=6").fetchone()[0] == "default-cost"
     assert db.execute("SELECT count(*) FROM item_game_data WHERE price_provenance='version-group'").fetchone()[0] > 0
 
 

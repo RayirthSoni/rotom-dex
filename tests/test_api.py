@@ -85,10 +85,7 @@ def test_evidence_resolves_to_sources(client):
 
 def test_type_matchups_use_the_game_generation(client):
     assert client.get("/api/type-effectiveness?game=red&attack=ghost&defense=psychic").json()["data"]["multiplier"] == 0
-    assert (
-        client.get("/api/type-effectiveness?game=emerald&attack=ghost&defense=psychic").json()["data"]["multiplier"]
-        == 2
-    )
+    assert client.get("/api/type-effectiveness?game=emerald&attack=ghost&defense=psychic").json()["data"]["multiplier"] == 2
     dual = client.get("/api/type-effectiveness?game=emerald&attack=ghost&defense=steel&defense2=psychic").json()["data"]
     assert dual["multiplier"] == 1
     assert len(client.get("/api/types?game=red").json()["data"]) == 15

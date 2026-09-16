@@ -74,11 +74,7 @@ def run(ctx: Context) -> None:
                 w.add(m.PokemonVersionGroup(pid, info.id, "present", evidence_present))
                 continue
             species_default = default_of[int(p["species_id"])]
-            if (
-                p["is_default"] != "1"
-                and (species_default, info.id) in present
-                and intro_group.get(pid, 10**6) <= ctx.group_order[info.id]
-            ):
+            if p["is_default"] != "1" and (species_default, info.id) in present and intro_group.get(pid, 10**6) <= ctx.group_order[info.id]:
                 w.add(m.PokemonVersionGroup(pid, info.id, "unknown", evidence_unknown))
     w.flush()
     ctx.present = present
@@ -86,8 +82,7 @@ def run(ctx: Context) -> None:
         info.id: ev(
             (
                 "pokemon_moves",
-                f"version_group_id={info.source_id}"
-                + ("; inherited by expansion group" if info.data_source_id else ""),
+                f"version_group_id={info.source_id}" + ("; inherited by expansion group" if info.data_source_id else ""),
             )
         )
         for info in ctx.version_groups.values()

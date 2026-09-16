@@ -40,10 +40,7 @@ def applied(db: sqlite3.Connection) -> list[int]:
 def migrate(db: sqlite3.Connection) -> list[int]:
     """Apply pending migrations. Returns the versions applied in this call."""
     done = applied(db)
-    db.execute(
-        "CREATE TABLE IF NOT EXISTS schema_migrations ("
-        "version INTEGER PRIMARY KEY, name TEXT NOT NULL, applied_at TEXT NOT NULL)"
-    )
+    db.execute("CREATE TABLE IF NOT EXISTS schema_migrations (version INTEGER PRIMARY KEY, name TEXT NOT NULL, applied_at TEXT NOT NULL)")
     newly = []
     for version, name, path in available():
         if version in done:

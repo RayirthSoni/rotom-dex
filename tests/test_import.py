@@ -79,13 +79,7 @@ def test_game_selection_is_validated(tmp_path):
 def test_validation_passes_and_invariants_hold(db):
     validate_database(db)
     assert db.execute("SELECT count(*) FROM acquisitions WHERE availability='unavailable'").fetchone()[0] == 0
-    assert (
-        db.execute(
-            "SELECT count(*) FROM evidence e LEFT JOIN evidence_members m ON m.evidence_id=e.id "
-            "WHERE m.evidence_id IS NULL"
-        ).fetchone()[0]
-        == 0
-    )
+    assert db.execute("SELECT count(*) FROM evidence e LEFT JOIN evidence_members m ON m.evidence_id=e.id WHERE m.evidence_id IS NULL").fetchone()[0] == 0
 
 
 def test_migrations_apply_once_and_reject_legacy(tmp_path):
@@ -118,15 +112,11 @@ def test_pack_validation_is_strict(tmp_path):
     with pytest.raises(ValueError, match="party size"):
         GamePack(broken)
     data["battles"] = []
-    data["milestones"] = [
-        {"slug": "a", "name": "A", "kind": "story", "prerequisites": {"op": "nope"}, "references": ["tm"]}
-    ]
+    data["milestones"] = [{"slug": "a", "name": "A", "kind": "story", "prerequisites": {"op": "nope"}, "references": ["tm"]}]
     broken.write_text(json.dumps(data))
     with pytest.raises(ValueError, match="Unsupported condition"):
         GamePack(broken)
-    data["milestones"] = [
-        {"slug": "a", "name": "A", "kind": "story", "prerequisites": {"op": "always"}, "references": ["missing-ref"]}
-    ]
+    data["milestones"] = [{"slug": "a", "name": "A", "kind": "story", "prerequisites": {"op": "always"}, "references": ["missing-ref"]}]
     broken.write_text(json.dumps(data))
     with pytest.raises(ValueError, match="unknown reference"):
         GamePack(broken)
@@ -149,6 +139,4 @@ def test_pack_with_unknown_slug_fails_import(tmp_path):
     pack.write_text(json.dumps(data))
     with pytest.raises(ValueError, match="Unknown pokemon slug"):
         import_games(tmp_path / "bad.sqlite3", ["red"], packs_dir=packs)
-    assert (
-        not Path(tmp_path / "bad.sqlite3").exists() or table_counts(connect(tmp_path / "bad.sqlite3"))["snapshots"] == 0
-    )
+    assert not Path(tmp_path / "bad.sqlite3").exists() or table_counts(connect(tmp_path / "bad.sqlite3"))["snapshots"] == 0

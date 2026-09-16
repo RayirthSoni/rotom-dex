@@ -28,13 +28,7 @@ def test_steel_and_fairy_history(db):
     assert db.execute("SELECT count(*) FROM type_effectiveness WHERE generation_id=3").fetchone()[0] == 289
     assert db.execute("SELECT count(*) FROM type_effectiveness WHERE generation_id=6").fetchone()[0] == 324
     assert factor(db, 6, "fairy", "dragon") == 200
-    assert (
-        db.execute(
-            "SELECT count(*) FROM pokemon_types pt JOIN types t ON t.id=pt.type_id "
-            "WHERE t.slug='fairy' AND pt.generation_id<6"
-        ).fetchone()[0]
-        == 0
-    )
+    assert db.execute("SELECT count(*) FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE t.slug='fairy' AND pt.generation_id<6").fetchone()[0] == 0
 
 
 def test_ralts_typing_by_generation(db):
@@ -42,8 +36,7 @@ def test_ralts_typing_by_generation(db):
         return [
             r[0]
             for r in db.execute(
-                "SELECT t.slug FROM pokemon_types pt JOIN types t ON t.id=pt.type_id "
-                "WHERE pt.form_id=280 AND pt.generation_id=? ORDER BY pt.slot",
+                "SELECT t.slug FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE pt.form_id=280 AND pt.generation_id=? ORDER BY pt.slot",
                 (gen,),
             )
         ]
@@ -68,8 +61,7 @@ def test_generation_one_stats_and_absent_mechanics(db):
 def test_move_history_rewind_and_damage_class(db):
     def move(mid, vg):
         return db.execute(
-            "SELECT t.slug, damage_class, power, accuracy, pp FROM move_game_data m JOIN types t "
-            "ON t.id=m.type_id WHERE move_id=? AND version_group_id=?",
+            "SELECT t.slug, damage_class, power, accuracy, pp FROM move_game_data m JOIN types t ON t.id=m.type_id WHERE move_id=? AND version_group_id=?",
             (mid, vg),
         ).fetchone()
 
@@ -85,27 +77,12 @@ def test_move_history_rewind_and_damage_class(db):
 
 def test_hidden_abilities_only_from_generation_five(db):
     for gen in (3, 4):
-        assert (
-            db.execute(
-                "SELECT count(*) FROM pokemon_abilities WHERE generation_id=? AND is_hidden=1", (gen,)
-            ).fetchone()[0]
-            == 0
-        )
+        assert db.execute("SELECT count(*) FROM pokemon_abilities WHERE generation_id=? AND is_hidden=1", (gen,)).fetchone()[0] == 0
     assert db.execute("SELECT count(*) FROM pokemon_abilities WHERE generation_id=6 AND is_hidden=1").fetchone()[0] > 0
-    assert [
-        r[0]
-        for r in db.execute(
-            "SELECT a.slug FROM pokemon_abilities pa JOIN abilities a ON a.id=pa.ability_id "
-            "WHERE pa.form_id=286 AND pa.generation_id=3"
-        )
-    ] == ["effect-spore"]
-    assert [
-        r[0]
-        for r in db.execute(
-            "SELECT a.slug FROM pokemon_abilities pa JOIN abilities a ON a.id=pa.ability_id "
-            "WHERE pa.form_id=263 AND pa.generation_id=3"
-        )
-    ] == ["pickup"]
+    assert [r[0] for r in db.execute("SELECT a.slug FROM pokemon_abilities pa JOIN abilities a ON a.id=pa.ability_id WHERE pa.form_id=286 AND pa.generation_id=3")] == [
+        "effect-spore"
+    ]
+    assert [r[0] for r in db.execute("SELECT a.slug FROM pokemon_abilities pa JOIN abilities a ON a.id=pa.ability_id WHERE pa.form_id=263 AND pa.generation_id=3")] == ["pickup"]
 
 
 def test_item_text_is_version_group_specific(db):

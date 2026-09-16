@@ -72,19 +72,14 @@ def item_detail(db, game: str, key: str) -> dict:
             scope,
             None,
             features=("items",),
-            assumptions=[
-                f"'{item['slug']}' has no game index for generation {scope.generation_id} in the source; "
-                "this does not prove it is absent from the game."
-            ],
+            assumptions=[f"'{item['slug']}' has no game index for generation {scope.generation_id} in the source; this does not prove it is absent from the game."],
         )
     data["effect"] = one(
         db,
         "SELECT short_effect, effect, wording, evidence_id FROM item_effects WHERE item_id=?",
         (item["id"],),
     )
-    data["attributes"] = [
-        r["flag"] for r in rows(db, "SELECT flag FROM item_attributes WHERE item_id=? ORDER BY flag", (item["id"],))
-    ]
+    data["attributes"] = [r["flag"] for r in rows(db, "SELECT flag FROM item_attributes WHERE item_id=? ORDER BY flag", (item["id"],))]
     data["holdable"] = ("holdable" in data["attributes"]) if scope.mechanics.get("held_items") != 0 else False
     data["machine"] = one(
         db,
@@ -94,11 +89,7 @@ def item_detail(db, game: str, key: str) -> dict:
         (item["id"], scope.version_group_id),
     )
     if data["machine"]:
-        data["machine"]["reusable"] = (
-            scope.mechanics.get("tm_reusable")
-            if data["machine"]["kind"] == "tm"
-            else (1 if data["machine"]["kind"] == "hm" else 0)
-        )
+        data["machine"]["reusable"] = scope.mechanics.get("tm_reusable") if data["machine"]["kind"] == "tm" else (1 if data["machine"]["kind"] == "hm" else 0)
     data["acquisition"] = rows(
         db,
         """SELECT a.id, a.method, a.availability, a.prerequisites, a.verification_status,

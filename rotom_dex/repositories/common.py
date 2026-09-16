@@ -7,10 +7,7 @@ import sqlite3
 from dataclasses import dataclass, field
 
 JSON_FIELDS = ("conditions", "prerequisites", "encounter_conditions", "raw", "moves")
-ASSUMPTION_SOURCE = (
-    "Facts are derived from the pinned source snapshot and reviewed packs; "
-    "'complete' coverage is relative to that source, not independent game testing."
-)
+ASSUMPTION_SOURCE = "Facts are derived from the pinned source snapshot and reviewed packs; 'complete' coverage is relative to that source, not independent game testing."
 
 
 class NotFound(ValueError):
@@ -189,10 +186,7 @@ def envelope(
 def unsupported(db: sqlite3.Connection, scope: GameScope) -> dict:
     """Envelope for games whose facts are not in this database (by policy or by selection)."""
     if scope.importable:
-        reason = (
-            f"'{scope.slug}' is importable but was not imported into this database; run "
-            f"`rotom import --games {scope.slug}`."
-        )
+        reason = f"'{scope.slug}' is importable but was not imported into this database; run `rotom import --games {scope.slug}`."
     else:
         reason = f"'{scope.slug}' is {scope.support_tier}: {scope.note or 'no facts imported.'}"
     return envelope(db, scope, None, assumptions=[reason + " No facts from another game are substituted."])

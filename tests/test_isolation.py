@@ -5,8 +5,7 @@ def test_paired_games_share_learnsets_but_not_encounters(db):
     def encounters(game):
         return set(
             db.execute(
-                "SELECT form_id, location_area_id, method, min_level, max_level FROM acquisitions "
-                "WHERE game_id=? AND method NOT IN ('evolution','breeding')",
+                "SELECT form_id, location_area_id, method, min_level, max_level FROM acquisitions WHERE game_id=? AND method NOT IN ('evolution','breeding')",
                 (game,),
             ).fetchall()
         )
@@ -17,8 +16,7 @@ def test_paired_games_share_learnsets_but_not_encounters(db):
     ruby, emerald = encounters(7), encounters(9)
     assert ruby != emerald
     assert (
-        db.execute("SELECT count(*) FROM learnsets WHERE version_group_id=5").fetchone()[0]
-        != db.execute("SELECT count(*) FROM learnsets WHERE version_group_id=6").fetchone()[0]
+        db.execute("SELECT count(*) FROM learnsets WHERE version_group_id=5").fetchone()[0] != db.execute("SELECT count(*) FROM learnsets WHERE version_group_id=6").fetchone()[0]
     )
 
 

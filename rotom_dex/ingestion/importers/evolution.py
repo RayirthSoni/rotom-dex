@@ -71,12 +71,7 @@ def translate(ctx: Context, r: dict, trigger: str) -> dict:
             }
         )
     if r["near_special_rock"] == "1":
-        conds.append(
-            unknown(
-                "Must level up near a special rock (magnetic field, mossy or icy rock);"
-                " the location differs between games."
-            )
-        )
+        conds.append(unknown("Must level up near a special rock (magnetic field, mossy or icy rock); the location differs between games."))
     if r["needs_multiplayer"] == "1":
         conds.append(unknown("Requires a multiplayer (Union Circle) session."))
     if r["used_move_id"] or r["minimum_move_count"]:
@@ -106,16 +101,8 @@ def run(ctx: Context) -> None:
         origin_species = ctx.species[target]["evolves_from_species_id"]
         if not origin_species:
             raise ValueError(f"Evolution {rid}: target species {target} has no pre-evolution")
-        to_form = (
-            int(ctx.form_variants[int(r["evolved_pokemon_form_id"])]["pokemon_id"])
-            if r["evolved_pokemon_form_id"]
-            else default_of[target]
-        )
-        from_form = (
-            int(ctx.form_variants[int(r["required_pokemon_form_id"])]["pokemon_id"])
-            if r["required_pokemon_form_id"]
-            else default_of[int(origin_species)]
-        )
+        to_form = int(ctx.form_variants[int(r["evolved_pokemon_form_id"])]["pokemon_id"]) if r["evolved_pokemon_form_id"] else default_of[target]
+        from_form = int(ctx.form_variants[int(r["required_pokemon_form_id"])]["pokemon_id"]) if r["required_pokemon_form_id"] else default_of[int(origin_species)]
         trigger = triggers[int(r["evolution_trigger_id"])]
         conditions = translate(ctx, r, trigger)
         raw = {k: v for k, v in r.items() if v not in ("", "0")}
@@ -192,7 +179,4 @@ def derive(ctx: Context, info, rule: m.EvolutionRule, row: dict) -> tuple[str, s
     for field in ("trigger_item_id", "held_item_id"):
         if row[field] and info.generation_id not in ctx.item_generations[int(row[field])]:
             return "unknown", "Required item has no game index in this generation."
-    return "applies", (
-        "Derived: both forms present, rule not introduced later, location/region and"
-        " item checks passed. Not reviewed against the game."
-    )
+    return "applies", ("Derived: both forms present, rule not introduced later, location/region and item checks passed. Not reviewed against the game.")

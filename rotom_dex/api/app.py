@@ -13,8 +13,7 @@ from rotom_dex.settings import DEFAULT_DB
 app = FastAPI(
     title="Rotom Dex API",
     version="0.2.0",
-    description="Evidence-backed, game-scoped Pokémon data. Pass `game` (exact version slug) to every "
-    "game-scoped endpoint; responses carry coverage, assumptions and evidence.",
+    description="Evidence-backed, game-scoped Pokémon data. Pass `game` (exact version slug) to every game-scoped endpoint; responses carry coverage, assumptions and evidence.",
 )
 app.include_router(catalog.router, prefix="/api")
 app.include_router(pokemon.router, prefix="/api")

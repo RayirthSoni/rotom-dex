@@ -63,9 +63,7 @@ def import_games(
     unknown_packs = set(packs) - set(registry.games)
     if unknown_packs:
         raise ValueError(f"Game packs for unknown games: {sorted(unknown_packs)}")
-    packs_sha = hashlib.sha256(
-        registry.raw_bytes + mechanics.raw_bytes + b"".join(packs[k].raw_bytes for k in sorted(packs))
-    ).hexdigest()
+    packs_sha = hashlib.sha256(registry.raw_bytes + mechanics.raw_bytes + b"".join(packs[k].raw_bytes for k in sorted(packs))).hexdigest()
     snapshot_id = hashlib.sha256((cache.manifest_sha256() + packs_sha + NORMALIZER).encode()).hexdigest()
     db_path = Path(db_path)
     db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -79,10 +77,7 @@ def import_games(
             if existing and existing != [snapshot_id]:
                 raise ValueError("Different source snapshot; import into a new database and review the changes")
             w = Writer(db)
-            created = (
-                db.execute("SELECT created_at FROM snapshots WHERE id=?", (snapshot_id,)).fetchone()
-                or [dt.datetime.now(dt.UTC).isoformat()]
-            )[0]
+            created = (db.execute("SELECT created_at FROM snapshots WHERE id=?", (snapshot_id,)).fetchone() or [dt.datetime.now(dt.UTC).isoformat()])[0]
             w.add(m.Snapshot(snapshot_id, created, cache.manifest_sha256(), packs_sha, NORMALIZER))
             _sources(w, cache, registry, mechanics, packs, snapshot_id)
             ctx = Context(cache, registry, selected, mechanics, packs, w, snapshot_id)
@@ -209,12 +204,7 @@ def _sources(w: Writer, cache, registry, mechanics, packs, snapshot_id: str) -> 
 
 
 def table_counts(db: sqlite3.Connection) -> dict[str, int]:
-    tables = [
-        r[0]
-        for r in db.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name"
-        )
-    ]
+    tables = [r[0] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")]
     return {t: db.execute(f"SELECT count(*) FROM {t}").fetchone()[0] for t in tables}
 
 
@@ -225,10 +215,7 @@ def validate_database(db: sqlite3.Connection, ctx: Context | None = None) -> Non
         raise ValueError(f"Broken foreign keys: {[tuple(r) for r in broken]}")
     if db.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
         raise ValueError("Database integrity check failed")
-    if db.execute(
-        "SELECT 1 FROM evidence e LEFT JOIN evidence_members em ON em.evidence_id=e.id "
-        "WHERE em.evidence_id IS NULL LIMIT 1"
-    ).fetchone():
+    if db.execute("SELECT 1 FROM evidence e LEFT JOIN evidence_members em ON em.evidence_id=e.id WHERE em.evidence_id IS NULL LIMIT 1").fetchone():
         raise ValueError("Evidence without sources")
     for table, fields in (
         ("evolution_rules", ["conditions"]),
@@ -248,8 +235,7 @@ def validate_database(db: sqlite3.Connection, ctx: Context | None = None) -> Non
         if (
             gen < 6
             and db.execute(
-                "SELECT 1 FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE pt.generation_id=?"
-                " AND t.slug='fairy' LIMIT 1",
+                "SELECT 1 FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE pt.generation_id=? AND t.slug='fairy' LIMIT 1",
                 (gen,),
             ).fetchone()
         ):

@@ -48,8 +48,7 @@ def location_encounters(db, game: str, key: str) -> dict:
         return unsupported(db, scope)
     location = one(
         db,
-        "SELECT l.*, r.slug AS region FROM locations l LEFT JOIN regions r ON r.id=l.region_id "
-        "WHERE l.slug=? OR CAST(l.id AS TEXT)=?",
+        "SELECT l.*, r.slug AS region FROM locations l LEFT JOIN regions r ON r.id=l.region_id WHERE l.slug=? OR CAST(l.id AS TEXT)=?",
         (key.lower(), key),
     )
     if location is None:

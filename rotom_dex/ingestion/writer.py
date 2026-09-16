@@ -82,9 +82,7 @@ class Writer:
         before = db.total_changes
         db.execute(f"INSERT OR IGNORE INTO {table} ({collist}) SELECT {collist} FROM temp.{stage}")
         self.inserted[table] += db.total_changes - before
-        offending = db.execute(
-            f"SELECT {collist} FROM (SELECT {collist} FROM temp.{stage} EXCEPT SELECT {collist} FROM {table}) LIMIT 1"
-        ).fetchone()
+        offending = db.execute(f"SELECT {collist} FROM (SELECT {collist} FROM temp.{stage} EXCEPT SELECT {collist} FROM {table}) LIMIT 1").fetchone()
         if offending is not None:
             values = dict(zip(columns, tuple(offending), strict=True))
             try:

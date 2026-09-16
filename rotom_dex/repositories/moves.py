@@ -86,10 +86,7 @@ def move_detail(db, game: str, key: str) -> dict:
             scope,
             None,
             features=("moves",),
-            assumptions=[
-                f"'{move['slug']}' was introduced in generation {move['generation_id']} and has no values for "
-                f"{scope.slug}."
-            ],
+            assumptions=[f"'{move['slug']}' was introduced in generation {move['generation_id']} and has no values for {scope.slug}."],
         )
     for key_ in ("short_effect", "effect"):
         if data[key_] and data["effect_chance"] is not None:
@@ -100,13 +97,10 @@ def move_detail(db, game: str, key: str) -> dict:
         (move["id"], scope.version_group_id),
     )
     data["meta"] = one(db, "SELECT * FROM move_meta WHERE move_id=?", (move["id"],))
-    data["flags"] = [
-        r["flag"] for r in rows(db, "SELECT flag FROM move_flags WHERE move_id=? ORDER BY flag", (move["id"],))
-    ]
+    data["flags"] = [r["flag"] for r in rows(db, "SELECT flag FROM move_flags WHERE move_id=? ORDER BY flag", (move["id"],))]
     data["machine"] = one(
         db,
-        "SELECT mc.kind, mc.machine_number, i.slug AS item, mc.evidence_id FROM machines mc "
-        "JOIN items i ON i.id=mc.item_id WHERE mc.move_id=? AND mc.version_group_id=?",
+        "SELECT mc.kind, mc.machine_number, i.slug AS item, mc.evidence_id FROM machines mc JOIN items i ON i.id=mc.item_id WHERE mc.move_id=? AND mc.version_group_id=?",
         (move["id"], scope.version_group_id),
     )
     data["learner_count"] = db.execute(
@@ -118,10 +112,7 @@ def move_detail(db, game: str, key: str) -> dict:
         scope,
         data,
         features=("moves", "move-effects", "move-flavor-text", "machines"),
-        assumptions=[
-            "Effect text uses the source's current wording; numbers (power, accuracy, PP, "
-            "type, damage class) are version-group specific."
-        ],
+        assumptions=["Effect text uses the source's current wording; numbers (power, accuracy, PP, type, damage class) are version-group specific."],
     )
 
 
@@ -135,8 +126,7 @@ def move_learners(db, game: str, key: str, limit: int, offset: int) -> dict:
     total = db.execute(f"SELECT count(*) {base}", params).fetchone()[0]
     found = rows(
         db,
-        f"SELECT f.id, f.slug, f.name, l.method, l.level, l.evidence_id {base} "
-        f"ORDER BY f.species_id, f.id, l.method, l.level LIMIT ? OFFSET ?",
+        f"SELECT f.id, f.slug, f.name, l.method, l.level, l.evidence_id {base} ORDER BY f.species_id, f.id, l.method, l.level LIMIT ? OFFSET ?",
         [*params, limit, offset],
     )
     return envelope(

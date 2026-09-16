@@ -76,9 +76,7 @@ def run(ctx: Context) -> None:
     changes = defaultdict(list)
     for r in c.rows("move_changelog"):
         changes[int(r["move_id"])].append(r)
-    prose_effects = {
-        int(r["move_effect_id"]) for r in c.rows("move_effect_prose") if r["local_language_id"] == "9"
-    } & effect_ids
+    prose_effects = {int(r["move_effect_id"]) for r in c.rows("move_effect_prose") if r["local_language_id"] == "9"} & effect_ids
     ctx.move_game_data: set[tuple[int, int]] = set()
     for info in ctx.version_groups.values():
         order = ctx.group_order[info.source_id]

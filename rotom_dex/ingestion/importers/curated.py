@@ -32,9 +32,7 @@ def run(ctx: Context) -> None:
                 continue
             for key, entry in pack.mechanics.items():
                 if key in values and values[key] != entry["value"]:
-                    raise ValueError(
-                        f"Pack {game.slug} contradicts mechanics pack on {key}; resolve in the mechanics pack instead"
-                    )
+                    raise ValueError(f"Pack {game.slug} contradicts mechanics pack on {key}; resolve in the mechanics pack instead")
                 values[key] = entry["value"]
                 notes[key] = (_status(entry), entry.get("note", ""))
                 evidence[key] = _pack_ev(ctx, game.slug, entry["references"], f"mechanics.{key}")
@@ -201,11 +199,7 @@ def run(ctx: Context) -> None:
             counts["tutors"] += 1
         for issue in pack.issues:
             refs = issue.get("references") or []
-            evidence = (
-                _pack_ev(ctx, slug, refs, f"issues.{issue['id']}")
-                if refs
-                else ev((f"pack:{slug}", f"issues.{issue['id']}"))
-            )
+            evidence = _pack_ev(ctx, slug, refs, f"issues.{issue['id']}") if refs else ev((f"pack:{slug}", f"issues.{issue['id']}"))
             w.add(
                 m.DataIssue(
                     f"{slug}:{issue['id']}",

@@ -122,11 +122,7 @@ class Context:
         for r in self.cache.rows("pokemon_forms"):
             pid = int(r["pokemon_id"])
             vg = r["introduced_in_version_group_id"]
-            gen = (
-                self.group_generation[int(vg)]
-                if vg
-                else int(self.species[int(self.pokemon[pid]["species_id"])]["generation_id"])
-            )
+            gen = self.group_generation[int(vg)] if vg else int(self.species[int(self.pokemon[pid]["species_id"])]["generation_id"])
             intro[pid] = min(intro.get(pid, 99), gen)
         for pid, p in self.pokemon.items():
             intro.setdefault(pid, int(self.species[int(p["species_id"])]["generation_id"]))

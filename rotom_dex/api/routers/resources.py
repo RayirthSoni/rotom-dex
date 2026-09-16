@@ -105,9 +105,7 @@ def machines(game: str = GameParam, db: sqlite3.Connection = Depends(get_db)):
         data,
         features=("machines",),
         include_evidence=False,
-        assumptions=[
-            "Machine locations, prices and one-time availability are not in the source; see item acquisition."
-        ],
+        assumptions=["Machine locations, prices and one-time availability are not in the source; see item acquisition."],
     )
 
 

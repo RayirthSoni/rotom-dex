@@ -2,20 +2,14 @@
 
 
 def test_machine_counts_and_links(db):
-    counts = {
-        (vg, kind): n
-        for vg, kind, n in db.execute("SELECT version_group_id, kind, count(*) FROM machines GROUP BY 1, 2")
-    }
+    counts = {(vg, kind): n for vg, kind, n in db.execute("SELECT version_group_id, kind, count(*) FROM machines GROUP BY 1, 2")}
     assert counts[(1, "tm")] == 50 and counts[(1, "hm")] == 5
     assert counts[(6, "tm")] == 50 and counts[(6, "hm")] == 8
     assert counts[(9, "tm")] == 92 and counts[(9, "hm")] == 8
     bad = db.execute("""SELECT count(*) FROM machines mc JOIN items i ON i.id=mc.item_id
                         WHERE i.slug != mc.kind || printf('%02d', mc.machine_number)""").fetchone()[0]
     assert bad == 0
-    tm39 = db.execute(
-        "SELECT m.slug FROM machines mc JOIN moves m ON m.id=mc.move_id WHERE mc.version_group_id=6 "
-        "AND mc.kind='tm' AND mc.machine_number=39"
-    ).fetchone()[0]
+    tm39 = db.execute("SELECT m.slug FROM machines mc JOIN moves m ON m.id=mc.move_id WHERE mc.version_group_id=6 AND mc.kind='tm' AND mc.machine_number=39").fetchone()[0]
     assert tm39 == "rock-tomb"
 
 
@@ -42,12 +36,7 @@ def test_held_items_and_breeding_follow_mechanics(db):
     assert db.execute("SELECT count(*) FROM pokemon_held_items WHERE game_id=1").fetchone()[0] == 0
     ralts = db.execute("SELECT prerequisites FROM acquisitions WHERE id='breeding:9:280'").fetchone()[0]
     assert "gardevoir" in ralts and "unknown" in ralts
-    assert (
-        db.execute(
-            "SELECT count(*) FROM acquisitions WHERE game_id=9 AND method='breeding' AND form_id=150"
-        ).fetchone()[0]
-        == 0
-    )
+    assert db.execute("SELECT count(*) FROM acquisitions WHERE game_id=9 AND method='breeding' AND form_id=150").fetchone()[0] == 0
 
 
 def test_curated_pack_relationships(db):

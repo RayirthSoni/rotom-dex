@@ -18,8 +18,7 @@ def factor(db: sqlite3.Connection, generation: int, attack: int, defenses: list[
     combined = 100
     for defense in defenses:
         row = db.execute(
-            "SELECT damage_factor, evidence_id FROM type_effectiveness WHERE generation_id=? AND "
-            "attack_type_id=? AND defense_type_id=?",
+            "SELECT damage_factor, evidence_id FROM type_effectiveness WHERE generation_id=? AND attack_type_id=? AND defense_type_id=?",
             (generation, attack, defense),
         ).fetchone()
         if row is None:

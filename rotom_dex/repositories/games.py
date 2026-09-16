@@ -26,20 +26,14 @@ def list_games(db: sqlite3.Connection) -> dict:
         game["is_main_series"] = bool(game["is_main_series"])
         coverage = coverage_rows(db, game["id"])
         game["coverage_status"] = overall_status(coverage) if coverage else "missing"
-        game["coverage_counts"] = {
-            status: sum(1 for c in coverage if c["status"] == status)
-            for status in ("complete", "partial", "missing", "disputed")
-        }
+        game["coverage_counts"] = {status: sum(1 for c in coverage if c["status"] == status) for status in ("complete", "partial", "missing", "disputed")}
     return envelope(
         db,
         None,
         games,
         coverage=[],
         include_evidence=False,
-        assumptions=[
-            "Catalog and excluded games have no imported facts; their coverage "
-            "is reported as missing rather than borrowed from a similar game."
-        ],
+        assumptions=["Catalog and excluded games have no imported facts; their coverage is reported as missing rather than borrowed from a similar game."],
     )
 
 
@@ -53,8 +47,7 @@ def game_detail(db: sqlite3.Connection, slug: str) -> dict:
     )
     issues = rows(
         db,
-        "SELECT id, feature, subject, kind, description, evidence_id FROM data_issues "
-        "WHERE game_id=? OR game_id IS NULL ORDER BY id",
+        "SELECT id, feature, subject, kind, description, evidence_id FROM data_issues WHERE game_id=? OR game_id IS NULL ORDER BY id",
         (scope.id,),
     )
     data = {
@@ -67,8 +60,7 @@ def game_detail(db: sqlite3.Connection, slug: str) -> dict:
             r["slug"]
             for r in rows(
                 db,
-                "SELECT r.slug FROM version_group_regions vr JOIN regions r ON r.id=vr.region_id "
-                "WHERE vr.version_group_id=? ORDER BY r.id",
+                "SELECT r.slug FROM version_group_regions vr JOIN regions r ON r.id=vr.region_id WHERE vr.version_group_id=? ORDER BY r.id",
                 (scope.version_group_id,),
             )
         ],

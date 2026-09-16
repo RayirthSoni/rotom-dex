@@ -8,12 +8,8 @@ from rotom_dex.domain import models as m
 from rotom_dex.domain.conditions import all_of, unknown
 from rotom_dex.ingestion.context import Context
 
-PROGRESSION_UNKNOWN = unknown(
-    "Progression gates, access requirements and one-time restrictions have not been reviewed."
-)
-BREEDING_UNKNOWN = unknown(
-    "Day Care/Nursery access, a compatible partner and Ditto availability have not been reviewed."
-)
+PROGRESSION_UNKNOWN = unknown("Progression gates, access requirements and one-time restrictions have not been reviewed.")
+BREEDING_UNKNOWN = unknown("Day Care/Nursery access, a compatible partner and Ditto availability have not been reviewed.")
 
 
 def run(ctx: Context) -> None:
@@ -146,10 +142,7 @@ def run(ctx: Context) -> None:
     chains = defaultdict(list)
     for sid, s in ctx.species.items():
         chains[int(s["evolution_chain_id"])].append(sid)
-    baby_item = {
-        int(r["id"]): (int(r["baby_trigger_item_id"]) if r["baby_trigger_item_id"] else None)
-        for r in c.rows("evolution_chains")
-    }
+    baby_item = {int(r["id"]): (int(r["baby_trigger_item_id"]) if r["baby_trigger_item_id"] else None) for r in c.rows("evolution_chains")}
     default_of = ctx.default_form_of_species
     ctx.breeding_counts: dict[int, int] = defaultdict(int)
     for game in ctx.games:
@@ -170,16 +163,8 @@ def run(ctx: Context) -> None:
             if (pid, vg) not in ctx.present:
                 continue
             chain = int(s["evolution_chain_id"])
-            family = [
-                ctx.pokemon[default_of[x]]["identifier"]
-                for x in sorted(chains[chain])
-                if (default_of[x], vg) in ctx.present
-            ]
-            parents = (
-                {"op": "or", "args": [{"op": "has_pokemon", "value": f} for f in family]}
-                if len(family) > 1
-                else {"op": "has_pokemon", "value": family[0]}
-            )
+            family = [ctx.pokemon[default_of[x]]["identifier"] for x in sorted(chains[chain]) if (default_of[x], vg) in ctx.present]
+            parents = {"op": "or", "args": [{"op": "has_pokemon", "value": f} for f in family]} if len(family) > 1 else {"op": "has_pokemon", "value": family[0]}
             conds = [parents]
             incense = baby_item.get(chain)
             if s["is_baby"] == "1" and incense:

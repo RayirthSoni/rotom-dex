@@ -48,9 +48,7 @@ def presence(db: sqlite3.Connection, scope: GameScope, form_id: int) -> dict | N
     )
 
 
-def search_pokemon(
-    db: sqlite3.Connection, game: str, q: str | None, type_slug: str | None, limit: int, offset: int
-) -> dict:
+def search_pokemon(db: sqlite3.Connection, game: str, q: str | None, type_slug: str | None, limit: int, offset: int) -> dict:
     scope = resolve_game(db, game)
     if not scope.imported:
         return unsupported(db, scope)
@@ -60,10 +58,7 @@ def search_pokemon(
         where.append("(f.slug LIKE ? OR lower(f.name) LIKE ? OR CAST(f.species_id AS TEXT)=?)")
         params += [like(q), like(q), q.strip()]
     if type_slug:
-        where.append(
-            "EXISTS (SELECT 1 FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE "
-            "pt.form_id=f.id AND pt.generation_id=? AND t.slug=?)"
-        )
+        where.append("EXISTS (SELECT 1 FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE pt.form_id=f.id AND pt.generation_id=? AND t.slug=?)")
         params += [scope.generation_id, type_slug.lower()]
     base = f"""FROM pokemon_version_groups p JOIN pokemon_forms f ON f.id=p.form_id
                WHERE {" AND ".join(where)}"""
@@ -79,8 +74,7 @@ def search_pokemon(
             t["slug"]
             for t in rows(
                 db,
-                "SELECT t.slug FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE pt.form_id=? "
-                "AND pt.generation_id=? ORDER BY pt.slot",
+                "SELECT t.slug FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE pt.form_id=? AND pt.generation_id=? ORDER BY pt.slot",
                 (r["id"], scope.generation_id),
             )
         ]
@@ -166,8 +160,7 @@ def _core(db, scope, form) -> dict | None:
         ),
         "types": rows(
             db,
-            "SELECT pt.slot, t.slug AS type, pt.evidence_id FROM pokemon_types pt JOIN types t "
-            "ON t.id=pt.type_id WHERE pt.form_id=? AND pt.generation_id=? ORDER BY pt.slot",
+            "SELECT pt.slot, t.slug AS type, pt.evidence_id FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE pt.form_id=? AND pt.generation_id=? ORDER BY pt.slot",
             (fid, gen),
         ),
         "stats": rows(
@@ -210,8 +203,7 @@ def _core(db, scope, form) -> dict | None:
         ),
         "variants": rows(
             db,
-            "SELECT id, slug, form_name, is_default, is_mega, is_battle_only, "
-            "introduced_in_version_group_id FROM form_variants WHERE form_id=? ORDER BY id",
+            "SELECT id, slug, form_name, is_default, is_mega, is_battle_only, introduced_in_version_group_id FROM form_variants WHERE form_id=? ORDER BY id",
             (fid,),
         ),
         "other_forms": rows(
@@ -296,10 +288,7 @@ def pokemon_evolution(db: sqlite3.Connection, game: str, key: str) -> dict:
         scope,
         data,
         features=("evolution",),
-        assumptions=[
-            "Rules include immediate incoming and outgoing evolutions only, with their applicability to this "
-            "game (derived unless reference-reviewed)."
-        ],
+        assumptions=["Rules include immediate incoming and outgoing evolutions only, with their applicability to this game (derived unless reference-reviewed)."],
     )
 
 

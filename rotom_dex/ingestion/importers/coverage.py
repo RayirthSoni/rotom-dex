@@ -66,8 +66,7 @@ def run(ctx: Context) -> None:
             (
                 "pokemon",
                 "complete" if present else "missing",
-                f"{present} forms present in source data for this version group; {unknown_forms} "
-                "additional variant forms with unknown presence.",
+                f"{present} forms present in source data for this version group; {unknown_forms} additional variant forms with unknown presence.",
             )
         )
         for feature, table in (("types", "pokemon_types"), ("stats", "pokemon_stats")):
@@ -105,16 +104,14 @@ def run(ctx: Context) -> None:
             (
                 "moves",
                 "complete" if moves else "missing",
-                f"{moves} moves with version-group values (history rewound; damage class per "
-                f"generation rules).{inherited}",
+                f"{moves} moves with version-group values (history rewound; damage class per generation rules).{inherited}",
             )
         )
         rows.append(
             (
                 "move-effects",
                 "partial" if moves else "missing",
-                "Effect text uses the source's current wording, not historical wording; "
-                "effect ids are linked per move.",
+                "Effect text uses the source's current wording, not historical wording; effect ids are linked per move.",
             )
         )
         flavor = one("SELECT count(*) FROM move_flavor_text WHERE version_group_id=?", vg)
@@ -130,8 +127,7 @@ def run(ctx: Context) -> None:
             (
                 "learnsets",
                 _ratio(learn, present),
-                f"{learn}/{present} present forms have learnset rows. Eligibility only; TM, tutor, "
-                f"breeding access is separate.{inherited}",
+                f"{learn}/{present} present forms have learnset rows. Eligibility only; TM, tutor, breeding access is separate.{inherited}",
             )
         )
         rows.append(
@@ -164,8 +160,7 @@ def run(ctx: Context) -> None:
             (
                 "evolution",
                 "partial" if applies else "missing",
-                f"{applies} rules derived as applicable ({reviewed} reviewed). Conditions are typed; "
-                "unsupported mechanics carry unknown leaves.",
+                f"{applies} rules derived as applicable ({reviewed} reviewed). Conditions are typed; unsupported mechanics carry unknown leaves.",
             )
         )
         enc = ctx.encounter_counts.get(gid, 0)
@@ -173,8 +168,7 @@ def run(ctx: Context) -> None:
             (
                 "encounters",
                 "partial" if enc else "missing",
-                f"{enc} exact-version encounter slots. Progression prerequisites unreviewed; "
-                "absent rows do not mean unobtainable.",
+                f"{enc} exact-version encounter slots. Progression prerequisites unreviewed; absent rows do not mean unobtainable.",
             )
         )
         special = ctx.special_method_counts.get(gid, 0) + pack.get("acquisitions", 0)
@@ -221,8 +215,7 @@ def run(ctx: Context) -> None:
             (
                 "item-prices",
                 "partial" if items else "missing",
-                f"{priced} version-group prices; remaining items use the source's default cost "
-                "(provenance recorded per item).",
+                f"{priced} version-group prices; remaining items use the source's default cost (provenance recorded per item).",
             )
         )
         rows.append(
@@ -248,8 +241,7 @@ def run(ctx: Context) -> None:
             (
                 "item-acquisition",
                 "partial" if item_acq or ctx.held_item_counts.get(gid) else "missing",
-                f"{item_acq} curated item routes; wild held items recorded separately. Field items, "
-                "gifts and machine locations are not in the source.",
+                f"{item_acq} curated item routes; wild held items recorded separately. Field items, gifts and machine locations are not in the source.",
             )
         )
         shops = pack.get("shops", 0)
@@ -325,8 +317,7 @@ def run(ctx: Context) -> None:
                     "learnsets",
                     "*",
                     "unverified",
-                    "Expansion content is stored under the base version group in the source; "
-                    "learnsets, moves, machines and item data are inherited from it.",
+                    "Expansion content is stored under the base version group in the source; learnsets, moves, machines and item data are inherited from it.",
                     policy,
                 )
             )
@@ -351,9 +342,7 @@ def run(ctx: Context) -> None:
                 "abilities",
                 f"pokemon:{pid}",
                 "unverified",
-                f"Slot {slot} holds ability {aid}, introduced after generation "
-                f"{gen}, and the source has no historical entry; the slot is omitted for "
-                f"generation {gen}.",
+                f"Slot {slot} holds ability {aid}, introduced after generation {gen}, and the source has no historical entry; the slot is omitted for generation {gen}.",
                 policy,
             )
         )
@@ -377,8 +366,7 @@ def run(ctx: Context) -> None:
                 "items",
                 f"item:{iid}",
                 "disputed",
-                f"The source lists item {iid} with the same identifier as an earlier item "
-                f"('{slug}'); it is stored as '{slug}-{iid}'.",
+                f"The source lists item {iid} with the same identifier as an earlier item ('{slug}'); it is stored as '{slug}-{iid}'.",
                 policy,
             )
         )
@@ -417,9 +405,7 @@ def _ratio(covered: int, total: int) -> str:
     return "complete" if covered >= total else "partial"
 
 
-def _mechanic_feature(
-    feature: str, flag: int | None, n: int, total: int | None, noun: str, derived: bool = False
-) -> tuple[str, str, str]:
+def _mechanic_feature(feature: str, flag: int | None, n: int, total: int | None, noun: str, derived: bool = False) -> tuple[str, str, str]:
     if flag is None:
         return (
             feature,
