@@ -1,0 +1,16 @@
+{
+  "format_version": 2,
+  "game": "red",
+  "reviewed_at": "2026-09-17",
+  "policy": "Generation I validation game. No curated progression yet; this pack records known gaps explicitly so that missing rows are never mistaken for unavailability.",
+  "references": {
+    "tm": {"url": "https://bulbapedia.bulbagarden.net/wiki/TM", "accessed": "2026-09-17", "license": "CC BY-NC-SA 2.5 (Bulbapedia)", "note": "TMs are single-use from Generation I through IV."}
+  },
+  "issues": [
+    {"id": "special-stat-scope", "feature": "stats", "subject": "special", "kind": "unverified", "description": "Generation I Special values come from the source's historical stat table, which covers the 151 Generation I species. Other Generation I stat changes are not recorded by the source."},
+    {"id": "progression", "feature": "progression", "subject": "*", "kind": "missing", "description": "No curated milestones or boss teams for Red yet."},
+    {"id": "shops", "feature": "shops", "subject": "*", "kind": "missing", "description": "No curated shop inventories for Red yet."},
+    {"id": "machine-locations", "feature": "item-acquisition", "subject": "machines", "kind": "missing", "description": "TM/HM locations are not curated; the source links machines to moves only.", "references": ["tm"]},
+    {"id": "encounter-prerequisites", "feature": "encounters", "subject": "*", "kind": "unverified", "description": "Source encounters carry an explicit unknown prerequisite; route access and story gating have not been reviewed."}
+  ]
+}

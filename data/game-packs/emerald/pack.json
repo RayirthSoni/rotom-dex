@@ -1,12 +1,62 @@
 {
-  "format_version": 1,
-  "game_id": 9,
-  "version_group_id": 6,
-  "generation": 3,
-  "roster": [252, 253, 254, 263, 264, 280, 281, 282, 285, 286],
-  "reviewed_evolution_ids": [130, 131, 137, 148, 149, 151],
-  "extra_item_ids": [4, 17],
+  "format_version": 2,
+  "game": "emerald",
   "reviewed_at": "2026-09-17",
-  "policy": "PokéAPI supplies source-derived facts. The six default level-up evolution rules introduced in Ruby/Sapphire are explicitly mapped to Emerald for this roster. Only default forms are selected. Types/stats/abilities use the nearest historical generation endpoint at or after generation 3. Moves rewind changelog entries after Emerald, with the generation-3 type-based damage class. Natures apply to Emerald. No independent ROM validation has been performed.",
-  "gaps": "Progression gates, starter choice restrictions, breeding/trade routes, item shops/ground gifts, tutor access and complete move/ability effects are not reviewed. Encounter rows establish methods and levels, not current reachability. Held-item acquisitions derive only from Emerald wild encounters and exact-version held-item records."
+  "policy": "Curated Emerald content through the first Gym. Each fact was checked by reading the cited reference page on the access date; no prose was copied and no bulk extraction was performed. Anything not confirmed on a cited page is omitted and listed under issues.",
+  "references": {
+    "roxanne": {"url": "https://bulbapedia.bulbagarden.net/wiki/Roxanne", "accessed": "2026-09-17", "license": "CC BY-NC-SA 2.5 (Bulbapedia)", "note": "Emerald Gym battle team, badge, TM and prize money."},
+    "rustboro": {"url": "https://bulbapedia.bulbagarden.net/wiki/Rustboro_City", "accessed": "2026-09-17", "license": "CC BY-NC-SA 2.5 (Bulbapedia)", "note": "Poké Mart inventory, HM01, in-game trade, Premier Ball."},
+    "walkthrough-1": {"url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_1", "accessed": "2026-09-17", "license": "CC BY-NC-SA 2.5 (Bulbapedia)", "note": "Order of early-game events and starter choice."}
+  },
+  "milestones": [
+    {"slug": "littleroot-arrival", "name": "Arrive in Littleroot Town", "kind": "story", "location": "littleroot-town", "prerequisites": {"op": "always"}, "spoiler_level": "none", "references": ["walkthrough-1"]},
+    {"slug": "starter-chosen", "name": "Choose a starter on Route 101", "kind": "story", "location": "hoenn-route-101", "prerequisites": {"op": "milestone", "value": "littleroot-arrival"}, "spoiler_level": "none", "references": ["walkthrough-1"]},
+    {"slug": "pokedex-received", "name": "Receive the Pokédex and Poké Balls", "kind": "story", "location": "littleroot-town", "prerequisites": {"op": "milestone", "value": "starter-chosen"}, "spoiler_level": "none", "references": ["walkthrough-1"]},
+    {"slug": "rival-route-103", "name": "Defeat the rival on Route 103", "kind": "story", "location": "hoenn-route-103", "prerequisites": {"op": "milestone", "value": "pokedex-received"}, "spoiler_level": "hint", "references": ["walkthrough-1"]},
+    {"slug": "petalburg-wally", "name": "Help Wally catch a Ralts (Petalburg City)", "kind": "story", "location": "petalburg-city", "prerequisites": {"op": "milestone", "value": "rival-route-103"}, "spoiler_level": "hint", "references": ["walkthrough-1"]},
+    {"slug": "stone-badge", "name": "Stone Badge (Roxanne, Rustboro Gym)", "kind": "badge", "location": "rustboro-city", "prerequisites": {"op": "milestone", "value": "petalburg-wally"}, "spoiler_level": "none", "references": ["roxanne", "walkthrough-1"]}
+  ],
+  "battles": [
+    {
+      "id": "roxanne", "name": "Leader Roxanne", "trainer_class": "Leader", "milestone": "stone-badge",
+      "location": "rustboro-city", "prize_money": 1500,
+      "party": [
+        {"pokemon": "geodude", "level": 12, "gender": "female", "ability": "rock-head", "held_item": null, "moves": ["tackle", "defense-curl", "rock-throw", "rock-tomb"]},
+        {"pokemon": "geodude", "level": 12, "gender": "female", "ability": "rock-head", "held_item": null, "moves": ["tackle", "defense-curl", "rock-throw", "rock-tomb"]},
+        {"pokemon": "nosepass", "level": 15, "gender": "female", "ability": "sturdy", "held_item": "oran-berry", "moves": ["block", "harden", "tackle", "rock-tomb"]}
+      ],
+      "references": ["roxanne"]
+    }
+  ],
+  "acquisitions": [
+    {"id": "starter-treecko", "pokemon": "treecko", "method": "gift", "location": "hoenn-route-101", "min_level": 5, "max_level": 5, "prerequisites": {"op": "and", "args": [{"op": "milestone", "value": "littleroot-arrival"}, {"op": "unknown", "reason": "Only one of Treecko, Torchic and Mudkip can be chosen."}]}, "note": "Starter offered by Professor Birch.", "references": ["walkthrough-1"]},
+    {"id": "starter-torchic", "pokemon": "torchic", "method": "gift", "location": "hoenn-route-101", "min_level": 5, "max_level": 5, "prerequisites": {"op": "and", "args": [{"op": "milestone", "value": "littleroot-arrival"}, {"op": "unknown", "reason": "Only one of Treecko, Torchic and Mudkip can be chosen."}]}, "note": "Starter offered by Professor Birch.", "references": ["walkthrough-1"]},
+    {"id": "starter-mudkip", "pokemon": "mudkip", "method": "gift", "location": "hoenn-route-101", "min_level": 5, "max_level": 5, "prerequisites": {"op": "and", "args": [{"op": "milestone", "value": "littleroot-arrival"}, {"op": "unknown", "reason": "Only one of Treecko, Torchic and Mudkip can be chosen."}]}, "note": "Starter offered by Professor Birch.", "references": ["walkthrough-1"]},
+    {"id": "tm39-roxanne", "item": "tm39", "method": "gift", "location": "rustboro-city", "prerequisites": {"op": "milestone", "value": "stone-badge"}, "note": "Awarded by Roxanne together with the Stone Badge.", "references": ["roxanne"]},
+    {"id": "hm01-cutter", "item": "hm01", "method": "gift", "location": "rustboro-city", "prerequisites": {"op": "and", "args": [{"op": "at_location", "value": "rustboro-city"}, {"op": "unknown", "reason": "Whether any badge is required before the Cutter gives HM01 was not confirmed on the reviewed page."}]}, "note": "Given by the Cutter in the Cutter's House.", "references": ["rustboro"]},
+    {"id": "premier-ball-rustboro", "item": "premier-ball", "method": "gift", "location": "rustboro-city", "prerequisites": {"op": "and", "args": [{"op": "at_location", "value": "rustboro-city"}, {"op": "unknown", "reason": "Dialogue conditions for the gift were not confirmed on the reviewed page."}]}, "note": "Given by a boy on the second floor of the south-western building.", "references": ["rustboro"]},
+    {"id": "seedot-trade", "pokemon": "seedot", "method": "npc-trade", "location": "rustboro-city", "prerequisites": {"op": "and", "args": [{"op": "at_location", "value": "rustboro-city"}, {"op": "has_pokemon", "value": "ralts"}]}, "note": "Trade a Ralts for Seedot (nicknamed Dots) holding a Chesto Berry.", "references": ["rustboro"]}
+  ],
+  "shops": [
+    {
+      "id": "rustboro-poke-mart", "name": "Rustboro City Poké Mart", "location": "rustboro-city",
+      "prerequisites": {"op": "always"},
+      "items": [
+        {"item": "poke-ball", "price": 200}, {"item": "potion", "price": 300}, {"item": "super-potion", "price": 700},
+        {"item": "antidote", "price": 100}, {"item": "paralyze-heal", "price": 200}, {"item": "escape-rope", "price": 550},
+        {"item": "repel", "price": 350}, {"item": "x-speed", "price": 350}, {"item": "x-attack", "price": 500},
+        {"item": "x-defense", "price": 550},
+        {"item": "timer-ball", "price": 1000, "prerequisites": {"op": "unknown", "reason": "Sold only after the Repeat Ball is received on Route 116; that event is not modelled as a milestone yet."}},
+        {"item": "repeat-ball", "price": 1000, "prerequisites": {"op": "unknown", "reason": "Sold only after the Repeat Ball is received on Route 116; that event is not modelled as a milestone yet."}}
+      ],
+      "references": ["rustboro"]
+    }
+  ],
+  "issues": [
+    {"id": "progression-after-stone-badge", "feature": "progression", "subject": "*", "kind": "missing", "description": "Milestones after the Stone Badge are not curated yet."},
+    {"id": "shops-other-cities", "feature": "shops", "subject": "*", "kind": "missing", "description": "Only the Rustboro City Poké Mart is curated; other shops are missing."},
+    {"id": "machine-locations", "feature": "item-acquisition", "subject": "machines", "kind": "missing", "description": "Only TM39 (Roxanne) and HM01 (Cutter) locations are curated; other TM/HM locations are missing."},
+    {"id": "tutors", "feature": "tutors", "subject": "*", "kind": "missing", "description": "Move tutor locations and costs are not curated; the source only records tutor learnsets."},
+    {"id": "encounter-prerequisites", "feature": "encounters", "subject": "*", "kind": "unverified", "description": "Source encounters carry an explicit unknown prerequisite: route access and story gating have not been reviewed beyond the first Gym."}
+  ]
 }
