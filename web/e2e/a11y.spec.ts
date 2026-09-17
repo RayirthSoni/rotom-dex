@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
-import { startPlaythrough } from './helpers'
+import { blockSprites, startPlaythrough } from './helpers'
 
 /**
  * Accessibility is checked on every screen, in both the desktop and phone projects, because the
@@ -23,6 +23,9 @@ const SCREENS = [
 ]
 
 test.describe('Accessibility', () => {
+  test.beforeEach(async ({ page }) => {
+    await blockSprites(page)
+  })
   for (const path of ['/', '/competitive']) {
     test(`light theme has no serious accessibility violations at ${path}`,async({page})=>{
       await page.goto(path)

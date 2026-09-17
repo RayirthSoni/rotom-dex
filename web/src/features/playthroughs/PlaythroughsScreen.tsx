@@ -64,7 +64,7 @@ export function PlaythroughsScreen() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <h1 className="text-xl font-bold tracking-tight">Playthroughs</h1>
+      <h1 className="text-2xl font-extrabold tracking-tight">Playthroughs</h1>
       <p className="mt-1 text-sm" style={{ color: 'var(--ink-muted)' }}>
         Saved in this browser only. Export to move them elsewhere or keep a backup — the file holds your progress and team, never
         any Pokémon data.
@@ -87,8 +87,7 @@ export function PlaythroughsScreen() {
             <select
               value={game}
               onChange={(event) => setGame(event.target.value)}
-              className="rounded border px-2 py-1.5 text-sm"
-              style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+              className="field"
             >
               {playable.map((row) => (
                 <option key={row.slug} value={row.slug}>{row.name}</option>
@@ -100,11 +99,10 @@ export function PlaythroughsScreen() {
             <input
               type="text" value={name} maxLength={60} onChange={(event) => setName(event.target.value)}
               placeholder={`${titleise(game)} run`}
-              className="rounded border px-2 py-1.5 text-sm"
-              style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+              className="field"
             />
           </label>
-          <button type="submit" className="rounded px-3 py-1.5 text-sm font-medium" style={{ backgroundColor: 'var(--accent)', color: 'var(--accent-ink)' }}>
+          <button type="submit" className="btn btn-primary">
             Start
           </button>
         </form>
@@ -162,13 +160,13 @@ export function PlaythroughsScreen() {
         <div className="flex flex-wrap gap-2">
           <button
             type="button" onClick={onExport} disabled={list.length === 0}
-            className="rounded border px-3 py-1.5 text-sm disabled:opacity-40" style={{ borderColor: 'var(--line-strong)' }}
+            className="btn"
           >
             Export {list.length} playthrough{list.length === 1 ? '' : 's'}
           </button>
           <button
             type="button" onClick={() => fileInput.current?.click()}
-            className="rounded border px-3 py-1.5 text-sm" style={{ borderColor: 'var(--line-strong)' }}
+            className="btn btn-sm"
           >
             Import a file
           </button>

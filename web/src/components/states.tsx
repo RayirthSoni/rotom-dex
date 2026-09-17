@@ -36,7 +36,7 @@ export function NoClaim({
   const relevant = coverage.filter((row) => row.status !== 'complete')
   return (
     <div
-      className="rounded-lg border border-dashed p-4"
+      className="rounded-[var(--r-card)] border border-dashed p-4"
       style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-sunken)' }}
       data-state="no-claim"
     >
@@ -62,7 +62,7 @@ export function NoClaim({
 
 export function EmptyResult({ title, hint }: { title: string; hint?: string }) {
   return (
-    <div className="rounded-lg border border-dashed p-6 text-center" style={{ borderColor: 'var(--line)' }} data-state="empty">
+    <div className="rounded-[var(--r-card)] border border-dashed p-6 text-center" style={{ borderColor: 'var(--line)' }} data-state="empty">
       <p className="text-sm font-medium">{title}</p>
       {hint ? (
         <p className="mt-1 text-xs" style={{ color: 'var(--ink-faint)' }}>
@@ -91,7 +91,7 @@ export function ErrorState({ error, onRetry }: { error: ApiError; onRetry?: () =
   const { title, body } = copy[error.kind] ?? copy.server!
   return (
     <div
-      className="rounded-lg border p-4"
+      className="rounded-[var(--r-card)] border p-4"
       style={{ borderColor: 'var(--alert)', backgroundColor: 'var(--alert-soft)' }}
       role="alert"
       data-state="error"

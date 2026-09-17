@@ -11,6 +11,14 @@ export async function startPlaythrough(page: Page, game: string, name: string) {
   await expect(page.getByRole('heading', { name: `Journey · ${name}` })).toBeVisible()
 }
 
+/**
+ * Sprites are hotlinked from PokéAPI at runtime. The gates wait for the network to go idle, so they
+ * abort those fetches: the run does not depend on GitHub, and the fallback backdrop is what axe sees.
+ */
+export async function blockSprites(page: Page) {
+  await page.route('**/raw.githubusercontent.com/**', (route) => route.abort())
+}
+
 export async function tickMilestone(page: Page, label: string | RegExp) {
   await page.getByRole('checkbox', { name: label }).check()
 }

@@ -6,7 +6,8 @@ import type {
   AcquisitionData, AcquisitionRoute, EvolutionChain, LearnsetData, LearnsetMove, PokemonCard, Verdict,
 } from '@/api/types'
 import { ConditionTree } from '@/components/ConditionTree'
-import { Card, CoverageChip, Multiplier, Pill, SectionHeading, Stat, TypeChip, VerdictChip } from '@/components/primitives'
+import { Card, CoverageChip, FilterChip, Multiplier, Pill, SectionHeading, Stat, TypeChip, VerdictChip } from '@/components/primitives'
+import { PokemonSprite } from '@/components/Sprite'
 import { VERDICT_EXPLANATION, VERDICT_LABEL, titleise } from '@/domain/conditions'
 
 const STAT_LABEL: Record<string, string> = {
@@ -34,10 +35,10 @@ export function StatsPanel({ card }: { card: PokemonCard }) {
               {STAT_LABEL[stat.stat] ?? titleise(stat.stat)}
             </span>
             <span className="w-8 shrink-0 text-right font-mono text-sm">{stat.base_stat}</span>
-            <span className="h-2 flex-1 overflow-hidden rounded-full" style={{ backgroundColor: 'var(--surface-sunken)' }}>
+            <span className="h-2.5 flex-1 overflow-hidden rounded-full" style={{ backgroundColor: 'var(--surface-sunken)' }}>
               <span
                 className="block h-full rounded-full"
-                style={{ width: `${Math.min(100, (stat.base_stat / 180) * 100)}%`, backgroundColor: 'var(--accent)' }}
+                style={{ width: `${Math.min(100, (stat.base_stat / 180) * 100)}%`, backgroundColor: `var(--stat-${stat.stat}, var(--accent))` }}
               />
             </span>
           </li>
@@ -141,9 +142,10 @@ export function EvolutionPanel({ chain, game }: { chain: EvolutionChain; game: s
             {node.presence ? (
               <Link
                 to={`/g/${game}/dex/${node.slug}`}
-                className="inline-flex items-center gap-1.5 rounded border px-2 py-1 text-sm"
-                style={{ borderColor: 'var(--line-strong)' }}
+                className="inline-flex items-center gap-2 rounded-[var(--r-card)] border py-1 pl-1 pr-2.5 text-sm font-medium"
+                style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)' }}
               >
+                <PokemonSprite formId={node.form_id} type={node.types[0]} size={36} />
                 {node.name}
                 {node.types.map((t) => (
                   <TypeChip key={t} type={t} size="sm" />
@@ -151,10 +153,11 @@ export function EvolutionPanel({ chain, game }: { chain: EvolutionChain; game: s
               </Link>
             ) : (
               <span
-                className="inline-flex items-center gap-1.5 rounded border border-dashed px-2 py-1 text-sm"
-                style={{ borderColor: 'var(--line)', color: 'var(--ink-faint)' }}
+                className="inline-flex items-center gap-2 rounded-[var(--r-card)] border border-dashed py-1 pl-1 pr-2.5 text-sm"
+                style={{ borderColor: 'var(--line-strong)', color: 'var(--ink-faint)' }}
                 title="Not present in this game's data. That is not a claim it is unobtainable."
               >
+                <PokemonSprite formId={node.form_id} type={node.types[0]} size={36} />
                 {node.name} <span className="text-[10px] uppercase">not in this game</span>
               </span>
             )}
@@ -260,24 +263,13 @@ export function AcquisitionPanel({
       </SectionHeading>
       {methods.length > 1 ? (
         <div className="mb-3 flex flex-wrap gap-1.5">
-          <button
-            type="button"
-            onClick={() => setMethod('')}
-            className="rounded-full border px-2 py-0.5 text-xs"
-            style={{ borderColor: method === '' ? 'var(--accent)' : 'var(--line)', color: method === '' ? 'var(--accent)' : 'var(--ink-muted)' }}
-          >
+          <FilterChip active={method === ''} onClick={() => setMethod('')}>
             All {data.routes.length}
-          </button>
+          </FilterChip>
           {methods.map((name) => (
-            <button
-              key={name}
-              type="button"
-              onClick={() => setMethod(name)}
-              className="rounded-full border px-2 py-0.5 text-xs"
-              style={{ borderColor: method === name ? 'var(--accent)' : 'var(--line)', color: method === name ? 'var(--accent)' : 'var(--ink-muted)' }}
-            >
+            <FilterChip key={name} active={method === name} onClick={() => setMethod(name)}>
               {titleise(name)} {data.route_counts[name]}
-            </button>
+            </FilterChip>
           ))}
         </div>
       ) : null}
@@ -314,15 +306,9 @@ export function LearnsetPanel({ data }: { data: LearnsetData }) {
       </SectionHeading>
       <div className="mb-3 flex flex-wrap gap-1.5">
         {methods.map((name) => (
-          <button
-            key={name}
-            type="button"
-            onClick={() => setMethod(name)}
-            className="rounded-full border px-2 py-0.5 text-xs"
-            style={{ borderColor: method === name ? 'var(--accent)' : 'var(--line)', color: method === name ? 'var(--accent)' : 'var(--ink-muted)' }}
-          >
+          <FilterChip key={name} active={method === name} onClick={() => setMethod(name)}>
             {titleise(name)} {data.method_counts[name]}
-          </button>
+          </FilterChip>
         ))}
       </div>
       <div className="table-scroll" tabIndex={0} role="region" aria-label="Learnset table, scrollable">
@@ -392,15 +378,28 @@ export function LearnsetPanel({ data }: { data: LearnsetData }) {
   )
 }
 
+/** The hero band: artwork on a wash of the Pokémon's own type colours, then its name and chips. */
 export function TypeHeader({ card, coverageStatus }: { card: PokemonCard; coverageStatus: string }) {
+  const [first, second] = card.types.map((entry) => entry.type)
+  const national = card.dex_numbers.find((entry) => entry.pokedex === 'national')
+  const wash = {
+    '--hero-a': first ? `var(--type-${first}-glow)` : undefined,
+    '--hero-b': second ? `var(--type-${second}-glow)` : undefined,
+  } as React.CSSProperties
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <h1 className="text-xl font-bold tracking-tight">{card.form.name}</h1>
-      {card.types.map((entry) => (
-        <TypeChip key={entry.slot} type={entry.type} />
-      ))}
-      <CoverageChip status={coverageStatus as 'complete'} />
-      {card.presence.presence === 'unknown' ? <Pill>Presence unverified</Pill> : null}
+    <div className="hero-band" style={wash}>
+      <PokemonSprite formId={card.form.id} type={first} size={132} artwork />
+      <div className="min-w-0 flex-1">
+        {national ? <span className="hero-number">#{String(national.number).padStart(3, '0')}</span> : null}
+        <h1>{card.form.name}</h1>
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          {card.types.map((entry) => (
+            <TypeChip key={entry.slot} type={entry.type} />
+          ))}
+          <CoverageChip status={coverageStatus as 'complete'} />
+          {card.presence.presence === 'unknown' ? <Pill>Presence unverified</Pill> : null}
+        </div>
+      </div>
     </div>
   )
 }

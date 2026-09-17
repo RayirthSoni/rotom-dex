@@ -94,7 +94,7 @@ failing. From the current snapshot:
 | Ask Rotom, with no key configured | "Rotom is not available", and nothing else changes | Chat is the only feature that needs a credential. Every other screen is unaffected. |
 | Tutor moves, every game | "Eligible — access unknown" | 50k learnset rows say a Pokémon can be taught a move by a tutor; the `tutors` table, which would say where the tutor stands, is empty. |
 | Natures and Abilities in Generation I–II | The field is absent, with a sentence | `game_mechanics` records the mechanic as absent. A missing flag instead reads "unverified", which is a different claim. |
-| Anywhere | No artwork | The pinned source carries no sprites, and fetching them would break the project's offline guarantee. The interface is built from type colour and typography instead. |
+| Anywhere, offline | A type-coloured disc where a sprite would be | The pinned source carries no images. Sprites and artwork are hotlinked from the PokéAPI sprites repository, derived in the browser from form ids the API already returns (`web/src/domain/sprites.ts`), and credited under a chat answer's sources. It is the one runtime fetch the interface makes; when it fails the disc stays and nothing else changes. |
 
 Ticking "my completed-milestone list is complete" is what turns *not determined* into a real verdict.
 In Emerald and Red that now answers **what can I catch now**; everywhere else it still answers only

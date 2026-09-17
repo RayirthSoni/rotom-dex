@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { startPlaythrough } from './helpers'
+import { blockSprites, startPlaythrough } from './helpers'
 
 /**
  * Nothing but a table, a chart or a code block may scroll sideways, and each of those owns its own
@@ -21,6 +21,9 @@ const SCREENS = [
 ]
 
 test.describe('Layout', () => {
+  test.beforeEach(async ({ page }) => {
+    await blockSprites(page)
+  })
   test('no screen scrolls the page sideways', async ({ page }) => {
     await startPlaythrough(page, 'emerald', 'Hoenn run')
     await page.goto('/g/emerald/dex/ralts')

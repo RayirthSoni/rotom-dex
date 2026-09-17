@@ -13,6 +13,7 @@ import { useKey } from '@/api/SnapshotProvider'
 import { QueryBoundary } from '@/components/QueryBoundary'
 import { AssumptionList } from '@/components/Provenance'
 import { Card, Multiplier, Pill, SectionHeading, TypeChip, VerdictChip } from '@/components/primitives'
+import { BadgeMark } from '@/components/BadgeMark'
 import { toContext, usePlaythroughs } from '@/state/playthroughs'
 import { useGameContext } from '@/state/useGame'
 import { VERDICT_LABEL, titleise } from '@/domain/conditions'
@@ -55,8 +56,7 @@ function ProgressControls({ playthrough }: { playthrough: Playthrough }) {
         <select
           value={playthrough.spoilerLevel}
           onChange={(event) => update(playthrough.id, { spoilerLevel: event.target.value as Playthrough['spoilerLevel'] })}
-          className="rounded border px-2 py-1.5 text-sm"
-          style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+          className="field"
         >
           <option value="none">Hide anything ahead of me</option>
           <option value="hint">Hints only (default)</option>
@@ -68,8 +68,7 @@ function ProgressControls({ playthrough }: { playthrough: Playthrough }) {
         <select
           value={playthrough.tradeAccess}
           onChange={(event) => update(playthrough.id, { tradeAccess: event.target.value as Playthrough['tradeAccess'] })}
-          className="rounded border px-2 py-1.5 text-sm"
-          style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+          className="field"
         >
           <option value="none">I cannot trade</option>
           <option value="local">Local trading only</option>
@@ -114,7 +113,9 @@ function Checklist({ game, playthrough }: { game: string; playthrough: Playthrou
                         <input type="checkbox" checked={done} onChange={() => toggle(playthrough.id, milestone.slug)} className="mt-1" />
                         <span>
                           <span className={done ? 'line-through opacity-60' : ''}>{milestone.name}</span>
-                          {milestone.kind === 'badge' ? <Pill tone="accent">Badge</Pill> : null}
+                          {milestone.kind === 'badge' ? (
+                            <span className="ml-1.5"><Pill tone="accent"><BadgeMark /> Badge</Pill></span>
+                          ) : null}
                           {milestone.location ? (
                             <span className="ml-1.5 text-xs" style={{ color: 'var(--ink-faint)' }}>{titleise(milestone.location)}</span>
                           ) : null}
@@ -134,8 +135,7 @@ function Checklist({ game, playthrough }: { game: string; playthrough: Playthrou
                 <select
                   value={playthrough.currentLocation ?? ''}
                   onChange={(event) => update(playthrough.id, { currentLocation: event.target.value || null })}
-                  className="rounded border px-2 py-1.5 text-sm"
-                  style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+                  className="field"
                 >
                   <option value="">Not recorded</option>
                   {[...new Set(milestones.map((m) => m.location).filter(Boolean))].map((slug) => (
@@ -178,8 +178,7 @@ function Preparation({ game, playthrough, battle }: { game: string; playthrough:
               onClick={() =>
                 pinned ? unpin(playthrough.id, pinned.id) : pin(playthrough.id, { kind: 'boss', battle, label: plan.battle.name, note: '' })
               }
-              className="rounded border px-2.5 py-1 text-xs font-medium"
-              style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}
+              className="btn btn-sm"
             >
               {pinned ? 'Unpin plan' : 'Pin plan'}
             </button>
@@ -289,8 +288,7 @@ function Bosses({ game, playthrough }: { game: string; playthrough: Playthrough 
                   <button
                     type="button"
                     onClick={() => setSelected(battle.id.split(':').pop() ?? battle.id)}
-                    className="rounded border px-2.5 py-1 text-sm"
-                    style={{ borderColor: 'var(--line-strong)' }}
+                    className="btn btn-sm"
                   >
                     {battle.name}
                     {battle.location ? (
@@ -315,16 +313,16 @@ export function JourneyScreen() {
   if (!playthrough) {
     return (
       <div className="mx-auto max-w-2xl">
-        <h1 className="text-xl font-bold tracking-tight">Journey · {titleise(game)}</h1>
+        <h1 className="text-2xl font-extrabold tracking-tight">{titleise(game)} journey</h1>
         <p className="mt-2 text-sm" style={{ color: 'var(--ink-muted)' }}>
           You are browsing {titleise(game)} in reference mode. Start a playthrough to track milestones, keep a team and get
           preparation advice — it stays in this browser and never touches your other saves.
         </p>
         <div className="mt-3 flex gap-2">
-          <Link to="/playthroughs" className="rounded border px-3 py-1.5 text-sm" style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}>
+          <Link to="/playthroughs" className="btn btn-sm">
             Start a playthrough
           </Link>
-          <Link to={`/g/${game}/dex`} className="rounded border px-3 py-1.5 text-sm" style={{ borderColor: 'var(--line-strong)' }}>
+          <Link to={`/g/${game}/dex`} className="btn btn-sm">
             Browse the Pokédex
           </Link>
         </div>
@@ -334,7 +332,7 @@ export function JourneyScreen() {
 
   return (
     <div className="mx-auto max-w-4xl">
-      <h1 className="text-xl font-bold tracking-tight">Journey · {playthrough.name}</h1>
+      <h1 className="text-2xl font-extrabold tracking-tight">Journey · {playthrough.name}</h1>
       <p className="mt-1 text-sm" style={{ color: 'var(--ink-muted)' }}>
         {titleise(playthrough.game)}
         {playthrough.currentLocation ? ` · ${titleise(playthrough.currentLocation)}` : ''} ·{' '}

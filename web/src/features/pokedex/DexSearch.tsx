@@ -7,7 +7,8 @@ import { useEnvelope } from '@/api/queries'
 import { useKey } from '@/api/SnapshotProvider'
 import { QueryBoundary } from '@/components/QueryBoundary'
 import { AssumptionList } from '@/components/Provenance'
-import { TypeChip } from '@/components/primitives'
+import { Button, TypeChip } from '@/components/primitives'
+import { PokemonSprite } from '@/components/Sprite'
 import { useGame } from '@/state/useGame'
 import { titleise } from '@/domain/conditions'
 import type { PokemonListRow, Vocabulary } from '@/api/types'
@@ -38,22 +39,21 @@ export function DexSearch() {
   const types = vocabulary.state.kind === 'ready' ? vocabulary.state.data.types : []
 
   return (
-    <div className="mx-auto max-w-4xl">
-      <h1 className="text-xl font-bold tracking-tight">Pokédex · {titleise(game)}</h1>
+    <div className="mx-auto max-w-5xl">
+      <h1 className="text-2xl font-extrabold tracking-tight">{titleise(game)} Pokédex</h1>
       <p className="mt-1 text-sm" style={{ color: 'var(--ink-muted)' }}>
         Forms present in this game's data, with the typings that applied in its generation.
       </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
-        <label className="flex-1 min-w-[12rem]">
+        <label className="min-w-[12rem] flex-1">
           <span className="sr-only">Search by name or number</span>
           <input
             type="search"
             value={term}
             onChange={(event) => setTerm(event.target.value)}
             placeholder="Name or National number…"
-            className="w-full rounded border px-3 py-2 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+            className="field"
           />
         </label>
         <label>
@@ -64,8 +64,7 @@ export function DexSearch() {
               setType(event.target.value)
               setOffset(0)
             }}
-            className="rounded border px-3 py-2 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+            className="field"
           >
             <option value="">All types</option>
             {types.map((entry) => (
@@ -93,19 +92,14 @@ export function DexSearch() {
                   ? `${envelope.pagination.offset + 1}–${Math.min(envelope.pagination.offset + rows.length, envelope.pagination.total)} of ${envelope.pagination.total}`
                   : `${rows.length} results`}
               </p>
-              <ul className="mt-2 grid gap-1.5 sm:grid-cols-2">
+              <ul className="dex-grid mt-2">
                 {rows.map((row) => (
                   <li key={row.id}>
-                    <Link
-                      to={`/g/${game}/dex/${row.slug}`}
-                      className="flex items-center gap-3 rounded border px-3 py-2 transition-colors hover:border-[var(--accent)]"
-                      style={{ borderColor: 'var(--line)', backgroundColor: 'var(--surface-raised)' }}
-                    >
-                      <span className="w-10 shrink-0 font-mono text-xs" style={{ color: 'var(--ink-faint)' }}>
-                        #{String(row.species_id).padStart(3, '0')}
-                      </span>
-                      <span className="min-w-0 flex-1 truncate text-sm font-medium">{row.name}</span>
-                      <span className="flex shrink-0 gap-1">
+                    <Link to={`/g/${game}/dex/${row.slug}`} className="dex-tile">
+                      <PokemonSprite formId={row.id} type={row.types[0]} size={64} />
+                      <span className="dex-number">#{String(row.species_id).padStart(3, '0')}</span>
+                      <span className="dex-name">{row.name}</span>
+                      <span className="dex-types">
                         {row.types.map((t) => (
                           <TypeChip key={t} type={t} size="sm" />
                         ))}
@@ -116,24 +110,12 @@ export function DexSearch() {
               </ul>
               {envelope.pagination && envelope.pagination.total > PAGE ? (
                 <div className="mt-4 flex items-center justify-between">
-                  <button
-                    type="button"
-                    disabled={offset === 0}
-                    onClick={() => setOffset(Math.max(0, offset - PAGE))}
-                    className="rounded border px-3 py-1.5 text-sm disabled:opacity-40"
-                    style={{ borderColor: 'var(--line-strong)' }}
-                  >
+                  <Button disabled={offset === 0} onClick={() => setOffset(Math.max(0, offset - PAGE))}>
                     Previous
-                  </button>
-                  <button
-                    type="button"
-                    disabled={offset + PAGE >= envelope.pagination.total}
-                    onClick={() => setOffset(offset + PAGE)}
-                    className="rounded border px-3 py-1.5 text-sm disabled:opacity-40"
-                    style={{ borderColor: 'var(--line-strong)' }}
-                  >
+                  </Button>
+                  <Button disabled={offset + PAGE >= envelope.pagination.total} onClick={() => setOffset(offset + PAGE)}>
                     Next
-                  </button>
+                  </Button>
                 </div>
               ) : null}
               <AssumptionList assumptions={envelope.assumptions} dense />

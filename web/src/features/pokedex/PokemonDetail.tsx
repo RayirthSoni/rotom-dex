@@ -12,7 +12,7 @@ import { useEnvelope } from '@/api/queries'
 import { useKey } from '@/api/SnapshotProvider'
 import { QueryBoundary } from '@/components/QueryBoundary'
 import { AssumptionList, CoverageStrip, EvidenceList } from '@/components/Provenance'
-import { Card, SectionHeading } from '@/components/primitives'
+import { Button, Card, SectionHeading } from '@/components/primitives'
 import { useGameContext } from '@/state/useGame'
 import { usePlaythroughs, toContext, MAX_TEAM } from '@/state/playthroughs'
 import { titleise } from '@/domain/conditions'
@@ -59,11 +59,11 @@ export function PokemonDetail() {
 
   return (
     <div className="mx-auto max-w-4xl">
-      <Link to={`/g/${game}/dex`} className="text-xs underline underline-offset-2" style={{ color: 'var(--ink-muted)' }}>
+      <Link to={`/g/${game}/dex`} className="text-sm font-medium underline underline-offset-2" style={{ color: 'var(--ink-muted)' }}>
         ← Back to the Pokédex
       </Link>
 
-      <div className="mt-2">
+      <div className="mt-3">
         <QueryBoundary
           state={card.state}
           onRetry={() => card.refetch()}
@@ -73,19 +73,18 @@ export function PokemonDetail() {
           {(data, envelope) => (
             <>
               <TypeHeader card={data} coverageStatus={envelope.coverage_status} />
-              <div className="mt-2 flex flex-wrap items-center gap-2">
+              <div className="mt-3 flex flex-wrap items-center gap-2">
                 <CoverageStrip coverage={envelope.coverage} />
                 {playthrough ? (
-                  <button
-                    type="button"
+                  <Button
+                    tone="primary"
+                    size="sm"
                     disabled={onTeam || teamFull}
                     onClick={() => addMember(playthrough.id, data.form.slug)}
-                    className="rounded border px-2.5 py-1 text-xs font-medium disabled:opacity-40"
-                    style={{ borderColor: 'var(--accent)', color: 'var(--accent)' }}
                     title={teamFull ? `A team holds at most ${MAX_TEAM}` : onTeam ? 'Already on your team' : undefined}
                   >
                     {onTeam ? 'On your team' : `Add to ${playthrough.name}`}
-                  </button>
+                  </Button>
                 ) : null}
               </div>
 

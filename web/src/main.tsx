@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RouterProvider } from 'react-router-dom'
 import { SnapshotProvider } from './api/SnapshotProvider'
 import { router } from './routes'
+import '@fontsource-variable/rubik'
 import './styles/index.css'
 
 const client = new QueryClient({

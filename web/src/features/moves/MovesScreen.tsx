@@ -85,7 +85,7 @@ export function MovesScreen() {
 
   return (
     <div className="mx-auto max-w-4xl">
-      <h1 className="text-xl font-bold tracking-tight">Moves · {titleise(game)}</h1>
+      <h1 className="text-2xl font-extrabold tracking-tight">{titleise(game)} moves</h1>
       <p className="mt-1 text-sm" style={{ color: 'var(--ink-muted)' }}>
         Power, accuracy, type and damage class as they were in this version group, rewound through the source's changelog.
       </p>
@@ -98,8 +98,7 @@ export function MovesScreen() {
             value={term}
             onChange={(event) => setTerm(event.target.value)}
             placeholder="Move name…"
-            className="w-full rounded border px-3 py-2 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+            className="field w-full"
           />
         </label>
         <label>
@@ -107,8 +106,7 @@ export function MovesScreen() {
           <select
             value={type}
             onChange={(event) => { setType(event.target.value); setOffset(0) }}
-            className="rounded border px-3 py-2 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+            className="field"
           >
             <option value="">All types</option>
             {vocab?.types.map((entry) => (
@@ -121,8 +119,7 @@ export function MovesScreen() {
           <select
             value={damageClass}
             onChange={(event) => { setDamageClass(event.target.value); setOffset(0) }}
-            className="rounded border px-3 py-2 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+            className="field"
           >
             <option value="">All classes</option>
             {(vocab?.damage_classes ?? []).map((entry) => (
@@ -180,9 +177,9 @@ export function MovesScreen() {
               {envelope.pagination && envelope.pagination.total > PAGE ? (
                 <div className="mt-4 flex items-center justify-between">
                   <button type="button" disabled={offset === 0} onClick={() => setOffset(Math.max(0, offset - PAGE))}
-                    className="rounded border px-3 py-1.5 text-sm disabled:opacity-40" style={{ borderColor: 'var(--line-strong)' }}>Previous</button>
+                    className="btn">Previous</button>
                   <button type="button" disabled={offset + PAGE >= envelope.pagination.total} onClick={() => setOffset(offset + PAGE)}
-                    className="rounded border px-3 py-1.5 text-sm disabled:opacity-40" style={{ borderColor: 'var(--line-strong)' }}>Next</button>
+                    className="btn">Next</button>
                 </div>
               ) : null}
               <AssumptionList assumptions={envelope.assumptions} dense />

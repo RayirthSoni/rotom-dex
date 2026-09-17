@@ -58,7 +58,7 @@ export function CoverageScreen() {
 
   return (
     <div className="mx-auto max-w-5xl">
-      <h1 className="text-xl font-bold tracking-tight">Choose a game</h1>
+      <h1 className="text-2xl font-extrabold tracking-tight">Choose a game</h1>
       <p className="mt-1 max-w-2xl text-sm" style={{ color: 'var(--ink-muted)' }}>
         Every fact in Rotom Dex is scoped to one exact version. Paired versions are separate games, and coverage differs
         between them. Nothing is ever borrowed from a similar game.
@@ -71,8 +71,7 @@ export function CoverageScreen() {
           value={filter}
           onChange={(event) => setFilter(event.target.value)}
           placeholder="Filter by name…"
-          className="w-full rounded border px-3 py-2 text-sm"
-          style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+          className="field w-full"
         />
       </label>
 
@@ -96,7 +95,7 @@ export function CoverageScreen() {
                       <button
                         type="button"
                         onClick={() => navigate(`/g/${game.slug}/journey`)}
-                        className="w-full rounded-lg border p-3 text-left transition-colors hover:border-[var(--accent)]"
+                        className="w-full rounded-[var(--r-card)] border p-3 text-left transition-colors hover:border-[var(--accent)]"
                         style={{ borderColor: 'var(--line)', backgroundColor: 'var(--surface-raised)' }}
                       >
                         <div className="flex items-baseline justify-between gap-2">

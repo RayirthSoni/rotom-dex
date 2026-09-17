@@ -14,6 +14,7 @@ import { useKey } from '@/api/SnapshotProvider'
 import { QueryBoundary } from '@/components/QueryBoundary'
 import { AssumptionList } from '@/components/Provenance'
 import { Card, Multiplier, Pill, SectionHeading, TypeChip } from '@/components/primitives'
+import { PokemonSprite } from '@/components/Sprite'
 import { MAX_MOVES, MAX_TEAM, toContext, usePlaythroughs } from '@/state/playthroughs'
 import { useGameContext } from '@/state/useGame'
 import { titleise } from '@/domain/conditions'
@@ -39,8 +40,7 @@ function AddMember({ game, playthroughId, disabled }: { game: string; playthroug
           disabled={disabled}
           onChange={(event) => setTerm(event.target.value)}
           placeholder="Search by name…"
-          className="w-full max-w-sm rounded border px-3 py-2 text-sm disabled:opacity-40"
-          style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}
+          className="field w-full max-w-sm"
         />
       </label>
       {rows.length ? (
@@ -103,8 +103,9 @@ function MemberEditor({
   return (
     <Card>
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex items-baseline gap-2">
-          <Link to={`/g/${game}/dex/${member.pokemon}`} className="text-base font-semibold underline underline-offset-2">
+        <div className="flex items-center gap-2">
+          <Link to={`/g/${game}/dex/${member.pokemon}`} className="inline-flex items-center gap-2 text-base font-semibold underline underline-offset-2">
+            {card.state.kind === 'ready' ? <PokemonSprite formId={card.state.data.form.id} type={card.state.data.types[0]?.type} size={40} /> : null}
             {titleise(member.pokemon)}
           </Link>
           {card.state.kind === 'ready' ? card.state.data.types.map((t) => <TypeChip key={t.slot} type={t.type} size="sm" />) : null}
@@ -120,24 +121,21 @@ function MemberEditor({
           <input
             type="text" maxLength={24} value={member.nickname ?? ''}
             onChange={(event) => update(playthroughId, member.id, { nickname: event.target.value || null })}
-            className="w-full rounded border px-2 py-1.5 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }} />
+            className="field w-full" />
         </label>
         <label className="text-sm">
           <span className="mb-1 block text-xs" style={{ color: 'var(--ink-faint)' }}>Level</span>
           <input
             type="number" min={1} max={100} value={member.level ?? ''}
             onChange={(event) => update(playthroughId, member.id, { level: event.target.value ? Number(event.target.value) : null })}
-            className="w-full rounded border px-2 py-1.5 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }} />
+            className="field w-full" />
         </label>
 
         {hasAbilities ? (
           <label className="text-sm">
             <span className="mb-1 block text-xs" style={{ color: 'var(--ink-faint)' }}>Ability</span>
             <select value={member.ability ?? ''} onChange={(event) => update(playthroughId, member.id, { ability: event.target.value || null })}
-              className="w-full rounded border px-2 py-1.5 text-sm"
-              style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}>
+              className="field w-full">
               <option value="">Not set</option>
               {abilities.map((ability) => (<option key={ability.slot} value={ability.ability}>{ability.name}{ability.is_hidden ? ' (hidden)' : ''}</option>))}
             </select>
@@ -153,8 +151,7 @@ function MemberEditor({
           <label className="text-sm">
             <span className="mb-1 block text-xs" style={{ color: 'var(--ink-faint)' }}>Nature</span>
             <select value={member.nature ?? ''} onChange={(event) => update(playthroughId, member.id, { nature: event.target.value || null })}
-              className="w-full rounded border px-2 py-1.5 text-sm"
-              style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}>
+              className="field w-full">
               <option value="">Not set</option>
               {natures.map((nature) => (
                 <option key={nature.id} value={nature.slug}>
@@ -175,8 +172,7 @@ function MemberEditor({
             <span className="mb-1 block text-xs" style={{ color: 'var(--ink-faint)' }}>Held item (slug)</span>
             <input type="text" value={member.heldItem ?? ''} placeholder="oran-berry"
               onChange={(event) => update(playthroughId, member.id, { heldItem: event.target.value.trim().toLowerCase() || null })}
-              className="w-full rounded border px-2 py-1.5 text-sm"
-              style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }} />
+              className="field w-full" />
           </label>
         ) : (
           <p className="text-xs sm:col-span-2" style={{ color: 'var(--ink-faint)' }} data-testid="no-held-items">
@@ -364,7 +360,7 @@ export function TeamScreen() {
   if (!playthrough) {
     return (
       <div className="mx-auto max-w-2xl">
-        <h1 className="text-xl font-bold tracking-tight">Team · {titleise(game)}</h1>
+        <h1 className="text-2xl font-extrabold tracking-tight">{titleise(game)} team</h1>
         <p className="mt-2 text-sm" style={{ color: 'var(--ink-muted)' }}>
           A team belongs to a playthrough, so that switching games never overwrites another save.
         </p>
@@ -377,7 +373,7 @@ export function TeamScreen() {
 
   return (
     <div className="mx-auto max-w-4xl">
-      <h1 className="text-xl font-bold tracking-tight">Team · {playthrough.name}</h1>
+      <h1 className="text-2xl font-extrabold tracking-tight">Team · {playthrough.name}</h1>
       <p className="mt-1 text-sm" style={{ color: 'var(--ink-muted)' }}>
         Up to {MAX_TEAM} Pokémon, {MAX_MOVES} moves each. Saved in this browser only.
       </p>

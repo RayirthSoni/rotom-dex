@@ -12,6 +12,7 @@ import { useGameContext } from '@/state/useGame'
 import { toContext } from '@/state/playthroughs'
 import { VERDICT_LABEL, titleise } from '@/domain/conditions'
 import type { ItemDetail, ItemListRow, ReachabilityResult, Vocabulary } from '@/api/types'
+import { ItemSprite } from '@/components/Sprite'
 
 const PAGE = 40
 
@@ -36,7 +37,10 @@ function ItemCard({ game, slug, onClose }: { game: string; slug: string; onClose
   return (
     <Card className="mt-3">
       <div className="mb-2 flex items-start justify-between gap-2">
-        <SectionHeading>{titleise(slug)}</SectionHeading>
+        <div className="flex items-center gap-3">
+          <ItemSprite slug={slug} size={40} />
+          <SectionHeading>{titleise(slug)}</SectionHeading>
+        </div>
         <button type="button" onClick={onClose} className="text-xs underline underline-offset-2" style={{ color: 'var(--ink-muted)' }}>
           Close
         </button>
@@ -141,7 +145,7 @@ export function ItemsScreen() {
 
   return (
     <div className="mx-auto max-w-4xl">
-      <h1 className="text-xl font-bold tracking-tight">Items · {titleise(game)}</h1>
+      <h1 className="text-2xl font-extrabold tracking-tight">{titleise(game)} items</h1>
       <p className="mt-1 text-sm" style={{ color: 'var(--ink-muted)' }}>
         Items indexed for this generation, with effects and whatever the source records about price and availability.
       </p>
@@ -150,14 +154,12 @@ export function ItemsScreen() {
         <label className="flex-1 min-w-[12rem]">
           <span className="sr-only">Search items</span>
           <input type="search" value={term} onChange={(event) => setTerm(event.target.value)} placeholder="Item name…"
-            className="w-full rounded border px-3 py-2 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }} />
+            className="field w-full" />
         </label>
         <label>
           <span className="sr-only">Filter by pocket</span>
           <select value={category} onChange={(event) => { setCategory(event.target.value); setOffset(0) }}
-            className="rounded border px-3 py-2 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}>
+            className="field">
             <option value="">All pockets</option>
             {pockets.map((pocket) => (<option key={pocket} value={pocket}>{titleise(pocket)}</option>))}
           </select>
@@ -178,9 +180,10 @@ export function ItemsScreen() {
                 {rows.map((item) => (
                   <li key={item.id}>
                     <button type="button" onClick={() => setSelected(item.slug)}
-                      className="flex w-full items-center gap-2 rounded border px-3 py-2 text-left transition-colors hover:border-[var(--accent)]"
+                      className="flex w-full items-center gap-2.5 rounded-[var(--r-card)] border px-2.5 py-1.5 text-left transition-colors hover:border-[var(--accent)]"
                       style={{ borderColor: 'var(--line)', backgroundColor: 'var(--surface-raised)' }}>
-                      <span className="min-w-0 flex-1 truncate text-sm">{item.name}</span>
+                      <ItemSprite slug={item.slug} size={30} />
+                      <span className="min-w-0 flex-1 truncate text-sm font-medium">{item.name}</span>
                       <span className="shrink-0 text-[11px]" style={{ color: 'var(--ink-faint)' }}>{titleise(item.pocket)}</span>
                       {item.purchase_price ? (
                         <span className="shrink-0 font-mono text-xs" title={PROVENANCE_NOTE[item.price_provenance]}>₽{item.purchase_price}</span>
@@ -192,9 +195,9 @@ export function ItemsScreen() {
               {envelope.pagination && envelope.pagination.total > PAGE ? (
                 <div className="mt-4 flex items-center justify-between">
                   <button type="button" disabled={offset === 0} onClick={() => setOffset(Math.max(0, offset - PAGE))}
-                    className="rounded border px-3 py-1.5 text-sm disabled:opacity-40" style={{ borderColor: 'var(--line-strong)' }}>Previous</button>
+                    className="btn">Previous</button>
                   <button type="button" disabled={offset + PAGE >= envelope.pagination.total} onClick={() => setOffset(offset + PAGE)}
-                    className="rounded border px-3 py-1.5 text-sm disabled:opacity-40" style={{ borderColor: 'var(--line-strong)' }}>Next</button>
+                    className="btn">Next</button>
                 </div>
               ) : null}
               <AssumptionList assumptions={envelope.assumptions} dense />

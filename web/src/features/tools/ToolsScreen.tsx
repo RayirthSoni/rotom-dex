@@ -102,24 +102,21 @@ function Matchups({ game }: { game: string }) {
       <div className="flex flex-wrap gap-2">
         <label className="text-sm">
           <span className="mb-1 block text-xs" style={{ color: 'var(--ink-faint)' }}>Attacking</span>
-          <select value={attack} onChange={(event) => setAttack(event.target.value)} className="rounded border px-2 py-1.5 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}>
+          <select value={attack} onChange={(event) => setAttack(event.target.value)} className="field">
             <option value="">Choose…</option>
             {options.map((type) => (<option key={type.slug} value={type.slug}>{type.name}</option>))}
           </select>
         </label>
         <label className="text-sm">
           <span className="mb-1 block text-xs" style={{ color: 'var(--ink-faint)' }}>Defending</span>
-          <select value={defense} onChange={(event) => setDefense(event.target.value)} className="rounded border px-2 py-1.5 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}>
+          <select value={defense} onChange={(event) => setDefense(event.target.value)} className="field">
             <option value="">Choose…</option>
             {options.map((type) => (<option key={type.slug} value={type.slug}>{type.name}</option>))}
           </select>
         </label>
         <label className="text-sm">
           <span className="mb-1 block text-xs" style={{ color: 'var(--ink-faint)' }}>Second type</span>
-          <select value={defense2} onChange={(event) => setDefense2(event.target.value)} className="rounded border px-2 py-1.5 text-sm"
-            style={{ borderColor: 'var(--line-strong)', backgroundColor: 'var(--surface-raised)', color: 'var(--ink)' }}>
+          <select value={defense2} onChange={(event) => setDefense2(event.target.value)} className="field">
             <option value="">None</option>
             {options.map((type) => (<option key={type.slug} value={type.slug}>{type.name}</option>))}
           </select>
@@ -182,7 +179,7 @@ export function ToolsScreen() {
   return (
     <div className="mx-auto max-w-4xl space-y-3">
       <div>
-        <h1 className="text-xl font-bold tracking-tight">Reference · {titleise(game)}</h1>
+        <h1 className="text-2xl font-extrabold tracking-tight">{titleise(game)} reference</h1>
         <p className="mt-1 text-sm" style={{ color: 'var(--ink-muted)' }}>
           Every value here is the one that applied in this game, not the current one.
         </p>

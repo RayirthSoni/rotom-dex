@@ -54,7 +54,7 @@ request and no CORS configuration; `rotom serve --cors ORIGIN` is the escape hat
 
 Structured imports and reference lookups are offline: the source is a hash-verified cache of 108 PokéAPI CSV files
 pinned to one upstream commit (`data/sources/pokeapi/`). `uv run rotom fetch-sources` restores missing
-cache files; `--add name…` extends the cache at the same pinned revision (network, changes the snapshot).
+cache files; `--add name…` extends the cache at the same pinned revision (network, changes the snapshot). The web app makes one runtime fetch of its own: Pokémon sprites, hotlinked from the PokéAPI sprites repository and replaced by a type-coloured disc when unavailable.
 
 ## What is imported
 
