@@ -77,16 +77,18 @@ failing. From the current snapshot:
 
 | Where | What you see | Why |
 | --- | --- | --- |
-| Journey, for 46 of 47 games | "No milestones reviewed for <game> yet" | Progression is curated per game with reference URLs. Only Emerald has any, through the first gym. |
-| Boss preparation, for 46 of 47 games | An explanation instead of a plan | `trainer_battles` holds exactly one reviewed roster: Emerald's Leader Roxanne. |
-| Acquisition, nearly everywhere | "Not determined" rather than a verdict | Every imported encounter carries `unknown("progression gates not reviewed")`, so no context can settle it. Exactly one row in the database can ever read as *reachable*. |
+| Journey, for 45 of 47 games | "No milestones reviewed for <game> yet" | Progression is curated per game with reference URLs. Emerald (49) and Red (31) have a connected chain to the Hall of Fame; nothing else has any. |
+| Boss preparation, for 45 of 47 games | An explanation instead of a plan | `trainer_battles` holds 26 reviewed rosters, all of them Emerald's and Red's. |
+| Acquisition, in 45 of 47 games | "Not determined" rather than a verdict | Without a reviewed location gate an encounter keeps `unknown("progression gates not reviewed")`, and no context can settle it. In Emerald and Red, reviewed gates mean recorded progress settles most encounters. |
+| Acquisition, fishing everywhere | "Not determined" | Rod acquisition is not reviewed in any game, so a fishing slot stays unknown even in a reviewed location. |
+| Ask Rotom, with no key configured | "Rotom is not available", and nothing else changes | Chat is the only feature that needs a credential. Every other screen is unaffected. |
 | Tutor moves, every game | "Eligible — access unknown" | 50k learnset rows say a Pokémon can be taught a move by a tutor; the `tutors` table, which would say where the tutor stands, is empty. |
 | Natures and Abilities in Generation I–II | The field is absent, with a sentence | `game_mechanics` records the mechanic as absent. A missing flag instead reads "unverified", which is a different claim. |
 | Anywhere | No artwork | The pinned source carries no sprites, and fetching them would break the project's offline guarantee. The interface is built from type colour and typography instead. |
 
-Because of the third row, the useful question the interface leads with is **what is blocking me**,
-not *what can I catch now*. Ticking "my completed-milestone list is complete" is what lets Rotom say
-*blocked by the Stone Badge* instead of *not determined* — and the interface says so where you tick it.
+Ticking "my completed-milestone list is complete" is what turns *not determined* into a real verdict.
+In Emerald and Red that now answers **what can I catch now**; everywhere else it still answers only
+*what is blocking me*, and the interface says so where you tick it.
 
 ## Tests
 
@@ -94,6 +96,9 @@ not *what can I catch now*. Ticking "my completed-milestone list is complete" is
 npm --prefix web run test         # vitest: client, envelope states, condition phrasing, save files, store
 npm --prefix web run e2e          # playwright, desktop + Pixel 5, against a real server and database
 ```
+
+The end-to-end suite includes an accessibility pass: every screen is checked with axe in both
+projects, and any serious or critical WCAG 2.1 AA violation fails the build.
 
 Playwright builds its own two-game database (`data/build/e2e.sqlite3`, about two seconds) and serves
 the built bundle through `rotom serve`, so the end-to-end suite exercises the production arrangement.

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from rotom_dex.domain import models as m
+from rotom_dex.domain.conditions import leaves
 from rotom_dex.ingestion.context import Context
 
 
@@ -42,11 +43,14 @@ def run(ctx: Context) -> None:
     w.flush()
 
     ctx.pack_counts: dict[int, dict[str, int]] = {}
+    ctx.progression_completeness: dict[int, dict[str, str]] = {}
+    ctx.boss_completeness: dict[int, dict[str, str]] = {}
     for game in ctx.games:
         pack = ctx.packs.get(game.slug)
         counts = {
             "milestones": 0,
             "battles": 0,
+            "location_gates": 0,
             "acquisitions": 0,
             "shops": 0,
             "tutors": 0,
@@ -55,6 +59,7 @@ def run(ctx: Context) -> None:
         ctx.pack_counts[game.id] = counts
         if not pack:
             continue
+        counts["location_gates"] = len(pack.location_gates)
         slug = game.slug
         milestone_ids = {}
         for ord_, ms in enumerate(pack.milestones, start=1):
@@ -108,6 +113,12 @@ def run(ctx: Context) -> None:
                         ) not in ctx.move_game_data:
                             raise ValueError(f"Battle {bid}: move {mv} unknown in this game")
                 ability = member.get("ability")
+                if ability is not None:
+                    # A curated roster is transcribed by hand from a reference page, so the ability
+                    # is checked against the species' own slots rather than merely existing.
+                    ability_id = _slug(ctx.slug_to_ability, ability, "ability")
+                    if (form, ability_id, game.version_group_id) not in ctx.form_abilities:
+                        raise ValueError(f"Battle {bid}: {member['pokemon']} cannot have ability {ability}")
                 w.add(
                     m.TrainerPartyMember(
                         bid,
@@ -115,7 +126,7 @@ def run(ctx: Context) -> None:
                         form,
                         member["level"],
                         member.get("gender"),
-                        _slug(ctx.slug_to_ability, ability, "ability") if ability else None,
+                        ability_id if ability else None,
                         _slug(ctx.slug_to_item, member["held_item"], "item") if member.get("held_item") else None,
                         moves,
                         _status(b),
@@ -212,14 +223,71 @@ def run(ctx: Context) -> None:
                 )
             )
             counts["issues"] += 1
+        progression = _progression_status(pack)
+        ctx.progression_completeness[game.id] = progression
+        ctx.boss_completeness[game.id] = _boss_status(pack, progression["status"])
     w.flush()
 
 
+MAIN_STORY_KINDS = ("badge", "elite-four", "champion")
+
+
+def _progression_status(pack) -> dict[str, str]:
+    """`complete` is earned by a connected chain to a declared end, not by the pack claiming it."""
+    if not pack.milestones:
+        return {"status": "missing", "note": "No curated milestones."}
+    total = len(pack.milestones)
+    # The pack validator already guarantees every milestone leaf resolves, so these edges cannot dangle.
+    edges = {ms["slug"]: [leaf["value"] for leaf in leaves(ms["prerequisites"]) if leaf["op"] == "milestone"] for ms in pack.milestones}
+    if pack.main_story_end is None:
+        return {"status": "partial", "note": f"{total} curated milestones; no main_story_end is declared, so the reviewed story is open-ended."}
+
+    # Every milestone must be grounded: reachable by walking prerequisites down to a root. A cycle
+    # never grounds, so this catches cycles without a separate pass.
+    grounded: set[str] = set()
+    for _ in range(total):
+        progressed = False
+        for slug, needs in edges.items():
+            if slug not in grounded and all(n in grounded for n in needs):
+                grounded.add(slug)
+                progressed = True
+        if not progressed:
+            break
+    ungrounded = sorted(set(edges) - grounded)
+    if ungrounded:
+        return {"status": "partial", "note": f"{total} curated milestones; {len(ungrounded)} are unreachable from a starting milestone ({', '.join(ungrounded[:3])})."}
+    return {
+        "status": "complete",
+        "note": f"{total} curated milestones forming a connected chain from the start of the game to '{pack.main_story_end}'. "
+        "Complete means the reviewed main story, not post-game content.",
+    }
+
+
+def _boss_status(pack, progression_status: str) -> dict[str, str]:
+    """`complete` means every badge, Elite Four and Champion milestone has a reviewed roster.
+
+    Gated on the progression being complete as well. "Every curated badge has a roster" is a hollow
+    claim when only the first badge is curated, so an incomplete story caps this at `partial`.
+    """
+    if not pack.battles:
+        return {"status": "missing", "note": "No curated trainer battles."}
+    total = len(pack.battles)
+    attached = {b.get("milestone") for b in pack.battles}
+    required = [ms["slug"] for ms in pack.milestones if ms["kind"] in MAIN_STORY_KINDS]
+    if not required:
+        return {"status": "partial", "note": f"{total} curated trainer battles; no badge or Champion milestones are curated to check them against."}
+    if progression_status != "complete":
+        note = f"{total} curated trainer battles covering {len(required)} curated main-story milestones, but the progression itself is incomplete."
+        return {"status": "partial", "note": note}
+    missing = [slug for slug in required if slug not in attached]
+    if missing:
+        note = f"{total} curated trainer battles; {len(missing)} of {len(required)} main-story milestones still have no roster ({', '.join(missing[:3])})."
+        return {"status": "partial", "note": note}
+    return {"status": "complete", "note": f"{total} curated trainer battles; every one of the {len(required)} badge, Elite Four and Champion milestones has a reviewed roster."}
+
+
 def _pack_ev(ctx: Context, slug: str, refs: list[str], selector: str) -> str:
-    return ctx.ev(
-        *[(f"ref:{slug}:{ref}", f"read for verification: {selector}") for ref in refs],
-        (f"pack:{slug}", selector),
-    )
+    return ctx.pack_ev(slug, refs, selector)
 
 
 def _slug(index: dict[str, int], value: str, kind: str) -> int:

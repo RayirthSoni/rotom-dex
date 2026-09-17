@@ -142,17 +142,34 @@ Type coverage is a helpful signal, not a battle guarantee. Use actual move types
 
 ## Fit with the current repository
 
-Status update 2026-09-17: the data foundation, the read API, the shared domain services and the web
-application described above are implemented (see the README, `docs/data-model.md`, `docs/api.md`,
-`docs/web.md`, `docs/sources.md`, `docs/coverage.md`). Milestone 2 of the delivery plan — a first-gym
-vertical slice with Dex, team editor, progress state, acquisition and preparation cards — is met for
-Emerald; milestone 3 (chat) is not started. The package is
+Status update 2026-09-17 (second revision): milestones 1 through 4 are met and milestone 6 is met for
+Red. Emerald and Red each have a connected chain of reviewed milestones to the Hall of Fame and a
+reviewed roster for every badge, Elite Four and Champion battle, so `progression` and `boss-teams`
+read `complete` for both — earned by an invariant the importer checks, not by a pack asserting it.
+Reviewed `location_gates` and `method_gates` replace the blanket `unknown` that used to sit on every
+encounter, so recorded progress now settles most acquisition questions in those two games; that was
+the single change that made "who can I catch before the next gym?" answerable at all.
+
+Milestone 3 (chat) is implemented: `POST /api/chat` runs a bounded loop over seventeen typed tools
+backed by the same services, filters spoilers server-side before the model sees anything, and
+verifies every answer before returning it. **No provider credential exists in this environment, so
+no live model call has ever been made**; the loop is exercised deterministically and live behaviour,
+latency, cost and answer quality are unmeasured. Milestone 5 is partly met: 128 reviewed evaluation
+questions are graded in code, accessibility is checked with axe on every screen in both viewports,
+and the production build and container are verified — but the five-player usability study and the
+cost and latency instrumentation have not been done.
+
+The remaining 45 games are imported from the pinned source and carry no reviewed progression,
+rosters, gates or shops. `docs/backlog.md` is generated from the database and says exactly what each
+one still needs. The package is
 `rotom_dex/` (uv project): `db/` (migrations), `domain/` (records, typed conditions), `ingestion/`
 (pinned cache, registry, packs, importers, coverage), `repositories/`, `calculators/`, `services/` (playthrough-aware analysis), `api/`. Curated
 content lives in `data/game-packs/<game>/pack.json`; mechanics flags in `data/mechanics/`; the support
-policy in `data/games/registry.json`. The web layer is `web/` (Vite, React, TypeScript) and calls the API, never SQL. The assistant and
-retrieval layers remain future work; the chat tool allowlist should call `rotom_dex/services/`, which
-is why those services take plain values and a context dataclass rather than a request object.
+policy in `data/games/registry.json`. The web layer is `web/` (Vite, React, TypeScript) and calls the API, never SQL. `rotom_dex/chat/` holds the provider adapters,
+the tool allowlist, the bounded loop and the answer checks; it is a sibling of `services/` rather than
+a subpackage because `services/` is guaranteed network-free. The tool allowlist calls
+`rotom_dex/services/`, which is why those services take plain values and a context dataclass rather
+than a request object.
 
 The implementation keeps standard-library `sqlite3` with a constrained SQL schema and a numbered
 migration runner instead of SQLAlchemy/Alembic: the evidence model and composite foreign keys are
@@ -171,14 +188,14 @@ expressed directly in SQL and the read side is a thin query layer. Revisit if Po
 
 Do not schedule full all-game support before measuring the cost of reviewing the first game pack. Data research and verification are the main uncertainty, not the chat UI.
 
-Suggested release gates (targets, not measured results):
+Release gates. Measured results are marked; everything else remains a target.
 
-- Build 100 reviewed questions across lookup, acquisition, moves, evolution, team advice, progression, and missing-data cases. Require at least 95% factual correctness and zero known wrong-game or unreachable-as-reachable recommendations.
-- Test dual types, immunities, historical rules, acquisition AND/OR conditions, version differences, and incomplete data independently of the model.
-- Verify learnset eligibility separately from actual access to a TM, tutor, trade, or breeding route.
-- Require evidence for factual cards and successful abstention for deliberately unsupported cases.
-- Test hint mode with future-story questions and retrieved notes that contain spoilers.
-- Have five players attempt three tasks: find an obtainable teammate, determine an evolution method, and prepare for a boss. Target four of five completing each without assistance.
-- Measure cold/warm latency and cost per answer. Proposed targets: local factual endpoints under 500 ms p95, first useful chat output within 3 seconds, complete typical answers within 10 seconds; tune against the chosen hosting and model.
+- **Met (deterministic half).** 128 reviewed questions across 12 categories and 7 games, in `data/eval/questions.jsonl`; `rotom eval` grades them against the services and all 128 pass. Two reviewer errors were found and corrected this way. The model's own wording is graded only with `--live`, which needs a credential and has never run.
+- **Met.** 226 Python tests cover dual types, immunities, historical rules, AND/OR conditions, version differences and incomplete data, none of which involve the model.
+- **Met.** `move_access.eligibility` reports eligibility and access separately, and the evaluation set asserts it.
+- **Met.** A fact whose evidence did not come from a tool in that request is demoted; a game with no reviewed rosters abstains.
+- **Met.** Spoiler tests assert on what the provider was shown, and a leak in the model's prose discards the whole answer.
+- **Not done.** The five-player usability study has not been run.
+- **Not done.** Latency and cost per answer are unmeasured, because no live model call has been made. Chat is bounded at 45 s by configuration, not by observation.
 
 The first implementation task is the data feasibility slice: one game, a small representative roster, verified acquisition/learnset/evolution facts, and first-boss preparation served as structured results.

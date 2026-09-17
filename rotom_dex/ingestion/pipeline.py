@@ -16,7 +16,7 @@ from pathlib import Path
 from rotom_dex.db.connection import connect
 from rotom_dex.db.migrations import migrate
 from rotom_dex.domain import models as m
-from rotom_dex.domain.conditions import validate_condition
+from rotom_dex.domain.conditions import leaves, validate_condition
 from rotom_dex.ingestion.cache import PokeAPICache
 from rotom_dex.ingestion.context import Context
 from rotom_dex.ingestion.importers import (
@@ -309,3 +309,21 @@ def validate_database(db: sqlite3.Connection, ctx: Context | None = None) -> Non
         raise ValueError(f"Present form {missing[0]} lacks stats for version group {missing[1]}")
     if db.execute("SELECT 1 FROM acquisitions WHERE form_id IS NULL AND item_id IS NULL LIMIT 1").fetchone():
         raise ValueError("Acquisition without subject")
+    _check_milestone_references(db)
+
+
+def _check_milestone_references(db: sqlite3.Connection) -> None:
+    """Every `milestone` leaf in a stored condition must name a milestone of that same game.
+
+    A leaf naming a milestone that does not exist evaluates to unknown forever, which reads as
+    "we have not asked" rather than the authoring mistake it actually is. Catching it here keeps a
+    reviewed gate from quietly degrading into a permanent unknown.
+    """
+    known: dict[int, set[str]] = {}
+    for game_id, slug in db.execute("SELECT game_id, slug FROM milestones"):
+        known.setdefault(game_id, set()).add(slug)
+    for table, column in (("acquisitions", "prerequisites"), ("milestones", "prerequisites"), ("shops", "prerequisites")):
+        for game_id, value in db.execute(f"SELECT game_id, {column} FROM {table}"):
+            for leaf in leaves(json.loads(value)):
+                if leaf["op"] == "milestone" and leaf["value"] not in known.get(game_id, set()):
+                    raise ValueError(f"{table}.{column} for game {game_id} cites unknown milestone '{leaf['value']}'")

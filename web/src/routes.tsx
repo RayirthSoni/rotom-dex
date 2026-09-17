@@ -10,6 +10,7 @@ import { ToolsScreen } from './features/tools/ToolsScreen'
 import { TeamScreen } from './features/team/TeamScreen'
 import { JourneyScreen } from './features/journey/JourneyScreen'
 import { Landing } from './features/games/Landing'
+import { AskRotomScreen } from './features/chat/AskRotomScreen'
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ export const router = createBrowserRouter([
           { path: 'moves', element: <MovesScreen /> },
           { path: 'items', element: <ItemsScreen /> },
           { path: 'tools', element: <ToolsScreen /> },
+          { path: 'ask', element: <AskRotomScreen /> },
         ],
       },
     ],

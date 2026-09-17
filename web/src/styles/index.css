@@ -15,11 +15,15 @@
   --color-plasma-500: #ff7a1a;
   --color-plasma-600: #ea5a00;
   --color-plasma-700: #c14400;
+  /* Dark enough to clear 4.5:1 both as text on the light surfaces and as a fill under white text. */
+  --color-plasma-800: #b34200;
 
   --color-cathode-200: #b5ecff;
   --color-cathode-400: #46d9ff;
   --color-cathode-500: #00b8e6;
   --color-cathode-600: #0090b8;
+  /* Dark enough for small text on the light surfaces; -600 is a fill and a glow, not body text. */
+  --color-cathode-700: #00789a;
 
   --color-void-50: #f5f7fb;
   --color-void-100: #e8ecf5;
@@ -41,11 +45,12 @@
   --line-strong: var(--color-void-400);
   --ink: #101524;
   --ink-muted: var(--color-void-600);
-  --ink-faint: #67718d;
-  --accent: var(--color-plasma-600);
+  /* 4.76:1 on the sunken surface. The previous value cleared 4.5 on white only. */
+  --ink-faint: #5f6883;
+  --accent: var(--color-plasma-800);
   --accent-ink: #ffffff;
   --accent-soft: var(--color-plasma-50);
-  --spark: var(--color-cathode-600);
+  --spark: var(--color-cathode-700);
 
   /* Verdict palette. These three carry the product's meaning, so they are tokens, not ad-hoc
      classes: green is established, amber is blocked by something named, slate is not claimed. */

@@ -3,60 +3,2887 @@
   "game": "emerald",
   "reviewed_at": "2026-09-17",
   "policy": "Curated Emerald content through the first Gym. Each fact was checked by reading the cited reference page on the access date; no prose was copied and no bulk extraction was performed. Anything not confirmed on a cited page is omitted and listed under issues.",
+  "main_story_end": "hall-of-fame",
   "references": {
-    "roxanne": {"url": "https://bulbapedia.bulbagarden.net/wiki/Roxanne", "accessed": "2026-09-17", "license": "CC BY-NC-SA 2.5 (Bulbapedia)", "note": "Emerald Gym battle team, badge, TM and prize money."},
-    "rustboro": {"url": "https://bulbapedia.bulbagarden.net/wiki/Rustboro_City", "accessed": "2026-09-17", "license": "CC BY-NC-SA 2.5 (Bulbapedia)", "note": "Poké Mart inventory, HM01, in-game trade, Premier Ball."},
-    "walkthrough-1": {"url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_1", "accessed": "2026-09-17", "license": "CC BY-NC-SA 2.5 (Bulbapedia)", "note": "Order of early-game events and starter choice."}
+    "roxanne": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Roxanne",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Gym battle team, badge, TM and prize money."
+    },
+    "rustboro": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Rustboro_City",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Poke Mart inventory, HM01, in-game trade, Premier Ball."
+    },
+    "badges": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Badge",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Hoenn badge order and the field move each badge enables."
+    },
+    "petalburg": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Petalburg_City",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "HM03 Surf giver and its prerequisite."
+    },
+    "route-119": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Hoenn_Route_119",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "HM02 Fly giver, Weather Institute, route access."
+    },
+    "sootopolis": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Sootopolis_City",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "HM07 Waterfall giver and the Emerald order of events."
+    },
+    "brawly": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Brawly",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Gym battle team, badge and prize money."
+    },
+    "wattson": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Wattson",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Gym battle team, badge and prize money."
+    },
+    "flannery": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Flannery",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Gym battle team, badge and prize money."
+    },
+    "norman": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Norman",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Gym battle team, badge and prize money."
+    },
+    "winona": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Winona",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Gym battle team, badge and prize money."
+    },
+    "tate-liza": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Tate_and_Liza",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Gym battle team, badge and prize money."
+    },
+    "juan": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Juan",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Gym battle team, badge and prize money."
+    },
+    "sidney": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Sidney",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Elite Four team and prize money."
+    },
+    "phoebe": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Phoebe",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Elite Four team and prize money."
+    },
+    "glacia": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Glacia",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Elite Four team and prize money."
+    },
+    "drake": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Drake_(Elite_Four)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Elite Four team and prize money."
+    },
+    "wallace": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Wallace",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Emerald Champion team and prize money."
+    },
+    "walkthrough-1": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_1",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 1."
+    },
+    "walkthrough-2": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_2",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 2."
+    },
+    "walkthrough-3": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_3",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 3."
+    },
+    "walkthrough-4": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_4",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 4."
+    },
+    "walkthrough-5": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_5",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 5."
+    },
+    "walkthrough-6": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_6",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 6."
+    },
+    "walkthrough-7": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_7",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 7."
+    },
+    "walkthrough-8": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_8",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 8."
+    },
+    "walkthrough-9": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_9",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 9."
+    },
+    "walkthrough-10": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_10",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 10."
+    },
+    "walkthrough-11": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_11",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 11."
+    },
+    "walkthrough-12": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_12",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 12."
+    },
+    "walkthrough-13": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_13",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 13."
+    },
+    "walkthrough-14": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_14",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 14."
+    },
+    "walkthrough-15": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_15",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 15."
+    },
+    "walkthrough-16": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_16",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 16."
+    },
+    "walkthrough-17": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_17",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 17."
+    },
+    "walkthrough-18": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_18",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 18."
+    },
+    "walkthrough-19": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Emerald_walkthrough/Section_19",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 19."
+    }
   },
   "milestones": [
-    {"slug": "littleroot-arrival", "name": "Arrive in Littleroot Town", "kind": "story", "location": "littleroot-town", "prerequisites": {"op": "always"}, "spoiler_level": "none", "references": ["walkthrough-1"]},
-    {"slug": "starter-chosen", "name": "Choose a starter on Route 101", "kind": "story", "location": "hoenn-route-101", "prerequisites": {"op": "milestone", "value": "littleroot-arrival"}, "spoiler_level": "none", "references": ["walkthrough-1"]},
-    {"slug": "pokedex-received", "name": "Receive the Pokédex and Poké Balls", "kind": "story", "location": "littleroot-town", "prerequisites": {"op": "milestone", "value": "starter-chosen"}, "spoiler_level": "none", "references": ["walkthrough-1"]},
-    {"slug": "rival-route-103", "name": "Defeat the rival on Route 103", "kind": "story", "location": "hoenn-route-103", "prerequisites": {"op": "milestone", "value": "pokedex-received"}, "spoiler_level": "hint", "references": ["walkthrough-1"]},
-    {"slug": "petalburg-wally", "name": "Help Wally catch a Ralts (Petalburg City)", "kind": "story", "location": "petalburg-city", "prerequisites": {"op": "milestone", "value": "rival-route-103"}, "spoiler_level": "hint", "references": ["walkthrough-1"]},
-    {"slug": "stone-badge", "name": "Stone Badge (Roxanne, Rustboro Gym)", "kind": "badge", "location": "rustboro-city", "prerequisites": {"op": "milestone", "value": "petalburg-wally"}, "spoiler_level": "none", "references": ["roxanne", "walkthrough-1"]}
+    {
+      "slug": "littleroot-arrival",
+      "name": "Arrive in Littleroot Town",
+      "kind": "story",
+      "location": "littleroot-town",
+      "prerequisites": {
+        "op": "always"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "slug": "starter-chosen",
+      "name": "Choose a starter on Route 101",
+      "kind": "story",
+      "location": "hoenn-route-101",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "littleroot-arrival"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "slug": "pokedex-received",
+      "name": "Receive the Pokedex and Poke Balls",
+      "kind": "story",
+      "location": "littleroot-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "starter-chosen"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "slug": "rival-route-103",
+      "name": "Defeat the rival on Route 103",
+      "kind": "story",
+      "location": "hoenn-route-103",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokedex-received"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "slug": "petalburg-wally",
+      "name": "Help Wally catch a Ralts (Petalburg City)",
+      "kind": "story",
+      "location": "petalburg-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rival-route-103"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "slug": "hm01-cut",
+      "name": "Receive HM01 Cut from the Cutter (Rustboro City)",
+      "kind": "hm",
+      "location": "rustboro-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "petalburg-wally"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "rustboro",
+        "walkthrough-2"
+      ]
+    },
+    {
+      "slug": "stone-badge",
+      "name": "Stone Badge (Roxanne, Rustboro Gym)",
+      "kind": "badge",
+      "location": "rustboro-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "petalburg-wally"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "roxanne",
+        "walkthrough-1"
+      ]
+    },
+    {
+      "slug": "devon-goods",
+      "name": "Recover the Devon Goods in Rusturf Tunnel",
+      "kind": "story",
+      "location": "rusturf-tunnel",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "stone-badge"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "slug": "briney-ferry",
+      "name": "Sail to Dewford Town with Mr. Briney",
+      "kind": "story",
+      "location": "dewford-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "devon-goods"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "slug": "knuckle-badge",
+      "name": "Knuckle Badge (Brawly, Dewford Gym)",
+      "kind": "badge",
+      "location": "dewford-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "briney-ferry"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "brawly",
+        "walkthrough-3"
+      ]
+    },
+    {
+      "slug": "hm05-flash",
+      "name": "Receive HM05 Flash from the Hiker in Granite Cave",
+      "kind": "hm",
+      "location": "granite-cave",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "briney-ferry"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "slug": "steven-letter",
+      "name": "Deliver Mr. Stone's Letter to Steven in Granite Cave",
+      "kind": "story",
+      "location": "granite-cave",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm05-flash"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "slug": "slateport-arrival",
+      "name": "Sail on to Slateport City",
+      "kind": "story",
+      "location": "slateport-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "steven-letter"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "slug": "oceanic-museum",
+      "name": "Deliver the Devon Goods and clear the Oceanic Museum",
+      "kind": "story",
+      "location": "slateport-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "slateport-arrival"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-4"
+      ]
+    },
+    {
+      "slug": "mauville-arrival",
+      "name": "Reach Mauville City along Route 110",
+      "kind": "story",
+      "location": "mauville-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "oceanic-museum"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-4"
+      ]
+    },
+    {
+      "slug": "hm06-rock-smash",
+      "name": "Receive HM06 Rock Smash from the Scientist (Mauville City)",
+      "kind": "hm",
+      "location": "mauville-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mauville-arrival"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "slug": "wally-mauville",
+      "name": "Battle Wally outside the Mauville Gym",
+      "kind": "story",
+      "location": "mauville-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mauville-arrival"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "slug": "dynamo-badge",
+      "name": "Dynamo Badge (Wattson, Mauville Gym)",
+      "kind": "badge",
+      "location": "mauville-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "wally-mauville"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "wattson",
+        "walkthrough-5"
+      ]
+    },
+    {
+      "slug": "hm04-strength",
+      "name": "Receive HM04 Strength in Rusturf Tunnel",
+      "kind": "hm",
+      "location": "rusturf-tunnel",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "dynamo-badge"
+          },
+          {
+            "op": "milestone",
+            "value": "hm06-rock-smash"
+          }
+        ]
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "slug": "meteor-falls-theft",
+      "name": "Team Magma steals the Meteorite at Meteor Falls",
+      "kind": "story",
+      "location": "meteor-falls",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "dynamo-badge"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-7"
+      ]
+    },
+    {
+      "slug": "mt-chimney-showdown",
+      "name": "Defeat Maxie at the summit of Mt. Chimney",
+      "kind": "story",
+      "location": "mt-chimney",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "meteor-falls-theft"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-7"
+      ]
+    },
+    {
+      "slug": "heat-badge",
+      "name": "Heat Badge (Flannery, Lavaridge Gym)",
+      "kind": "badge",
+      "location": "lavaridge-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mt-chimney-showdown"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "flannery",
+        "walkthrough-7"
+      ]
+    },
+    {
+      "slug": "go-goggles",
+      "name": "Receive the Go-Goggles for the Route 111 desert",
+      "kind": "story",
+      "location": "lavaridge-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "heat-badge"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-7"
+      ]
+    },
+    {
+      "slug": "balance-badge",
+      "name": "Balance Badge (Norman, Petalburg Gym)",
+      "kind": "badge",
+      "location": "petalburg-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "go-goggles"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "norman",
+        "walkthrough-8"
+      ]
+    },
+    {
+      "slug": "hm03-surf",
+      "name": "Receive HM03 Surf from Wally's father (Petalburg City)",
+      "kind": "hm",
+      "location": "petalburg-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "balance-badge"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "petalburg",
+        "walkthrough-8"
+      ]
+    },
+    {
+      "slug": "weather-institute",
+      "name": "Rescue the Weather Institute on Route 119",
+      "kind": "story",
+      "location": "hoenn-route-119",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm03-surf"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "route-119",
+        "walkthrough-10"
+      ]
+    },
+    {
+      "slug": "rival-route-119",
+      "name": "Defeat the rival on Route 119",
+      "kind": "story",
+      "location": "hoenn-route-119",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "weather-institute"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "route-119",
+        "walkthrough-10"
+      ]
+    },
+    {
+      "slug": "hm02-fly",
+      "name": "Receive HM02 Fly from the rival on Route 119",
+      "kind": "hm",
+      "location": "hoenn-route-119",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rival-route-119"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "route-119",
+        "walkthrough-10"
+      ]
+    },
+    {
+      "slug": "devon-scope",
+      "name": "Receive the Devon Scope from Steven on Route 120",
+      "kind": "story",
+      "location": "hoenn-route-120",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "weather-institute"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "slug": "feather-badge",
+      "name": "Feather Badge (Winona, Fortree Gym)",
+      "kind": "badge",
+      "location": "fortree-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "devon-scope"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "winona",
+        "walkthrough-11"
+      ]
+    },
+    {
+      "slug": "mt-pyre-visit",
+      "name": "Archie takes the Red Orb at the summit of Mt. Pyre",
+      "kind": "story",
+      "location": "mt-pyre",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "feather-badge"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-12"
+      ]
+    },
+    {
+      "slug": "magma-hideout-raid",
+      "name": "Defeat Maxie in the Magma Hideout",
+      "kind": "story",
+      "location": "magma-hideout",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mt-pyre-visit"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-12"
+      ]
+    },
+    {
+      "slug": "aqua-hideout-raid",
+      "name": "Defeat Matt in the Team Aqua Hideout",
+      "kind": "story",
+      "location": "team-aqua-hideout",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "magma-hideout-raid"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-13"
+      ]
+    },
+    {
+      "slug": "mind-badge",
+      "name": "Mind Badge (Tate and Liza, Mossdeep Gym)",
+      "kind": "badge",
+      "location": "mossdeep-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "aqua-hideout-raid"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "tate-liza",
+        "walkthrough-14"
+      ]
+    },
+    {
+      "slug": "space-center",
+      "name": "Stop Team Magma at the Mossdeep Space Center",
+      "kind": "story",
+      "location": "mossdeep-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mind-badge"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-14"
+      ]
+    },
+    {
+      "slug": "hm08-dive",
+      "name": "Receive HM08 Dive from Steven (Mossdeep City)",
+      "kind": "hm",
+      "location": "mossdeep-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "space-center"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-14"
+      ]
+    },
+    {
+      "slug": "seafloor-cavern-showdown",
+      "name": "Defeat Archie in the Seafloor Cavern",
+      "kind": "story",
+      "location": "seafloor-cavern",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm08-dive"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-15"
+      ]
+    },
+    {
+      "slug": "sootopolis-legendaries",
+      "name": "Find Wallace in the Cave of Origin at Sootopolis",
+      "kind": "story",
+      "location": "sootopolis-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "seafloor-cavern-showdown"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-16"
+      ]
+    },
+    {
+      "slug": "sky-pillar-rayquaza",
+      "name": "Wake Rayquaza at the Sky Pillar",
+      "kind": "story",
+      "location": "sky-pillar",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sootopolis-legendaries"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-17"
+      ]
+    },
+    {
+      "slug": "legendaries-calmed",
+      "name": "Rayquaza calms Groudon and Kyogre at Sootopolis",
+      "kind": "story",
+      "location": "sootopolis-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sky-pillar-rayquaza"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-17"
+      ]
+    },
+    {
+      "slug": "hm07-waterfall",
+      "name": "Receive HM07 Waterfall from Wallace (Sootopolis City)",
+      "kind": "hm",
+      "location": "sootopolis-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "legendaries-calmed"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "sootopolis"
+      ]
+    },
+    {
+      "slug": "rain-badge",
+      "name": "Rain Badge (Juan, Sootopolis Gym)",
+      "kind": "badge",
+      "location": "sootopolis-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "legendaries-calmed"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "juan",
+        "walkthrough-17"
+      ]
+    },
+    {
+      "slug": "victory-road",
+      "name": "Cross Victory Road to Ever Grande City",
+      "kind": "story",
+      "location": "hoenn-victory-road",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "rain-badge"
+          },
+          {
+            "op": "milestone",
+            "value": "hm07-waterfall"
+          }
+        ]
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-18"
+      ]
+    },
+    {
+      "slug": "elite-four-sidney",
+      "name": "Defeat Elite Four Sidney",
+      "kind": "elite-four",
+      "location": "ever-grande-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "victory-road"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "sidney",
+        "walkthrough-19"
+      ]
+    },
+    {
+      "slug": "elite-four-phoebe",
+      "name": "Defeat Elite Four Phoebe",
+      "kind": "elite-four",
+      "location": "ever-grande-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "elite-four-sidney"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "phoebe",
+        "walkthrough-19"
+      ]
+    },
+    {
+      "slug": "elite-four-glacia",
+      "name": "Defeat Elite Four Glacia",
+      "kind": "elite-four",
+      "location": "ever-grande-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "elite-four-phoebe"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "glacia",
+        "walkthrough-19"
+      ]
+    },
+    {
+      "slug": "elite-four-drake",
+      "name": "Defeat Elite Four Drake",
+      "kind": "elite-four",
+      "location": "ever-grande-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "elite-four-glacia"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "drake",
+        "walkthrough-19"
+      ]
+    },
+    {
+      "slug": "champion-wallace",
+      "name": "Defeat Champion Wallace",
+      "kind": "champion",
+      "location": "ever-grande-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "elite-four-drake"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "wallace",
+        "walkthrough-19"
+      ]
+    },
+    {
+      "slug": "hall-of-fame",
+      "name": "Enter the Hall of Fame",
+      "kind": "story",
+      "location": "ever-grande-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "champion-wallace"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-19"
+      ]
+    }
+  ],
+  "location_gates": [
+    {
+      "location": "dewford-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "briney-ferry"
+      },
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "location": "ever-grande-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "victory-road"
+      },
+      "references": [
+        "walkthrough-18"
+      ]
+    },
+    {
+      "location": "fiery-path",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "dynamo-badge"
+      },
+      "references": [
+        "walkthrough-6"
+      ]
+    },
+    {
+      "location": "fortree-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "feather-badge"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "granite-cave",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "briney-ferry"
+      },
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "location": "hoenn-route-101",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "littleroot-arrival"
+      },
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "location": "hoenn-route-102",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokedex-received"
+      },
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "location": "hoenn-route-103",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokedex-received"
+      },
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "location": "hoenn-route-104",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "petalburg-wally"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "hoenn-route-105",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "briney-ferry"
+      },
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "location": "hoenn-route-106",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "briney-ferry"
+      },
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "location": "hoenn-route-107",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "briney-ferry"
+      },
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "location": "hoenn-route-108",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "briney-ferry"
+      },
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "location": "hoenn-route-109",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "briney-ferry"
+      },
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "location": "hoenn-route-110",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "slateport-arrival"
+      },
+      "references": [
+        "walkthrough-4"
+      ]
+    },
+    {
+      "location": "hoenn-route-112",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "dynamo-badge"
+      },
+      "references": [
+        "walkthrough-6"
+      ]
+    },
+    {
+      "location": "hoenn-route-113",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "dynamo-badge"
+      },
+      "references": [
+        "walkthrough-6"
+      ]
+    },
+    {
+      "location": "hoenn-route-114",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "dynamo-badge"
+      },
+      "references": [
+        "walkthrough-6"
+      ]
+    },
+    {
+      "location": "hoenn-route-115",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "meteor-falls-theft"
+      },
+      "references": [
+        "walkthrough-7"
+      ]
+    },
+    {
+      "location": "hoenn-route-116",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "stone-badge"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "hoenn-route-117",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mauville-arrival"
+      },
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "location": "hoenn-route-118",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "weather-institute"
+      },
+      "references": [
+        "walkthrough-10"
+      ]
+    },
+    {
+      "location": "hoenn-route-119",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "weather-institute"
+      },
+      "references": [
+        "walkthrough-10"
+      ]
+    },
+    {
+      "location": "hoenn-route-120",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "devon-scope"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "hoenn-route-121",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "feather-badge"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "hoenn-route-122",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "feather-badge"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "hoenn-route-123",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "feather-badge"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "hoenn-route-124",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mind-badge"
+      },
+      "references": [
+        "walkthrough-14"
+      ]
+    },
+    {
+      "location": "hoenn-route-125",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mind-badge"
+      },
+      "references": [
+        "walkthrough-14"
+      ]
+    },
+    {
+      "location": "hoenn-route-126",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm08-dive"
+      },
+      "references": [
+        "walkthrough-15"
+      ]
+    },
+    {
+      "location": "hoenn-route-127",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm08-dive"
+      },
+      "references": [
+        "walkthrough-15"
+      ]
+    },
+    {
+      "location": "hoenn-route-128",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm08-dive"
+      },
+      "references": [
+        "walkthrough-15"
+      ]
+    },
+    {
+      "location": "hoenn-route-129",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sootopolis-legendaries"
+      },
+      "references": [
+        "walkthrough-16"
+      ]
+    },
+    {
+      "location": "hoenn-route-130",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sootopolis-legendaries"
+      },
+      "references": [
+        "walkthrough-16"
+      ]
+    },
+    {
+      "location": "hoenn-route-131",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sootopolis-legendaries"
+      },
+      "references": [
+        "walkthrough-16"
+      ]
+    },
+    {
+      "location": "hoenn-route-132",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sky-pillar-rayquaza"
+      },
+      "references": [
+        "walkthrough-17"
+      ]
+    },
+    {
+      "location": "hoenn-route-133",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sky-pillar-rayquaza"
+      },
+      "references": [
+        "walkthrough-17"
+      ]
+    },
+    {
+      "location": "hoenn-route-134",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sky-pillar-rayquaza"
+      },
+      "references": [
+        "walkthrough-17"
+      ]
+    },
+    {
+      "location": "hoenn-victory-road",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "victory-road"
+      },
+      "references": [
+        "walkthrough-18"
+      ]
+    },
+    {
+      "location": "jagged-pass",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mt-chimney-showdown"
+      },
+      "references": [
+        "walkthrough-7"
+      ]
+    },
+    {
+      "location": "lavaridge-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mt-chimney-showdown"
+      },
+      "references": [
+        "walkthrough-7"
+      ]
+    },
+    {
+      "location": "lilycove-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "feather-badge"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "littleroot-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "littleroot-arrival"
+      },
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "location": "magma-hideout",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "magma-hideout-raid"
+      },
+      "references": [
+        "walkthrough-12"
+      ]
+    },
+    {
+      "location": "meteor-falls",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "meteor-falls-theft"
+      },
+      "references": [
+        "walkthrough-7"
+      ]
+    },
+    {
+      "location": "mossdeep-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mind-badge"
+      },
+      "references": [
+        "walkthrough-14"
+      ]
+    },
+    {
+      "location": "mt-pyre",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mt-pyre-visit"
+      },
+      "references": [
+        "walkthrough-12"
+      ]
+    },
+    {
+      "location": "pacifidlog-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sootopolis-legendaries"
+      },
+      "references": [
+        "walkthrough-16"
+      ]
+    },
+    {
+      "location": "petalburg-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokedex-received"
+      },
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "location": "petalburg-woods",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "petalburg-wally"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "rustboro-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "petalburg-wally"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "rusturf-tunnel",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "stone-badge"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "seafloor-cavern",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "seafloor-cavern-showdown"
+      },
+      "references": [
+        "walkthrough-15"
+      ]
+    },
+    {
+      "location": "sky-pillar",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sky-pillar-rayquaza"
+      },
+      "references": [
+        "walkthrough-17"
+      ]
+    },
+    {
+      "location": "slateport-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "slateport-arrival"
+      },
+      "references": [
+        "walkthrough-4"
+      ]
+    },
+    {
+      "location": "sootopolis-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "sootopolis-legendaries"
+      },
+      "references": [
+        "walkthrough-16"
+      ]
+    },
+    {
+      "location": "team-aqua-hideout",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "aqua-hideout-raid"
+      },
+      "references": [
+        "walkthrough-13"
+      ]
+    }
+  ],
+  "method_gates": [
+    {
+      "method": "walk",
+      "prerequisites": {
+        "op": "always"
+      },
+      "references": [
+        "walkthrough-1"
+      ],
+      "note": "Walking in tall grass needs nothing beyond reaching the area."
+    },
+    {
+      "method": "surf",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "balance-badge"
+          },
+          {
+            "op": "milestone",
+            "value": "hm03-surf"
+          }
+        ]
+      },
+      "references": [
+        "badges",
+        "petalburg"
+      ],
+      "note": "Surf needs HM03 and the Balance Badge to be used in the field."
+    },
+    {
+      "method": "rock-smash",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "dynamo-badge"
+          },
+          {
+            "op": "milestone",
+            "value": "hm06-rock-smash"
+          }
+        ]
+      },
+      "references": [
+        "badges",
+        "walkthrough-5"
+      ],
+      "note": "Rock Smash needs HM06 and the Dynamo Badge to be used in the field."
+    },
+    {
+      "method": "devon-scope",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "devon-scope"
+      },
+      "references": [
+        "walkthrough-11"
+      ],
+      "note": "The Devon Scope reveals the Kecleon that block Route 120."
+    }
   ],
   "battles": [
     {
-      "id": "roxanne", "name": "Leader Roxanne", "trainer_class": "Leader", "milestone": "stone-badge",
-      "location": "rustboro-city", "prize_money": 1500,
-      "party": [
-        {"pokemon": "geodude", "level": 12, "gender": "female", "ability": "rock-head", "held_item": null, "moves": ["tackle", "defense-curl", "rock-throw", "rock-tomb"]},
-        {"pokemon": "geodude", "level": 12, "gender": "female", "ability": "rock-head", "held_item": null, "moves": ["tackle", "defense-curl", "rock-throw", "rock-tomb"]},
-        {"pokemon": "nosepass", "level": 15, "gender": "female", "ability": "sturdy", "held_item": "oran-berry", "moves": ["block", "harden", "tackle", "rock-tomb"]}
+      "id": "roxanne",
+      "name": "Leader Roxanne",
+      "trainer_class": "Leader",
+      "milestone": "stone-badge",
+      "location": "rustboro-city",
+      "prize_money": 1500,
+      "references": [
+        "roxanne"
       ],
-      "references": ["roxanne"]
+      "party": [
+        {
+          "pokemon": "geodude",
+          "level": 12,
+          "gender": "female",
+          "ability": "rock-head",
+          "moves": [
+            "tackle",
+            "defense-curl",
+            "rock-throw",
+            "rock-tomb"
+          ]
+        },
+        {
+          "pokemon": "geodude",
+          "level": 12,
+          "gender": "female",
+          "ability": "rock-head",
+          "moves": [
+            "tackle",
+            "defense-curl",
+            "rock-throw",
+            "rock-tomb"
+          ]
+        },
+        {
+          "pokemon": "nosepass",
+          "level": 15,
+          "gender": "female",
+          "ability": "sturdy",
+          "held_item": "oran-berry",
+          "moves": [
+            "block",
+            "harden",
+            "tackle",
+            "rock-tomb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brawly",
+      "name": "Leader Brawly",
+      "trainer_class": "Leader",
+      "milestone": "knuckle-badge",
+      "location": "dewford-town",
+      "prize_money": 1900,
+      "references": [
+        "brawly"
+      ],
+      "party": [
+        {
+          "pokemon": "machop",
+          "level": 16,
+          "ability": "guts",
+          "moves": [
+            "karate-chop",
+            "low-kick",
+            "seismic-toss",
+            "bulk-up"
+          ]
+        },
+        {
+          "pokemon": "meditite",
+          "level": 16,
+          "ability": "pure-power",
+          "moves": [
+            "focus-punch",
+            "light-screen",
+            "reflect",
+            "bulk-up"
+          ]
+        },
+        {
+          "pokemon": "makuhita",
+          "level": 19,
+          "ability": "thick-fat",
+          "moves": [
+            "arm-thrust",
+            "vital-throw",
+            "reversal",
+            "bulk-up"
+          ],
+          "held_item": "sitrus-berry"
+        }
+      ]
+    },
+    {
+      "id": "wattson",
+      "name": "Leader Wattson",
+      "trainer_class": "Leader",
+      "milestone": "dynamo-badge",
+      "location": "mauville-city",
+      "prize_money": 2400,
+      "references": [
+        "wattson"
+      ],
+      "party": [
+        {
+          "pokemon": "voltorb",
+          "level": 20,
+          "ability": "soundproof",
+          "moves": [
+            "rollout",
+            "spark",
+            "self-destruct",
+            "shock-wave"
+          ]
+        },
+        {
+          "pokemon": "electrike",
+          "level": 20,
+          "ability": "static",
+          "moves": [
+            "shock-wave",
+            "leer",
+            "quick-attack",
+            "howl"
+          ]
+        },
+        {
+          "pokemon": "magneton",
+          "level": 22,
+          "ability": "magnet-pull",
+          "moves": [
+            "supersonic",
+            "shock-wave",
+            "thunder-wave",
+            "sonic-boom"
+          ]
+        },
+        {
+          "pokemon": "manectric",
+          "level": 24,
+          "ability": "static",
+          "moves": [
+            "quick-attack",
+            "thunder-wave",
+            "shock-wave",
+            "howl"
+          ],
+          "held_item": "sitrus-berry"
+        }
+      ]
+    },
+    {
+      "id": "flannery",
+      "name": "Leader Flannery",
+      "trainer_class": "Leader",
+      "milestone": "heat-badge",
+      "location": "lavaridge-town",
+      "prize_money": 2900,
+      "references": [
+        "flannery"
+      ],
+      "party": [
+        {
+          "pokemon": "numel",
+          "level": 24,
+          "ability": "oblivious",
+          "moves": [
+            "overheat",
+            "take-down",
+            "magnitude",
+            "sunny-day"
+          ]
+        },
+        {
+          "pokemon": "slugma",
+          "level": 24,
+          "ability": "magma-armor",
+          "moves": [
+            "overheat",
+            "smog",
+            "light-screen",
+            "sunny-day"
+          ]
+        },
+        {
+          "pokemon": "camerupt",
+          "level": 26,
+          "ability": "magma-armor",
+          "moves": [
+            "overheat",
+            "tackle",
+            "sunny-day",
+            "attract"
+          ]
+        },
+        {
+          "pokemon": "torkoal",
+          "level": 29,
+          "ability": "white-smoke",
+          "moves": [
+            "overheat",
+            "sunny-day",
+            "body-slam",
+            "attract"
+          ],
+          "held_item": "white-herb"
+        }
+      ]
+    },
+    {
+      "id": "norman",
+      "name": "Leader Norman",
+      "trainer_class": "Leader",
+      "milestone": "balance-badge",
+      "location": "petalburg-city",
+      "prize_money": 3100,
+      "references": [
+        "norman"
+      ],
+      "party": [
+        {
+          "pokemon": "spinda",
+          "level": 27,
+          "ability": "own-tempo",
+          "moves": [
+            "teeter-dance",
+            "psybeam",
+            "facade",
+            "encore"
+          ]
+        },
+        {
+          "pokemon": "vigoroth",
+          "level": 27,
+          "ability": "vital-spirit",
+          "moves": [
+            "slash",
+            "facade",
+            "encore",
+            "feint-attack"
+          ]
+        },
+        {
+          "pokemon": "linoone",
+          "level": 29,
+          "ability": "pickup",
+          "moves": [
+            "slash",
+            "belly-drum",
+            "facade",
+            "headbutt"
+          ]
+        },
+        {
+          "pokemon": "slaking",
+          "level": 31,
+          "ability": "truant",
+          "moves": [
+            "counter",
+            "yawn",
+            "facade",
+            "feint-attack"
+          ],
+          "held_item": "sitrus-berry"
+        }
+      ]
+    },
+    {
+      "id": "winona",
+      "name": "Leader Winona",
+      "trainer_class": "Leader",
+      "milestone": "feather-badge",
+      "location": "fortree-city",
+      "prize_money": 3300,
+      "references": [
+        "winona"
+      ],
+      "party": [
+        {
+          "pokemon": "swablu",
+          "level": 29,
+          "ability": "natural-cure",
+          "moves": [
+            "perish-song",
+            "mirror-move",
+            "safeguard",
+            "aerial-ace"
+          ]
+        },
+        {
+          "pokemon": "tropius",
+          "level": 29,
+          "ability": "chlorophyll",
+          "moves": [
+            "sunny-day",
+            "aerial-ace",
+            "solar-beam",
+            "synthesis"
+          ]
+        },
+        {
+          "pokemon": "pelipper",
+          "level": 30,
+          "ability": "keen-eye",
+          "moves": [
+            "water-gun",
+            "supersonic",
+            "protect",
+            "aerial-ace"
+          ]
+        },
+        {
+          "pokemon": "skarmory",
+          "level": 31,
+          "ability": "keen-eye",
+          "moves": [
+            "sand-attack",
+            "fury-attack",
+            "steel-wing",
+            "aerial-ace"
+          ]
+        },
+        {
+          "pokemon": "altaria",
+          "level": 33,
+          "ability": "natural-cure",
+          "moves": [
+            "earthquake",
+            "dragon-breath",
+            "dragon-dance",
+            "aerial-ace"
+          ],
+          "held_item": "oran-berry"
+        }
+      ]
+    },
+    {
+      "id": "tate-and-liza",
+      "name": "Leaders Tate and Liza",
+      "trainer_class": "Leader",
+      "milestone": "mind-badge",
+      "location": "mossdeep-city",
+      "prize_money": 8400,
+      "references": [
+        "tate-liza"
+      ],
+      "party": [
+        {
+          "pokemon": "claydol",
+          "level": 41,
+          "ability": "levitate",
+          "moves": [
+            "earthquake",
+            "ancient-power",
+            "psychic",
+            "light-screen"
+          ]
+        },
+        {
+          "pokemon": "xatu",
+          "level": 41,
+          "ability": "synchronize",
+          "moves": [
+            "psychic",
+            "sunny-day",
+            "confuse-ray",
+            "calm-mind"
+          ]
+        },
+        {
+          "pokemon": "lunatone",
+          "level": 42,
+          "ability": "levitate",
+          "moves": [
+            "light-screen",
+            "psychic",
+            "hypnosis",
+            "calm-mind"
+          ],
+          "held_item": "sitrus-berry"
+        },
+        {
+          "pokemon": "solrock",
+          "level": 42,
+          "ability": "levitate",
+          "moves": [
+            "sunny-day",
+            "solar-beam",
+            "psychic",
+            "flamethrower"
+          ],
+          "held_item": "sitrus-berry"
+        }
+      ]
+    },
+    {
+      "id": "juan",
+      "name": "Leader Juan",
+      "trainer_class": "Leader",
+      "milestone": "rain-badge",
+      "location": "sootopolis-city",
+      "prize_money": 4600,
+      "references": [
+        "juan"
+      ],
+      "party": [
+        {
+          "pokemon": "luvdisc",
+          "level": 41,
+          "ability": "swift-swim",
+          "moves": [
+            "water-pulse",
+            "attract",
+            "sweet-kiss",
+            "flail"
+          ]
+        },
+        {
+          "pokemon": "whiscash",
+          "level": 41,
+          "ability": "oblivious",
+          "moves": [
+            "rain-dance",
+            "water-pulse",
+            "amnesia",
+            "earthquake"
+          ]
+        },
+        {
+          "pokemon": "sealeo",
+          "level": 43,
+          "ability": "thick-fat",
+          "moves": [
+            "encore",
+            "body-slam",
+            "aurora-beam",
+            "water-pulse"
+          ]
+        },
+        {
+          "pokemon": "crawdaunt",
+          "level": 43,
+          "ability": "hyper-cutter",
+          "moves": [
+            "water-pulse",
+            "crabhammer",
+            "taunt",
+            "leer"
+          ]
+        },
+        {
+          "pokemon": "kingdra",
+          "level": 46,
+          "ability": "swift-swim",
+          "moves": [
+            "water-pulse",
+            "double-team",
+            "ice-beam",
+            "rest"
+          ],
+          "held_item": "chesto-berry"
+        }
+      ]
+    },
+    {
+      "id": "sidney",
+      "name": "Elite Four Sidney",
+      "trainer_class": "Elite Four",
+      "milestone": "elite-four-sidney",
+      "location": "ever-grande-city",
+      "prize_money": 4900,
+      "references": [
+        "sidney"
+      ],
+      "party": [
+        {
+          "pokemon": "mightyena",
+          "level": 46,
+          "ability": "intimidate",
+          "moves": [
+            "roar",
+            "double-edge",
+            "sand-attack",
+            "crunch"
+          ]
+        },
+        {
+          "pokemon": "shiftry",
+          "level": 48,
+          "ability": "chlorophyll",
+          "moves": [
+            "torment",
+            "double-team",
+            "swagger",
+            "extrasensory"
+          ]
+        },
+        {
+          "pokemon": "cacturne",
+          "level": 46,
+          "ability": "sand-veil",
+          "moves": [
+            "leech-seed",
+            "feint-attack",
+            "needle-arm",
+            "cotton-spore"
+          ]
+        },
+        {
+          "pokemon": "crawdaunt",
+          "level": 48,
+          "ability": "hyper-cutter",
+          "moves": [
+            "surf",
+            "swords-dance",
+            "strength",
+            "facade"
+          ]
+        },
+        {
+          "pokemon": "absol",
+          "level": 49,
+          "ability": "pressure",
+          "moves": [
+            "aerial-ace",
+            "rock-slide",
+            "swords-dance",
+            "slash"
+          ],
+          "held_item": "sitrus-berry"
+        }
+      ]
+    },
+    {
+      "id": "phoebe",
+      "name": "Elite Four Phoebe",
+      "trainer_class": "Elite Four",
+      "milestone": "elite-four-phoebe",
+      "location": "ever-grande-city",
+      "prize_money": 5100,
+      "references": [
+        "phoebe"
+      ],
+      "party": [
+        {
+          "pokemon": "dusclops",
+          "level": 48,
+          "ability": "pressure",
+          "moves": [
+            "shadow-punch",
+            "confuse-ray",
+            "protect"
+          ]
+        },
+        {
+          "pokemon": "banette",
+          "level": 49,
+          "ability": "insomnia",
+          "moves": [
+            "shadow-ball",
+            "grudge",
+            "will-o-wisp",
+            "feint-attack"
+          ]
+        },
+        {
+          "pokemon": "sableye",
+          "level": 50,
+          "ability": "keen-eye",
+          "moves": [
+            "shadow-ball",
+            "double-team",
+            "night-shade",
+            "feint-attack"
+          ]
+        },
+        {
+          "pokemon": "banette",
+          "level": 49,
+          "ability": "insomnia",
+          "moves": [
+            "shadow-ball",
+            "psychic",
+            "thunderbolt",
+            "facade"
+          ]
+        },
+        {
+          "pokemon": "dusclops",
+          "level": 51,
+          "ability": "pressure",
+          "moves": [
+            "shadow-ball",
+            "ice-beam",
+            "rock-slide",
+            "earthquake"
+          ],
+          "held_item": "sitrus-berry"
+        }
+      ]
+    },
+    {
+      "id": "glacia",
+      "name": "Elite Four Glacia",
+      "trainer_class": "Elite Four",
+      "milestone": "elite-four-glacia",
+      "location": "ever-grande-city",
+      "prize_money": 5300,
+      "references": [
+        "glacia"
+      ],
+      "party": [
+        {
+          "pokemon": "sealeo",
+          "level": 50,
+          "ability": "thick-fat",
+          "moves": [
+            "encore",
+            "body-slam",
+            "hail",
+            "ice-ball"
+          ]
+        },
+        {
+          "pokemon": "glalie",
+          "level": 50,
+          "ability": "inner-focus",
+          "moves": [
+            "light-screen",
+            "crunch",
+            "icy-wind",
+            "ice-beam"
+          ]
+        },
+        {
+          "pokemon": "sealeo",
+          "level": 52,
+          "ability": "thick-fat",
+          "moves": [
+            "attract",
+            "double-edge",
+            "hail",
+            "blizzard"
+          ]
+        },
+        {
+          "pokemon": "glalie",
+          "level": 52,
+          "ability": "inner-focus",
+          "moves": [
+            "shadow-ball",
+            "explosion",
+            "hail",
+            "ice-beam"
+          ]
+        },
+        {
+          "pokemon": "walrein",
+          "level": 53,
+          "ability": "thick-fat",
+          "moves": [
+            "surf",
+            "body-slam",
+            "ice-beam",
+            "sheer-cold"
+          ],
+          "held_item": "sitrus-berry"
+        }
+      ]
+    },
+    {
+      "id": "drake",
+      "name": "Elite Four Drake",
+      "trainer_class": "Elite Four",
+      "milestone": "elite-four-drake",
+      "location": "ever-grande-city",
+      "prize_money": 5500,
+      "references": [
+        "drake"
+      ],
+      "party": [
+        {
+          "pokemon": "shelgon",
+          "level": 52,
+          "ability": "rock-head",
+          "moves": [
+            "rock-tomb",
+            "dragon-claw",
+            "protect",
+            "double-edge"
+          ]
+        },
+        {
+          "pokemon": "altaria",
+          "level": 54,
+          "ability": "natural-cure",
+          "moves": [
+            "double-edge",
+            "dragon-breath",
+            "dragon-dance",
+            "aerial-ace"
+          ]
+        },
+        {
+          "pokemon": "kingdra",
+          "level": 53,
+          "ability": "swift-swim",
+          "moves": [
+            "smokescreen",
+            "dragon-dance",
+            "surf",
+            "body-slam"
+          ]
+        },
+        {
+          "pokemon": "flygon",
+          "level": 53,
+          "ability": "levitate",
+          "moves": [
+            "flamethrower",
+            "crunch",
+            "dragon-breath",
+            "earthquake"
+          ]
+        },
+        {
+          "pokemon": "salamence",
+          "level": 55,
+          "ability": "intimidate",
+          "moves": [
+            "flamethrower",
+            "dragon-claw",
+            "rock-slide",
+            "crunch"
+          ],
+          "held_item": "sitrus-berry"
+        }
+      ]
+    },
+    {
+      "id": "wallace",
+      "name": "Champion Wallace",
+      "trainer_class": "Champion",
+      "milestone": "champion-wallace",
+      "location": "ever-grande-city",
+      "prize_money": 11600,
+      "references": [
+        "wallace"
+      ],
+      "party": [
+        {
+          "pokemon": "wailord",
+          "level": 57,
+          "ability": "water-veil",
+          "moves": [
+            "rain-dance",
+            "water-spout",
+            "double-edge",
+            "blizzard"
+          ]
+        },
+        {
+          "pokemon": "tentacruel",
+          "level": 55,
+          "ability": "clear-body",
+          "moves": [
+            "toxic",
+            "hydro-pump",
+            "sludge-bomb",
+            "ice-beam"
+          ]
+        },
+        {
+          "pokemon": "ludicolo",
+          "level": 56,
+          "ability": "swift-swim",
+          "moves": [
+            "giga-drain",
+            "surf",
+            "leech-seed",
+            "double-team"
+          ]
+        },
+        {
+          "pokemon": "whiscash",
+          "level": 56,
+          "ability": "oblivious",
+          "moves": [
+            "earthquake",
+            "surf",
+            "amnesia",
+            "hyper-beam"
+          ]
+        },
+        {
+          "pokemon": "gyarados",
+          "level": 56,
+          "ability": "intimidate",
+          "moves": [
+            "dragon-dance",
+            "earthquake",
+            "hyper-beam",
+            "surf"
+          ]
+        },
+        {
+          "pokemon": "milotic",
+          "level": 58,
+          "ability": "marvel-scale",
+          "moves": [
+            "recover",
+            "surf",
+            "ice-beam",
+            "toxic"
+          ],
+          "held_item": "sitrus-berry"
+        }
+      ]
     }
   ],
   "acquisitions": [
-    {"id": "starter-treecko", "pokemon": "treecko", "method": "gift", "location": "hoenn-route-101", "min_level": 5, "max_level": 5, "prerequisites": {"op": "and", "args": [{"op": "milestone", "value": "littleroot-arrival"}, {"op": "unknown", "reason": "Only one of Treecko, Torchic and Mudkip can be chosen."}]}, "note": "Starter offered by Professor Birch.", "references": ["walkthrough-1"]},
-    {"id": "starter-torchic", "pokemon": "torchic", "method": "gift", "location": "hoenn-route-101", "min_level": 5, "max_level": 5, "prerequisites": {"op": "and", "args": [{"op": "milestone", "value": "littleroot-arrival"}, {"op": "unknown", "reason": "Only one of Treecko, Torchic and Mudkip can be chosen."}]}, "note": "Starter offered by Professor Birch.", "references": ["walkthrough-1"]},
-    {"id": "starter-mudkip", "pokemon": "mudkip", "method": "gift", "location": "hoenn-route-101", "min_level": 5, "max_level": 5, "prerequisites": {"op": "and", "args": [{"op": "milestone", "value": "littleroot-arrival"}, {"op": "unknown", "reason": "Only one of Treecko, Torchic and Mudkip can be chosen."}]}, "note": "Starter offered by Professor Birch.", "references": ["walkthrough-1"]},
-    {"id": "tm39-roxanne", "item": "tm39", "method": "gift", "location": "rustboro-city", "prerequisites": {"op": "milestone", "value": "stone-badge"}, "note": "Awarded by Roxanne together with the Stone Badge.", "references": ["roxanne"]},
-    {"id": "hm01-cutter", "item": "hm01", "method": "gift", "location": "rustboro-city", "prerequisites": {"op": "and", "args": [{"op": "at_location", "value": "rustboro-city"}, {"op": "unknown", "reason": "Whether any badge is required before the Cutter gives HM01 was not confirmed on the reviewed page."}]}, "note": "Given by the Cutter in the Cutter's House.", "references": ["rustboro"]},
-    {"id": "premier-ball-rustboro", "item": "premier-ball", "method": "gift", "location": "rustboro-city", "prerequisites": {"op": "and", "args": [{"op": "at_location", "value": "rustboro-city"}, {"op": "unknown", "reason": "Dialogue conditions for the gift were not confirmed on the reviewed page."}]}, "note": "Given by a boy on the second floor of the south-western building.", "references": ["rustboro"]},
-    {"id": "seedot-trade", "pokemon": "seedot", "method": "npc-trade", "location": "rustboro-city", "prerequisites": {"op": "and", "args": [{"op": "at_location", "value": "rustboro-city"}, {"op": "has_pokemon", "value": "ralts"}]}, "note": "Trade a Ralts for Seedot (nicknamed Dots) holding a Chesto Berry.", "references": ["rustboro"]}
+    {
+      "id": "starter-treecko",
+      "pokemon": "treecko",
+      "method": "gift",
+      "location": "hoenn-route-101",
+      "min_level": 5,
+      "max_level": 5,
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "littleroot-arrival"
+          },
+          {
+            "op": "unknown",
+            "reason": "Only one of Treecko, Torchic and Mudkip can be chosen."
+          }
+        ]
+      },
+      "note": "Starter offered by Professor Birch.",
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "id": "starter-torchic",
+      "pokemon": "torchic",
+      "method": "gift",
+      "location": "hoenn-route-101",
+      "min_level": 5,
+      "max_level": 5,
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "littleroot-arrival"
+          },
+          {
+            "op": "unknown",
+            "reason": "Only one of Treecko, Torchic and Mudkip can be chosen."
+          }
+        ]
+      },
+      "note": "Starter offered by Professor Birch.",
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "id": "starter-mudkip",
+      "pokemon": "mudkip",
+      "method": "gift",
+      "location": "hoenn-route-101",
+      "min_level": 5,
+      "max_level": 5,
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "littleroot-arrival"
+          },
+          {
+            "op": "unknown",
+            "reason": "Only one of Treecko, Torchic and Mudkip can be chosen."
+          }
+        ]
+      },
+      "note": "Starter offered by Professor Birch.",
+      "references": [
+        "walkthrough-1"
+      ]
+    },
+    {
+      "id": "tm39-roxanne",
+      "item": "tm39",
+      "method": "gift",
+      "location": "rustboro-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "stone-badge"
+      },
+      "note": "Awarded by Roxanne together with the Stone Badge.",
+      "references": [
+        "roxanne"
+      ]
+    },
+    {
+      "id": "hm01-cutter",
+      "item": "hm01",
+      "method": "gift",
+      "location": "rustboro-city",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "at_location",
+            "value": "rustboro-city"
+          },
+          {
+            "op": "unknown",
+            "reason": "Whether any badge is required before the Cutter gives HM01 was not confirmed on the reviewed page."
+          }
+        ]
+      },
+      "note": "Given by the Cutter in the Cutter's House.",
+      "references": [
+        "rustboro"
+      ]
+    },
+    {
+      "id": "premier-ball-rustboro",
+      "item": "premier-ball",
+      "method": "gift",
+      "location": "rustboro-city",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "at_location",
+            "value": "rustboro-city"
+          },
+          {
+            "op": "unknown",
+            "reason": "Dialogue conditions for the gift were not confirmed on the reviewed page."
+          }
+        ]
+      },
+      "note": "Given by a boy on the second floor of the south-western building.",
+      "references": [
+        "rustboro"
+      ]
+    },
+    {
+      "id": "seedot-trade",
+      "pokemon": "seedot",
+      "method": "npc-trade",
+      "location": "rustboro-city",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "at_location",
+            "value": "rustboro-city"
+          },
+          {
+            "op": "has_pokemon",
+            "value": "ralts"
+          }
+        ]
+      },
+      "note": "Trade a Ralts for Seedot (nicknamed Dots) holding a Chesto Berry.",
+      "references": [
+        "rustboro"
+      ]
+    },
+    {
+      "id": "hm05-flash",
+      "item": "hm05",
+      "method": "gift",
+      "location": "granite-cave",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm05-flash"
+      },
+      "note": "Given by the Hiker near the Granite Cave entrance.",
+      "references": [
+        "walkthrough-3"
+      ]
+    },
+    {
+      "id": "hm06-rock-smash",
+      "item": "hm06",
+      "method": "gift",
+      "location": "mauville-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm06-rock-smash"
+      },
+      "note": "Given by the Scientist in the south-east house.",
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "id": "hm04-strength",
+      "item": "hm04",
+      "method": "gift",
+      "location": "rusturf-tunnel",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm04-strength"
+      },
+      "note": "Given by Wanda's boyfriend once the debris is cleared.",
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "id": "hm03-surf",
+      "item": "hm03",
+      "method": "gift",
+      "location": "petalburg-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm03-surf"
+      },
+      "note": "Given by Wally's father after Norman is defeated.",
+      "references": [
+        "petalburg",
+        "walkthrough-8"
+      ]
+    },
+    {
+      "id": "hm02-fly",
+      "item": "hm02",
+      "method": "gift",
+      "location": "hoenn-route-119",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm02-fly"
+      },
+      "note": "Given by the rival after the Route 119 battle.",
+      "references": [
+        "route-119",
+        "walkthrough-10"
+      ]
+    },
+    {
+      "id": "hm08-dive",
+      "item": "hm08",
+      "method": "gift",
+      "location": "mossdeep-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm08-dive"
+      },
+      "note": "Given by Steven after the Space Center battle.",
+      "references": [
+        "walkthrough-14"
+      ]
+    },
+    {
+      "id": "hm07-waterfall",
+      "item": "hm07",
+      "method": "gift",
+      "location": "sootopolis-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm07-waterfall"
+      },
+      "note": "Given by Wallace once Groudon and Kyogre are calmed.",
+      "references": [
+        "sootopolis"
+      ]
+    },
+    {
+      "id": "tm08-knuckle-badge",
+      "item": "tm08",
+      "method": "gift",
+      "location": "dewford-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "knuckle-badge"
+      },
+      "note": "Awarded by the Gym Leader together with the Badge.",
+      "references": [
+        "brawly"
+      ]
+    },
+    {
+      "id": "tm34-dynamo-badge",
+      "item": "tm34",
+      "method": "gift",
+      "location": "mauville-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "dynamo-badge"
+      },
+      "note": "Awarded by the Gym Leader together with the Badge.",
+      "references": [
+        "wattson"
+      ]
+    },
+    {
+      "id": "tm50-heat-badge",
+      "item": "tm50",
+      "method": "gift",
+      "location": "lavaridge-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "heat-badge"
+      },
+      "note": "Awarded by the Gym Leader together with the Badge.",
+      "references": [
+        "flannery"
+      ]
+    },
+    {
+      "id": "tm42-balance-badge",
+      "item": "tm42",
+      "method": "gift",
+      "location": "petalburg-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "balance-badge"
+      },
+      "note": "Awarded by the Gym Leader together with the Badge.",
+      "references": [
+        "norman"
+      ]
+    },
+    {
+      "id": "tm40-feather-badge",
+      "item": "tm40",
+      "method": "gift",
+      "location": "fortree-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "feather-badge"
+      },
+      "note": "Awarded by the Gym Leader together with the Badge.",
+      "references": [
+        "winona"
+      ]
+    },
+    {
+      "id": "tm04-mind-badge",
+      "item": "tm04",
+      "method": "gift",
+      "location": "mossdeep-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mind-badge"
+      },
+      "note": "Awarded by the Gym Leader together with the Badge.",
+      "references": [
+        "tate-liza"
+      ]
+    }
   ],
   "shops": [
     {
-      "id": "rustboro-poke-mart", "name": "Rustboro City Poké Mart", "location": "rustboro-city",
-      "prerequisites": {"op": "always"},
+      "id": "rustboro-poke-mart",
+      "name": "Rustboro City Poké Mart",
+      "location": "rustboro-city",
+      "prerequisites": {
+        "op": "always"
+      },
       "items": [
-        {"item": "poke-ball", "price": 200}, {"item": "potion", "price": 300}, {"item": "super-potion", "price": 700},
-        {"item": "antidote", "price": 100}, {"item": "paralyze-heal", "price": 200}, {"item": "escape-rope", "price": 550},
-        {"item": "repel", "price": 350}, {"item": "x-speed", "price": 350}, {"item": "x-attack", "price": 500},
-        {"item": "x-defense", "price": 550},
-        {"item": "timer-ball", "price": 1000, "prerequisites": {"op": "unknown", "reason": "Sold only after the Repeat Ball is received on Route 116; that event is not modelled as a milestone yet."}},
-        {"item": "repeat-ball", "price": 1000, "prerequisites": {"op": "unknown", "reason": "Sold only after the Repeat Ball is received on Route 116; that event is not modelled as a milestone yet."}}
+        {
+          "item": "poke-ball",
+          "price": 200
+        },
+        {
+          "item": "potion",
+          "price": 300
+        },
+        {
+          "item": "super-potion",
+          "price": 700
+        },
+        {
+          "item": "antidote",
+          "price": 100
+        },
+        {
+          "item": "paralyze-heal",
+          "price": 200
+        },
+        {
+          "item": "escape-rope",
+          "price": 550
+        },
+        {
+          "item": "repel",
+          "price": 350
+        },
+        {
+          "item": "x-speed",
+          "price": 350
+        },
+        {
+          "item": "x-attack",
+          "price": 500
+        },
+        {
+          "item": "x-defense",
+          "price": 550
+        },
+        {
+          "item": "timer-ball",
+          "price": 1000,
+          "prerequisites": {
+            "op": "unknown",
+            "reason": "Sold only after the Repeat Ball is received on Route 116; that event is not modelled as a milestone yet."
+          }
+        },
+        {
+          "item": "repeat-ball",
+          "price": 1000,
+          "prerequisites": {
+            "op": "unknown",
+            "reason": "Sold only after the Repeat Ball is received on Route 116; that event is not modelled as a milestone yet."
+          }
+        }
       ],
-      "references": ["rustboro"]
+      "references": [
+        "rustboro"
+      ]
     }
   ],
   "issues": [
-    {"id": "progression-after-stone-badge", "feature": "progression", "subject": "*", "kind": "missing", "description": "Milestones after the Stone Badge are not curated yet."},
-    {"id": "shops-other-cities", "feature": "shops", "subject": "*", "kind": "missing", "description": "Only the Rustboro City Poké Mart is curated; other shops are missing."},
-    {"id": "machine-locations", "feature": "item-acquisition", "subject": "machines", "kind": "missing", "description": "Only TM39 (Roxanne) and HM01 (Cutter) locations are curated; other TM/HM locations are missing."},
-    {"id": "tutors", "feature": "tutors", "subject": "*", "kind": "missing", "description": "Move tutor locations and costs are not curated; the source only records tutor learnsets."},
-    {"id": "encounter-prerequisites", "feature": "encounters", "subject": "*", "kind": "unverified", "description": "Source encounters carry an explicit unknown prerequisite: route access and story gating have not been reviewed beyond the first Gym."}
+    {
+      "id": "location-gates-partial",
+      "feature": "location-gates",
+      "subject": "*",
+      "kind": "missing",
+      "description": "Locations whose access depends on a sub-area, a tide, a random event or an event ticket are deliberately not gated: Route 111 (desert), the Safari Zone, Shoal Cave, Mirage Tower and Mirage Island, the Regi chambers, New Mauville, Cave of Origin, the Abandoned Ship, Altering Cave, the Battle Frontier and the event islands. They keep an explicit unknown."
+    },
+    {
+      "id": "encounter-method-gates",
+      "feature": "encounters",
+      "subject": "fishing",
+      "kind": "missing",
+      "description": "Old, Good and Super Rod acquisition is not reviewed, so every fishing encounter keeps an explicit unknown even in a reviewed location."
+    },
+    {
+      "id": "trainer-gender",
+      "feature": "boss-teams",
+      "subject": "*",
+      "kind": "unverified",
+      "description": "Party gender is recorded only for Roxanne's team, which was reviewed earlier. It is omitted for the rosters added later rather than transcribed without a second check."
+    },
+    {
+      "id": "shops-other-cities",
+      "feature": "shops",
+      "subject": "*",
+      "kind": "missing",
+      "description": "Only the Rustboro City Poke Mart is curated; other shops are missing."
+    },
+    {
+      "id": "machine-locations",
+      "feature": "item-acquisition",
+      "subject": "machines",
+      "kind": "missing",
+      "description": "TM and HM rewards tied to a reviewed milestone are curated; the remaining TM ground locations and purchases are missing."
+    },
+    {
+      "id": "tutors",
+      "feature": "tutors",
+      "subject": "*",
+      "kind": "missing",
+      "description": "Move tutor locations and costs are not curated; the source only records tutor learnsets."
+    },
+    {
+      "id": "trainers-non-boss",
+      "feature": "boss-teams",
+      "subject": "route-trainers",
+      "kind": "missing",
+      "description": "Only Gym Leaders, the Elite Four and the Champion are curated. Rival, Wally, Team Magma and Team Aqua battles are milestones but have no reviewed roster."
+    },
+    {
+      "id": "curse-not-representable",
+      "feature": "boss-teams",
+      "subject": "emerald:phoebe",
+      "kind": "missing",
+      "description": "Phoebe's first Dusclops also knows Curse. Curse was typeless before Generation V and the pinned source carries no Generation III values for it, so it cannot be recorded here. Three of its four moves are listed; the roster is incomplete rather than wrong."
+    }
   ]
 }

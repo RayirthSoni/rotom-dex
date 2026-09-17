@@ -20,6 +20,7 @@ FEATURES = (
     "tutors",
     "evolution",
     "encounters",
+    "location-gates",
     "gifts-trades",
     "breeding",
     "held-items",
@@ -301,20 +302,37 @@ def run(ctx: Context) -> None:
                 f"{mechanics}/12 mechanics flags recorded for this version group.",
             )
         )
+        gated, encounter_locations = pack.get("location_gates", 0), ctx.encounter_location_counts.get(gid, 0)
+        rows.append(
+            (
+                "location-gates",
+                _ratio(gated, encounter_locations),
+                f"{gated}/{encounter_locations} locations with encounters have a reviewed access condition; "
+                "the rest keep an explicit unknown, which is not a claim that they are unreachable.",
+            )
+        )
+        # `complete` is earned by an invariant the importer checked, never by the pack asserting it:
+        # a connected milestone chain ending at the declared `main_story_end`, and a battle attached
+        # to every badge, Elite Four and Champion milestone.
+        progression = ctx.progression_completeness.get(gid, {})
         rows.append(
             (
                 "progression",
-                "partial" if pack.get("milestones") else "missing",
-                f"{pack.get('milestones', 0)} curated milestones.",
+                progression.get("status", "missing"),
+                progression.get("note", f"{pack.get('milestones', 0)} curated milestones."),
             )
         )
+        bosses = ctx.boss_completeness.get(gid, {})
         rows.append(
             (
                 "boss-teams",
-                "partial" if pack.get("battles") else "missing",
-                f"{pack.get('battles', 0)} curated trainer battles.",
+                bosses.get("status", "missing"),
+                bosses.get("note", f"{pack.get('battles', 0)} curated trainer battles."),
             )
         )
+        unknown_features = {f for f, _, _ in rows} - set(FEATURES)
+        if unknown_features:
+            raise ValueError(f"Coverage rows for unknown features {sorted(unknown_features)}")
         for feature, status, note in rows:
             w.add(m.Coverage(gid, feature, "*", status, note, policy))
         if not enc:
@@ -428,7 +446,6 @@ def run(ctx: Context) -> None:
             )
         )
     w.flush()
-    assert set(f for f, _, _ in rows) <= set(FEATURES)
 
 
 def _ratio(covered: int, total: int) -> str:

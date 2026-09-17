@@ -320,7 +320,7 @@ function Analysis({ context }: { context: Record<string, unknown> }) {
                     </div>
                   ) : null}
                   {analysis.coverage.attacking_moves.length ? (
-                  <div className="mt-3 table-scroll">
+                  <div className="mt-3 table-scroll" tabIndex={0} role="region" aria-label="Coverage table, scrollable">
                     <table className="grid w-full min-w-[30rem] border-collapse text-xs">
                       <thead>
                         <tr style={{ color: 'var(--ink-faint)' }}>

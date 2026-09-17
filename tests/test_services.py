@@ -79,13 +79,30 @@ def test_closed_world_decides_locked_versus_unknown(db, closed_world, milestones
     assert classify({"op": "milestone", "value": "stone-badge"}, context)["status"] == expected
 
 
-def test_locations_stay_open_world_even_when_milestones_are_closed(db):
+def test_a_reviewed_location_gate_is_settled_by_milestones_alone(db):
+    """A reviewed gate is a claim about story access, so vouching for milestones settles it.
+
+    This is the point of curating gates: before any existed, every encounter stayed unknown for
+    every player forever. `at_location` is deliberately *not* what resolves here -- the gate is,
+    which is why the player never has to vouch for a complete visited-location list.
+    """
     scope = resolve_game(db, "emerald")
     playthrough = ctx(closed_world=frozenset({"milestones"}), completed_milestones=EMERALD_MILESTONES)
     result = reachability.for_pokemon(db, scope, playthrough, "zigzagoon")
-    encounters = [r for r in result["routes"] if r["id"].startswith("encounter:")]
-    assert encounters, "Zigzagoon has recorded encounters in Emerald"
-    assert {r["derived"]["status"] for r in encounters} == {"unknown"}
+    walk = [r for r in result["routes"] if r["id"].startswith("encounter:") and r["method"] == "walk"]
+    assert walk, "Zigzagoon has recorded walking encounters in Emerald"
+    assert "reachable" in {r["derived"]["status"] for r in walk}
+    assert "at_location" not in json.dumps([r["derived"] for r in walk])
+
+
+def test_a_method_a_player_cannot_use_yet_is_never_reachable(db):
+    """Reaching the place is not working the slot: Surf slots stay locked until Surf is available."""
+    scope = resolve_game(db, "emerald")
+    playthrough = ctx(closed_world=frozenset({"milestones"}), completed_milestones=EMERALD_MILESTONES)
+    result = reachability.for_pokemon(db, scope, playthrough, "tentacool")
+    surf = [r for r in result["routes"] if r["id"].startswith("encounter:") and r["method"] == "surf"]
+    assert surf, "Tentacool is a Surf encounter in Emerald"
+    assert "reachable" not in {r["derived"]["status"] for r in surf}
 
 
 def test_no_derivation_ever_reports_unavailable(db):
@@ -100,18 +117,38 @@ def test_no_derivation_ever_reports_unavailable(db):
 
 
 def test_an_unreviewed_gate_can_never_make_a_route_reachable(db):
-    """Every imported encounter carries an unknown leaf, so no context can promote it."""
+    """An *ungated* encounter keeps its unknown leaf, so no amount of vouching can promote it.
+
+    Curating gates for some locations must not leak a verdict into the ones nobody has reviewed.
+    """
     scope = resolve_game(db, "emerald")
+    gated = {
+        r[0]
+        for r in db.execute(
+            """SELECT DISTINCT l.slug FROM acquisitions a JOIN locations l ON l.id=a.location_id
+           WHERE a.game_id=? AND a.prerequisites NOT LIKE '%"unknown"%'""",
+            (scope.id,),
+        )
+    }
     everything = ctx(
         closed_world=frozenset({"milestones", "locations", "bag", "party", "trade"}),
-        completed_milestones=EMERALD_MILESTONES,
+        completed_milestones=tuple(r[0] for r in db.execute("SELECT slug FROM milestones WHERE game_id=?", (scope.id,))),
         visited_locations=tuple(r[0] for r in db.execute("SELECT slug FROM locations")),
         bag=tuple(r[0] for r in db.execute("SELECT slug FROM items LIMIT 500")),
         trade_access="any",
     )
-    result = reachability.for_pokemon(db, scope, everything, "zigzagoon")
-    promoted = [r for r in result["routes"] if r["id"].startswith("encounter:") and r["derived"]["status"] == "reachable"]
-    assert not promoted, "an unreviewed progression gate must never resolve to reachable"
+    placeholders = ",".join("?" * len(gated))
+    ungated = db.execute(
+        f"""SELECT f.slug FROM acquisitions a JOIN pokemon_forms f ON f.id=a.form_id
+            JOIN locations l ON l.id=a.location_id WHERE a.game_id=? AND l.slug NOT IN ({placeholders})
+            AND a.prerequisites LIKE '%Progression gates%' LIMIT 1""",
+        (scope.id, *sorted(gated)),
+    ).fetchone()
+    assert ungated, "Emerald still has locations with no reviewed gate"
+    result = reachability.for_pokemon(db, scope, everything, ungated[0])
+    blanket = [r for r in result["routes"] if r["id"].startswith("encounter:") and "Progression gates" in json.dumps(r.get("prerequisites", {}))]
+    assert blanket, "expected at least one route still behind the blanket unknown"
+    assert all(r["derived"]["status"] == "unknown" for r in blanket)
 
 
 # -- defence and offence ----------------------------------------------------------------------
@@ -199,7 +236,9 @@ def test_egg_moves_are_locked_only_where_breeding_is_absent(db):
 
 
 def test_boss_preparation_abstains_where_no_roster_was_reviewed(db):
-    for game in ("red", "platinum", "scarlet"):
+    # Emerald and Red are the two reviewed games, so the abstention subjects are games whose packs
+    # hold nothing. Adding a pack for one of these later should break this test on purpose.
+    for game in ("ruby", "platinum", "scarlet"):
         scope = resolve_game(db, game)
         result = boss.prepare(db, scope, ctx(game), "roxanne")
         assert result["data"] is None

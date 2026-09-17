@@ -99,3 +99,18 @@ class EvolutionRequirementsIn(BaseModel):
     context: PlaythroughContextIn
     pokemon: str = Field(min_length=1, max_length=64)
     member: int | None = Field(None, ge=0, le=5)
+
+
+class ChatTurnIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    role: Literal["user", "assistant"]
+    text: str = Field(min_length=1, max_length=2000)
+
+
+class ChatIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    context: PlaythroughContextIn
+    message: str = Field(min_length=1, max_length=2000)
+    history: list[ChatTurnIn] = Field(default_factory=list, max_length=12)

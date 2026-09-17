@@ -100,6 +100,35 @@ class Context:
     def normalizer_ref(self) -> tuple[str, str]:
         return ("normalizer", "rotom_dex.ingestion; documented normalization rules")
 
+    def pack_ev(self, slug: str, refs: list[str], selector: str) -> str:
+        """Evidence for one curated fact: every reference page read, plus the pack itself."""
+        return self.ev(
+            *[(f"ref:{slug}:{ref}", f"read for verification: {selector}") for ref in refs],
+            (f"pack:{slug}", selector),
+        )
+
+    @cached_property
+    def form_abilities(self) -> set[tuple[int, int, int]]:
+        """(form id, ability id, version group id) triples a Pokemon may actually have."""
+        return {
+            (int(r["form_id"]), int(r["ability_id"]), info.id)
+            for info in self.version_groups.values()
+            for r in self.w.db.execute(
+                "SELECT form_id, ability_id FROM pokemon_abilities WHERE generation_id=?",
+                (info.generation_id,),
+            )
+        }
+
+    @cached_property
+    def method_gates(self) -> dict[tuple[str, str], dict]:
+        """(game slug, encounter method) -> what that method itself requires."""
+        return {(slug, entry["method"]): entry for slug, pack in self.packs.items() for entry in pack.method_gates}
+
+    @cached_property
+    def location_gates(self) -> dict[tuple[str, str], dict]:
+        """(game slug, location slug) -> the reviewed access condition for that location."""
+        return {(slug, gate["location"]): gate for slug, pack in self.packs.items() for gate in pack.location_gates}
+
     # -- cached lookups ----------------------------------------------------------
     @cached_property
     def species(self) -> dict[int, dict]:

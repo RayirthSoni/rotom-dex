@@ -23,8 +23,8 @@ from rotom_dex.api.requests import (
 )
 from rotom_dex.api.schemas import Envelope
 from rotom_dex.errors import SemanticError
-from rotom_dex.repositories.common import GameScope, envelope, resolve_game, rows, unsupported
-from rotom_dex.services import boss, defense, evolution, move_access, offense, reachability
+from rotom_dex.repositories.common import GameScope, envelope, resolve_game, unsupported
+from rotom_dex.services import boss, evolution, move_access, reachability, team
 from rotom_dex.services.context import PlaythroughContext, TeamMember, validate
 
 router = APIRouter()
@@ -45,65 +45,20 @@ def _member(ctx: PlaythroughContext, index: int | None) -> TeamMember | None:
     return ctx.team[index]
 
 
-def _types(db: sqlite3.Connection, scope: GameScope, slug: str) -> list[str]:
-    return [
-        r["slug"]
-        for r in rows(
-            db,
-            """SELECT t.slug FROM pokemon_types pt JOIN types t ON t.id=pt.type_id
-               JOIN pokemon_forms f ON f.id=pt.form_id
-               WHERE f.slug=? AND pt.generation_id=? ORDER BY pt.slot""",
-            (slug, scope.generation_id),
-        )
-    ]
-
-
 @router.post("/team/analyze", response_model=Envelope)
 def team_analyze(body: TeamAnalyzeIn, db: sqlite3.Connection = Depends(get_db)):
     """Defensive profile per member and offensive coverage from the team's actual moves."""
     scope, ctx, warnings = _resolve(db, body.context)
     if not scope.imported:
         return unsupported(db, scope)
-    members = []
-    for member in ctx.team:
-        types = _types(db, scope, member.pokemon)
-        if not types:
-            members.append(
-                {
-                    "pokemon": member.pokemon,
-                    "level": member.level,
-                    "types": [],
-                    "defence": None,
-                    "note": f"'{member.pokemon}' has no typing recorded for {scope.slug}, so it cannot be analysed. That is not a claim it is unobtainable.",
-                }
-            )
-            continue
-        members.append(
-            {
-                "pokemon": member.pokemon,
-                "nickname": member.nickname,
-                "level": member.level,
-                "types": types,
-                "ability": member.ability,
-                "nature": member.nature,
-                "held_item": member.held_item,
-                "defence": defense.profile(db, scope, types, member.ability),
-            }
-        )
-    team_moves = [{"pokemon": m.pokemon, "moves": list(m.moves)} for m in ctx.team]
-    data = {
-        "team": members,
-        "coverage": offense.coverage(db, scope, team_moves) if team_moves else None,
-        "mechanics": scope.mechanics,
-        "warnings": warnings,
-    }
+    data = team.analyse(db, scope, ctx, warnings)
     return envelope(
         db,
         scope,
         data,
-        features=("types", "stats", "abilities", "ability-type-effects", "moves", "type-effectiveness"),
+        features=team.FEATURES,
         include_evidence=False,
-        assumptions=[defense.BASIC_ASSUMPTION, defense.ABILITY_ASSUMPTION, offense.ASSUMPTION, *warnings],
+        assumptions=[*team.ASSUMPTIONS, *warnings],
     )
 
 

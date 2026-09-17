@@ -9,6 +9,9 @@ from rotom_dex.domain.conditions import all_of, unknown
 from rotom_dex.ingestion.context import Context
 
 PROGRESSION_UNKNOWN = unknown("Progression gates, access requirements and one-time restrictions have not been reviewed.")
+
+GATE_NOTE = "Access to this location is reviewed; the encounter itself is source-derived."
+METHOD_UNKNOWN = unknown("What this encounter method itself requires in this game has not been reviewed.")
 BREEDING_UNKNOWN = unknown("Day Care/Nursery access, a compatible partner and Ditto availability have not been reviewed.")
 
 
@@ -41,6 +44,7 @@ def run(ctx: Context) -> None:
             )
     ctx.encounter_counts: dict[int, int] = defaultdict(int)
     ctx.special_method_counts: dict[int, int] = defaultdict(int)
+    encounter_locations: dict[int, set[str]] = defaultdict(set)
     for r in c.rows("encounters"):
         game = int(r["version_id"])
         if game not in games:
@@ -59,6 +63,36 @@ def run(ctx: Context) -> None:
             if conditions
             else {"op": "always"}
         )
+        # A reviewed gate *replaces* `at_location AND unknown(...)`, because the gate is precisely
+        # the statement of what it takes to get here. Keeping `at_location` as well would leave the
+        # row unknown for every player who has not vouched for a complete visited-location list,
+        # which is the whole reason these rows were unanswerable before.
+        gate = ctx.location_gates.get((games[game].slug, location["identifier"]))
+        source_refs = (
+            ("encounters", f"version_id={game}; location_area_id={aid}"),
+            ("encounter_slots", f"version_group_id={slot['version_group_id']}"),
+            ("encounter_condition_value_map", "condition values per encounter id"),
+            ctx.normalizer_ref,
+        )
+        if gate is None:
+            prerequisites = all_of({"op": "at_location", "value": location["identifier"]}, PROGRESSION_UNKNOWN)
+            evidence, note = ev(*source_refs), ""
+        else:
+            slug = games[game].slug
+            selector = f"location_gates.{location['identifier']}"
+            pack_refs = [(f"ref:{slug}:{ref}", f"read for verification: {selector}") for ref in gate["references"]]
+            # Reaching the place is not the same as working the slot. A method with no reviewed
+            # requirement keeps an explicit unknown rather than inheriting the location's verdict.
+            method_gate = ctx.method_gates.get((slug, method))
+            if method_gate is None:
+                prerequisites = all_of(gate["prerequisites"], METHOD_UNKNOWN)
+                note = gate.get("note") or GATE_NOTE
+            else:
+                prerequisites = all_of(gate["prerequisites"], method_gate["prerequisites"])
+                method_selector = f"method_gates.{method}"
+                pack_refs += [(f"ref:{slug}:{ref}", f"read for verification: {method_selector}") for ref in method_gate["references"]]
+                note = gate.get("note") or GATE_NOTE
+            evidence = ev(*source_refs, *pack_refs, (f"pack:{slug}", selector))
         w.add(
             m.Acquisition(
                 f"encounter:{game}:{eid}",
@@ -72,21 +106,18 @@ def run(ctx: Context) -> None:
                 int(r["max_level"]),
                 int(slot["rarity"]) if slot["rarity"] else None,
                 "unknown",
-                all_of({"op": "at_location", "value": location["identifier"]}, PROGRESSION_UNKNOWN),
+                prerequisites,
                 encounter_conditions,
                 m.SOURCE_DERIVED,
-                "",
-                ev(
-                    ("encounters", f"version_id={game}; location_area_id={aid}"),
-                    ("encounter_slots", f"version_group_id={slot['version_group_id']}"),
-                    ("encounter_condition_value_map", "condition values per encounter id"),
-                    ctx.normalizer_ref,
-                ),
+                note,
+                evidence,
             )
         )
         ctx.encounter_counts[game] += 1
+        encounter_locations[game].add(location["identifier"])
         if method in ("gift", "gift-egg", "npc-trade", "static"):
             ctx.special_method_counts[game] += 1
+    ctx.encounter_location_counts: dict[int, int] = {g: len(v) for g, v in encounter_locations.items()}
     w.flush()
     ctx.held_item_counts: dict[int, int] = defaultdict(int)
     for r in c.rows("pokemon_items"):

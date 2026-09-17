@@ -7,8 +7,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from rotom_dex.api.routers import analysis, catalog, pokemon, resources
+from rotom_dex.api.routers import analysis, catalog, chat, pokemon, resources
 from rotom_dex.api.schemas import Problem, ValidationProblem
+from rotom_dex.chat.errors import ProviderTimeout, ProviderUnavailable
 from rotom_dex.db.connection import connect
 from rotom_dex.errors import NotFound, SemanticError, StaleDatabase
 from rotom_dex.repositories.common import snapshot_id
@@ -18,12 +19,14 @@ ERROR_RESPONSES = {
     400: {"model": Problem, "description": "Meaningless inside the requested game"},
     404: {"model": Problem, "description": "Unknown game or identifier"},
     422: {"model": ValidationProblem, "description": "Parameter or body validation failed"},
-    503: {"model": Problem, "description": "The snapshot database is missing or out of date"},
+    429: {"model": Problem, "description": "Too many chat requests from this client"},
+    503: {"model": Problem, "description": "The snapshot database is missing, or the chat provider is unavailable"},
+    504: {"model": Problem, "description": "The chat provider did not answer in time"},
 }
 
 app = FastAPI(
     title="Rotom Dex API",
-    version="0.3.0",
+    version="0.4.0",
     description="Evidence-backed, game-scoped Pokémon data. Pass `game` (exact version slug) to every game-scoped endpoint; responses carry coverage, assumptions and evidence.",
 )
 
@@ -35,7 +38,7 @@ if CORS_ORIGINS:
         allow_headers=["*"],
     )
 
-for router in (catalog.router, pokemon.router, resources.router, analysis.router):
+for router in (catalog.router, pokemon.router, resources.router, analysis.router, chat.router):
     app.include_router(router, prefix="/api", responses=ERROR_RESPONSES)
 
 
@@ -52,6 +55,18 @@ def bad_request(_: Request, exc: SemanticError):
 @app.exception_handler(StaleDatabase)
 def stale_database(_: Request, exc: StaleDatabase):
     return JSONResponse(status_code=503, content={"detail": str(exc)})
+
+
+@app.exception_handler(ProviderUnavailable)
+def provider_unavailable(_: Request, exc: ProviderUnavailable):
+    # 503, the same shape a missing database gets: the model is an optional component, and every
+    # other endpoint keeps working while it is down.
+    return JSONResponse(status_code=503, content={"detail": str(exc)})
+
+
+@app.exception_handler(ProviderTimeout)
+def provider_timeout(_: Request, exc: ProviderTimeout):
+    return JSONResponse(status_code=504, content={"detail": str(exc)})
 
 
 @app.exception_handler(FileNotFoundError)

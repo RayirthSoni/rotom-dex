@@ -174,6 +174,7 @@ export function PlaythroughsScreen() {
           </button>
           <input
             ref={fileInput} type="file" accept="application/json,.json" className="sr-only" data-testid="import-input"
+            aria-label="Choose a playthrough export file to import"
             onChange={(event) => { const file = event.target.files?.[0]; if (file) void onImport(file); event.target.value = '' }}
           />
         </div>

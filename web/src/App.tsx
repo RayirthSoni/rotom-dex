@@ -17,12 +17,15 @@ const TABS = [
   { to: 'journey', label: 'Journey', glyph: '◆' },
   { to: 'dex', label: 'Dex', glyph: '◉' },
   { to: 'team', label: 'Team', glyph: '⬢' },
-  { to: 'tools', label: 'Tools', glyph: '⚙' },
+  { to: 'ask', label: 'Ask', glyph: '◌' },
 ] as const
+
+const SECONDARY_EXTRA = [{ to: 'tools', label: 'Tools' }] as const
 
 const SECONDARY = [
   { to: 'moves', label: 'Moves' },
   { to: 'items', label: 'Items' },
+  ...SECONDARY_EXTRA,
 ] as const
 
 function BackendBanner() {

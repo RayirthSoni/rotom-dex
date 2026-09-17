@@ -12,7 +12,7 @@ import { z } from 'zod'
 export const SAVE_VERSION = 1
 export const SAVE_SCHEMA = 'rotom-dex/playthroughs'
 
-const slug = z.string().min(1).max(64).regex(/^[a-z0-9][a-z0-9.\-]*$/, 'must be a lowercase slug')
+const slug = z.string().min(1).max(64).regex(/^[a-z0-9][a-z0-9.-]*$/, 'must be a lowercase slug')
 
 export const teamMemberSchema = z.object({
   id: z.string().min(1).max(64),

@@ -29,13 +29,19 @@ def main(argv=None) -> int:
     p = sub.add_parser("coverage", help="Print the coverage report (JSON or Markdown)")
     p.add_argument("--db", type=Path, default=DEFAULT_DB)
     p.add_argument("--game", default=None)
-    p.add_argument("--format", choices=("json", "markdown"), default="json")
+    p.add_argument("--format", choices=("json", "markdown", "backlog"), default="json")
 
     p = sub.add_parser("query", help="Look up a Pokémon in an exact game")
     p.add_argument("pokemon", help="Slug or national number")
     p.add_argument("--game", required=True)
     p.add_argument("--db", type=Path, default=DEFAULT_DB)
     p.add_argument("--level", type=int)
+
+    p = sub.add_parser("eval", help="Grade the reviewed question set against the domain services")
+    p.add_argument("--db", type=Path, default=DEFAULT_DB)
+    p.add_argument("--questions", type=Path, default=None)
+    p.add_argument("--category", default=None, help="Grade only one category")
+    p.add_argument("--live", action="store_true", help="Also grade model-written answers (needs a provider credential)")
 
     p = sub.add_parser("serve", help="Run the FastAPI server")
     p.add_argument("--db", type=Path, default=DEFAULT_DB)
@@ -90,12 +96,31 @@ def main(argv=None) -> int:
 
                     validate_database(db)
                     result = {"status": "ok", "counts": table_counts(db)}
+                elif args.command == "eval":
+                    from rotom_dex.chat.config import ChatConfig
+                    from rotom_dex.evaluation import runner as eval_runner
+
+                    questions = eval_runner.load(args.questions) if args.questions else eval_runner.load()
+                    if args.category:
+                        questions = [q for q in questions if q["category"] == args.category]
+                    report = eval_runner.run(db, questions)
+                    result = report.summary()
+                    result["skipped"] = report.skipped
+                    if args.live:
+                        config = ChatConfig.from_env()
+                        if not config.enabled:
+                            result["live_error"] = config.unavailable_reason
+                        else:
+                            result["live_error"] = "Live grading is not implemented yet; the deterministic half above is what ran."
                 elif args.command == "coverage":
-                    from rotom_dex.repositories.coverage import coverage_report, render_markdown
+                    from rotom_dex.repositories.coverage import coverage_report, render_backlog, render_markdown
 
                     report = coverage_report(db, args.game)
                     if args.format == "markdown":
                         print(render_markdown(report))
+                        return 0
+                    if args.format == "backlog":
+                        print(render_backlog(report))
                         return 0
                     result = report
                 else:

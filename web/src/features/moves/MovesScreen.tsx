@@ -147,7 +147,7 @@ export function MovesScreen() {
               <p className="text-xs" style={{ color: 'var(--ink-faint)' }}>
                 {envelope.pagination ? `${rows.length} of ${envelope.pagination.total}` : `${rows.length} moves`}
               </p>
-              <div className="mt-2 table-scroll">
+              <div className="mt-2 table-scroll" tabIndex={0} role="region" aria-label="Moves table, scrollable">
                 <table className="grid w-full min-w-[32rem] border-collapse text-sm">
                   <thead>
                     <tr style={{ color: 'var(--ink-faint)' }}>

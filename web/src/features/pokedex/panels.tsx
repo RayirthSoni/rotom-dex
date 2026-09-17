@@ -190,8 +190,10 @@ export function EvolutionPanel({ chain, game }: { chain: EvolutionChain; game: s
   )
 }
 
-function RouteRow({ route }: { route: AcquisitionRoute }) {
-  const verdict: Verdict | undefined = route.derived
+function RouteRow({ route, verdicts }: { route: AcquisitionRoute; verdicts?: Record<string, Verdict> }) {
+  // The GET endpoint carries no playthrough, so a verdict only exists once the detail page has
+  // asked the reachability service. Without one the tree still renders, unmarked.
+  const verdict: Verdict | undefined = verdicts?.[route.id] ?? route.derived
   const levels = route.min_level
     ? route.max_level && route.max_level !== route.min_level
       ? `L${route.min_level}–${route.max_level}`
@@ -233,7 +235,15 @@ function RouteRow({ route }: { route: AcquisitionRoute }) {
   )
 }
 
-export function AcquisitionPanel({ data, playthroughActive }: { data: AcquisitionData; playthroughActive: boolean }) {
+export function AcquisitionPanel({
+  data,
+  playthroughActive,
+  verdicts,
+}: {
+  data: AcquisitionData
+  playthroughActive: boolean
+  verdicts?: Record<string, Verdict>
+}) {
   const [method, setMethod] = useState('')
   const methods = Object.keys(data.route_counts)
   const routes = method ? data.routes.filter((route) => route.method === method) : data.routes
@@ -273,7 +283,7 @@ export function AcquisitionPanel({ data, playthroughActive }: { data: Acquisitio
       ) : null}
       <ul className="space-y-2">
         {routes.slice(0, 40).map((route) => (
-          <RouteRow key={route.id} route={route} />
+          <RouteRow key={route.id} route={route} verdicts={verdicts} />
         ))}
       </ul>
       {routes.length > 40 ? (
@@ -315,7 +325,7 @@ export function LearnsetPanel({ data }: { data: LearnsetData }) {
           </button>
         ))}
       </div>
-      <div className="table-scroll">
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Learnset table, scrollable">
         <table className="grid w-full min-w-[34rem] border-collapse text-sm">
           <thead>
             <tr style={{ color: 'var(--ink-faint)' }}>

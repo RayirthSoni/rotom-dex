@@ -2,15 +2,1825 @@
   "format_version": 2,
   "game": "red",
   "reviewed_at": "2026-09-17",
-  "policy": "Generation I validation game. No curated progression yet; this pack records known gaps explicitly so that missing rows are never mistaken for unavailability.",
+  "policy": "Curated Red main-story content. Each fact was checked by reading the cited reference page on the access date; no prose was copied. Anything not confirmed on a cited page is omitted and listed under issues.",
+  "main_story_end": "hall-of-fame",
   "references": {
-    "tm": {"url": "https://bulbapedia.bulbagarden.net/wiki/TM", "accessed": "2026-09-17", "license": "CC BY-NC-SA 2.5 (Bulbapedia)", "note": "TMs are single-use from Generation I through IV."}
+    "tm": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/TM",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "TMs are single-use from Generation I through IV."
+    },
+    "badges": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Badge",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Kanto badge order and the field move each badge enables."
+    },
+    "brock": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Brock",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Gym battle team and badge."
+    },
+    "misty": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Misty",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Gym battle team and badge."
+    },
+    "lt-surge": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Lt._Surge",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Gym battle team and badge."
+    },
+    "erika": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Erika",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Gym battle team and badge."
+    },
+    "koga": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Koga",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Gym battle team and badge."
+    },
+    "sabrina": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Sabrina",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Gym battle team and badge."
+    },
+    "blaine": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Blaine",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Gym battle team and badge."
+    },
+    "giovanni": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Giovanni",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Viridian Gym battle team and badge."
+    },
+    "lorelei": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Lorelei",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Elite Four team."
+    },
+    "bruno": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Bruno",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Elite Four team."
+    },
+    "agatha": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Agatha",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Elite Four team."
+    },
+    "lance": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Lance",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Elite Four team."
+    },
+    "blue": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Blue_(game)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Red/Blue Champion team, Charmander-starter variant."
+    },
+    "walkthrough-index": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Red_and_Blue_walkthrough",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of the main-story parts and the areas each covers."
+    },
+    "walkthrough-2": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Red_and_Blue_walkthrough/Section_2",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 2."
+    },
+    "walkthrough-5": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Red_and_Blue_walkthrough/Section_5",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 5."
+    },
+    "walkthrough-11": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Appendix:Red_and_Blue_walkthrough/Section_11",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia)",
+      "note": "Order of events, locations and story gates in part 11."
+    }
   },
+  "milestones": [
+    {
+      "slug": "pallet-departure",
+      "name": "Leave Pallet Town with a starter",
+      "kind": "story",
+      "location": "pallet-town",
+      "prerequisites": {
+        "op": "always"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "slug": "oaks-parcel",
+      "name": "Deliver Oak's Parcel in Pallet Town",
+      "kind": "story",
+      "location": "pallet-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pallet-departure"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "slug": "pokedex-received",
+      "name": "Receive the Pokedex",
+      "kind": "story",
+      "location": "pallet-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "oaks-parcel"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "slug": "viridian-forest",
+      "name": "Cross Viridian Forest",
+      "kind": "story",
+      "location": "viridian-forest",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokedex-received"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "slug": "boulder-badge",
+      "name": "Boulder Badge (Brock, Pewter Gym)",
+      "kind": "badge",
+      "location": "pewter-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "viridian-forest"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "brock",
+        "badges"
+      ]
+    },
+    {
+      "slug": "mt-moon-crossed",
+      "name": "Cross Mt. Moon",
+      "kind": "story",
+      "location": "mt-moon",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "boulder-badge"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "slug": "cerulean-arrival",
+      "name": "Arrive in Cerulean City",
+      "kind": "story",
+      "location": "cerulean-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "mt-moon-crossed"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "slug": "cascade-badge",
+      "name": "Cascade Badge (Misty, Cerulean Gym)",
+      "kind": "badge",
+      "location": "cerulean-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "cerulean-arrival"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "misty",
+        "badges"
+      ]
+    },
+    {
+      "slug": "bill-ss-ticket",
+      "name": "Help Bill and receive the S.S. Ticket",
+      "kind": "story",
+      "location": "kanto-route-25",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "cascade-badge"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "slug": "ss-anne",
+      "name": "Board the S.S. Anne in Vermilion City",
+      "kind": "story",
+      "location": "vermilion-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "bill-ss-ticket"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "slug": "thunder-badge",
+      "name": "Thunder Badge (Lt. Surge, Vermilion Gym)",
+      "kind": "badge",
+      "location": "vermilion-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "ss-anne"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "lt-surge",
+        "badges"
+      ]
+    },
+    {
+      "slug": "rock-tunnel-crossed",
+      "name": "Cross Rock Tunnel",
+      "kind": "story",
+      "location": "rock-tunnel",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "thunder-badge"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "slug": "lavender-arrival",
+      "name": "Arrive in Lavender Town",
+      "kind": "story",
+      "location": "lavender-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rock-tunnel-crossed"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "slug": "rainbow-badge",
+      "name": "Rainbow Badge (Erika, Celadon Gym)",
+      "kind": "badge",
+      "location": "celadon-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "lavender-arrival"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "erika",
+        "badges"
+      ]
+    },
+    {
+      "slug": "rocket-hideout",
+      "name": "Clear the Rocket Hideout and take the Silph Scope",
+      "kind": "story",
+      "location": "celadon-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rainbow-badge"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "slug": "pokemon-tower",
+      "name": "Reach the top of Pokemon Tower and receive the Poke Flute",
+      "kind": "story",
+      "location": "pokemon-tower",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rocket-hideout"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "slug": "snorlax-cleared",
+      "name": "Wake the Snorlax blocking the way south",
+      "kind": "story",
+      "location": "kanto-route-16",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokemon-tower"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "slug": "soul-badge",
+      "name": "Soul Badge (Koga, Fuchsia Gym)",
+      "kind": "badge",
+      "location": "fuchsia-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "snorlax-cleared"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "koga",
+        "badges"
+      ]
+    },
+    {
+      "slug": "hm04-strength",
+      "name": "Receive HM04 Strength from the Safari Zone Warden",
+      "kind": "hm",
+      "location": "fuchsia-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "snorlax-cleared"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "slug": "hm03-surf",
+      "name": "Receive HM03 Surf at the Safari Zone Secret House",
+      "kind": "hm",
+      "location": "kanto-safari-zone",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "snorlax-cleared"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "slug": "silph-co",
+      "name": "Clear Silph Co. in Saffron City",
+      "kind": "story",
+      "location": "saffron-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokemon-tower"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "slug": "marsh-badge",
+      "name": "Marsh Badge (Sabrina, Saffron Gym)",
+      "kind": "badge",
+      "location": "saffron-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "silph-co"
+      },
+      "spoiler_level": "none",
+      "references": [
+        "sabrina",
+        "badges"
+      ]
+    },
+    {
+      "slug": "volcano-badge",
+      "name": "Volcano Badge (Blaine, Cinnabar Gym)",
+      "kind": "badge",
+      "location": "cinnabar-island",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "soul-badge"
+          },
+          {
+            "op": "milestone",
+            "value": "hm03-surf"
+          }
+        ]
+      },
+      "spoiler_level": "none",
+      "references": [
+        "blaine",
+        "badges"
+      ]
+    },
+    {
+      "slug": "earth-badge",
+      "name": "Earth Badge (Giovanni, Viridian Gym)",
+      "kind": "badge",
+      "location": "viridian-city",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "volcano-badge"
+          },
+          {
+            "op": "milestone",
+            "value": "marsh-badge"
+          }
+        ]
+      },
+      "spoiler_level": "none",
+      "references": [
+        "giovanni",
+        "badges"
+      ]
+    },
+    {
+      "slug": "victory-road",
+      "name": "Cross Victory Road",
+      "kind": "story",
+      "location": "kanto-victory-road-2",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "earth-badge"
+      },
+      "spoiler_level": "hint",
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "slug": "elite-four-lorelei",
+      "name": "Defeat Elite Four Lorelei",
+      "kind": "elite-four",
+      "location": "indigo-plateau",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "victory-road"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "lorelei"
+      ]
+    },
+    {
+      "slug": "elite-four-bruno",
+      "name": "Defeat Elite Four Bruno",
+      "kind": "elite-four",
+      "location": "indigo-plateau",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "elite-four-lorelei"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "bruno"
+      ]
+    },
+    {
+      "slug": "elite-four-agatha",
+      "name": "Defeat Elite Four Agatha",
+      "kind": "elite-four",
+      "location": "indigo-plateau",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "elite-four-bruno"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "agatha"
+      ]
+    },
+    {
+      "slug": "elite-four-lance",
+      "name": "Defeat Elite Four Lance",
+      "kind": "elite-four",
+      "location": "indigo-plateau",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "elite-four-agatha"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "lance"
+      ]
+    },
+    {
+      "slug": "champion-blue",
+      "name": "Defeat Champion Blue",
+      "kind": "champion",
+      "location": "indigo-plateau",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "elite-four-lance"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "blue"
+      ]
+    },
+    {
+      "slug": "hall-of-fame",
+      "name": "Enter the Hall of Fame",
+      "kind": "story",
+      "location": "indigo-plateau",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "champion-blue"
+      },
+      "spoiler_level": "full",
+      "references": [
+        "walkthrough-index"
+      ]
+    }
+  ],
+  "location_gates": [
+    {
+      "location": "celadon-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "lavender-arrival"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "cerulean-cave",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hall-of-fame"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "cerulean-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "cerulean-arrival"
+      },
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "location": "cinnabar-island",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm03-surf"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "digletts-cave",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "thunder-badge"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "fuchsia-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "snorlax-cleared"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "kanto-power-plant",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm03-surf"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "kanto-route-1",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pallet-departure"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "kanto-route-10",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rock-tunnel-crossed"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-11",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "thunder-badge"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-12",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokemon-tower"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-13",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokemon-tower"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-14",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokemon-tower"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-15",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokemon-tower"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-16",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "snorlax-cleared"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "kanto-route-17",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "snorlax-cleared"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "kanto-route-18",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "snorlax-cleared"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "kanto-route-2",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokedex-received"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "kanto-route-22",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pallet-departure"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "kanto-route-23",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "earth-badge"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-24",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "cerulean-arrival"
+      },
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "location": "kanto-route-25",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "cerulean-arrival"
+      },
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "location": "kanto-route-3",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "boulder-badge"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-4",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "boulder-badge"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-5",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "cerulean-arrival"
+      },
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "location": "kanto-route-6",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "cerulean-arrival"
+      },
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "location": "kanto-route-7",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "lavender-arrival"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-8",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rock-tunnel-crossed"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-route-9",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rock-tunnel-crossed"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "kanto-safari-zone",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "snorlax-cleared"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "kanto-sea-route-19",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm03-surf"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "kanto-sea-route-20",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm03-surf"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "kanto-sea-route-21",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm03-surf"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "kanto-underground-path",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "cerulean-arrival"
+      },
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "location": "kanto-victory-road-2",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "earth-badge"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "mt-moon",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "boulder-badge"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "pallet-town",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pallet-departure"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "pokemon-mansion",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm03-surf"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "pokemon-tower",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rocket-hideout"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "rock-tunnel",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rock-tunnel-crossed"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "saffron-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "rocket-hideout"
+      },
+      "references": [
+        "walkthrough-index"
+      ]
+    },
+    {
+      "location": "seafoam-islands",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "hm03-surf"
+      },
+      "references": [
+        "walkthrough-11"
+      ]
+    },
+    {
+      "location": "vermilion-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "cerulean-arrival"
+      },
+      "references": [
+        "walkthrough-5"
+      ]
+    },
+    {
+      "location": "viridian-city",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pallet-departure"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    },
+    {
+      "location": "viridian-forest",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokedex-received"
+      },
+      "references": [
+        "walkthrough-2"
+      ]
+    }
+  ],
+  "method_gates": [
+    {
+      "method": "walk",
+      "prerequisites": {
+        "op": "always"
+      },
+      "references": [
+        "walkthrough-2"
+      ],
+      "note": "Walking in tall grass needs nothing beyond reaching the area."
+    },
+    {
+      "method": "surf",
+      "prerequisites": {
+        "op": "and",
+        "args": [
+          {
+            "op": "milestone",
+            "value": "soul-badge"
+          },
+          {
+            "op": "milestone",
+            "value": "hm03-surf"
+          }
+        ]
+      },
+      "references": [
+        "badges",
+        "walkthrough-11"
+      ],
+      "note": "Surf needs HM03 and the Soul Badge to be used in the field."
+    },
+    {
+      "method": "pokeflute",
+      "prerequisites": {
+        "op": "milestone",
+        "value": "pokemon-tower"
+      },
+      "references": [
+        "walkthrough-11"
+      ],
+      "note": "Only the Poke Flute wakes a sleeping Snorlax."
+    }
+  ],
+  "battles": [
+    {
+      "id": "brock",
+      "name": "Leader Brock",
+      "trainer_class": "Leader",
+      "milestone": "boulder-badge",
+      "location": "pewter-city",
+      "party": [
+        {
+          "pokemon": "geodude",
+          "level": 12,
+          "moves": [
+            "tackle",
+            "defense-curl"
+          ]
+        },
+        {
+          "pokemon": "onix",
+          "level": 14,
+          "moves": [
+            "tackle",
+            "screech",
+            "bide"
+          ]
+        }
+      ],
+      "references": [
+        "brock"
+      ]
+    },
+    {
+      "id": "misty",
+      "name": "Leader Misty",
+      "trainer_class": "Leader",
+      "milestone": "cascade-badge",
+      "location": "cerulean-city",
+      "party": [
+        {
+          "pokemon": "staryu",
+          "level": 18,
+          "moves": [
+            "tackle",
+            "water-gun"
+          ]
+        },
+        {
+          "pokemon": "starmie",
+          "level": 21,
+          "moves": [
+            "tackle",
+            "water-gun",
+            "bubble-beam"
+          ]
+        }
+      ],
+      "references": [
+        "misty"
+      ]
+    },
+    {
+      "id": "lt-surge",
+      "name": "Leader Lt. Surge",
+      "trainer_class": "Leader",
+      "milestone": "thunder-badge",
+      "location": "vermilion-city",
+      "party": [
+        {
+          "pokemon": "voltorb",
+          "level": 21,
+          "moves": [
+            "tackle",
+            "screech",
+            "sonic-boom"
+          ]
+        },
+        {
+          "pokemon": "pikachu",
+          "level": 18,
+          "moves": [
+            "thunder-shock",
+            "growl",
+            "thunder-wave",
+            "quick-attack"
+          ]
+        },
+        {
+          "pokemon": "raichu",
+          "level": 24,
+          "moves": [
+            "thunder-shock",
+            "growl",
+            "thunderbolt"
+          ]
+        }
+      ],
+      "references": [
+        "lt-surge"
+      ]
+    },
+    {
+      "id": "erika",
+      "name": "Leader Erika",
+      "trainer_class": "Leader",
+      "milestone": "rainbow-badge",
+      "location": "celadon-city",
+      "party": [
+        {
+          "pokemon": "victreebel",
+          "level": 29,
+          "moves": [
+            "razor-leaf",
+            "wrap",
+            "poison-powder",
+            "sleep-powder"
+          ]
+        },
+        {
+          "pokemon": "tangela",
+          "level": 24,
+          "moves": [
+            "constrict",
+            "bind"
+          ]
+        },
+        {
+          "pokemon": "vileplume",
+          "level": 29,
+          "moves": [
+            "petal-dance",
+            "poison-powder",
+            "mega-drain",
+            "sleep-powder"
+          ]
+        }
+      ],
+      "references": [
+        "erika"
+      ]
+    },
+    {
+      "id": "koga",
+      "name": "Leader Koga",
+      "trainer_class": "Leader",
+      "milestone": "soul-badge",
+      "location": "fuchsia-city",
+      "party": [
+        {
+          "pokemon": "koffing",
+          "level": 37,
+          "moves": [
+            "tackle",
+            "smog",
+            "sludge",
+            "smokescreen"
+          ]
+        },
+        {
+          "pokemon": "muk",
+          "level": 39,
+          "moves": [
+            "disable",
+            "poison-gas",
+            "minimize",
+            "sludge"
+          ]
+        },
+        {
+          "pokemon": "koffing",
+          "level": 37,
+          "moves": [
+            "tackle",
+            "smog",
+            "sludge",
+            "smokescreen"
+          ]
+        },
+        {
+          "pokemon": "weezing",
+          "level": 43,
+          "moves": [
+            "smog",
+            "sludge",
+            "toxic",
+            "self-destruct"
+          ]
+        }
+      ],
+      "references": [
+        "koga"
+      ]
+    },
+    {
+      "id": "sabrina",
+      "name": "Leader Sabrina",
+      "trainer_class": "Leader",
+      "milestone": "marsh-badge",
+      "location": "saffron-city",
+      "party": [
+        {
+          "pokemon": "kadabra",
+          "level": 38,
+          "moves": [
+            "disable",
+            "psybeam",
+            "recover",
+            "psychic"
+          ]
+        },
+        {
+          "pokemon": "mr-mime",
+          "level": 37,
+          "moves": [
+            "confusion",
+            "barrier",
+            "light-screen",
+            "double-slap"
+          ]
+        },
+        {
+          "pokemon": "venomoth",
+          "level": 38,
+          "moves": [
+            "poison-powder",
+            "leech-life",
+            "stun-spore",
+            "psybeam"
+          ]
+        },
+        {
+          "pokemon": "alakazam",
+          "level": 43,
+          "moves": [
+            "psybeam",
+            "recover",
+            "psywave",
+            "reflect"
+          ]
+        }
+      ],
+      "references": [
+        "sabrina"
+      ]
+    },
+    {
+      "id": "blaine",
+      "name": "Leader Blaine",
+      "trainer_class": "Leader",
+      "milestone": "volcano-badge",
+      "location": "cinnabar-island",
+      "party": [
+        {
+          "pokemon": "growlithe",
+          "level": 42,
+          "moves": [
+            "ember",
+            "leer",
+            "take-down",
+            "agility"
+          ]
+        },
+        {
+          "pokemon": "ponyta",
+          "level": 40,
+          "moves": [
+            "tail-whip",
+            "stomp",
+            "growl",
+            "fire-spin"
+          ]
+        },
+        {
+          "pokemon": "rapidash",
+          "level": 42,
+          "moves": [
+            "tail-whip",
+            "stomp",
+            "growl",
+            "fire-spin"
+          ]
+        },
+        {
+          "pokemon": "arcanine",
+          "level": 47,
+          "moves": [
+            "roar",
+            "ember",
+            "fire-blast",
+            "take-down"
+          ]
+        }
+      ],
+      "references": [
+        "blaine"
+      ]
+    },
+    {
+      "id": "giovanni",
+      "name": "Leader Giovanni",
+      "trainer_class": "Leader",
+      "milestone": "earth-badge",
+      "location": "viridian-city",
+      "party": [
+        {
+          "pokemon": "rhyhorn",
+          "level": 45,
+          "moves": [
+            "stomp",
+            "tail-whip",
+            "fury-attack",
+            "horn-drill"
+          ]
+        },
+        {
+          "pokemon": "dugtrio",
+          "level": 42,
+          "moves": [
+            "growl",
+            "dig",
+            "sand-attack",
+            "slash"
+          ]
+        },
+        {
+          "pokemon": "nidoqueen",
+          "level": 44,
+          "moves": [
+            "scratch",
+            "tail-whip",
+            "body-slam",
+            "poison-sting"
+          ]
+        },
+        {
+          "pokemon": "nidoking",
+          "level": 45,
+          "moves": [
+            "tackle",
+            "horn-attack",
+            "poison-sting",
+            "thrash"
+          ]
+        },
+        {
+          "pokemon": "rhydon",
+          "level": 50,
+          "moves": [
+            "stomp",
+            "tail-whip",
+            "fissure",
+            "horn-drill"
+          ]
+        }
+      ],
+      "references": [
+        "giovanni"
+      ]
+    },
+    {
+      "id": "lorelei",
+      "name": "Elite Four Lorelei",
+      "trainer_class": "Elite Four",
+      "milestone": "elite-four-lorelei",
+      "location": "indigo-plateau",
+      "party": [
+        {
+          "pokemon": "dewgong",
+          "level": 54,
+          "moves": [
+            "growl",
+            "aurora-beam",
+            "rest",
+            "take-down"
+          ]
+        },
+        {
+          "pokemon": "cloyster",
+          "level": 53,
+          "moves": [
+            "supersonic",
+            "clamp",
+            "aurora-beam",
+            "spike-cannon"
+          ]
+        },
+        {
+          "pokemon": "slowbro",
+          "level": 54,
+          "moves": [
+            "growl",
+            "water-gun",
+            "withdraw",
+            "amnesia"
+          ]
+        },
+        {
+          "pokemon": "jynx",
+          "level": 56,
+          "moves": [
+            "double-slap",
+            "ice-punch",
+            "body-slam",
+            "thrash"
+          ]
+        },
+        {
+          "pokemon": "lapras",
+          "level": 56,
+          "moves": [
+            "body-slam",
+            "confuse-ray",
+            "blizzard",
+            "hydro-pump"
+          ]
+        }
+      ],
+      "references": [
+        "lorelei"
+      ]
+    },
+    {
+      "id": "bruno",
+      "name": "Elite Four Bruno",
+      "trainer_class": "Elite Four",
+      "milestone": "elite-four-bruno",
+      "location": "indigo-plateau",
+      "party": [
+        {
+          "pokemon": "onix",
+          "level": 53,
+          "moves": [
+            "rock-throw",
+            "rage",
+            "slam",
+            "harden"
+          ]
+        },
+        {
+          "pokemon": "hitmonchan",
+          "level": 55,
+          "moves": [
+            "ice-punch",
+            "thunder-punch",
+            "mega-punch",
+            "counter"
+          ]
+        },
+        {
+          "pokemon": "hitmonlee",
+          "level": 55,
+          "moves": [
+            "jump-kick",
+            "focus-energy",
+            "high-jump-kick",
+            "mega-kick"
+          ]
+        },
+        {
+          "pokemon": "onix",
+          "level": 56,
+          "moves": [
+            "rock-throw",
+            "rage",
+            "slam",
+            "harden"
+          ]
+        },
+        {
+          "pokemon": "machamp",
+          "level": 58,
+          "moves": [
+            "leer",
+            "focus-energy",
+            "fissure",
+            "submission"
+          ]
+        }
+      ],
+      "references": [
+        "bruno"
+      ]
+    },
+    {
+      "id": "agatha",
+      "name": "Elite Four Agatha",
+      "trainer_class": "Elite Four",
+      "milestone": "elite-four-agatha",
+      "location": "indigo-plateau",
+      "party": [
+        {
+          "pokemon": "gengar",
+          "level": 56,
+          "moves": [
+            "confuse-ray",
+            "night-shade",
+            "hypnosis",
+            "dream-eater"
+          ]
+        },
+        {
+          "pokemon": "golbat",
+          "level": 56,
+          "moves": [
+            "supersonic",
+            "confuse-ray",
+            "wing-attack",
+            "haze"
+          ]
+        },
+        {
+          "pokemon": "haunter",
+          "level": 55,
+          "moves": [
+            "confuse-ray",
+            "night-shade",
+            "hypnosis",
+            "dream-eater"
+          ]
+        },
+        {
+          "pokemon": "arbok",
+          "level": 58,
+          "moves": [
+            "bite",
+            "glare",
+            "screech",
+            "acid"
+          ]
+        },
+        {
+          "pokemon": "gengar",
+          "level": 60,
+          "moves": [
+            "confuse-ray",
+            "night-shade",
+            "toxic",
+            "dream-eater"
+          ]
+        }
+      ],
+      "references": [
+        "agatha"
+      ]
+    },
+    {
+      "id": "lance",
+      "name": "Elite Four Lance",
+      "trainer_class": "Elite Four",
+      "milestone": "elite-four-lance",
+      "location": "indigo-plateau",
+      "party": [
+        {
+          "pokemon": "gyarados",
+          "level": 58,
+          "moves": [
+            "dragon-rage",
+            "leer",
+            "hydro-pump",
+            "hyper-beam"
+          ]
+        },
+        {
+          "pokemon": "dragonair",
+          "level": 56,
+          "moves": [
+            "agility",
+            "slam",
+            "dragon-rage",
+            "hyper-beam"
+          ]
+        },
+        {
+          "pokemon": "dragonair",
+          "level": 56,
+          "moves": [
+            "agility",
+            "slam",
+            "dragon-rage",
+            "hyper-beam"
+          ]
+        },
+        {
+          "pokemon": "aerodactyl",
+          "level": 60,
+          "moves": [
+            "supersonic",
+            "bite",
+            "take-down",
+            "hyper-beam"
+          ]
+        },
+        {
+          "pokemon": "dragonite",
+          "level": 62,
+          "moves": [
+            "agility",
+            "slam",
+            "barrier",
+            "hyper-beam"
+          ]
+        }
+      ],
+      "references": [
+        "lance"
+      ]
+    },
+    {
+      "id": "blue-champion-charmander",
+      "name": "Champion Blue (if you chose Charmander)",
+      "trainer_class": "Champion",
+      "milestone": "champion-blue",
+      "location": "indigo-plateau",
+      "party": [
+        {
+          "pokemon": "pidgeot",
+          "level": 61,
+          "moves": [
+            "wing-attack",
+            "mirror-move",
+            "sky-attack",
+            "whirlwind"
+          ]
+        },
+        {
+          "pokemon": "alakazam",
+          "level": 59,
+          "moves": [
+            "psybeam",
+            "psychic",
+            "reflect",
+            "recover"
+          ]
+        },
+        {
+          "pokemon": "rhydon",
+          "level": 61,
+          "moves": [
+            "leer",
+            "tail-whip",
+            "fury-attack",
+            "horn-drill"
+          ]
+        },
+        {
+          "pokemon": "gyarados",
+          "level": 61,
+          "moves": [
+            "dragon-rage",
+            "hydro-pump",
+            "hyper-beam",
+            "leer"
+          ]
+        },
+        {
+          "pokemon": "arcanine",
+          "level": 63,
+          "moves": [
+            "roar",
+            "leer",
+            "ember",
+            "take-down"
+          ]
+        },
+        {
+          "pokemon": "blastoise",
+          "level": 65,
+          "moves": [
+            "hydro-pump",
+            "blizzard",
+            "bite",
+            "withdraw"
+          ]
+        }
+      ],
+      "references": [
+        "blue"
+      ]
+    }
+  ],
   "issues": [
-    {"id": "special-stat-scope", "feature": "stats", "subject": "special", "kind": "unverified", "description": "Generation I Special values come from the source's historical stat table, which covers the 151 Generation I species. Other Generation I stat changes are not recorded by the source."},
-    {"id": "progression", "feature": "progression", "subject": "*", "kind": "missing", "description": "No curated milestones or boss teams for Red yet."},
-    {"id": "shops", "feature": "shops", "subject": "*", "kind": "missing", "description": "No curated shop inventories for Red yet."},
-    {"id": "machine-locations", "feature": "item-acquisition", "subject": "machines", "kind": "missing", "description": "TM/HM locations are not curated; the source links machines to moves only.", "references": ["tm"]},
-    {"id": "encounter-prerequisites", "feature": "encounters", "subject": "*", "kind": "unverified", "description": "Source encounters carry an explicit unknown prerequisite; route access and story gating have not been reviewed."}
+    {
+      "id": "special-stat-scope",
+      "feature": "stats",
+      "subject": "special",
+      "kind": "unverified",
+      "description": "Generation I Special values come from the source's historical stat table, which covers the 151 Generation I species. Other Generation I stat changes are not recorded by the source."
+    },
+    {
+      "id": "progression",
+      "feature": "progression",
+      "subject": "*",
+      "kind": "missing",
+      "description": "No curated milestones or boss teams for Red yet."
+    },
+    {
+      "id": "shops",
+      "feature": "shops",
+      "subject": "*",
+      "kind": "missing",
+      "description": "No curated shop inventories for Red yet."
+    },
+    {
+      "id": "machine-locations",
+      "feature": "item-acquisition",
+      "subject": "machines",
+      "kind": "missing",
+      "description": "TM/HM locations are not curated; the source links machines to moves only.",
+      "references": [
+        "tm"
+      ]
+    },
+    {
+      "id": "encounter-prerequisites",
+      "feature": "encounters",
+      "subject": "*",
+      "kind": "unverified",
+      "description": "Source encounters carry an explicit unknown prerequisite; route access and story gating have not been reviewed."
+    },
+    {
+      "id": "champion-variants",
+      "feature": "boss-teams",
+      "subject": "red:blue-champion-charmander",
+      "kind": "missing",
+      "description": "Blue's Champion team depends on the starter the player chose. Only the Charmander variant was reviewed; the Bulbasaur and Squirtle variants are not curated."
+    },
+    {
+      "id": "location-gates-partial",
+      "feature": "location-gates",
+      "subject": "*",
+      "kind": "missing",
+      "description": "Locations whose access depends on a sub-area or a random event are deliberately not gated and keep an explicit unknown."
+    },
+    {
+      "id": "hm-items-partial",
+      "feature": "item-acquisition",
+      "subject": "machines",
+      "kind": "missing",
+      "description": "Only HM03 and HM04 acquisition points were reviewed. HM01, HM02 and HM05 are not curated, so field-move gates are expressed through the badge that enables them."
+    },
+    {
+      "id": "trainers-non-boss",
+      "feature": "boss-teams",
+      "subject": "route-trainers",
+      "kind": "missing",
+      "description": "Only Gym Leaders, the Elite Four and the Champion are curated. Rival and Team Rocket battles are not."
+    }
   ]
 }

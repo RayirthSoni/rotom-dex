@@ -57,3 +57,21 @@ class ValidationProblem(BaseModel):
     """Body of a 422 response. FastAPI's validation shape differs from `Problem`."""
 
     detail: list[ValidationError]
+
+
+class ChatLimits(BaseModel):
+    max_message_chars: int
+    max_history_turns: int
+    max_tool_calls: int
+    deadline_s: float
+
+
+class ChatStatus(BaseModel):
+    """Whether Rotom can answer. The Dex, team and preparation endpoints never consult this."""
+
+    enabled: bool
+    provider: str
+    model: str | None = None
+    research_enabled: bool = False
+    reason: str = ""
+    limits: ChatLimits

@@ -55,6 +55,9 @@ export function VerdictChip({ status, label, title }: { status: DerivedStatus; l
       data-verdict={status}
     >
       {label}
+      {/* `title` is not reachable by keyboard and is not reliably announced, so the explanation is
+          also available to a screen reader. */}
+      {title ? <span className="sr-only"> — {title}</span> : null}
     </span>
   )
 }
@@ -70,12 +73,14 @@ export function Card({ children, className = '' }: { children: ReactNode; classN
   )
 }
 
-export function SectionHeading({ children, hint }: { children: ReactNode; hint?: string }) {
+/** `level` exists so a heading nested inside another card does not emit a sibling `h2`. */
+export function SectionHeading({ children, hint, level = 2 }: { children: ReactNode; hint?: string; level?: 2 | 3 | 4 }) {
+  const Heading = `h${level}` as 'h2' | 'h3' | 'h4'
   return (
     <div className="mb-3">
-      <h2 className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'var(--ink-muted)' }}>
+      <Heading className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'var(--ink-muted)' }}>
         {children}
-      </h2>
+      </Heading>
       {hint ? (
         <p className="mt-1 text-xs" style={{ color: 'var(--ink-faint)' }}>
           {hint}

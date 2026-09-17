@@ -167,7 +167,7 @@ export function GameSelector() {
 function FullMatrix({ matrix, rows }: { matrix: CoverageMatrix; rows: CoverageMatrix['games'] }) {
   const features = useMemo(() => matrix.features, [matrix.features])
   return (
-    <div className="mt-3 table-scroll">
+    <div className="mt-3 table-scroll" tabIndex={0} role="region" aria-label="Coverage matrix, scrollable">
       <table className="grid w-full min-w-[46rem] border-collapse text-[11px]">
         <caption className="sr-only">Coverage of every feature for every game with imported facts</caption>
         <thead>

@@ -43,7 +43,7 @@ test.describe('Layout', () => {
     const tabBar = page.locator('nav.fixed')
     if (testInfo.project.name === 'mobile') {
       await expect(tabBar).toBeVisible()
-      for (const label of ['Journey', 'Dex', 'Team', 'Tools']) {
+      for (const label of ['Journey', 'Dex', 'Team', 'Ask']) {
         await expect(tabBar.getByRole('link', { name: label })).toBeVisible()
       }
     } else {

@@ -51,7 +51,8 @@ def test_curated_pack_relationships(db):
         ("nosepass", 15, "oran-berry"),
     ]
     milestones = [r[0] for r in db.execute("SELECT slug FROM milestones WHERE game_id=9 ORDER BY ord")]
-    assert milestones[0] == "littleroot-arrival" and milestones[-1] == "stone-badge"
+    assert milestones[0] == "littleroot-arrival" and milestones[-1] == "hall-of-fame"
+    assert "stone-badge" in milestones
     shop = db.execute("SELECT count(*) FROM shop_items WHERE shop_id='emerald:rustboro-poke-mart'").fetchone()[0]
     assert shop == 12
     tm39 = db.execute("SELECT prerequisites FROM acquisitions WHERE id='pack:9:tm39-roxanne'").fetchone()[0]

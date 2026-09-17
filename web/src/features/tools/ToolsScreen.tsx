@@ -34,7 +34,7 @@ function Chart({ game }: { game: string }) {
               <p className="mb-2 text-xs" style={{ color: 'var(--ink-faint)' }}>
                 Generation {chart.generation} · {types.length} types
               </p>
-              <div className="table-scroll">
+              <div className="table-scroll" tabIndex={0} role="region" aria-label="Type chart, scrollable">
                 <table className="w-full min-w-[40rem] border-collapse text-[11px]">
                   <caption className="sr-only">Type effectiveness chart for generation {chart.generation}</caption>
                   <thead>

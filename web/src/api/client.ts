@@ -77,10 +77,11 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     throw new ApiError('offline', 0, 'Could not reach the Rotom Dex server.')
   }
   const text = await response.text()
-  let body: unknown = null
+  let body: unknown
   try {
     body = text ? JSON.parse(text) : null
   } catch {
+    // A non-JSON body is still a response we must classify by status, so this is not an error.
     body = null
   }
   if (!response.ok) {

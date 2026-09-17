@@ -230,3 +230,6 @@ web/coverage/
 web/test-results/
 web/playwright-report/
 web/blob-report/
+
+# TypeScript incremental build state; churns on every `tsc -b`.
+*.tsbuildinfo

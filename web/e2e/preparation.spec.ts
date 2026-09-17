@@ -54,10 +54,21 @@ test.describe('Preparation', () => {
   })
 
   test('a game with no reviewed roster abstains usefully', async ({ page }) => {
-    await startPlaythrough(page, 'red', 'Kanto run')
-    await expect(page.getByText(/No milestones reviewed for Red yet/)).toBeVisible()
-    await expect(page.getByText(/No boss rosters reviewed for Red yet/)).toBeVisible()
+    // Ruby is imported from the pinned source but has no curated pack, which is the state 45 of the
+    // 47 games are in. Emerald and Red are the two reviewed games, so neither can test this any more.
+    await startPlaythrough(page, 'ruby', 'Hoenn again')
+    await expect(page.getByText(/No milestones reviewed for Ruby yet/)).toBeVisible()
+    await expect(page.getByText(/No boss rosters reviewed for Ruby yet/)).toBeVisible()
     await expect(page.getByText(/gap in the reviewed data/).first()).toBeVisible()
     await expect(page.locator('[data-state="error"]')).toHaveCount(0)
+  })
+
+  test('a reviewed game now settles what it used to leave unknown', async ({ page }) => {
+    // Before reviewed location gates existed, every encounter in every game stayed unknown forever.
+    await startPlaythrough(page, 'red', 'Kanto run')
+    await page.getByRole('checkbox', { name: /Leave Pallet Town with a starter/ }).check()
+    await page.getByRole('checkbox', { name: /my completed-milestone list is complete/i }).check()
+    await page.goto('/g/red/dex/pidgey')
+    await expect(page.locator('[data-verdict="reachable"]').first()).toBeVisible()
   })
 })

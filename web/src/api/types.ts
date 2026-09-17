@@ -610,3 +610,93 @@ export interface Health {
   snapshot_id: string
   database: string
 }
+
+// -- Ask Rotom ---------------------------------------------------------------------------------
+
+export interface ChatLimits {
+  max_message_chars: number
+  max_history_turns: number
+  max_tool_calls: number
+  deadline_s: number
+}
+
+export interface ChatStatus {
+  enabled: boolean
+  provider: string
+  model: string | null
+  research_enabled: boolean
+  reason: string
+  limits: ChatLimits
+}
+
+export interface ChatFact {
+  claim: string
+  evidence_id: string
+  tool: string
+}
+
+export interface ChatAssumption {
+  text: string
+  because: 'missing_data' | 'unrecorded_progress' | 'untracked_mechanic' | 'open_world' | 'spoiler_filter' | 'unreviewed_web'
+}
+
+/** `unavailable` is absent by construction: the server never derives it, so advice cannot claim it. */
+export type RecommendationStatus = 'reachable' | 'locked' | 'unknown'
+
+export interface ChatRecommendation {
+  text: string
+  rationale: string
+  status: RecommendationStatus
+  subject?: string
+}
+
+export interface ChatCardRow {
+  label: string
+  value: string
+  evidence_id?: string
+}
+
+export interface ChatCard {
+  kind: string
+  title: string
+  subject?: string
+  tool: string
+  rows: ChatCardRow[]
+}
+
+/** Proposed only. `applied` is forced false by the server; the player confirms in the interface. */
+export interface ChatAction {
+  kind: 'pin_plan' | 'add_team_member' | 'set_member_level' | 'set_member_moves' | 'mark_milestone' | 'set_current_location'
+  label: string
+  payload: Record<string, unknown>
+  applied: false
+}
+
+export interface ChatReference {
+  kind: 'evidence' | 'web'
+  id: string
+  url?: string
+  title?: string
+  review_status?: string
+}
+
+export interface ChatAnswer {
+  prose: string
+  abstained: boolean
+  abstain_reason?: string
+  facts: ChatFact[]
+  assumptions: ChatAssumption[]
+  recommendations: ChatRecommendation[]
+  cards: ChatCard[]
+  actions: ChatAction[]
+  references: ChatReference[]
+  tools_used: { tool: string; arguments: Record<string, unknown> }[]
+  spoiler_level: string
+  limits_reached: string[]
+  verification_notes: string[]
+}
+
+export interface ChatTurn {
+  role: 'user' | 'assistant'
+  text: string
+}

@@ -1,0 +1,18 @@
+services:
+  rotom:
+    build:
+      context: .
+      args:
+        # `emerald,red` builds in seconds and covers both reviewed games. Use `all` for the full
+        # 47-game catalogue; it takes about two minutes and produces a much larger image.
+        ROTOM_GAMES: ${ROTOM_GAMES:-all}
+    ports:
+      - "${ROTOM_PORT:-8000}:8000"
+    environment:
+      # Ask Rotom stays off unless a key is supplied. Every other endpoint works either way.
+      ROTOM_CHAT_PROVIDER: ${ROTOM_CHAT_PROVIDER:-gemini}
+      ROTOM_CHAT_MODEL: ${ROTOM_CHAT_MODEL:-gemini-3.8-flash}
+      ROTOM_GEMINI_API_KEY: ${ROTOM_GEMINI_API_KEY:-}
+      ROTOM_CHAT_RESEARCH: ${ROTOM_CHAT_RESEARCH:-0}
+      ROTOM_CHAT_RATE_LIMIT: ${ROTOM_CHAT_RATE_LIMIT:-20}
+    restart: unless-stopped

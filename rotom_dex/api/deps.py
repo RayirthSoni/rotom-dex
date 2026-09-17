@@ -1,12 +1,16 @@
-"""Request-scoped read-only database connections and common query parameters."""
+"""Request-scoped read-only database connections, chat configuration and common query parameters."""
 
 from __future__ import annotations
 
 import sqlite3
+import time
+from collections import deque
 from collections.abc import Iterator
 
-from fastapi import Query
+from fastapi import Depends, HTTPException, Query, Request
 
+from rotom_dex.chat.config import ChatConfig
+from rotom_dex.chat.factory import build_provider, build_research
 from rotom_dex.db.connection import connect
 from rotom_dex.db.migrations import check_current
 from rotom_dex.settings import DEFAULT_DB
@@ -27,3 +31,45 @@ GameParam = Query(..., min_length=1, max_length=64, description="Exact game slug
 LimitParam = Query(50, ge=1, le=200)
 OffsetParam = Query(0, ge=0)
 QParam = Query(None, max_length=100, description="Case-insensitive substring of slug or name")
+
+
+def get_chat_config() -> ChatConfig:
+    """Read per request. Chat settings deliberately never live in `settings.py`, whose values are
+    bound at import time and therefore have to be rebound in three modules under pytest."""
+    return ChatConfig.from_env()
+
+
+def get_chat_provider(config: ChatConfig = Depends(get_chat_config)):
+    """None rather than an exception when no provider is configured.
+
+    Raising here would happen during dependency resolution, which runs alongside body validation, so
+    a malformed request would report the outage instead of the malformed field. The route raises.
+    """
+    if not config.enabled:
+        return None
+    return build_provider(config)
+
+
+def get_research_provider(config: ChatConfig = Depends(get_chat_config)):
+    return build_research(config)
+
+
+# Per-client request times, oldest first. In-process and therefore per-worker: enough to stop one
+# browser looping on the chat endpoint, and honest about not being a distributed quota.
+_HITS: dict[str, deque[float]] = {}
+
+
+def rate_limit(request: Request, config: ChatConfig) -> None:
+    client = request.client.host if request.client else "unknown"
+    now = time.monotonic()
+    hits = _HITS.setdefault(client, deque())
+    while hits and now - hits[0] > config.rate_window_s:
+        hits.popleft()
+    if len(hits) >= config.rate_limit:
+        retry = int(config.rate_window_s - (now - hits[0])) + 1
+        raise HTTPException(
+            status_code=429,
+            detail=f"Too many chat requests; try again in {retry}s. The Pokedex and team tools are not rate limited.",
+            headers={"Retry-After": str(retry)},
+        )
+    hits.append(now)

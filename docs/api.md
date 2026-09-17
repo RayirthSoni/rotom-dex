@@ -90,6 +90,23 @@ response is the same envelope, so coverage, assumptions and evidence travel with
 | `POST /api/pokemon/{pokemon}/move-access` | `{context, pokemon, member?}` | every eligible move, with access to its method reported separately |
 | `POST /api/pokemon/{pokemon}/evolution-requirements` | `{context, pokemon, member?}` | evolution rules evaluated against one member |
 
+## Ask Rotom
+
+| Endpoint | Body | Returns |
+| --- | --- | --- |
+| `GET /api/chat/status` | | whether a provider is configured, and the bounds that apply. Never returns the key |
+| `POST /api/chat` | `{context, message, history[]}` | the usual envelope, whose `data` is the validated answer |
+
+`data` carries `prose`, `facts[]` (each with a single `evidence_id`), `assumptions[]`,
+`recommendations[]` (each with the verdict the reachability check returned), `cards[]`, `actions[]`
+(proposed only, always `applied: false`), `references[]`, `abstained`, `tools_used[]`,
+`limits_reached[]` and `verification_notes[]`. Evidence cited by a fact is resolved into the
+envelope's `evidence` array exactly as it is for every other endpoint.
+
+Chat-specific responses: **429** when the per-client rate limit is reached, **503** when no provider
+is configured or the provider is down, **504** when it does not answer in time. A `503` from chat
+never affects another endpoint. See [chat.md](chat.md).
+
 The context, with every field optional except `game`:
 
 ```json
@@ -162,7 +179,9 @@ curl -X POST 'http://127.0.0.1:8000/api/team/analyze' -H 'content-type: applicat
 | `400` | `{"detail": string}` | Semantic error inside the game (e.g. a type that does not exist in that generation) |
 | `404` | `{"detail": string}` | Unknown game, Pokémon, move, item, ability, nature, location, battle or evidence id |
 | `422` | `{"detail": [{"loc": [...], "msg": string, "type": string}]}` | Parameter or body validation failed |
-| `503` | `{"detail": string}` | Database file missing or behind the code's migrations; run `rotom import` |
+| `429` | `{"detail": string}` | Too many chat requests from this client; `Retry-After` says when |
+| `503` | `{"detail": string}` | Database missing or behind the code's migrations, or the chat provider is unavailable |
+| `504` | `{"detail": string}` | The chat provider did not answer within its timeout |
 
 Note the two different shapes: `422` comes from FastAPI's own validation and is a list, the rest are a
 string. A client needs a branch for each. An unexpected exception is a `500`; only `SemanticError` is

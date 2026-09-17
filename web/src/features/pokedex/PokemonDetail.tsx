@@ -16,7 +16,7 @@ import { Card, SectionHeading } from '@/components/primitives'
 import { useGameContext } from '@/state/useGame'
 import { usePlaythroughs, toContext, MAX_TEAM } from '@/state/playthroughs'
 import { titleise } from '@/domain/conditions'
-import type { EvolutionChain, LearnsetData, PokemonCard } from '@/api/types'
+import type { EvolutionChain, LearnsetData, PokemonCard, ReachabilityResult, Verdict } from '@/api/types'
 import { AbilitiesPanel, AcquisitionPanel, EvolutionPanel, IdentityPanel, LearnsetPanel, StatsPanel, TypeHeader } from './panels'
 
 export function PokemonDetail() {
@@ -37,6 +37,22 @@ export function PokemonDetail() {
     () => api.moveAccess(accessContext, pokemon),
     { gcTime: 1000 * 60 * 10 },
   )
+
+  // Acquisition arrives from the GET endpoint, which knows nothing about this playthrough. Ask the
+  // reachability service separately so the routes carry a verdict rather than a bare condition tree.
+  const reach = useEnvelope<ReachabilityResult>(
+    useKey(game, 'reach', pokemon, JSON.stringify(context)),
+    () => api.reachability(context ?? { game }, [pokemon], []),
+    { gcTime: 1000 * 60 * 10, enabled: Boolean(context) },
+  )
+  const verdicts: Record<string, Verdict> = {}
+  if (reach.state.kind === 'ready') {
+    for (const entry of reach.state.data.pokemon ?? []) {
+      for (const route of entry.routes ?? []) {
+        if (route.derived) verdicts[route.id] = route.derived
+      }
+    }
+  }
 
   const onTeam = playthrough?.team.some((member) => member.pokemon === pokemon) ?? false
   const teamFull = (playthrough?.team.length ?? 0) >= MAX_TEAM
@@ -100,7 +116,7 @@ export function PokemonDetail() {
 
               <div className="mt-3">
                 {data.acquisition ? (
-                  <AcquisitionPanel data={data.acquisition} playthroughActive={Boolean(playthrough)} />
+                  <AcquisitionPanel data={data.acquisition} playthroughActive={Boolean(playthrough)} verdicts={verdicts} />
                 ) : (
                   <Card>
                     <SectionHeading>How to obtain</SectionHeading>

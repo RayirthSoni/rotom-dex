@@ -84,11 +84,11 @@ def test_an_unimported_game_is_not_an_error(client):
 
 def test_boss_preparation_abstains_instead_of_blaming_the_question(client):
     """A game with no reviewed rosters explains the gap; an unknown battle in Emerald is a 404."""
-    response = client.post("/api/boss/prepare", json={"context": {"game": "red"}, "battle": "roxanne"})
+    response = client.post("/api/boss/prepare", json={"context": {"game": "ruby"}, "battle": "roxanne"})
     assert response.status_code == 200
     body = response.json()
     assert body["data"] is None and body["coverage_status"] == "missing"
-    assert "No boss rosters have been reviewed for red" in body["assumptions"][0]
+    assert "No boss rosters have been reviewed for ruby" in body["assumptions"][0]
 
     assert client.post("/api/boss/prepare", json={"context": {"game": "emerald"}, "battle": "nope"}).status_code == 404
 

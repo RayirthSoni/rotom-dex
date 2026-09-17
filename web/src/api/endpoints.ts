@@ -8,6 +8,7 @@ import type {
   AbilityDetail, AbilityListRow, AcquisitionData, BattleDetail, BattleSummary, BossPreparation,
   CoverageMatrix, CoverageRow, DataIssue, Envelope, EvolutionChain, EvolutionData,
   EvolutionRequirements, GameDetail, GameListRow, Health, ItemDetail, ItemListRow, LearnsetData,
+  ChatAnswer, ChatStatus, ChatTurn,
   Matchup, Milestone, MoveAccessResult, MoveDetail, MoveListRow, Nature, PokemonCard,
   PokemonListRow, ReachabilityResult, TeamAnalysis, TutorsData, TypeChart, TypeRow, Vocabulary,
 } from './types'
@@ -66,6 +67,10 @@ export const api = {
     post<MoveAccessResult | null>(`/api/pokemon/${pokemon}/move-access`, { context, pokemon, member }),
   evolutionRequirements: (context: unknown, pokemon: string, member?: number) =>
     post<EvolutionRequirements | null>(`/api/pokemon/${pokemon}/evolution-requirements`, { context, pokemon, member }),
+
+  chatStatus: () => plain<ChatStatus>('/api/chat/status'),
+  chat: (context: unknown, message: string, history: ChatTurn[]) =>
+    post<ChatAnswer | null>('/api/chat', { context, message, history }),
 }
 
 export type Api = typeof api
