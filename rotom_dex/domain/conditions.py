@@ -116,7 +116,9 @@ def evaluate_condition(value: dict, context: dict) -> bool | None:
         return None
     if _LEAVES[op][0] == "none":
         return bool(context[op])
-    return value["value"] in context[op]
+    if value["value"] in context[op]:
+        return True
+    return None if op in context.get("_partial", ()) else False
 
 
 def unknown(reason: str) -> dict:

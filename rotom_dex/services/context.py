@@ -82,6 +82,7 @@ class PlaythroughContext:
     spoiler_level: str = "hint"
     closed_world: frozenset[str] = frozenset()
     team: tuple[TeamMember, ...] = ()
+    dlc_access: tuple[str, ...] = ()
 
     @property
     def locations(self) -> set[str]:
@@ -122,12 +123,22 @@ def validate(db, scope: GameScope, ctx: PlaythroughContext) -> list[str]:
             raise NotFound(f"Unknown Pokemon '{member.pokemon}'")
         if not _exists(db, "SELECT 1 FROM pokemon_version_groups WHERE form_id=? AND version_group_id=?", (form["id"], scope.version_group_id)):
             warnings.append(f"'{member.pokemon}' has no data for {scope.slug}; it is kept on the team but cannot be analysed.")
+        if member.ability and scope.mechanics.get("abilities") == 0:
+            raise SemanticError(f"{scope.slug} has no Abilities, so '{member.ability}' cannot be set")
+        if member.ability and not _exists(
+            db,
+            "SELECT 1 FROM pokemon_abilities pa JOIN abilities a ON a.id=pa.ability_id WHERE pa.form_id=? AND pa.generation_id=? AND a.slug=?",
+            (form["id"], scope.generation_id, member.ability),
+        ):
+            raise SemanticError(f"'{member.pokemon}' has no recorded '{member.ability}' ability in {scope.slug}.")
         for move in member.moves:
             move_row = one(db, "SELECT id FROM moves WHERE slug=?", (move,))
             if move_row is None:
                 raise NotFound(f"Unknown move '{move}'")
             if not _exists(db, "SELECT 1 FROM move_game_data WHERE move_id=? AND version_group_id=?", (move_row["id"], scope.version_group_id)):
                 raise SemanticError(f"'{move}' has no values in {scope.slug}; it does not exist in this game")
+            if not _exists(db, "SELECT 1 FROM learnsets WHERE form_id=? AND version_group_id=? AND move_id=?", (form["id"], scope.version_group_id, move_row["id"])):
+                raise SemanticError(f"'{member.pokemon}' has no recorded way to learn '{move}' in {scope.slug}; check transfer or event evidence.")
         if member.nature is not None:
             if scope.mechanics.get("natures") == 0:
                 raise SemanticError(f"{scope.slug} has no Natures, so '{member.nature}' cannot be set")
@@ -156,7 +167,7 @@ def condition_context(ctx: PlaythroughContext, member: TeamMember | None = None)
         closed = family in ctx.closed_world
         assumptions.append((CLOSED_WORLD_ASSUMED if closed else CLOSED_WORLD_OPEN)[family])
         if not closed:
-            continue
+            context.setdefault("_partial", set()).update(ops)
         if family == "milestones":
             context["milestone"] = set(ctx.completed_milestones)
         elif family == "locations":
@@ -171,7 +182,8 @@ def condition_context(ctx: PlaythroughContext, member: TeamMember | None = None)
             context["has_pokemon"] = party
             context["party_has_pokemon"] = party
         elif family == "trade":
-            context["trade"] = ctx.trade_access != "none"
+            if closed or ctx.trade_access != "none":
+                context["trade"] = ctx.trade_access != "none"
 
     if member is not None:
         if member.level is not None:

@@ -38,10 +38,15 @@ def to_gemini_schema(schema: dict) -> dict:
 
 
 def _parts(turn: Turn) -> list[dict]:
+    if turn.provider_parts:
+        return list(turn.provider_parts)
     if turn.tool_calls:
         return [{"functionCall": {"name": c.name, "args": c.arguments or {}}} for c in turn.tool_calls]
     if turn.tool_results:
-        return [{"functionResponse": {"name": r.name, "response": {"content": r.content}}} for r in turn.tool_results]
+        return [
+            {"functionResponse": {**({"id": r.call_id} if not r.call_id.startswith("rotom-generated-") else {}), "name": r.name, "response": {"content": r.content}}}
+            for r in turn.tool_results
+        ]
     return [{"text": turn.text}]
 
 
@@ -52,7 +57,7 @@ def _contents(turns: Sequence[Turn]) -> list[dict]:
 
 @dataclass
 class GeminiProvider:
-    api_key: str
+    api_key: str = field(repr=False)
     model: str
     base_url: str
     name: str = "gemini"
@@ -87,17 +92,20 @@ class GeminiProvider:
         except TimeoutError as exc:
             raise ProviderTimeout(f"Gemini did not respond within {timeout_s:.0f}s") from exc
         except urllib.error.HTTPError as exc:
-            detail = exc.read().decode(errors="replace")[:200] if hasattr(exc, "read") else ""
+            # Provider error bodies can echo request data. Never expose them.
             if exc.code in (401, 403):
                 raise ProviderUnavailable("Gemini rejected the configured credential") from exc
             if exc.code == 429:
                 raise ProviderUnavailable("Gemini rate limit reached") from exc
-            raise ProviderUnavailable(f"Gemini returned HTTP {exc.code}: {detail}") from exc
+            raise ProviderUnavailable(f"Gemini returned HTTP {exc.code}; check model access and request configuration") from exc
         except (urllib.error.URLError, OSError) as exc:
             raise ProviderUnavailable(f"Gemini could not be reached: {exc}") from exc
         except ValueError as exc:
             raise ProviderProtocolError(f"Gemini returned a body that is not JSON: {exc}") from exc
-        return self._reply(payload)
+        try:
+            return self._reply(payload)
+        except (TypeError, AttributeError, KeyError) as exc:
+            raise ProviderProtocolError("Gemini returned a malformed response") from exc
 
     def _reply(self, payload: dict) -> ProviderReply:
         candidates = payload.get("candidates") or []
@@ -110,11 +118,11 @@ class GeminiProvider:
         reason = str(candidate.get("finishReason", "STOP")).upper()
         text, calls = "", []
         for index, part in enumerate((candidate.get("content") or {}).get("parts") or []):
-            if "text" in part:
+            if "text" in part and not part.get("thought"):
                 text += part["text"]
             call = part.get("functionCall")
             if call:
-                calls.append(ToolCall(id=f"g{index}", name=call.get("name", ""), arguments=call.get("args") or {}))
+                calls.append(ToolCall(id=call.get("id") or f"rotom-generated-{index}", name=call.get("name", ""), arguments=call.get("args") or {}))
         finish = {"SAFETY": "safety", "MAX_TOKENS": "length", "RECITATION": "safety"}.get(reason, "tool_calls" if calls else "stop")
         usage = payload.get("usageMetadata") or {}
         return ProviderReply(
@@ -123,4 +131,5 @@ class GeminiProvider:
             finish_reason=finish,
             usage={k: v for k, v in usage.items() if isinstance(v, int)},
             model=self.model,
+            provider_parts=tuple((candidate.get("content") or {}).get("parts") or []),
         )

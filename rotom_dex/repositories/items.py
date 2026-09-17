@@ -90,6 +90,14 @@ def item_detail(db, game: str, key: str) -> dict:
     )
     if data["machine"]:
         data["machine"]["reusable"] = scope.mechanics.get("tm_reusable") if data["machine"]["kind"] == "tm" else (1 if data["machine"]["kind"] == "hm" else 0)
+    if data["machine"]:
+        machine = data["machine"]
+        data["effect"] = {
+            "short_effect": f"Teaches {machine['move_name']} to a compatible Pokémon.",
+            "effect": f"Teaches {machine['move_name']} to a compatible Pokémon in {scope.name}.",
+            "wording": "version-group",
+            "evidence_id": machine["evidence_id"],
+        }
     data["acquisition"] = rows(
         db,
         """SELECT a.id, a.method, a.availability, a.prerequisites, a.verification_status,
