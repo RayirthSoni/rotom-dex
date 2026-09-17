@@ -61,7 +61,7 @@ def test_chat_returns_the_usual_envelope(client, scripted):
     body = client.post("/api/chat", json=BODY).json()
     assert {"game", "snapshot_id", "coverage_status", "coverage", "data", "assumptions", "evidence"} <= set(body)
     assert body["game"]["slug"] == "emerald"
-    assert body["data"]["abstained"] is False
+    assert body["data"]["abstained"] is True  # ungrounded route advice is no longer accepted
     assert body["data"]["tools_used"] == []
 
 
@@ -132,13 +132,17 @@ def test_the_answer_resolves_the_evidence_it_cites(client, scripted):
     db = next(session)
     scope = resolve_game(db, "emerald")
     payload = REGISTRY["dex_lookup"].handler(db, scope, PlaythroughContext(game="emerald"), {"pokemon": "zigzagoon"})
-    evidence_id = payload["evidence"][0]["id"]
+    from rotom_dex.chat.evidence import EvidenceLedger
+    from rotom_dex.chat.orchestrator import compact
+
+    fact = next(f for f in EvidenceLedger().bind(compact(payload), "dex_lookup", "emerald") if f["label"] == "type")
+    evidence_id = fact["evidence_id"]
     session.close()
 
     scripted(
         ProviderReply(tool_calls=(ToolCall("c1", "dex_lookup", {"pokemon": "zigzagoon"}),), finish_reason="tool_calls"),
         ProviderReply(text=""),
-        ProviderReply(text=answer_json(facts=[{"claim": "Zigzagoon is Normal-type", "evidence_id": evidence_id, "tool": "dex_lookup"}])),
+        ProviderReply(text=answer_json(facts=[{k: fact[k] for k in ("fact_id", "claim", "evidence_id", "tool")}])),
     )
     body = client.post("/api/chat", json=BODY).json()
     assert [f["evidence_id"] for f in body["data"]["facts"]] == [evidence_id]

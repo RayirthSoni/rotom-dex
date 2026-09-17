@@ -64,7 +64,7 @@ def test_a_satisfied_or_branch_blames_nobody():
 @pytest.mark.parametrize(
     "closed_world, milestones, expected",
     [
-        (frozenset(), ("stone-badge",), "unknown"),  # vouched for nothing: absence proves nothing
+        (frozenset(), ("stone-badge",), "reachable"),  # known positives hold even when the list is incomplete
         (frozenset({"milestones"}), (), "locked"),  # vouched for the list: the badge is genuinely missing
         (frozenset({"milestones"}), ("stone-badge",), "reachable"),
     ],

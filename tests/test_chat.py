@@ -181,8 +181,12 @@ def test_a_fact_citing_evidence_no_tool_returned_is_demoted(db):
 def test_a_fact_citing_real_returned_evidence_survives(db):
     scope = resolve_game(db, "emerald")
     real = REGISTRY["dex_lookup"].handler(db, scope, ctx(), {"pokemon": "zigzagoon"})
-    evidence_id = real["evidence"][0]["id"]
-    final = answer_json(facts=[{"claim": "Zigzagoon is Normal", "evidence_id": evidence_id, "tool": "dex_lookup"}])
+    from rotom_dex.chat.evidence import EvidenceLedger
+    from rotom_dex.chat.orchestrator import compact
+
+    fact = next(f for f in EvidenceLedger().bind(compact(real), "dex_lookup", "emerald") if f["label"] == "type")
+    evidence_id = fact["evidence_id"]
+    final = answer_json(facts=[{k: fact[k] for k in ("fact_id", "claim", "evidence_id", "tool")}])
     result, _ = run(db, ctx(), final, first=ToolCall("c1", "dex_lookup", {"pokemon": "zigzagoon"}))
     assert [f["evidence_id"] for f in result["facts"]] == [evidence_id]
 
@@ -355,7 +359,7 @@ def test_research_failure_degrades_instead_of_failing_the_request(db):
 def test_a_proposed_action_is_never_marked_applied(db):
     final = answer_json(actions=[{"kind": "add_team_member", "label": "Add Zigzagoon", "payload": {"pokemon": "zigzagoon"}}])
     result, _ = run(db, ctx(), final)
-    assert result["actions"] == [{"kind": "add_team_member", "label": "Add Zigzagoon", "payload": {"pokemon": "zigzagoon"}, "applied": False}]
+    assert result["actions"] == [{"kind": "add_team_member", "label": "Add Zigzagoon to team", "payload": {"pokemon": "zigzagoon"}, "applied": False}]
 
 
 def test_an_unknown_action_kind_is_dropped(db):

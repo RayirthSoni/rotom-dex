@@ -102,7 +102,7 @@ def test_closed_world_is_the_only_lever_between_locked_and_unknown(client):
         routes = payload["data"]["items"][0]["routes"]
         return next(r["derived"] for r in routes if r["id"] == "pack:9:tm39-roxanne")
 
-    assert status([], ["stone-badge"])["status"] == "unknown"
+    assert status([], ["stone-badge"])["status"] == "reachable"
     locked = status(["milestones"], [])
     assert locked["status"] == "locked"
     assert [b["value"] for b in locked["blocked_by"]] == ["stone-badge"]
