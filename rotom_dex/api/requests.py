@@ -54,6 +54,7 @@ class PlaythroughContextIn(BaseModel):
         description="Leaf families you vouch for as complete. Anything listed here may evaluate to locked; anything omitted stays unknown.",
     )
     team: list[TeamMemberIn] = Field(default_factory=list, max_length=6)
+    dlc_access: list[str] = Field(default_factory=list, max_length=4)
 
     def to_domain(self) -> PlaythroughContext:
         return PlaythroughContext(
@@ -66,6 +67,7 @@ class PlaythroughContextIn(BaseModel):
             spoiler_level=self.spoiler_level,
             closed_world=frozenset(self.closed_world),
             team=tuple(m.to_domain() for m in self.team),
+            dlc_access=tuple(self.dlc_access),
         )
 
 
@@ -114,3 +116,17 @@ class ChatIn(BaseModel):
     context: PlaythroughContextIn
     message: str = Field(min_length=1, max_length=2000)
     history: list[ChatTurnIn] = Field(default_factory=list, max_length=12)
+
+
+class ConversationIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    version: Literal[2] = 2
+    context: PlaythroughContextIn | None = None
+    game: str | None = Field(None, max_length=64)
+    message: str = Field(min_length=1, max_length=2000)
+    history: list[ChatTurnIn] = Field(default_factory=list, max_length=12)
+    mode: Literal["story", "competitive"] = "story"
+    format: str | None = Field(None, max_length=96)
+    research: bool = True
+    dlc_access: list[str] = Field(default_factory=list, max_length=4)
+    spoiler_level: Literal["none", "hint", "full"] = "full"

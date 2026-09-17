@@ -31,6 +31,10 @@ def main(argv=None) -> int:
     p.add_argument("--game", default=None)
     p.add_argument("--format", choices=("json", "markdown", "backlog"), default="json")
 
+    p = sub.add_parser("content-audit", help="Review knowledge applicability, sources, conflicts and capability inventories")
+    p.add_argument("--db", type=Path, default=DEFAULT_DB)
+    p.add_argument("--publish", type=Path, default=None, help="Write a new immutable sidecar snapshot after checks")
+
     p = sub.add_parser("query", help="Look up a Pokémon in an exact game")
     p.add_argument("pokemon", help="Slug or national number")
     p.add_argument("--game", required=True)
@@ -91,7 +95,11 @@ def main(argv=None) -> int:
             db = connect(args.db, readonly=True)
             try:
                 check_current(db)
-                if args.command == "check":
+                if args.command == "content-audit":
+                    from rotom_dex.services import content
+
+                    result = content.publish(db, args.publish) if args.publish else content.audit(db)
+                elif args.command == "check":
                     from rotom_dex.ingestion.pipeline import table_counts, validate_database
 
                     validate_database(db)
@@ -109,9 +117,12 @@ def main(argv=None) -> int:
                     if args.live:
                         config = ChatConfig.from_env()
                         if not config.enabled:
-                            result["live_error"] = config.unavailable_reason
+                            result["live_error"] = "Set ROTOM_GEMINI_API_KEY for explicitly requested local live evaluation."
                         else:
-                            result["live_error"] = "Live grading is not implemented yet; the deterministic half above is what ran."
+                            from rotom_dex.evaluation.live import run as run_live
+
+                            result["live"] = run_live(db, questions, config)
+                            result["live_graded"] = True
                 elif args.command == "coverage":
                     from rotom_dex.repositories.coverage import coverage_report, render_backlog, render_markdown
 
@@ -130,7 +141,7 @@ def main(argv=None) -> int:
             finally:
                 db.close()
         print(json.dumps(result, indent=2, ensure_ascii=False))
-        return 0
+        return 1 if result.get("failed", 0) or result.get("errors") or result.get("conflicts") or result.get("live_error") or result.get("live", {}).get("failed", 0) else 0
     except (ValueError, OSError, sqlite3.Error) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1

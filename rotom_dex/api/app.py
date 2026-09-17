@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from rotom_dex.api.routers import analysis, catalog, chat, pokemon, resources
+from rotom_dex.api.routers import analysis, catalog, chat, competitive, conversation, pokemon, resources
 from rotom_dex.api.schemas import Problem, ValidationProblem
 from rotom_dex.chat.errors import ProviderTimeout, ProviderUnavailable
 from rotom_dex.db.connection import connect
@@ -38,7 +38,7 @@ if CORS_ORIGINS:
         allow_headers=["*"],
     )
 
-for router in (catalog.router, pokemon.router, resources.router, analysis.router, chat.router):
+for router in (catalog.router, pokemon.router, resources.router, analysis.router, chat.router, competitive.router, conversation.router):
     app.include_router(router, prefix="/api", responses=ERROR_RESPONSES)
 
 

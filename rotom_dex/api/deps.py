@@ -6,6 +6,7 @@ import sqlite3
 import time
 from collections import deque
 from collections.abc import Iterator
+from dataclasses import replace
 
 from fastapi import Depends, HTTPException, Query, Request
 
@@ -33,10 +34,16 @@ OffsetParam = Query(0, ge=0)
 QParam = Query(None, max_length=100, description="Case-insensitive substring of slug or name")
 
 
-def get_chat_config() -> ChatConfig:
-    """Read per request. Chat settings deliberately never live in `settings.py`, whose values are
-    bound at import time and therefore have to be rebound in three modules under pytest."""
-    return ChatConfig.from_env()
+def get_chat_config(request: Request) -> ChatConfig:
+    """Use only this visitor's sensitive header; never inherit an owner key."""
+    config = ChatConfig.from_env()
+    key = request.headers.get("x-rotom-gemini-key", "").strip()
+    if len(key) > 256 or any(ord(c) < 33 or ord(c) > 126 for c in key):
+        raise HTTPException(400, "Invalid Gemini key format")
+    if key and request.url.scheme != "https" and (not request.client or request.client.host not in {"127.0.0.1", "::1", "testclient"}):
+        raise HTTPException(400, "Gemini keys require HTTPS outside localhost.")
+    # Public requests NEVER inherit a deployment credential or scripted provider.
+    return replace(config, provider="gemini", api_key=key or None, research_enabled=True, max_research_calls=2)
 
 
 def get_chat_provider(config: ChatConfig = Depends(get_chat_config)):
