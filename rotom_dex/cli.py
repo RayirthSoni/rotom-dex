@@ -41,6 +41,16 @@ def main(argv=None) -> int:
     p.add_argument("--db", type=Path, default=DEFAULT_DB)
     p.add_argument("--host", default="127.0.0.1")
     p.add_argument("--port", type=int, default=8000)
+    p.add_argument("--reload", action="store_true", help="Restart on source changes (development)")
+    p.add_argument(
+        "--cors",
+        nargs="*",
+        default=None,
+        metavar="ORIGIN",
+        help="Allow these browser origins. Omit when the frontend is proxied or served from web/dist.",
+    )
+    p.add_argument("--no-web", dest="web", action="store_false", help="Serve the API only, ignoring web/dist")
+    p.set_defaults(web=True)
 
     p = sub.add_parser("fetch-sources", help="Restore or extend the pinned source cache (network)")
     p.add_argument("--add", nargs="*", default=None, metavar="NAME")
@@ -62,7 +72,11 @@ def main(argv=None) -> int:
             import uvicorn
 
             os.environ["ROTOM_DB"] = str(args.db)
-            uvicorn.run("rotom_dex.api.app:app", host=args.host, port=args.port)
+            if args.cors:
+                os.environ["ROTOM_CORS_ORIGINS"] = ",".join(args.cors)
+            if not args.web:
+                os.environ["ROTOM_SERVE_WEB"] = "0"
+            uvicorn.run("rotom_dex.api.app:app", host=args.host, port=args.port, reload=args.reload)
             return 0
         else:
             from rotom_dex.db.connection import connect

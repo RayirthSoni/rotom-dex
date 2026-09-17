@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import sqlite3
 
+from rotom_dex.errors import SemanticError
+
 
 def type_id(db: sqlite3.Connection, slug: str, generation: int) -> int:
     row = db.execute("SELECT id FROM types WHERE slug=? AND generation_id<=?", (slug.lower(), generation)).fetchone()
     if row is None:
-        raise ValueError(f"Type '{slug}' does not exist in generation {generation}")
+        raise SemanticError(f"Type '{slug}' does not exist in generation {generation}")
     return row[0]
 
 

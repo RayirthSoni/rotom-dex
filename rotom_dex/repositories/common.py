@@ -6,12 +6,10 @@ import json
 import sqlite3
 from dataclasses import dataclass, field
 
+from rotom_dex.errors import NotFound
+
 JSON_FIELDS = ("conditions", "prerequisites", "encounter_conditions", "raw", "moves")
 ASSUMPTION_SOURCE = "Facts are derived from the pinned source snapshot and reviewed packs; 'complete' coverage is relative to that source, not independent game testing."
-
-
-class NotFound(ValueError):
-    pass
 
 
 @dataclass

@@ -142,13 +142,17 @@ Type coverage is a helpful signal, not a battle guarantee. Use actual move types
 
 ## Fit with the current repository
 
-Status update 2026-09-17: the data foundation and read API described above are implemented (see the
-README, `docs/data-model.md`, `docs/api.md`, `docs/sources.md`, `docs/coverage.md`). The package is
+Status update 2026-09-17: the data foundation, the read API, the shared domain services and the web
+application described above are implemented (see the README, `docs/data-model.md`, `docs/api.md`,
+`docs/web.md`, `docs/sources.md`, `docs/coverage.md`). Milestone 2 of the delivery plan — a first-gym
+vertical slice with Dex, team editor, progress state, acquisition and preparation cards — is met for
+Emerald; milestone 3 (chat) is not started. The package is
 `rotom_dex/` (uv project): `db/` (migrations), `domain/` (records, typed conditions), `ingestion/`
-(pinned cache, registry, packs, importers, coverage), `repositories/`, `calculators/`, `api/`. Curated
+(pinned cache, registry, packs, importers, coverage), `repositories/`, `calculators/`, `services/` (playthrough-aware analysis), `api/`. Curated
 content lives in `data/game-packs/<game>/pack.json`; mechanics flags in `data/mechanics/`; the support
-policy in `data/games/registry.json`. Assistant, retrieval and web layers remain future work and should
-call the repository functions rather than SQL directly.
+policy in `data/games/registry.json`. The web layer is `web/` (Vite, React, TypeScript) and calls the API, never SQL. The assistant and
+retrieval layers remain future work; the chat tool allowlist should call `rotom_dex/services/`, which
+is why those services take plain values and a context dataclass rather than a request object.
 
 The implementation keeps standard-library `sqlite3` with a constrained SQL schema and a numbered
 migration runner instead of SQLAlchemy/Alembic: the evidence model and composite foreign keys are

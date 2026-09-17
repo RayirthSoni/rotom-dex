@@ -49,11 +49,13 @@ class Context:
         packs: dict,
         writer: Writer,
         snapshot_id: str,
+        ability_effects=None,
     ):
         self.cache = cache
         self.registry = registry
         self.games = games
         self.mechanics = mechanics
+        self.ability_effects = ability_effects
         self.packs = packs
         self.w = writer
         self.snapshot_id = snapshot_id

@@ -17,6 +17,7 @@ from rotom_dex.domain.conditions import validate_condition
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_MECHANICS = ROOT / "data/mechanics/version_groups.json"
+DEFAULT_ABILITY_EFFECTS = ROOT / "data/mechanics/ability_type_effects.json"
 DEFAULT_PACKS_DIR = ROOT / "data/game-packs"
 SLUG = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 
@@ -100,6 +101,64 @@ class MechanicsPack:
         if note:
             return "unverified", note
         return "reference-reviewed", ""
+
+
+APPLIES_TO = ("type", "super-effective", "non-super-effective")
+DAMAGE_FACTORS = (0, 25, 50, 75, 125, 200)
+
+
+class AbilityTypeEffectsPack:
+    """Reviewed type-based defensive modifiers granted by abilities.
+
+    Deliberately narrow: an entry may only scale damage from one attacking type, or from
+    super-effective / non-super-effective moves as a class. Anything conditional on a move flag, the
+    weather, the field or the holder's HP belongs in `excluded`, where it becomes a data issue.
+    """
+
+    def __init__(self, path: Path = DEFAULT_ABILITY_EFFECTS):
+        self.path = Path(path)
+        self.raw_bytes = self.path.read_bytes()
+        data = json.loads(self.raw_bytes)
+        _check_keys(
+            data,
+            {"reviewed_at", "review_status", "policy", "kinds", "damage_factors", "references", "abilities", "excluded"},
+            {"reviewed_at", "references", "abilities"},
+            "ability type effects pack",
+        )
+        for ref_id, ref in data["references"].items():
+            _check_keys(ref, {"url", "accessed", "license", "note"}, {"url", "accessed", "license"}, f"reference {ref_id}")
+            _require(str(ref["url"]).startswith("http"), f"reference {ref_id} needs an http url")
+        for slug, entry in data["abilities"].items():
+            where = f"ability {slug}"
+            _require(bool(SLUG.match(slug)), f"{where} is not a slug")
+            _check_keys(entry, {"since_generation", "references", "effects"}, {"since_generation", "references", "effects"}, where)
+            _require(type(entry["since_generation"]) is int and 1 <= entry["since_generation"] <= 9, f"{where} needs a generation 1-9")
+            _require(bool(entry["references"]), f"{where} cites no reference")
+            for ref in entry["references"]:
+                _require(ref in data["references"], f"{where} cites unknown reference {ref}")
+            _require(bool(entry["effects"]), f"{where} has no effects; use `excluded` instead")
+            seen = set()
+            for effect in entry["effects"]:
+                _check_keys(effect, {"applies_to", "type", "damage_factor", "note"}, {"applies_to", "damage_factor"}, f"{where} effect")
+                _require(effect["applies_to"] in APPLIES_TO, f"{where} has unknown applies_to {effect['applies_to']!r}")
+                _require(effect["damage_factor"] in DAMAGE_FACTORS, f"{where} has unsupported damage factor {effect['damage_factor']!r}")
+                typed = effect["applies_to"] == "type"
+                _require(typed == ("type" in effect), f"{where}: applies_to 'type' requires a type, the others forbid one")
+                key = (effect["applies_to"], effect.get("type"))
+                _require(key not in seen, f"{where} repeats {key}")
+                seen.add(key)
+        for item in data.get("excluded", []):
+            _check_keys(item, {"ability", "reason"}, {"ability", "reason"}, "excluded entry")
+            _require(item["ability"] not in data["abilities"], f"{item['ability']} is both modelled and excluded")
+        self.data = data
+        self.reviewed_at = data["reviewed_at"]
+        self.review_status = data.get("review_status", "reference-reviewed")
+        self.references: dict[str, dict] = data["references"]
+        self.abilities: dict[str, dict] = data["abilities"]
+        self.excluded: list[dict] = data.get("excluded", [])
+
+    def sha256(self) -> str:
+        return hashlib.sha256(self.raw_bytes).hexdigest()
 
 
 class GamePack:

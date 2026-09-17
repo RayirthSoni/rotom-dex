@@ -30,10 +30,13 @@ from rotom_dex.ingestion.importers import (
     moves,
     pokemon,
 )
+from rotom_dex.ingestion.importers import mechanics as mechanics_importer
 from rotom_dex.ingestion.importers.catalog import expected_type_count
 from rotom_dex.ingestion.packs import (
+    DEFAULT_ABILITY_EFFECTS,
     DEFAULT_MECHANICS,
     DEFAULT_PACKS_DIR,
+    AbilityTypeEffectsPack,
     MechanicsPack,
     load_packs,
 )
@@ -53,17 +56,19 @@ def import_games(
     cache_path: Path = DEFAULT_CACHE,
     registry_path: Path = DEFAULT_REGISTRY,
     mechanics_path: Path = DEFAULT_MECHANICS,
+    ability_effects_path: Path = DEFAULT_ABILITY_EFFECTS,
     packs_dir: Path = DEFAULT_PACKS_DIR,
 ) -> dict:
     cache = PokeAPICache(Path(cache_path))
     registry = Registry(cache, registry_path)
     selected = registry.select(games)
     mechanics = MechanicsPack(mechanics_path)
+    ability_effects = AbilityTypeEffectsPack(ability_effects_path)
     packs = load_packs(packs_dir)
     unknown_packs = set(packs) - set(registry.games)
     if unknown_packs:
         raise ValueError(f"Game packs for unknown games: {sorted(unknown_packs)}")
-    packs_sha = hashlib.sha256(registry.raw_bytes + mechanics.raw_bytes + b"".join(packs[k].raw_bytes for k in sorted(packs))).hexdigest()
+    packs_sha = hashlib.sha256(registry.raw_bytes + mechanics.raw_bytes + ability_effects.raw_bytes + b"".join(packs[k].raw_bytes for k in sorted(packs))).hexdigest()
     snapshot_id = hashlib.sha256((cache.manifest_sha256() + packs_sha + NORMALIZER).encode()).hexdigest()
     db_path = Path(db_path)
     db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -79,8 +84,8 @@ def import_games(
             w = Writer(db)
             created = (db.execute("SELECT created_at FROM snapshots WHERE id=?", (snapshot_id,)).fetchone() or [dt.datetime.now(dt.UTC).isoformat()])[0]
             w.add(m.Snapshot(snapshot_id, created, cache.manifest_sha256(), packs_sha, NORMALIZER))
-            _sources(w, cache, registry, mechanics, packs, snapshot_id)
-            ctx = Context(cache, registry, selected, mechanics, packs, w, snapshot_id)
+            _sources(w, cache, registry, mechanics, ability_effects, packs, snapshot_id)
+            ctx = Context(cache, registry, selected, mechanics, packs, w, snapshot_id, ability_effects)
             for step in (
                 catalog,
                 pokemon,
@@ -90,6 +95,7 @@ def import_games(
                 evolution,
                 encounters,
                 curated,
+                mechanics_importer,
                 coverage,
             ):
                 step.run(ctx)
@@ -105,7 +111,7 @@ def import_games(
         db.close()
 
 
-def _sources(w: Writer, cache, registry, mechanics, packs, snapshot_id: str) -> None:
+def _sources(w: Writer, cache, registry, mechanics, ability_effects, packs, snapshot_id: str) -> None:
     for source in cache.manifest["sources"]:
         w.add(
             m.SourceReference(
@@ -146,6 +152,33 @@ def _sources(w: Writer, cache, registry, mechanics, packs, snapshot_id: str) -> 
             snapshot_id,
         )
     )
+    w.add(
+        m.SourceReference(
+            "ability-type-effects",
+            "game-pack",
+            "local:data/mechanics/ability_type_effects.json",
+            ability_effects.reviewed_at,
+            ability_effects.sha256(),
+            "project",
+            "data/mechanics/ability_type_effects.json",
+            m.REFERENCE_REVIEWED,
+            snapshot_id,
+        )
+    )
+    for key, ref in ability_effects.references.items():
+        w.add(
+            m.SourceReference(
+                f"ref:ability-type-effects:{key}",
+                "reference",
+                ref["url"],
+                ref["accessed"],
+                None,
+                ref["license"],
+                None,
+                "read-for-verification",
+                snapshot_id,
+            )
+        )
     w.add(
         m.SourceReference(
             "normalizer",

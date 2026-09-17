@@ -26,8 +26,28 @@ def search(
 
 
 @router.get("/{pokemon}", response_model=Envelope)
-def detail(pokemon: str, game: str = GameParam, db: sqlite3.Connection = Depends(get_db)):
-    return repo.pokemon_core(db, game, pokemon)
+def detail(
+    pokemon: str,
+    game: str = GameParam,
+    include: str = Query(
+        "core",
+        max_length=80,
+        description="Comma-separated sub-resources to merge in: acquisition, evolution, learnset, or all. Default `core` returns the card only.",
+    ),
+    max_level: int | None = Query(None, ge=1, le=100, description="Trim level-up moves at this level when the learnset is included"),
+    db: sqlite3.Connection = Depends(get_db),
+):
+    parts = [p.strip() for p in include.split(",") if p.strip()]
+    if parts in ([], ["core"]):
+        return repo.pokemon_core(db, game, pokemon)
+    if parts == ["all"]:
+        parts = list(repo.SUB_RESOURCES)
+    return repo.pokemon_detail(db, game, pokemon, max_level, tuple(p for p in parts if p != "core"))
+
+
+@router.get("/{pokemon}/evolution-chain", response_model=Envelope)
+def evolution_chain(pokemon: str, game: str = GameParam, db: sqlite3.Connection = Depends(get_db)):
+    return repo.evolution_chain(db, game, pokemon)
 
 
 @router.get("/{pokemon}/acquisition", response_model=Envelope)

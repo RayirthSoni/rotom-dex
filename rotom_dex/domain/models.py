@@ -267,6 +267,20 @@ class AbilityEffect:
 
 
 @dataclass(frozen=True)
+class AbilityTypeEffect:
+    table: ClassVar[str] = "ability_type_effects"
+    id: str
+    ability_id: int
+    generation_id: int
+    applies_to: str
+    type_id: int | None
+    damage_factor: int
+    note: str
+    verification_status: str
+    evidence_id: str
+
+
+@dataclass(frozen=True)
 class AbilityFlavorText:
     table: ClassVar[str] = "ability_flavor_text"
     ability_id: int

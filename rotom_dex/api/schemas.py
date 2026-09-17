@@ -42,4 +42,18 @@ class Envelope(BaseModel):
 
 
 class Problem(BaseModel):
+    """Body of a 400, 404 or 503 response."""
+
     detail: str
+
+
+class ValidationError(BaseModel):
+    loc: list[str | int]
+    msg: str
+    type: str
+
+
+class ValidationProblem(BaseModel):
+    """Body of a 422 response. FastAPI's validation shape differs from `Problem`."""
+
+    detail: list[ValidationError]

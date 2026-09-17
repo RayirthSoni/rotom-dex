@@ -9,7 +9,7 @@ from pathlib import Path
 import pytest
 
 from rotom_dex.db.connection import connect
-from rotom_dex.db.migrations import applied, migrate
+from rotom_dex.db.migrations import applied, available, migrate
 from rotom_dex.ingestion.packs import DEFAULT_PACKS_DIR, GamePack, load_packs
 from rotom_dex.ingestion.pipeline import DEFAULT_CACHE, import_games, table_counts, validate_database
 from tests.conftest import GAMES, canonical, dump
@@ -83,10 +83,12 @@ def test_validation_passes_and_invariants_hold(db):
 
 
 def test_migrations_apply_once_and_reject_legacy(tmp_path):
+    expected = [version for version, _, _ in available()]
+    assert expected, "the package ships at least one migration"
     fresh = connect(tmp_path / "m.sqlite3")
-    assert migrate(fresh) == [1]
+    assert migrate(fresh) == expected
     assert migrate(fresh) == []
-    assert applied(fresh) == [1]
+    assert applied(fresh) == expected
     fresh.close()
     legacy = sqlite3.connect(tmp_path / "legacy.sqlite3")
     legacy.execute("CREATE TABLE schema_version (version INTEGER PRIMARY KEY)")

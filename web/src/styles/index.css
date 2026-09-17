@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+/* Rotom Dex visual language.
+   Rotom is plasma in a machine: a hot orange core against cold cathode blue, read through a dark
+   screen. The data has no artwork of any kind, so the interface carries its weight in type, colour
+   and rule-work rather than imagery. Everything is defined light-first on :root, then inverted, so
+   a viewer's theme choice always wins. */
+@theme {
+  --font-sans: "Inter var", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+
+  --color-plasma-50: #fff4ed;
+  --color-plasma-200: #ffd0ad;
+  --color-plasma-400: #ff9e52;
+  --color-plasma-500: #ff7a1a;
+  --color-plasma-600: #ea5a00;
+  --color-plasma-700: #c14400;
+
+  --color-cathode-200: #b5ecff;
+  --color-cathode-400: #46d9ff;
+  --color-cathode-500: #00b8e6;
+  --color-cathode-600: #0090b8;
+
+  --color-void-50: #f5f7fb;
+  --color-void-100: #e8ecf5;
+  --color-void-200: #cdd5e4;
+  --color-void-400: #8994ad;
+  --color-void-600: #4a5570;
+  --color-void-700: #2b3348;
+  --color-void-800: #1a2032;
+  --color-void-900: #131827;
+  --color-void-950: #0b0e18;
+}
+
+:root {
+  color-scheme: light;
+  --surface: var(--color-void-50);
+  --surface-raised: #ffffff;
+  --surface-sunken: #eaeef7;
+  --line: var(--color-void-200);
+  --line-strong: var(--color-void-400);
+  --ink: #101524;
+  --ink-muted: var(--color-void-600);
+  --ink-faint: #67718d;
+  --accent: var(--color-plasma-600);
+  --accent-ink: #ffffff;
+  --accent-soft: var(--color-plasma-50);
+  --spark: var(--color-cathode-600);
+
+  /* Verdict palette. These three carry the product's meaning, so they are tokens, not ad-hoc
+     classes: green is established, amber is blocked by something named, slate is not claimed. */
+  --known: #0f7a4a;
+  --known-soft: #dcf5e8;
+  --blocked: #a15c00;
+  --blocked-soft: #fdf0d8;
+  --unknown: var(--color-void-600);
+  --unknown-soft: #e9edf6;
+  --alert: #b3261e;
+  --alert-soft: #fbe5e3;
+}
+
+:root:not([data-theme="light"]) {
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+    --surface: var(--color-void-950);
+    --surface-raised: var(--color-void-900);
+    --surface-sunken: #070910;
+    --line: var(--color-void-800);
+    --line-strong: var(--color-void-700);
+    --ink: var(--color-void-100);
+    --ink-muted: #9aa5be;
+    --ink-faint: var(--color-void-400);
+    --accent: var(--color-plasma-500);
+    --accent-ink: #1a0d00;
+    --accent-soft: #2a1608;
+    --spark: var(--color-cathode-400);
+    --known: #4ade9a;
+    --known-soft: #0d2a1e;
+    --blocked: #ffc267;
+    --blocked-soft: #2e2008;
+    --unknown: var(--color-void-400);
+    --unknown-soft: #1b2133;
+    --alert: #ff8f85;
+    --alert-soft: #2d1210;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: var(--color-void-950);
+  --surface-raised: var(--color-void-900);
+  --surface-sunken: #070910;
+  --line: var(--color-void-800);
+  --line-strong: var(--color-void-700);
+  --ink: var(--color-void-100);
+  --ink-muted: #9aa5be;
+  --ink-faint: var(--color-void-400);
+  --accent: var(--color-plasma-500);
+  --accent-ink: #1a0d00;
+  --accent-soft: #2a1608;
+  --spark: var(--color-cathode-400);
+  --known: #4ade9a;
+  --known-soft: #0d2a1e;
+  --blocked: #ffc267;
+  --blocked-soft: #2e2008;
+  --unknown: var(--color-void-400);
+  --unknown-soft: #1b2133;
+  --alert: #ff8f85;
+  --alert-soft: #2d1210;
+}
+
+/* The eighteen types, tuned so white text clears 4.5:1 on every one. */
+:root {
+  --type-normal: #6d6d4e;
+  --type-fighting: #a33f28;
+  --type-flying: #6b5ba8;
+  --type-poison: #7b3f7b;
+  --type-ground: #8a6f22;
+  --type-rock: #736324;
+  --type-bug: #5c6e10;
+  --type-ghost: #4b3f70;
+  --type-steel: #56566b;
+  --type-fire: #b8480f;
+  --type-water: #2f5fc4;
+  --type-grass: #3b7a20;
+  --type-electric: #8a6d00;
+  --type-psychic: #b32e63;
+  --type-ice: #2c7d84;
+  --type-dragon: #4b2ec4;
+  --type-dark: #4a3a30;
+  --type-fairy: #9c3070;
+  --type-special: #5b5b7a;
+}
+
+* { border-color: var(--line); }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+  padding-top: env(safe-area-inset-top, 0px);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--spark);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* A thin plasma seam. Used once, at the top of the shell, so the brand reads without shouting. */
+.seam {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--spark) 55%, transparent 100%);
+  height: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-sunken) 25%, var(--line) 37%, var(--surface-sunken) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+/* Horizontal scroller for wide data. `contain: paint` is load-bearing, not decoration: a table
+   with a sticky header propagates its scrollable overflow past an `overflow-x: auto` ancestor in
+   Chrome, so the document itself ends up 1000px wide on a phone. Containing paint stops that at
+   this box, which is where the scrolling is meant to happen. */
+.table-scroll {
+  overflow-x: auto;
+  contain: paint;
+}
+
+/* Data tables. Numeric columns sit next to each other, so cells need their own horizontal
+   padding or values run together ("50" and "100" reading as "50100"). */
+table.grid th,
+table.grid td {
+  border-bottom: 1px solid var(--line);
+  padding-inline: 0.5rem;
+}
+
+table.grid th:first-child,
+table.grid td:first-child {
+  padding-inline-start: 0;
+}
+
+table.grid th:last-child,
+table.grid td:last-child {
+  padding-inline-end: 0;
+}

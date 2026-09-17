@@ -128,3 +128,41 @@ def all_of(*args: dict) -> dict:
     if not flat:
         return {"op": "always"}
     return flat[0] if len(flat) == 1 else {"op": "and", "args": flat}
+
+
+def leaves(value: dict) -> list[dict]:
+    """Every leaf in the tree, in order, as plain dicts."""
+    if value.get("op") in {"and", "or"}:
+        return [leaf for arg in value["args"] for leaf in leaves(arg)]
+    return [dict(value)]
+
+
+def explain_condition(value: dict, context: dict) -> dict:
+    """`evaluate_condition` plus the leaves that produced the verdict.
+
+    Returns `{result, blocking, unresolved}`. `result` is identical to `evaluate_condition`;
+    `blocking` lists the leaves that evaluated false and `unresolved` the ones that could not be
+    decided, so an interface can say *why* rather than only *what*. Short-circuiting is preserved:
+    a decisive branch reports no blockers from the branches it made irrelevant.
+    """
+    validate_condition(value)
+    op = value["op"]
+    if op in {"and", "or"}:
+        parts = [explain_condition(arg, context) for arg in value["args"]]
+        decisive = op == "or"
+        results = [p["result"] for p in parts]
+        if decisive in results:
+            # `and` is decided by a false branch, which is exactly the blocker worth naming;
+            # `or` is decided by a true branch, which blocks nothing.
+            blocking = [] if decisive else [leaf for p in parts if p["result"] is False for leaf in p["blocking"]]
+            return {"result": decisive, "blocking": blocking, "unresolved": []}
+        unresolved = [leaf for p in parts for leaf in p["unresolved"]]
+        blocking = [leaf for p in parts for leaf in p["blocking"]]
+        if None in results:
+            return {"result": None, "blocking": blocking, "unresolved": unresolved}
+        return {"result": not decisive, "blocking": blocking, "unresolved": unresolved}
+    result = evaluate_condition(value, context)
+    leaf = dict(value)
+    if result is None:
+        return {"result": None, "blocking": [], "unresolved": [leaf]}
+    return {"result": result, "blocking": [] if result else [leaf], "unresolved": []}

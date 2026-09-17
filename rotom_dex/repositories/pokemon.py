@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import sqlite3
 
+from rotom_dex.errors import SemanticError
 from rotom_dex.repositories.common import (
     GameScope,
     NotFound,
@@ -88,8 +89,31 @@ def search_pokemon(db: sqlite3.Connection, game: str, q: str | None, type_slug: 
     )
 
 
-def pokemon_detail(db: sqlite3.Connection, game: str, key: str, level: int | None = None) -> dict:
-    """Full card: species/form facts, generation battle data, and the three sub-resources."""
+SUB_RESOURCES = ("acquisition", "evolution", "learnset")
+CORE_FEATURES = ("pokemon", "types", "stats", "abilities", "held-items")
+SUB_FEATURES = {
+    "acquisition": ("encounters", "gifts-trades", "breeding", "evolution"),
+    "evolution": ("evolution",),
+    "learnset": ("learnsets", "machines", "tutors"),
+}
+
+
+def pokemon_detail(
+    db: sqlite3.Connection,
+    game: str,
+    key: str,
+    level: int | None = None,
+    include: tuple[str, ...] = SUB_RESOURCES,
+) -> dict:
+    """Card: species/form facts, generation battle data, and the requested sub-resources.
+
+    `include` is explicit because the merged payload is large: every learnset row carries its move's
+    values and every sub-resource contributes evidence, so an all-inclusive card for a late-generation
+    Pokemon runs to hundreds of kilobytes. Callers ask for the panels they are about to render.
+    """
+    unknown_parts = [part for part in include if part not in SUB_RESOURCES]
+    if unknown_parts:
+        raise SemanticError(f"Unknown include {unknown_parts}; choose from {list(SUB_RESOURCES)}")
     scope = resolve_game(db, game)
     if not scope.imported:
         return unsupported(db, scope)
@@ -97,10 +121,18 @@ def pokemon_detail(db: sqlite3.Connection, game: str, key: str, level: int | Non
     core = _core(db, scope, form)
     if core is None:
         return _absent(db, scope, form)
-    core["acquisition"] = pokemon_acquisition(db, game, key)["data"]
-    core["evolution"] = pokemon_evolution(db, game, key)["data"]
-    core["learnset"] = pokemon_learnset(db, game, key, None, level)["data"]
-    return envelope(db, scope, core, assumptions=LEARNSET_ASSUMPTIONS + ACQUISITION_ASSUMPTIONS)
+    assumptions: list[str] = []
+    if "acquisition" in include:
+        core["acquisition"] = pokemon_acquisition(db, game, key)["data"]
+        assumptions += ACQUISITION_ASSUMPTIONS
+    if "evolution" in include:
+        core["evolution"] = pokemon_evolution(db, game, key)["data"]
+    if "learnset" in include:
+        core["learnset"] = pokemon_learnset(db, game, key, None, level)["data"]
+        assumptions += LEARNSET_ASSUMPTIONS
+    core["included"] = list(include)
+    features = CORE_FEATURES + tuple(f for part in include for f in SUB_FEATURES[part])
+    return envelope(db, scope, core, features=tuple(dict.fromkeys(features)), assumptions=assumptions)
 
 
 def pokemon_core(db: sqlite3.Connection, game: str, key: str) -> dict:
@@ -342,3 +374,77 @@ def _counts(items: list[dict], key: str) -> dict[str, int]:
     for item in items:
         counts[item[key]] = counts.get(item[key], 0) + 1
     return dict(sorted(counts.items()))
+
+
+def evolution_chain(db: sqlite3.Connection, game: str, key: str) -> dict:
+    """The whole evolution family as nodes and edges, scoped to one game.
+
+    Edges carry this version group's applicability, so a rule that cannot fire here (a Generation IV
+    trade evolution seen from Emerald) is present and labelled rather than silently dropped. A node
+    that is not in this game keeps its place in the family with `presence: null`.
+    """
+    scope = resolve_game(db, game)
+    if not scope.imported:
+        return unsupported(db, scope)
+    form = resolve_form(db, key)
+    chain_id = one(db, "SELECT evolution_chain_id FROM species WHERE id=?", (form["species_id"],))
+    chain_id = chain_id["evolution_chain_id"] if chain_id else None
+    if chain_id is None:
+        return envelope(
+            db,
+            scope,
+            {"chain_id": None, "nodes": [], "edges": [], "form": {"id": form["id"], "slug": form["slug"]}},
+            features=("evolution",),
+            assumptions=[f"'{form['slug']}' has no evolution chain recorded in the source."],
+        )
+    nodes = rows(
+        db,
+        """SELECT f.id AS form_id, f.slug, f.name, f.species_id, f.is_default, s.is_baby,
+                  p.presence, p.evidence_id AS presence_evidence_id, f.evidence_id
+           FROM species s JOIN pokemon_forms f ON f.species_id=s.id
+           LEFT JOIN pokemon_version_groups p ON p.form_id=f.id AND p.version_group_id=?
+           WHERE s.evolution_chain_id=? ORDER BY s.id, f.id""",
+        (scope.version_group_id, chain_id),
+    )
+    for node in nodes:
+        node["types"] = [
+            r["slug"]
+            for r in rows(
+                db,
+                "SELECT t.slug FROM pokemon_types pt JOIN types t ON t.id=pt.type_id WHERE pt.form_id=? AND pt.generation_id=? ORDER BY pt.slot",
+                (node["form_id"], scope.generation_id),
+            )
+        ]
+    ids = [n["form_id"] for n in nodes]
+    edges = []
+    if ids:
+        marks = ",".join("?" for _ in ids)
+        edges = rows(
+            db,
+            f"""SELECT r.id, r.trigger, r.conditions, r.raw, f.slug AS from_pokemon, t.slug AS to_pokemon,
+                       a.status AS applicability, a.reason, a.verification_status,
+                       r.evidence_id, a.evidence_id AS applicability_evidence_id
+                FROM evolution_rules r JOIN pokemon_forms f ON f.id=r.from_form_id
+                JOIN pokemon_forms t ON t.id=r.to_form_id
+                LEFT JOIN evolution_applicability a ON a.rule_id=r.id AND a.version_group_id=?
+                WHERE r.from_form_id IN ({marks}) AND r.to_form_id IN ({marks}) ORDER BY r.id""",
+            [scope.version_group_id, *ids, *ids],
+        )
+    data = {
+        "chain_id": chain_id,
+        "form": {"id": form["id"], "slug": form["slug"], "name": form["name"]},
+        "nodes": nodes,
+        "edges": edges,
+        "applicability_counts": _counts([e for e in edges if e["applicability"]], "applicability"),
+    }
+    return envelope(
+        db,
+        scope,
+        data,
+        features=("evolution", "pokemon"),
+        include_evidence=False,
+        assumptions=[
+            "Nodes with `presence: null` are family members that this game's data does not contain; that is not a claim they are unobtainable.",
+            "Edges keep their per-version-group applicability: `not-applicable` means the rule cannot fire in this game, `unknown` means it was not determined.",
+        ],
+    )

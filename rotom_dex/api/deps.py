@@ -13,7 +13,9 @@ from rotom_dex.settings import DEFAULT_DB
 
 
 def get_db() -> Iterator[sqlite3.Connection]:
-    db = connect(DEFAULT_DB, readonly=True)
+    # One connection per request, and never shared between them. See `connect` for why the
+    # same-thread guard has to be off here.
+    db = connect(DEFAULT_DB, readonly=True, same_thread=False)
     try:
         check_current(db)
         yield db

@@ -1,0 +1,42 @@
+{
+  "reviewed_at": "2026-09-17",
+  "policy": "Main-series RPGs only. Every PokéAPI version is kept as a catalog identity so unsupported games answer with explicit coverage instead of borrowed facts. Tiers: validated = record-level validation performed; imported = full structured import from the pinned source; catalog = identity only, facts deliberately not imported; excluded = not a main-series RPG.",
+  "default_tier": "imported",
+  "validated": [
+    "emerald",
+    "red"
+  ],
+  "catalog": {
+    "red-japan": "Japanese-only release sharing Red/Blue mechanics; PokéAPI treats it as its own version group. Not imported to avoid duplicating Red/Blue facts under a different identity.",
+    "green-japan": "Japanese-only release; see red-japan.",
+    "blue-japan": "Japanese-only release; see red-japan."
+  },
+  "excluded": {
+    "colosseum": "GameCube spin-off, not a main-series RPG.",
+    "xd": "GameCube spin-off (XD: Gale of Darkness), not a main-series RPG.",
+    "champions": "Battle-focused title without a main-series story; not in scope."
+  },
+  "notes": {
+    "lets-go-pikachu": "Core series per Bulbapedia, but abilities, held items and breeding are absent; see mechanics pack.",
+    "lets-go-eevee": "Core series per Bulbapedia, but abilities, held items and breeding are absent; see mechanics pack.",
+    "legends-arceus": "Core series with heavily divergent mechanics (no abilities, held items, breeding or TMs).",
+    "legends-za": "Core series with divergent mechanics (no abilities or breeding; real-time battles).",
+    "mega-dimension": "Downloadable expansion of Legends: Z-A recorded by PokéAPI as a version.",
+    "the-isle-of-armor-sword": "Expansion pseudo-version recorded by PokéAPI; shares Sword/Shield mechanics.",
+    "the-isle-of-armor-shield": "Expansion pseudo-version recorded by PokéAPI; shares Sword/Shield mechanics.",
+    "the-crown-tundra-sword": "Expansion pseudo-version recorded by PokéAPI; shares Sword/Shield mechanics.",
+    "the-crown-tundra-shield": "Expansion pseudo-version recorded by PokéAPI; shares Sword/Shield mechanics.",
+    "the-teal-mask-scarlet": "Expansion pseudo-version recorded by PokéAPI; shares Scarlet/Violet mechanics.",
+    "the-teal-mask-violet": "Expansion pseudo-version recorded by PokéAPI; shares Scarlet/Violet mechanics.",
+    "the-indigo-disk-scarlet": "Expansion pseudo-version recorded by PokéAPI; shares Scarlet/Violet mechanics.",
+    "the-indigo-disk-violet": "Expansion pseudo-version recorded by PokéAPI; shares Scarlet/Violet mechanics."
+  },
+  "inherits": {
+    "the-isle-of-armor": "sword-shield",
+    "the-crown-tundra": "sword-shield",
+    "the-teal-mask": "scarlet-violet",
+    "the-indigo-disk": "scarlet-violet",
+    "mega-dimension": "legends-za"
+  },
+  "inherits_policy": "Version groups listed here have no learnset, machine, move or item rows of their own in the source; PokéAPI records expansion content under the base game's version group. Facts are taken from the base group and marked partial."
+}

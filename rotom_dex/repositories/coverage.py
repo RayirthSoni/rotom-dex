@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import sqlite3
 
+from rotom_dex.errors import NotFound
 from rotom_dex.repositories.common import coverage_rows, overall_status, rows, snapshot_id
 
 
@@ -17,7 +18,7 @@ def coverage_report(db: sqlite3.Connection, game: str | None = None) -> dict:
     if game is not None:
         games = [g for g in games if g["slug"] == game.lower()]
         if not games:
-            raise ValueError(f"Unknown game: {game}")
+            raise NotFound(f"Unknown game: {game}")
     report = []
     for g in games:
         coverage = coverage_rows(db, g["id"])
@@ -78,3 +79,37 @@ def render_markdown(report: dict) -> str:
         for issue in report["global_issues"]:
             lines.append(f"- `{issue['id']}` [{issue['kind']}] {issue['description']}")
     return "\n".join(lines) + "\n"
+
+
+def coverage_matrix(db: sqlite3.Connection, notes: bool = False) -> dict:
+    """The whole game x feature grid in one response, for the game selector.
+
+    Reshapes `coverage_report` rather than re-querying. Games with no coverage rows are kept and
+    labelled `has_facts: false`: `catalog` and `excluded` are a stated support policy, not missing
+    data. Per-cell notes are opt-in because they are most of the payload; `GET /api/coverage?game=`
+    carries them for one game when a cell is opened.
+    """
+    report = coverage_report(db, None)
+    features = sorted({f["feature"] for g in report["games"] for f in g["features"]})
+    games = []
+    for g in report["games"]:
+        statuses = {f["feature"]: ({"status": f["status"], "note": f["note"]} if notes else {"status": f["status"]}) for f in g["features"]}
+        games.append(
+            {
+                "slug": g["slug"],
+                "name": g["name"],
+                "support_tier": g["support_tier"],
+                "generation": g["generation"],
+                "version_group": g["version_group"],
+                "coverage_status": g["coverage_status"],
+                "has_facts": bool(g["features"]),
+                "features": statuses,
+                "counts": {s: sum(1 for f in g["features"] if f["status"] == s) for s in ("complete", "partial", "missing", "disputed")},
+                "issue_count": len(g["issues"]),
+            }
+        )
+    return {
+        "features": features,
+        "games": games,
+        "global_issues": report["global_issues"],
+    }

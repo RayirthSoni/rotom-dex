@@ -109,6 +109,43 @@ def machines(game: str = GameParam, db: sqlite3.Connection = Depends(get_db)):
     )
 
 
+@router.get("/tutors", response_model=Envelope)
+def tutors(game: str = GameParam, db: sqlite3.Connection = Depends(get_db)):
+    """Move tutors: where a tutor stands and what it charges.
+
+    Separate from the `tutor` rows in a learnset, which establish only that a Pokemon is *eligible*.
+    The pinned source carries no tutor locations, so this list is empty for every game and the
+    coverage row says so; that is why tutor access is reported as unknown rather than unavailable.
+    """
+    scope = resolve_game(db, game)
+    if not scope.imported:
+        return unsupported(db, scope)
+    found = rows(
+        db,
+        """SELECT t.id, m.slug AS move, m.name AS move_name, l.slug AS location, l.name AS location_name,
+                  i.slug AS cost_item, t.cost_amount, t.prerequisites, t.verification_status, t.evidence_id
+           FROM tutors t JOIN moves m ON m.id=t.move_id
+           LEFT JOIN locations l ON l.id=t.location_id LEFT JOIN items i ON i.id=t.cost_item_id
+           WHERE t.version_group_id=? ORDER BY m.slug""",
+        (scope.version_group_id,),
+    )
+    eligible = db.execute(
+        "SELECT count(*) FROM learnsets WHERE version_group_id=? AND method='tutor'",
+        (scope.version_group_id,),
+    ).fetchone()[0]
+    data = {"tutors": found, "eligible_learnset_rows": eligible}
+    return envelope(
+        db,
+        scope,
+        data,
+        features=("tutors",),
+        assumptions=[
+            f"{eligible} learnset rows say a Pokemon can be taught a move by a tutor in this version group; "
+            f"{len(found)} tutor locations are recorded. Eligibility is established, access is not.",
+        ],
+    )
+
+
 @router.get("/locations", response_model=Envelope)
 def search_locations(
     game: str = GameParam,

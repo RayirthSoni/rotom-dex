@@ -11,6 +11,8 @@ import re
 import sqlite3
 from pathlib import Path
 
+from rotom_dex.errors import StaleDatabase
+
 MIGRATIONS_DIR = Path(__file__).with_name("migrations")
 PATTERN = re.compile(r"^(\d{4})_([a-z0-9_]+)\.sql$")
 
@@ -31,7 +33,7 @@ def available() -> list[tuple[int, str, Path]]:
 def applied(db: sqlite3.Connection) -> list[int]:
     tables = {r[0] for r in db.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     if "schema_version" in tables and "schema_migrations" not in tables:
-        raise ValueError("Legacy v1 sample database; rebuild it with `rotom import` into a new file")
+        raise StaleDatabase("Legacy v1 sample database; rebuild it with `rotom import` into a new file")
     if "schema_migrations" not in tables:
         return []
     return [r[0] for r in db.execute("SELECT version FROM schema_migrations ORDER BY version")]
@@ -60,4 +62,4 @@ def check_current(db: sqlite3.Connection) -> None:
     done = applied(db)
     expected = [v for v, _, _ in available()]
     if done != expected:
-        raise ValueError(f"Database schema is at {done}, code expects {expected}; run `rotom import`")
+        raise StaleDatabase(f"Database schema is at {done}, code expects {expected}; run `rotom import`")

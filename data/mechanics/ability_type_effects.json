@@ -1,0 +1,468 @@
+{
+  "reviewed_at": "2026-09-17",
+  "review_status": "reference-reviewed",
+  "policy": "Type-based defensive damage modifiers granted by abilities, reviewed per generation. Scope is deliberately narrow: an entry may only change how much damage a Pokemon takes from an attacking type, or from super-effective / non-super-effective moves as a class. Abilities whose effect depends on a move flag, the weather, the field, the holder's HP or a damage category are listed under `excluded` and recorded as data issues rather than approximated. `since_generation` is the generation in which the *damage modifier* began, which is not always the generation that introduced the ability: Lightning Rod and Storm Drain only redirected moves before Generation V. No prose is copied from the references; only structured facts are recorded.",
+  "kinds": [
+    "type",
+    "super-effective",
+    "non-super-effective"
+  ],
+  "damage_factors": [
+    0,
+    25,
+    50,
+    75,
+    125,
+    200
+  ],
+  "references": {
+    "levitate": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Levitate_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "flash-fire": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Flash_Fire_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "water-absorb": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Water_Absorb_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "volt-absorb": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Volt_Absorb_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "wonder-guard": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Wonder_Guard_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "thick-fat": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Thick_Fat_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "motor-drive": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Motor_Drive_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "dry-skin": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Dry_Skin_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "heatproof": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Heatproof_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "filter": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Filter_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "solid-rock": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Solid_Rock_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "storm-drain": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Storm_Drain_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "lightning-rod": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Lightning_Rod_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "sap-sipper": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Sap_Sipper_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "water-bubble": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Water_Bubble_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "fluffy": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Fluffy_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "prism-armor": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Prism_Armor_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "purifying-salt": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Purifying_Salt_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "earth-eater": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Earth_Eater_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    },
+    "well-baked-body": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Well-Baked_Body_(Ability)",
+      "accessed": "2026-09-17",
+      "license": "CC BY-NC-SA 2.5 (Bulbapedia); read for verification, no prose copied"
+    }
+  },
+  "abilities": {
+    "levitate": {
+      "since_generation": 3,
+      "references": [
+        "levitate"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "ground",
+          "damage_factor": 0,
+          "note": "Suppressed by Gravity, Ingrain, Iron Ball, Smack Down, Roost and Mold Breaker; those interactions are not modelled."
+        }
+      ]
+    },
+    "flash-fire": {
+      "since_generation": 3,
+      "references": [
+        "flash-fire"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "fire",
+          "damage_factor": 0,
+          "note": "Absorbing a Fire move also boosts the holder's own Fire moves; the offensive half is not modelled."
+        }
+      ]
+    },
+    "water-absorb": {
+      "since_generation": 3,
+      "references": [
+        "water-absorb"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "water",
+          "damage_factor": 0,
+          "note": "Restores HP instead of taking damage."
+        }
+      ]
+    },
+    "volt-absorb": {
+      "since_generation": 3,
+      "references": [
+        "volt-absorb"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "electric",
+          "damage_factor": 0,
+          "note": "Restores HP instead of taking damage."
+        }
+      ]
+    },
+    "thick-fat": {
+      "since_generation": 3,
+      "references": [
+        "thick-fat"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "fire",
+          "damage_factor": 50,
+          "note": ""
+        },
+        {
+          "applies_to": "type",
+          "type": "ice",
+          "damage_factor": 50,
+          "note": ""
+        }
+      ]
+    },
+    "wonder-guard": {
+      "since_generation": 3,
+      "references": [
+        "wonder-guard"
+      ],
+      "effects": [
+        {
+          "applies_to": "non-super-effective",
+          "damage_factor": 0,
+          "note": "Only damaging moves that are super effective connect. Indirect damage such as weather, poison and Struggle is unaffected and is not modelled."
+        }
+      ]
+    },
+    "motor-drive": {
+      "since_generation": 4,
+      "references": [
+        "motor-drive"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "electric",
+          "damage_factor": 0,
+          "note": "Raises Speed instead of taking damage."
+        }
+      ]
+    },
+    "dry-skin": {
+      "since_generation": 4,
+      "references": [
+        "dry-skin"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "water",
+          "damage_factor": 0,
+          "note": "Restores HP instead of taking damage."
+        },
+        {
+          "applies_to": "type",
+          "type": "fire",
+          "damage_factor": 125,
+          "note": "Takes extra damage from Fire moves. Sun and rain also drain or restore HP each turn; that is not modelled."
+        }
+      ]
+    },
+    "heatproof": {
+      "since_generation": 4,
+      "references": [
+        "heatproof"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "fire",
+          "damage_factor": 50,
+          "note": "Also halves burn damage, which is not modelled."
+        }
+      ]
+    },
+    "filter": {
+      "since_generation": 4,
+      "references": [
+        "filter"
+      ],
+      "effects": [
+        {
+          "applies_to": "super-effective",
+          "damage_factor": 75,
+          "note": ""
+        }
+      ]
+    },
+    "solid-rock": {
+      "since_generation": 4,
+      "references": [
+        "solid-rock"
+      ],
+      "effects": [
+        {
+          "applies_to": "super-effective",
+          "damage_factor": 75,
+          "note": ""
+        }
+      ]
+    },
+    "lightning-rod": {
+      "since_generation": 5,
+      "references": [
+        "lightning-rod"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "electric",
+          "damage_factor": 0,
+          "note": "Before Generation V the ability only redirected Electric moves in double battles and granted no immunity, so no entry exists for Generations III and IV."
+        }
+      ]
+    },
+    "storm-drain": {
+      "since_generation": 5,
+      "references": [
+        "storm-drain"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "water",
+          "damage_factor": 0,
+          "note": "Before Generation V the ability only redirected Water moves in double battles and granted no immunity, so no entry exists for Generation IV."
+        }
+      ]
+    },
+    "sap-sipper": {
+      "since_generation": 5,
+      "references": [
+        "sap-sipper"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "grass",
+          "damage_factor": 0,
+          "note": "Raises Attack instead of taking damage."
+        }
+      ]
+    },
+    "water-bubble": {
+      "since_generation": 7,
+      "references": [
+        "water-bubble"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "fire",
+          "damage_factor": 50,
+          "note": "Also doubles the holder's own Water moves and prevents burn; neither is modelled."
+        }
+      ]
+    },
+    "fluffy": {
+      "since_generation": 7,
+      "references": [
+        "fluffy"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "fire",
+          "damage_factor": 200,
+          "note": "Takes double damage from Fire moves. The halving of contact moves depends on a move flag and is not modelled."
+        }
+      ]
+    },
+    "prism-armor": {
+      "since_generation": 7,
+      "references": [
+        "prism-armor"
+      ],
+      "effects": [
+        {
+          "applies_to": "super-effective",
+          "damage_factor": 75,
+          "note": "Unlike Filter and Solid Rock this reduction cannot be ignored by Mold Breaker; that distinction is not modelled."
+        }
+      ]
+    },
+    "purifying-salt": {
+      "since_generation": 9,
+      "references": [
+        "purifying-salt"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "ghost",
+          "damage_factor": 50,
+          "note": "Also prevents status conditions, which is not modelled."
+        }
+      ]
+    },
+    "earth-eater": {
+      "since_generation": 9,
+      "references": [
+        "earth-eater"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "ground",
+          "damage_factor": 0,
+          "note": "Restores HP instead of taking damage."
+        }
+      ]
+    },
+    "well-baked-body": {
+      "since_generation": 9,
+      "references": [
+        "well-baked-body"
+      ],
+      "effects": [
+        {
+          "applies_to": "type",
+          "type": "fire",
+          "damage_factor": 0,
+          "note": "Sharply raises Defense instead of taking damage."
+        }
+      ]
+    }
+  },
+  "excluded": [
+    {
+      "ability": "bulletproof",
+      "reason": "Reduces damage by a move flag (ballistic moves), not by type."
+    },
+    {
+      "ability": "good-as-gold",
+      "reason": "Blocks status moves, which deal no damage; there is no type modifier to record."
+    },
+    {
+      "ability": "ice-scales",
+      "reason": "Halves special damage by damage category, not by type."
+    },
+    {
+      "ability": "multiscale",
+      "reason": "Halves damage only at full HP; the modifier depends on battle state."
+    },
+    {
+      "ability": "shadow-shield",
+      "reason": "Halves damage only at full HP; the modifier depends on battle state."
+    },
+    {
+      "ability": "punk-rock",
+      "reason": "Halves damage by a move flag (sound moves), not by type."
+    },
+    {
+      "ability": "delta-stream",
+      "reason": "Removes Flying's weaknesses through a weather effect; weather is not modelled."
+    },
+    {
+      "ability": "air-lock",
+      "reason": "Suppresses weather rather than changing type damage."
+    },
+    {
+      "ability": "cloud-nine",
+      "reason": "Suppresses weather rather than changing type damage."
+    },
+    {
+      "ability": "thermal-exchange",
+      "reason": "Prevents burn; it does not change Fire damage taken."
+    },
+    {
+      "ability": "tera-shell",
+      "reason": "Makes every move not very effective at full HP; the modifier depends on battle state."
+    },
+    {
+      "ability": "wind-rider",
+      "reason": "Immunity is granted by a move flag (wind moves), not by type."
+    },
+    {
+      "ability": "sturdy",
+      "reason": "Survives at 1 HP rather than reducing damage by type."
+    },
+    {
+      "ability": "heavy-metal",
+      "reason": "Changes weight, which affects weight-based moves rather than type damage."
+    }
+  ]
+}

@@ -4,8 +4,8 @@ An offline, evidence-backed **multi-game Pokémon data foundation and API**: exa
 groups and generations modelled separately; historical stats, typings, type charts, move values and
 mechanics; learnsets, machines, evolution rules with typed conditions; encounters, gifts, trades, breeding
 and held items; items, prices and effects; natures; curated progression; and explicit coverage and
-provenance for every game and feature. It implements the data layer of [the product spec](docs/product-spec.md).
-No frontend or chat integration is included yet.
+provenance for every game and feature — with a React playthrough companion on top. It implements the
+data layer and the web interface of [the product spec](docs/product-spec.md); chat is not included yet.
 
 ## Setup
 
@@ -21,6 +21,25 @@ uv run rotom query ralts --game emerald --level 10 --db data/build/rotom.sqlite3
 uv run rotom serve --db data/build/rotom.sqlite3            # FastAPI on http://127.0.0.1:8000 (/docs)
 uv run pytest -q                                            # ~1 min: imports 7 games into a temp DB
 ```
+
+## The web application
+
+```sh
+npm --prefix web install
+npm --prefix web run build                                  # then `rotom serve` hosts it at /
+uv run rotom serve --db data/build/rotom.sqlite3            # app and API on http://127.0.0.1:8000
+
+npm --prefix web run dev                                    # development: Vite on :5173, proxying /api
+npm --prefix web run test                                   # vitest
+npm --prefix web run e2e                                    # playwright, desktop and mobile
+```
+
+A game-aware Pokédex, moves, items and reference tools; a team editor with defensive and offensive
+analysis; saved playthroughs with a progress checklist, boss preparation and pinned plans; and
+validated JSON export/import. Playthroughs live in the browser and never reach the server, which
+stays read-only. In development the API is reached through Vite's proxy, so there is no cross-origin
+request and no CORS configuration; `rotom serve --cors ORIGIN` is the escape hatch. See
+[docs/web.md](docs/web.md), including what is honestly empty and why.
 
 Imports and API requests are fully offline: the source is a hash-verified cache of 108 PokéAPI CSV files
 pinned to one upstream commit (`data/sources/pokeapi/`). `uv run rotom fetch-sources` restores missing
@@ -40,12 +59,13 @@ cache files; `--add name…` extends the cache at the same pinned revision (netw
 | Items | presence per generation; per-version-group text and prices with provenance; effects; attributes; curated shops | version group / game |
 | Natures, types, charts | global natures gated by mechanics; 15×15 / 17×17 / 18×18 charts | generation |
 | Progression | curated milestones, trainer battles and parties (Emerald through the first Gym) | exact game |
-| Coverage | 26 features × game with `complete / partial / missing / disputed`; explicit `data_issues` | exact game |
+| Ability type effects | reviewed type-based defensive modifiers (Levitate, Thick Fat, Filter, …) with the generation the modifier began; everything conditional on a move flag, weather, field or HP is recorded as a data issue instead | generation |
+| Coverage | 27 features × game with `complete / partial / missing / disputed`; explicit `data_issues` | exact game |
 
 See [docs/coverage.md](docs/coverage.md) for the generated report, [docs/sources.md](docs/sources.md)
 for the source assessment and reuse review, [docs/data-model.md](docs/data-model.md) for the schema,
-[docs/api.md](docs/api.md) for endpoints and [docs/validation.md](docs/validation.md) for the record-level
-checks on Emerald and Red.
+[docs/api.md](docs/api.md) for endpoints, [docs/web.md](docs/web.md) for the web application and
+[docs/validation.md](docs/validation.md) for the record-level checks on Emerald and Red.
 
 ## Semantics that matter
 
@@ -74,12 +94,12 @@ rotom_dex/            Python package (uv-installable; `rotom` console script)
   api/                FastAPI app, dependencies, routers
 data/sources/pokeapi  pinned CSV cache + manifest + LICENSE
 data/games            registry.json (support policy)
-data/mechanics        version_groups.json (reviewed mechanics flags)
+data/mechanics        version_groups.json (reviewed mechanics flags), ability_type_effects.json
 data/game-packs       <game>/pack.json curated content
 data/build            generated databases (gitignored)
 docs/                 spec, sources, data model, API, validation, generated coverage
 tests/                pytest suite (imports 7 games into a temporary database)
-web/                  placeholder for the future frontend
+web/                  React + TypeScript application (Vite), vitest unit tests, playwright end-to-end
 ```
 
 The earlier Emerald-only sample (ten forms, schema v1) was replaced by this multi-game schema; databases

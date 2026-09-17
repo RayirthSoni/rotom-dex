@@ -11,7 +11,7 @@ actually varies; queries resolve `game_version → version_group → generation`
 
 | Level | Tables | Why |
 | --- | --- | --- |
-| generation | `types`, `type_effectiveness`, `pokemon_types`, `pokemon_stats`, `pokemon_abilities` | The source records changes to typings, base stats, ability slots and the type chart per generation. |
+| generation | `types`, `type_effectiveness`, `pokemon_types`, `pokemon_stats`, `pokemon_abilities`, `ability_type_effects` | The source records changes to typings, base stats, ability slots and the type chart per generation. |
 | version group | `pokemon_version_groups` (presence), `move_game_data`, `move_flavor_text`, `learnsets`, `machines`, `item_game_data`, `ability_flavor_text`, `evolution_applicability`, `game_mechanics`, `tutors` | Learnsets, machines, move values and item text are shared by paired games (Ruby/Sapphire) and differ between groups (Emerald). |
 | exact game | `acquisitions`, `encounter_rates`, `pokemon_held_items`, `milestones`, `trainer_battles`, `shops`, `coverage`, `data_issues` | Encounters and held items differ between paired versions; progression and coverage are per game. |
 
@@ -97,6 +97,14 @@ picture. Slot percentages are per method and area and must not be summed.
   `item_effects` current wording, `item_attributes` such as `holdable`/`consumable`), curated `shops` and
   `shop_items`.
 - `natures` is global; the API exposes it only where `game_mechanics.natures = 1`.
+- `ability_type_effects(ability_id, generation_id, applies_to, type_id, damage_factor)` holds reviewed,
+  arithmetic ability modifiers from [`data/mechanics/ability_type_effects.json`](../data/mechanics/ability_type_effects.json):
+  a factor against one attacking type, or against super-effective / non-super-effective moves as a
+  class. Separate from `ability_effects`, which is the source's prose. Scoped per generation because
+  the modifier's first generation is not always the ability's: Lightning Rod and Storm Drain only
+  redirected moves before Generation V. Abilities whose effect depends on a move flag, the weather,
+  the field or remaining HP are listed under `excluded` in that file and become `data_issues`, so the
+  omission is explicit rather than silent.
 - Curated `milestones`, `trainer_battles`, `trainer_party` (level, gender, ability, held item, moves).
 - `coverage(game_id, feature, subject, status, note)` with `status ∈ complete | partial | missing |
   disputed`, computed after import from actual row counts and mechanics; `data_issues` lists explicit

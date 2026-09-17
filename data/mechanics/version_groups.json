@@ -1,0 +1,79 @@
+{
+  "reviewed_at": "2026-09-17",
+  "review_status": "reference-reviewed",
+  "policy": "Per-version-group mechanics flags reviewed against the cited reference articles (read, not copied). 1 = mechanic present, 0 = absent. A missing key means the reviewer could not confirm it; queries then report the mechanic as unknown. Entries in `unverified` are best-effort and are stored with verification_status=unverified.",
+  "keys": {
+    "abilities": "Abilities exist as a functional battle mechanic.",
+    "hidden_abilities": "Hidden Abilities exist.",
+    "natures": "Natures exist and modify stats.",
+    "held_items": "Pokémon can hold items.",
+    "breeding": "Breeding/Eggs are available in-game.",
+    "physical_special_split": "Damage category is per move (Generation IV onward) rather than per type.",
+    "special_stat_single": "A single Special stat replaces Special Attack/Special Defense (Generation I).",
+    "tm_present": "TMs exist as items.",
+    "tm_reusable": "TMs can be used repeatedly without being consumed.",
+    "hm_present": "HMs exist as items.",
+    "tr_present": "Technical Records (single-use) exist.",
+    "fairy_type": "The Fairy type exists."
+  },
+  "references": {
+    "abilities": "https://bulbapedia.bulbagarden.net/wiki/Ability",
+    "hidden_abilities": "https://bulbapedia.bulbagarden.net/wiki/Ability",
+    "natures": "https://bulbapedia.bulbagarden.net/wiki/Nature",
+    "held_items": "https://bulbapedia.bulbagarden.net/wiki/Held_item",
+    "breeding": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_breeding",
+    "physical_special_split": "https://bulbapedia.bulbagarden.net/wiki/Damage_category",
+    "special_stat_single": "https://bulbapedia.bulbagarden.net/wiki/Damage_category",
+    "tm_present": "https://bulbapedia.bulbagarden.net/wiki/TM",
+    "tm_reusable": "https://bulbapedia.bulbagarden.net/wiki/TM",
+    "hm_present": "https://bulbapedia.bulbagarden.net/wiki/HM",
+    "tr_present": "https://bulbapedia.bulbagarden.net/wiki/TM",
+    "fairy_type": "https://bulbapedia.bulbagarden.net/wiki/Fairy_(type)",
+    "lets-go-pikachu-lets-go-eevee": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon:_Let%27s_Go,_Pikachu!_and_Let%27s_Go,_Eevee!",
+    "legends-arceus": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Legends:_Arceus",
+    "legends-za": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Legends:_Z-A"
+  },
+  "profiles": {
+    "gen1": {"abilities": 0, "hidden_abilities": 0, "natures": 0, "held_items": 0, "breeding": 0, "physical_special_split": 0, "special_stat_single": 1, "tm_present": 1, "tm_reusable": 0, "hm_present": 1, "tr_present": 0, "fairy_type": 0},
+    "gen2": {"abilities": 0, "hidden_abilities": 0, "natures": 0, "held_items": 1, "breeding": 1, "physical_special_split": 0, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 0, "hm_present": 1, "tr_present": 0, "fairy_type": 0},
+    "gen3": {"abilities": 1, "hidden_abilities": 0, "natures": 1, "held_items": 1, "breeding": 1, "physical_special_split": 0, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 0, "hm_present": 1, "tr_present": 0, "fairy_type": 0},
+    "gen4": {"abilities": 1, "hidden_abilities": 0, "natures": 1, "held_items": 1, "breeding": 1, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 0, "hm_present": 1, "tr_present": 0, "fairy_type": 0},
+    "gen5": {"abilities": 1, "hidden_abilities": 1, "natures": 1, "held_items": 1, "breeding": 1, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 1, "hm_present": 1, "tr_present": 0, "fairy_type": 0},
+    "gen6": {"abilities": 1, "hidden_abilities": 1, "natures": 1, "held_items": 1, "breeding": 1, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 1, "hm_present": 1, "tr_present": 0, "fairy_type": 1},
+    "gen7": {"abilities": 1, "hidden_abilities": 1, "natures": 1, "held_items": 1, "breeding": 1, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 1, "hm_present": 0, "tr_present": 0, "fairy_type": 1},
+    "letsgo": {"abilities": 0, "hidden_abilities": 0, "natures": 1, "held_items": 0, "breeding": 0, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 1, "hm_present": 0, "tr_present": 0, "fairy_type": 1},
+    "swsh": {"abilities": 1, "hidden_abilities": 1, "natures": 1, "held_items": 1, "breeding": 1, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 1, "hm_present": 0, "tr_present": 1, "fairy_type": 1},
+    "bdsp": {"abilities": 1, "hidden_abilities": 1, "natures": 1, "held_items": 1, "breeding": 1, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 0, "hm_present": 0, "tr_present": 0, "fairy_type": 1},
+    "legends-arceus": {"abilities": 0, "hidden_abilities": 0, "natures": 1, "held_items": 0, "breeding": 0, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 0, "hm_present": 0, "tr_present": 0, "fairy_type": 1},
+    "sv": {"abilities": 1, "hidden_abilities": 1, "natures": 1, "held_items": 1, "breeding": 1, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 0, "hm_present": 0, "tr_present": 0, "fairy_type": 1},
+    "legends-za": {"abilities": 0, "hidden_abilities": 0, "held_items": 1, "breeding": 0, "physical_special_split": 1, "special_stat_single": 0, "tm_present": 1, "tm_reusable": 1, "hm_present": 0, "tr_present": 0, "fairy_type": 1}
+  },
+  "version_groups": {
+    "red-blue": "gen1", "yellow": "gen1", "red-green-japan": "gen1", "blue-japan": "gen1",
+    "gold-silver": "gen2", "crystal": "gen2",
+    "ruby-sapphire": "gen3", "emerald": "gen3", "firered-leafgreen": "gen3",
+    "diamond-pearl": "gen4", "platinum": "gen4", "heartgold-soulsilver": "gen4",
+    "black-white": "gen5", "black-2-white-2": "gen5",
+    "x-y": "gen6", "omega-ruby-alpha-sapphire": "gen6",
+    "sun-moon": "gen7", "ultra-sun-ultra-moon": "gen7",
+    "lets-go-pikachu-lets-go-eevee": "letsgo",
+    "sword-shield": "swsh", "the-isle-of-armor": "swsh", "the-crown-tundra": "swsh",
+    "brilliant-diamond-shining-pearl": "bdsp",
+    "legends-arceus": "legends-arceus",
+    "scarlet-violet": "sv", "the-teal-mask": "sv", "the-indigo-disk": "sv",
+    "legends-za": "legends-za", "mega-dimension": "legends-za"
+  },
+  "unverified": {
+    "lets-go-pikachu-lets-go-eevee": {
+      "tm_reusable": "Reference states TMs are reusable from Generation V through Sword/Shield; Let's Go falls in that span but is not named explicitly.",
+      "natures": "Reference (Nature article) describes Madam Celadon setting wild Natures in Let's Go, implying Natures exist; the game article does not list Natures among changes."
+    },
+    "legends-arceus": {
+      "natures": "The game article lists removed mechanics (Abilities, held items, breeding, Eggs, Pokérus) without naming Natures; presence inferred from their absence in that list."
+    },
+    "mega-dimension": {
+      "held_items": "Inherited from the Legends: Z-A profile; the expansion was not reviewed separately.",
+      "tm_reusable": "Inherited from the Legends: Z-A profile; the expansion was not reviewed separately."
+    }
+  }
+}

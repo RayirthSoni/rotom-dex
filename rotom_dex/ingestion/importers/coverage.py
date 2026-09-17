@@ -11,6 +11,7 @@ FEATURES = (
     "types",
     "stats",
     "abilities",
+    "ability-type-effects",
     "moves",
     "move-effects",
     "move-flavor-text",
@@ -99,6 +100,37 @@ def run(ctx: Context) -> None:
                 "ability slots",
             )
         )
+        # Reviewed type modifiers are a curated addition, never complete: the note says how many of
+        # the game's own ability slots are covered, so "partial" is read as scope, not as a gap.
+        modelled = one(
+            """SELECT count(DISTINCT a.ability_id) FROM ability_type_effects e
+               JOIN pokemon_abilities a ON a.ability_id=e.ability_id AND a.generation_id=e.generation_id
+               JOIN pokemon_version_groups p ON p.form_id=a.form_id AND p.version_group_id=? AND p.presence='present'
+               WHERE e.generation_id=?""",
+            vg,
+            gen,
+        )
+        in_game = one(
+            """SELECT count(DISTINCT a.ability_id) FROM pokemon_abilities a
+               JOIN pokemon_version_groups p ON p.form_id=a.form_id AND p.version_group_id=? AND p.presence='present'
+               WHERE a.generation_id=?""",
+            vg,
+            gen,
+        )
+        if mech("abilities") == 0:
+            rows.append(("ability-type-effects", "complete", "Not applicable: this mechanic is absent in this game."))
+        elif mech("abilities") is None:
+            rows.append(("ability-type-effects", "missing", "Whether this game has abilities is unverified."))
+        else:
+            rows.append(
+                (
+                    "ability-type-effects",
+                    "partial" if modelled else "missing",
+                    f"{modelled} of {in_game} abilities reachable in this game have a reviewed type modifier. "
+                    "Only type-based defensive modifiers are curated; abilities whose effect depends on a move "
+                    "flag, the weather, the field or the holder's HP are listed as data issues.",
+                )
+            )
         moves = one("SELECT count(*) FROM move_game_data WHERE version_group_id=?", vg)
         rows.append(
             (

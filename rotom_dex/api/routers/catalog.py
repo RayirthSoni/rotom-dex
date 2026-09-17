@@ -8,9 +8,11 @@ from fastapi import APIRouter, Depends, Query
 
 from rotom_dex.api.deps import GameParam, get_db
 from rotom_dex.api.schemas import Envelope
+from rotom_dex.repositories import coverage as coverage_repo
 from rotom_dex.repositories import games as games_repo
 from rotom_dex.repositories import natures as natures_repo
 from rotom_dex.repositories import types as types_repo
+from rotom_dex.repositories import vocabulary as vocabulary_repo
 from rotom_dex.repositories.common import coverage_rows, envelope, resolve_game
 from rotom_dex.repositories.evidence import evidence_detail
 
@@ -32,6 +34,20 @@ def coverage(game: str = GameParam, db: sqlite3.Connection = Depends(get_db)):
     scope = resolve_game(db, game)
     rows_ = coverage_rows(db, scope.id)
     return envelope(db, scope, rows_, coverage=rows_, include_evidence=False)
+
+
+@router.get("/coverage/matrix", response_model=Envelope)
+def coverage_matrix(
+    notes: bool = Query(False, description="Include each cell's explanatory note (roughly six times the payload)"),
+    db: sqlite3.Connection = Depends(get_db),
+):
+    """Every game against every feature in one response, for the game selector."""
+    return envelope(db, None, coverage_repo.coverage_matrix(db, notes), coverage=[], include_evidence=False)
+
+
+@router.get("/vocabulary", response_model=Envelope)
+def vocabulary(game: str = GameParam, db: sqlite3.Connection = Depends(get_db)):
+    return vocabulary_repo.vocabulary(db, game)
 
 
 @router.get("/issues", response_model=Envelope)

@@ -1,11 +1,16 @@
 """HTTP surface: validation, pagination, envelopes, evidence."""
 
+import threading
+from concurrent.futures import ThreadPoolExecutor
+
 import pytest
 
 ENDPOINTS = [
     "/api/games",
     "/api/games/emerald",
     "/api/coverage?game=emerald",
+    "/api/coverage/matrix",
+    "/api/vocabulary?game=emerald",
     "/api/issues?game=emerald",
     "/api/types?game=emerald",
     "/api/type-effectiveness?game=emerald&attack=ghost&defense=steel",
@@ -16,6 +21,8 @@ ENDPOINTS = [
     "/api/pokemon/ralts?game=emerald",
     "/api/pokemon/ralts/acquisition?game=emerald",
     "/api/pokemon/ralts/evolution?game=emerald",
+    "/api/pokemon/ralts/evolution-chain?game=emerald",
+    "/api/pokemon/ralts?game=emerald&include=all&max_level=10",
     "/api/pokemon/ralts/learnset?game=emerald&max_level=10",
     "/api/moves?game=emerald&q=leaf",
     "/api/moves/leaf-blade?game=emerald",
@@ -25,6 +32,7 @@ ENDPOINTS = [
     "/api/abilities?game=emerald",
     "/api/abilities/effect-spore?game=emerald",
     "/api/machines?game=emerald",
+    "/api/tutors?game=emerald",
     "/api/locations?game=emerald",
     "/api/locations/hoenn-route-102/encounters?game=emerald",
     "/api/milestones?game=emerald",
@@ -106,3 +114,46 @@ def test_learnset_filters_and_machine_rules(client):
 def test_health_reports_snapshot(client):
     body = client.get("/health").json()
     assert body["status"] == "ok" and len(body["snapshot_id"]) == 64
+
+
+def test_a_request_connection_survives_moving_between_threads(seed_db, monkeypatch):
+    """Regression: FastAPI resolves a generator dependency across several threadpool workers.
+
+    The setup, the endpoint body and the teardown of `get_db` each run on a *different* worker, so a
+    per-request connection legitimately moves between threads even though only one request ever uses
+    it. This asserts the invariant directly, because `TestClient` serialises requests through a
+    single portal and so never reproduces it -- the failure only shows up under a real server, as
+    intermittent 500s when a browser issues several requests at once.
+
+    Both workers are held open at the same time on purpose: sqlite3 compares thread identities, and
+    those are reused once a thread exits, so sequential pools would pass even with the guard on.
+    """
+    import rotom_dex.api.deps as deps
+
+    monkeypatch.setattr(deps, "DEFAULT_DB", seed_db)
+    generator = deps.get_db()
+    with ThreadPoolExecutor(max_workers=1) as opener, ThreadPoolExecutor(max_workers=1) as user:
+        idents = {opener.submit(threading.get_ident).result(), user.submit(threading.get_ident).result()}
+        assert len(idents) == 2, "the two workers must be distinct threads for this test to mean anything"
+        db = opener.submit(next, generator).result()
+        try:
+            count = user.submit(lambda: db.execute("SELECT count(*) FROM species").fetchone()[0]).result()
+            assert count > 0
+        finally:
+            user.submit(lambda: next(generator, None)).result()
+
+
+def test_parallel_requests_all_succeed(client):
+    """A browser opening one screen fires several of these at once."""
+    paths = [
+        "/api/pokemon/ralts/learnset?game=emerald",
+        "/api/pokemon/ralts?game=emerald",
+        "/api/vocabulary?game=emerald",
+        "/api/natures?game=emerald",
+        "/api/coverage/matrix",
+        "/api/types?game=emerald",
+    ]
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        responses = list(pool.map(lambda path: (path, client.get(path)), paths * 3))
+    failures = [(path, response.status_code, response.text[:160]) for path, response in responses if response.status_code != 200]
+    assert not failures, failures
