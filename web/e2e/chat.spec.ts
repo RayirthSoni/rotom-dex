@@ -1,132 +1,81 @@
 import { expect, test } from '@playwright/test'
-import { readStorage, startPlaythrough } from './helpers'
+import { readStorage } from './helpers'
 
-const STATUS_ON = {
-  enabled: true,
-  provider: 'scripted',
-  model: 'scripted',
-  research_enabled: false,
-  reason: '',
-  limits: { max_message_chars: 2000, max_history_turns: 12, max_tool_calls: 8, deadline_s: 45 },
+const KEY='test-visitor-key-not-real'
+const answer = {game:{slug:'emerald'},snapshot_id:'test',coverage_status:'partial',coverage:[],assumptions:[],evidence:[],data:{version:2,games:['emerald'],prose:'In Emerald, Ralts has 25 base Attack.',abstained:false,facts:[],cards:[],recommendations:[],actions:[{kind:'mark_milestone',label:'Mark Stone Badge complete',payload:{milestone:'stone-badge'}}],references:[],assumptions:[],follow_ups:['What about Diamond?']}}
+async function connect(page: import('@playwright/test').Page) {
+  await page.route('**/api/chat/connect',route => route.fulfill({json:{connected:true}}))
+  await page.getByRole('button',{name:'Connect Gemini',exact:true}).click()
+  await page.getByLabel('Gemini API key', {exact:true}).fill(KEY)
+  await page.getByRole('button',{name:'Connect',exact:true}).click()
+  await expect(page.getByRole('button',{name:'Gemini connected',exact:true})).toBeVisible()
 }
 
-function envelope(answer: Record<string, unknown>) {
-  return {
-    game: { id: 9, slug: 'emerald', name: 'Emerald', version_group: 'emerald', generation: 3, support_tier: 'validated' },
-    snapshot_id: 'test',
-    coverage_status: 'partial',
-    coverage: [],
-    assumptions: ['Facts are derived from the pinned source snapshot and reviewed packs.'],
-    evidence: [{ id: 'abc123', sources: [{ source_id: 'pack:emerald', kind: 'game-pack', url: 'local:pack', review_status: 'reference-reviewed' }] }],
-    data: {
-      prose: 'Zigzagoon is catchable on the routes you have already opened.',
-      abstained: false,
-      facts: [{ claim: 'Zigzagoon is a Normal-type in Emerald', evidence_id: 'abc123', tool: 'dex_lookup' }],
-      assumptions: [{ text: 'Milestones you have not ticked are treated as unknown.', because: 'open_world' }],
-      recommendations: [
-        { text: 'Catch a Zigzagoon on Route 102', rationale: 'Pickup is useful early', status: 'reachable', subject: 'zigzagoon' },
-        { text: 'Catch a Tentacool', rationale: 'Water coverage', status: 'locked', subject: 'tentacool' },
-      ],
-      cards: [{ kind: 'pokemon', title: 'Zigzagoon', subject: 'zigzagoon', tool: 'dex_lookup', rows: [{ label: 'Types', value: 'normal' }] }],
-      actions: [{ kind: 'add_team_member', label: 'Add Zigzagoon to your team', payload: { pokemon: 'zigzagoon' }, applied: false }],
-      references: [{ kind: 'evidence', id: 'abc123', review_status: 'reference-reviewed' }],
-      tools_used: [{ tool: 'check_reachability', arguments: {} }],
-      spoiler_level: 'hint',
-      limits_reached: [],
-      verification_notes: [],
-      ...answer,
-    },
-  }
-}
+test('first visit has a composer without a playthrough',async({page}) => {
+  await page.goto('/')
+  await expect(page.getByRole('heading',{name:'A little guidance. A better adventure.'})).toBeVisible()
+  await page.getByLabel('Ask Rotom a question').fill('Where can I catch Ralts in Emerald?')
+  await page.getByRole('button',{name:'Ask Rotom ↗'}).click()
+  await expect(page.getByLabel('Gemini API key', {exact:true})).toBeVisible()
+  await expect(page.getByRole('status')).toContainText('Connect your Gemini key')
+  await page.goto('/g/emerald/dex')
+  await page.getByLabel('Search by name or number').fill('ralts')
+  await expect(page.getByRole('link',{name:/Ralts/}).first()).toBeVisible()
+})
 
-test.describe('Ask Rotom', () => {
-  test('without a configured provider the tab explains itself and everything else still works', async ({ page }) => {
-    // No credential exists in this environment, so this is the real server behaviour, not a mock.
-    await startPlaythrough(page, 'emerald', 'Hoenn run')
-    await page.getByRole('link', { name: 'Ask' }).first().click()
-    await expect(page.getByTestId('chat-unavailable')).toContainText('not available')
-    await expect(page.getByTestId('chat-send')).toBeDisabled()
-
-    // The promise that matters: the rest of the application does not depend on the model.
-    await page.goto('/g/emerald/dex')
-    await page.getByLabel('Search by name or number').fill('ralts')
-    await expect(page.getByRole('link', { name: /Ralts/ }).first()).toBeVisible()
-    await page.goto('/g/emerald/team')
-    await expect(page.getByRole('heading', { name: /Team/ })).toBeVisible()
-    await page.goto('/g/emerald/journey')
-    await expect(page.getByText('Progress checklist')).toBeVisible()
+test('streamed answer survives navigation and reload, but the key does not',async({page}) => {
+  await page.goto('/')
+  await connect(page)
+  await page.route('**/api/v2/chat/stream',route => {
+    expect(route.request().headers()['x-rotom-gemini-key']).toBe(KEY)
+    expect(route.request().postData()).not.toContain(KEY)
+    return route.fulfill({contentType:'text/event-stream',body:`event: progress\ndata: {"message":"Checking game data…"}\n\nevent: answer\ndata: ${JSON.stringify(answer)}\n\nevent: done\ndata: {}\n\n`})
   })
+  await page.getByLabel('Ask Rotom a question').fill('What are Ralts stats in Emerald?')
+  await page.getByRole('button',{name:'Ask Rotom ↗'}).click()
+  await expect(page.getByTestId('chat-answer')).toContainText('25 base Attack')
+  await page.getByRole('button',{name:'Mark Stone Badge complete'}).click()
+  await page.getByRole('link',{name:'Ask',exact:true}).click()
+  await expect(page.getByTestId('chat-answer')).toContainText('25 base Attack')
+  await page.reload()
+  await expect(page.getByTestId('chat-answer')).toContainText('25 base Attack')
+  await expect(page.getByRole('button',{name:'Connect Gemini',exact:true})).toBeVisible()
+  const saved=await page.evaluate(() => JSON.stringify({...localStorage}))
+  expect(saved).not.toContain(KEY)
+  // Applying an old action twice is idempotent across reloads.
+  await page.getByRole('button',{name:'Mark Stone Badge complete'}).click()
+  const progress=await readStorage(page)
+  expect(Object.values(progress.playthroughs).map(p=>p.completedMilestones)).toEqual([['stone-badge']])
+})
 
-  test('an answer shows evidence, checked advice and actions that do nothing until chosen', async ({ page, context }) => {
-    await context.route('**/api/chat/status', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(STATUS_ON) }))
-    await context.route('**/api/chat', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(envelope({})) }))
+test('quota errors are recoverable and retry is available',async({page}) => {
+  await page.goto('/')
+  await connect(page)
+  await page.route('**/api/v2/chat/stream',route => route.fulfill({status:429,json:{detail:'Gemini quota reached. Try again later.'}}))
+  await page.getByLabel('Ask Rotom a question').fill('Find Ralts in Emerald')
+  await page.getByRole('button',{name:'Ask Rotom ↗'}).click()
+  await expect(page.getByRole('alert')).toContainText('quota reached')
+  await expect(page.getByRole('button',{name:'Retry question'})).toBeVisible()
+})
 
-    await startPlaythrough(page, 'emerald', 'Hoenn run')
-    await page.getByRole('link', { name: 'Ask' }).first().click()
-    await page.getByTestId('chat-input').fill('Who can I catch right now?')
-    await page.getByTestId('chat-send').click()
+test('keyboard submission and multiline input work',async({page}) => {
+  await page.goto('/')
+  const composer=page.getByLabel('Ask Rotom a question')
+  await composer.fill('First line')
+  await composer.press('Shift+Enter')
+  await expect(composer).toHaveValue('First line\n')
+  await composer.press('Enter')
+  await expect(page.getByLabel('Gemini API key',{exact:true})).toBeVisible()
+})
 
-    await expect(page.getByTestId('chat-answer')).toContainText('Zigzagoon is catchable')
-    await expect(page.getByTestId('chat-fact')).toContainText('Normal-type')
-    // Advice carries the verdict the server checked, not the model's opinion.
-    const verdicts = page.getByTestId('chat-recommendation')
-    await expect(verdicts.first()).toContainText('reachable')
-    await expect(verdicts.nth(1)).toContainText('locked')
-    // Evidence is behind a disclosure, the same one every other screen uses.
-    await page.getByRole('group').filter({ hasText: /Evidence:/ }).getByText(/Evidence:/).click()
-    await expect(page.getByText('local:pack')).toBeVisible()
-
-    // The action has not been applied yet.
-    const before = await readStorage(page)
-    expect(Object.values(before.playthroughs)[0].team).toHaveLength(0)
-
-    await page.getByTestId('chat-action').click()
-    const after = await readStorage(page)
-    expect(Object.values(after.playthroughs)[0].team).toHaveLength(1)
-    expect(Object.values(after.playthroughs)[0].team[0].pokemon).toBe('zigzagoon')
-  })
-
-  test('an abstention is shown as an answer, not as an error', async ({ page, context }) => {
-    await context.route('**/api/chat/status', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(STATUS_ON) }))
-    await context.route('**/api/chat', (route) =>
-      route.fulfill({
-        status: 200,
-        contentType: 'application/json',
-        body: JSON.stringify(
-          envelope({
-            prose: 'No boss rosters have been reviewed for this game, so no preparation can be offered.',
-            abstained: true,
-            facts: [],
-            recommendations: [],
-            cards: [],
-            actions: [],
-          }),
-        ),
-      }),
-    )
-    await startPlaythrough(page, 'emerald', 'Hoenn run')
-    await page.getByRole('link', { name: 'Ask' }).first().click()
-    await page.getByTestId('chat-input').fill('How do I beat the eighth gym?')
-    await page.getByTestId('chat-send').click()
-
-    await expect(page.getByTestId('chat-answer')).toHaveAttribute('data-abstained', 'true')
-    await expect(page.getByTestId('chat-answer')).toContainText('no preparation can be offered')
-    await expect(page.locator('[data-error-kind]')).toHaveCount(0)
-  })
-
-  test('a provider outage mid-session is reported and the saved work survives', async ({ page, context }) => {
-    await context.route('**/api/chat/status', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(STATUS_ON) }))
-    await context.route('**/api/chat', (route) =>
-      route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ detail: 'The chat provider is unavailable.' }) }),
-    )
-    await startPlaythrough(page, 'emerald', 'Hoenn run')
-    await page.getByRole('checkbox', { name: /Arrive in Littleroot Town/ }).check()
-    await page.getByRole('link', { name: 'Ask' }).first().click()
-    await page.getByTestId('chat-input').fill('anything')
-    await page.getByTestId('chat-send').click()
-
-    await expect(page.locator('[data-error-kind]').first()).toBeVisible()
-    await page.getByRole('link', { name: 'Journey' }).first().click()
-    await expect(page.getByText('1 milestones ticked')).toBeVisible()
-  })
+test('choosing and clearing a game updates one conversation',async({page}) => {
+  await page.goto('/')
+  const selector=page.getByLabel('Game for this conversation')
+  await selector.selectOption('emerald')
+  await expect(selector).toHaveValue('emerald')
+  await selector.selectOption('')
+  await expect(selector).toHaveValue('')
+  const saved=await page.evaluate(() => JSON.parse(localStorage.getItem('rotom-dex.conversations')!).state)
+  expect(saved.conversations).toHaveLength(1)
+  expect(saved.conversations[0].game).toBeNull()
 })

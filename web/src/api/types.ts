@@ -657,6 +657,7 @@ export interface ChatCardRow {
 }
 
 export interface ChatCard {
+  sprite_url?: string | null
   kind: string
   title: string
   subject?: string

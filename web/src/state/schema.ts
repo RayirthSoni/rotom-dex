@@ -9,7 +9,7 @@
 
 import { z } from 'zod'
 
-export const SAVE_VERSION = 1
+export const SAVE_VERSION = 2
 export const SAVE_SCHEMA = 'rotom-dex/playthroughs'
 
 const slug = z.string().min(1).max(64).regex(/^[a-z0-9][a-z0-9.-]*$/, 'must be a lowercase slug')
@@ -23,6 +23,14 @@ export const teamMemberSchema = z.object({
   nature: slug.nullable().default(null),
   ability: slug.nullable().default(null),
   heldItem: slug.nullable().default(null),
+  training: z.object({
+    evs: z.record(z.enum(['hp','atk','def','spa','spd','spe']), z.number().int().min(0).max(252)).optional(),
+    ivs: z.record(z.enum(['hp','atk','def','spa','spd','spe']), z.number().int().min(0).max(31)).optional(),
+    dvs: z.record(z.enum(['hp','atk','def','spa','spd','spe']), z.number().int().min(0).max(15)).optional(),
+    statExperience: z.record(z.enum(['hp','atk','def','spa','spd','spe']), z.number().int().min(0).max(65535)).optional(),
+    teraType: slug.optional(), dynamaxLevel: z.number().int().min(0).max(10).optional(),
+    gigantamax: z.boolean().optional(), happiness: z.number().int().min(0).max(255).optional(),
+  }).optional(),
 })
 
 export const closedWorldSchema = z.object({
@@ -86,7 +94,7 @@ export type StoredState = z.infer<typeof storedStateSchema>
  * coerced: silently dropping fields we do not understand would lose a player's work.
  */
 export const migrations: Record<number, (input: unknown) => unknown> = {
-  // 1 is the first published shape; entries are added as `2: (old) => ...` when it changes.
+  2: (old) => ({ ...(old as Record<string, unknown>), version: 2 }),
 }
 
 export function migrate(input: unknown, from: number): { value: unknown; applied: number[] } {

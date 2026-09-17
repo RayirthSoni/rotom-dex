@@ -70,22 +70,20 @@ your process manager or container runtime.
 | `ROTOM_WEB_DIST` / `ROTOM_SERVE_WEB` | Where the bundle is, and whether to mount it |
 | `ROTOM_CORS_ORIGINS` | Only for a split-origin deployment |
 | `ROTOM_CHAT_PROVIDER` / `ROTOM_CHAT_MODEL` | Which model answers, if any |
-| `ROTOM_GEMINI_API_KEY` | **Server-side only.** Never reaches the browser |
+| `ROTOM_GEMINI_API_KEY` | Local CLI evaluation only; ignored by public chat |
 | `ROTOM_CHAT_*` bounds | Tool rounds, timeouts, message size, rate limit |
-| `ROTOM_CHAT_RESEARCH` | Optional web research; off by default |
+| `ROTOM_CHAT_RESEARCH` | CLI research default; public visitors choose research per request |
 
 ### Secrets
 
-The key is read per request from the process environment and is never returned by any endpoint,
-including `/api/chat/status`, which reports only whether a provider is configured. Nothing is logged
-that contains it. If no key is set, `/api/chat` answers `503` and **every other endpoint keeps
-working** — the Pokédex, team analysis, boss preparation and saved plans do not use the model.
+Public chat requires each visitor's `X-Rotom-Gemini-Key` header. No environment-key fallback exists. The same visitor key is used for grounded research. It is held in tab memory and request-scoped server objects, never in browser persistence or server storage. Require HTTPS outside localhost; redact this header in reverse proxies, access logs and APM. Never log chat bodies or provider request objects.
+
+Install Node 22+ and run `npm ci --prefix battle` alongside `uv sync`. The container installs the pinned battle packages in a separate build stage. Per-process concurrency/rate limits need additional shared enforcement before a multi-worker public deployment.
 
 ## Backups
 
 There is no server-side user data to back up. Playthroughs live in the player's browser under the
-`localStorage` key `rotom-dex.playthroughs`, and never reach the server: the analysis endpoints
-receive the context in the request body and write nothing.
+`localStorage` key `rotom-dex.playthroughs`, and are not persisted by the server. Selected context is sent to the API and model as needed. Conversations use `rotom-dex.conversations`; credentials are excluded.
 
 - **For players:** the Playthroughs screen exports a validated JSON document containing every
   playthrough and the snapshot id it was made against. Import refuses a file from a newer save

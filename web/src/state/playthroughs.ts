@@ -10,6 +10,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import {
   SAVE_VERSION,
+  migrate,
   emptyClosedWorld,
   storedStateSchema,
   type ClosedWorld,
@@ -196,6 +197,7 @@ export const usePlaythroughs = create<State & Actions>()(
     {
       name: STORAGE_KEY,
       version: SAVE_VERSION,
+      migrate: (persisted, from) => migrate(persisted, from).value as State,
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({ version: state.version, activeId: state.activeId, playthroughs: state.playthroughs }),
       // Stored state is still untrusted: another tab, an extension or a hand edit can reach it.

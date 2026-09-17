@@ -1,4 +1,5 @@
 import { expect, type Page } from '@playwright/test'
+import type { Playthrough } from '../src/state/schema'
 
 /** Create a playthrough through the UI and land on its Journey screen. */
 export async function startPlaythrough(page: Page, game: string, name: string) {
@@ -18,7 +19,7 @@ export async function tickMilestone(page: Page, label: string | RegExp) {
 export async function readStorage(page: Page): Promise<{
   version: number
   activeId: string | null
-  playthroughs: Record<string, any>
+  playthroughs: Record<string, Playthrough>
 }> {
   return page.evaluate(() => {
     const raw = localStorage.getItem('rotom-dex.playthroughs')

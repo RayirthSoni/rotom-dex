@@ -1,5 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { CompetitiveScreen } from './features/competitive/CompetitiveScreen'
 import { Shell } from './App'
+import { CoverageScreen } from './features/games/CoverageScreen'
 import { GameSelector } from './features/games/GameSelector'
 import { PlaythroughsScreen } from './features/playthroughs/PlaythroughsScreen'
 import { DexSearch } from './features/pokedex/DexSearch'
@@ -18,12 +20,14 @@ export const router = createBrowserRouter([
     element: <Shell />,
     children: [
       { index: true, element: <Landing /> },
+      { path: 'competitive', element: <CompetitiveScreen /> },
+      { path: 'coverage', element: <CoverageScreen /> },
       { path: 'games', element: <GameSelector /> },
       { path: 'playthroughs', element: <PlaythroughsScreen /> },
       {
         path: 'g/:game',
         children: [
-          { index: true, element: <Navigate to="journey" replace /> },
+          { index: true, element: <Navigate to="ask" replace /> },
           { path: 'journey', element: <JourneyScreen /> },
           { path: 'dex', element: <DexSearch /> },
           { path: 'dex/:pokemon', element: <PokemonDetail /> },

@@ -1,3 +1,17 @@
+# Conversation and competitive API additions
+
+- `POST /api/v2/chat`: optional game/context, mode, format, history, research and spoiler preference.
+- `POST /api/v2/chat/stream`: same body; SSE progress and a final checked answer.
+- `POST /api/chat/connect`: test the visitor key from `X-Rotom-Gemini-Key`.
+- `GET /api/competitive/formats`: exact pinned format IDs and rules.
+- `POST /api/competitive/validate`: exact format and Showdown text or structured sets.
+- `POST /api/competitive/team`: Showdown import/export.
+- `POST /api/competitive/damage`: generation, combatants, move, optional field.
+
+Public chat requires the visitor's sensitive key header and never uses an environment key. The original `/api/chat` route remains for compatibility but follows the same credential isolation. See [chat.md](chat.md) and `/docs` for current request schemas. Known positive progress now counts immediately; completeness only determines how to interpret absent progress.
+
+---
+
 # HTTP API
 
 Run `uv run rotom serve --db data/build/rotom.sqlite3` (default `http://127.0.0.1:8000`; interactive docs at

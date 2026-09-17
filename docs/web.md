@@ -1,3 +1,13 @@
+# Current web experience
+
+The home route is immediate chat with an optional game selector, conversation history, visitor Gemini connection, progress/cancel/retry/copy controls, and optional saved context. Reference routes remain available through Explore tools. `/competitive` provides format selection, Showdown import/export, team validation and damage ranges. `/g/:game` now redirects to Ask. Existing team/Journey deep links remain intact.
+
+Conversations use versioned browser-local storage. API keys are in a separate memory-only store and disappear on reload. Playthrough save version 2 preserves version-1 teams, milestones and plans while allowing optional training/modifier fields. See [status](revamp-status.md) for remaining work.
+
+The following original reference-screen documentation is retained for those deep links; old descriptions of primary navigation and chat setup are superseded.
+
+---
+
 # Web application
 
 A React + TypeScript playthrough companion under [`web/`](../web), served by the same FastAPI process

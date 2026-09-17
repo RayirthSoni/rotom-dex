@@ -22,7 +22,7 @@ test.describe('Backend unavailable', () => {
     await expect(page.getByText('Progress checklist')).toBeVisible()
   })
 
-  test('a missing database explains how to build one', async ({ page, context }) => {
+  test('a missing database explains that game data is not ready', async ({ page, context }) => {
     await context.route('**/health', (route) =>
       route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ detail: 'Database not found' }) }),
     )
@@ -30,7 +30,7 @@ test.describe('Backend unavailable', () => {
       route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ detail: 'Database not found' }) }),
     )
     await page.goto('/g/emerald/dex')
-    await expect(page.getByTestId('backend-banner')).toContainText('rotom import')
+    await expect(page.getByTestId('backend-banner')).toContainText('Game data is not ready')
     await expect(page.locator('[data-error-kind="database_missing"]').first()).toBeVisible()
   })
 })

@@ -34,7 +34,7 @@ test.describe('Game switching', () => {
     await expect(page.getByRole('link', { name: 'Ralts' })).toBeVisible()
 
     const after = await readStorage(page)
-    const hoenn = Object.values(after.playthroughs).find((p: any) => p.name === 'Hoenn run') as any
+    const hoenn = Object.values(after.playthroughs).find(p => p.name === 'Hoenn run')!
     expect(hoenn.team).toHaveLength(1)
     expect(hoenn.completedMilestones).toEqual(['littleroot-arrival'])
     expect(Object.keys(after.playthroughs)).toHaveLength(2)

@@ -8,6 +8,8 @@ import { startPlaythrough } from './helpers'
  * build: the lower severities are advisory and would make this a noise generator.
  */
 const SCREENS = [
+  { path: '/', name: 'chat home' },
+  { path: '/competitive', name: 'competitive workshop' },
   { path: '/games', name: 'game selector' },
   { path: '/playthroughs', name: 'playthroughs' },
   { path: '/g/emerald/journey', name: 'journey' },
@@ -21,6 +23,15 @@ const SCREENS = [
 ]
 
 test.describe('Accessibility', () => {
+  for (const path of ['/', '/competitive']) {
+    test(`light theme has no serious accessibility violations at ${path}`,async({page})=>{
+      await page.goto(path)
+      await page.getByRole('button',{name:'Toggle light or dark theme'}).click()
+      await page.waitForLoadState('networkidle')
+      const results=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze()
+      expect(results.violations.filter(v=>v.impact==='serious'||v.impact==='critical')).toEqual([])
+    })
+  }
   for (const screen of SCREENS) {
     test(`${screen.name} has no serious accessibility violations`, async ({ page }) => {
       await startPlaythrough(page, 'emerald', 'Hoenn run')

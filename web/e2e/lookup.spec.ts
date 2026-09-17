@@ -1,17 +1,13 @@
 import { expect, test } from '@playwright/test'
 
 test.describe('Lookup', () => {
-  test('a game is chosen from its per-feature coverage', async ({ page }) => {
+  test('a game is chosen by its exact version', async ({ page }) => {
     await page.goto('/games')
     await expect(page.getByRole('heading', { name: 'Choose a game' })).toBeVisible()
 
     const emerald = page.getByRole('button', { name: /^Emerald/ })
-    await expect(emerald).toContainText('progression')
-    await expect(emerald).toContainText('boss-teams')
-
-    // The three groups are distinct claims: excluded is a policy, not a gap.
-    await expect(page.getByRole('heading', { name: 'Not supported' })).toBeVisible()
-    await expect(page.getByText(/Excluded by the project's support policy/)).toBeVisible()
+    await expect(emerald).toContainText('Generation 3')
+    await expect(page.getByRole('link',{name:'View detailed data coverage'})).toBeVisible()
 
     await emerald.click()
     await expect(page).toHaveURL(/\/g\/emerald\//)

@@ -1,3 +1,11 @@
+# Current product direction
+
+The approved chat-first revamp supersedes the original tracker-first design below. See [implementation status](revamp-status.md) and [the v2 contract](chat.md). Target: immediate game-aware chat, optional team/progress, all main-series games and DLC, visitor-owned tab-memory Gemini keys, grounded research, story advice and explicit competitive formats. Deep support is a reviewed-content gate, not a selector label.
+
+The remainder is retained as historical design context; conflicting credential, navigation, coverage and completion claims are superseded.
+
+---
+
 # Rotom Dex — product and implementation spec
 
 Status: proposed direction, prepared 2026-09-16. This is a specification, not an implemented application.
@@ -120,7 +128,7 @@ Proposed assistant tools:
 
 Common result envelope: `data`, `evidence_ids`, `game_version`, `snapshot_id`, `coverage_status`, `assumptions`. Responses include structured cards and factual claims with evidence IDs. Validate referenced evidence IDs before rendering; regression evaluation must also check that the evidence actually supports the claim.
 
-Filter future-story notes before they reach the model. Treat retrieved text as evidence, never as instructions. Restrict tool access to validated read operations; handle profile edits through explicit UI actions. Bound tool rounds, output length, request size, and per-session usage. API keys remain on the server. If the model is unavailable, the Dex, team tools, and saved plans still work.
+Filter future-story notes before they reach the model. Treat retrieved text as evidence, never as instructions. Restrict tool access to validated read operations; handle profile edits through explicit UI actions. Bound tool rounds, output length, request size, and per-session usage. Public visitors supply their own keys in a sensitive header; keys remain in browser tab memory and request-scoped server memory only. If the model is unavailable, the Dex, team tools, and saved plans still work.
 
 Proposed HTTP surface:
 

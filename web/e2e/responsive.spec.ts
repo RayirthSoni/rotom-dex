@@ -6,6 +6,8 @@ import { startPlaythrough } from './helpers'
  * scroller. If the page body scrolls horizontally on a phone, the layout is broken.
  */
 const SCREENS = [
+  '/',
+  '/competitive',
   '/games',
   '/playthroughs',
   '/g/emerald/journey',
@@ -38,17 +40,11 @@ test.describe('Layout', () => {
     expect(overflowing).toEqual([])
   })
 
-  test('the bottom tab bar is the navigation on a phone only', async ({ page }, testInfo) => {
-    await page.goto('/g/emerald/journey')
-    const tabBar = page.locator('nav.fixed')
-    if (testInfo.project.name === 'mobile') {
-      await expect(tabBar).toBeVisible()
-      for (const label of ['Journey', 'Dex', 'Team', 'Ask']) {
-        await expect(tabBar.getByRole('link', { name: label })).toBeVisible()
-      }
-    } else {
-      await expect(tabBar).toBeHidden()
-    }
+  test('reference navigation opens from the compact menu', async ({ page }) => {
+    await page.goto('/')
+    await page.getByText('Explore tools',{exact:true}).click()
+    await expect(page.getByRole('link',{name:'Competitive',exact:true})).toBeVisible()
+    await expect(page.getByRole('link',{name:'Playthroughs',exact:true})).toBeVisible()
   })
 
   test('wide data keeps its own scroller instead of stretching the page', async ({ page }) => {
