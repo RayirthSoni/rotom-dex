@@ -14,7 +14,7 @@ from fastapi import APIRouter, Depends, Request
 from rotom_dex.api.deps import get_chat_config, get_chat_provider, get_db, get_research_provider, rate_limit
 from rotom_dex.api.requests import ChatIn
 from rotom_dex.api.schemas import ChatStatus, Envelope
-from rotom_dex.chat import orchestrator
+from rotom_dex.chat import limits, orchestrator
 from rotom_dex.chat.config import ChatConfig
 from rotom_dex.chat.errors import ProviderUnavailable
 from rotom_dex.repositories.common import envelope, resolve_game, unsupported
@@ -49,16 +49,20 @@ def chat(
         return unsupported(db, scope)
     ctx = body.context.to_domain()
     warnings = validate(db, scope, ctx)
-    result = orchestrator.answer(
-        db,
-        scope,
-        ctx,
-        message=body.message,
-        history=[turn.model_dump() for turn in body.history],
-        provider=provider,
-        research=research,
-        config=config,
-    )
+    lease = limits.acquire(config.api_key)
+    try:
+        result = orchestrator.answer(
+            db,
+            scope,
+            ctx,
+            message=body.message,
+            history=[turn.model_dump() for turn in body.history],
+            provider=provider,
+            research=research,
+            config=config,
+        )
+    finally:
+        limits.release(lease)
     assumptions = [a["text"] for a in result.get("assumptions", []) if isinstance(a, dict) and a.get("text")]
     return envelope(
         db,

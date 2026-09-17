@@ -29,7 +29,7 @@ from rotom_dex.repositories import progression as progression_repo
 from rotom_dex.repositories import types as types_repo
 from rotom_dex.repositories import vocabulary as vocabulary_repo
 from rotom_dex.repositories.common import GameScope, envelope
-from rotom_dex.services import boss, evolution, move_access, reachability, team
+from rotom_dex.services import boss, competitive, content, evolution, knowledge, move_access, reachability, story, team
 from rotom_dex.services.context import PlaythroughContext
 
 SLUG = {"type": "string", "maxLength": 64}
@@ -57,7 +57,72 @@ def _registry() -> dict[str, Tool]:
     def tool(name, description, properties, required, features, handler):
         return Tool(ToolSpec(name, description, _schema(properties, required), tuple(features)), handler)
 
+    combatant = _schema({"species": SLUG, "level": {"type": "integer", "minimum": 1, "maximum": 100}, "ability": SLUG, "item": SLUG, "nature": SLUG}, ["species", "level"])
     entries = [
+        tool(
+            "damage_calculation",
+            "Calculate one attack in this game's generation with @smogon/calc. Ask for levels and sets; do not promise battle outcomes. Omitted EVs=0, IVs=31 and neutral field.",
+            {"attacker": combatant, "defender": combatant, "move": SLUG},
+            ["attacker", "defender", "move"],
+            (),
+            lambda db, scope, ctx, a: envelope(db, scope, competitive.run("damage", generation=scope.generation_id, **a), coverage=[]),
+        ),
+        tool(
+            "story_recommendations",
+            "Rank three story team additions by recorded access, type variety and resistance to team weaknesses. Ask about desired level if unknown.",
+            {"level": {"type": "integer", "minimum": 1, "maximum": 100}, "favorites": {"type": "array", "items": SLUG, "maxItems": 12}},
+            ["level"],
+            (),
+            lambda db, scope, ctx, a: envelope(db, scope, story.recommend(db, scope, ctx, a.get("favorites", []), a["level"]), coverage=[]),
+        ),
+        tool(
+            "knowledge_search",
+            "Search reviewed game-specific explanatory and acquisition passages before web research.",
+            {"query": {"type": "string", "maxLength": 200}},
+            ["query"],
+            (),
+            lambda db, scope, ctx, a: envelope(db, scope, content.search(scope, a["query"], ctx.spoiler_level, ctx.dlc_access), coverage=[]),
+        ),
+        tool(
+            "explain_mechanic",
+            "Explain a Pokémon concept such as STAB, EVs, IVs, natures, abilities, or physical/special attacks.",
+            {"query": {"type": "string", "maxLength": 200}},
+            ["query"],
+            (),
+            lambda db, scope, ctx, a: envelope(db, scope, knowledge.search(a["query"], scope.slug), coverage=[]),
+        ),
+        tool(
+            "item_search",
+            "Find an item's canonical name, including machines.",
+            {"query": {"type": "string", "maxLength": 60}},
+            ["query"],
+            ("items",),
+            lambda db, scope, ctx, a: items_repo.search_items(db, scope.slug, a["query"], None, 12, 0),
+        ),
+        tool(
+            "pokemon_acquisition",
+            "Focused exact-game acquisition routes. Page through routes using offset.",
+            {"pokemon": SLUG, "offset": {"type": "integer", "minimum": 0, "maximum": 10000}},
+            ["pokemon"],
+            ("encounters",),
+            lambda db, scope, ctx, a: _page(pokemon_repo.pokemon_acquisition(db, scope.slug, a["pokemon"]), "routes", a.get("offset", 0)),
+        ),
+        tool(
+            "pokemon_learnset",
+            "Focused game-specific learnset; optional method and level. Page with offset.",
+            {"pokemon": SLUG, "method": SLUG, "max_level": {"type": "integer", "minimum": 1, "maximum": 100}, "offset": {"type": "integer", "minimum": 0, "maximum": 10000}},
+            ["pokemon"],
+            ("learnsets",),
+            lambda db, scope, ctx, a: _page(pokemon_repo.pokemon_learnset(db, scope.slug, a["pokemon"], a.get("method"), a.get("max_level")), "moves", a.get("offset", 0)),
+        ),
+        tool(
+            "competitive_validate",
+            "Check an explicitly named competitive format and Showdown team. Never choose a format for the user.",
+            {"format": SLUG, "team": {"type": "string", "maxLength": 16000}},
+            ["format", "team"],
+            (),
+            lambda db, scope, ctx, a: envelope(db, scope, competitive.run("validate", **a), coverage=[]),
+        ),
         tool(
             "dex_search",
             "Search Pokemon present in the current game by name fragment and optionally by type.",
@@ -261,7 +326,7 @@ def specs(*, research_enabled: bool) -> list[ToolSpec]:
                 description=(
                     "Search the public web when the player explicitly asks you to verify something, or when the reviewed "
                     "database has a gap you have already confirmed with coverage_report. Results are unreviewed and must be "
-                    "labelled as externally researched; they never become facts with evidence ids."
+                    "labelled as externally researched; select only the supplied passage bindings."
                 ),
                 parameters=_schema(
                     {"query": {"type": "string", "maxLength": 200}, "why": {"type": "string", "maxLength": 200}},
@@ -270,3 +335,12 @@ def specs(*, research_enabled: bool) -> list[ToolSpec]:
             )
         )
     return out
+
+
+def _page(payload, key, offset):
+    data = payload.get("data")
+    if isinstance(data, dict) and isinstance(data.get(key), list):
+        found = data[key]
+        payload["data"] = {**data, key: found[offset : offset + 10]}
+        payload["pagination"] = {"offset": offset, "limit": 10, "total": len(found)}
+    return payload

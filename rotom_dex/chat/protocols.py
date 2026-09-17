@@ -40,6 +40,7 @@ class Turn:
     text: str = ""
     tool_calls: tuple[ToolCall, ...] = ()
     tool_results: tuple[ToolResult, ...] = ()
+    provider_parts: tuple[dict, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -47,6 +48,7 @@ class ProviderReply:
     text: str = ""
     tool_calls: tuple[ToolCall, ...] = ()
     finish_reason: str = "stop"  # stop | tool_calls | length | safety
+    provider_parts: tuple[dict, ...] = ()
     usage: dict[str, int] = field(default_factory=dict)
     model: str = ""
 
@@ -79,6 +81,7 @@ class ResearchResult:
     text: str
     citations: tuple[ResearchCitation, ...] = ()
     provider: str = ""
+    passages: tuple[dict, ...] = ()
 
 
 class ResearchProvider(Protocol):

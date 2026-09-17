@@ -39,7 +39,7 @@ class NullResearch:
 class GeminiGroundedSearch:
     """Gemini's own search grounding, run tool-less so the result returns to us first."""
 
-    api_key: str
+    api_key: str = field(repr=False)
     model: str
     base_url: str
     name: str = "gemini-google-search"
@@ -81,4 +81,17 @@ class GeminiGroundedSearch:
             web = chunk.get("web") or {}
             if web.get("uri"):
                 citations.append(ResearchCitation(url=web["uri"], title=web.get("title", "")))
-        return ResearchResult(query=query, text=text, citations=tuple(citations), provider=self.name)
+        passages = []
+        for support in grounding.get("groundingSupports") or []:
+            segment = (support.get("segment") or {}).get("text", "")
+            indices = support.get("groundingChunkIndices") or []
+            urls = []
+            chunks = grounding.get("groundingChunks") or []
+            for i in indices:
+                if isinstance(i, int) and 0 <= i < len(chunks):
+                    uri = (chunks[i].get("web") or {}).get("uri", "")
+                    if uri.startswith("https://"):
+                        urls.append(uri)
+            if segment and urls:
+                passages.append({"text": segment, "urls": urls})
+        return ResearchResult(query=query, text=text, citations=tuple(citations), provider=self.name, passages=tuple(passages))

@@ -40,7 +40,7 @@ def _float(env: Mapping[str, str], key: str, fallback: float) -> float:
 class ChatConfig:
     provider: str = "gemini"
     model: str = DEFAULT_MODEL
-    api_key: str | None = None
+    api_key: str | None = field(default=None, repr=False)
     base_url: str = DEFAULT_BASE_URL
 
     research_enabled: bool = False
@@ -105,7 +105,7 @@ class ChatConfig:
         if self.enabled:
             return ""
         return (
-            f"No credential is configured for the '{self.provider}' chat provider, so Rotom cannot answer. "
+            "Connect your own Gemini key to ask Rotom. Your key is used only for your requests. "
             "The Pokedex, team analysis and boss preparation do not use the model and are unaffected."
         )
 
