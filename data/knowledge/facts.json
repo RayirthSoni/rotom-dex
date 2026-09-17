@@ -1,0 +1,34 @@
+[
+  {
+    "id":"exp-share-hoenn-letter", "subject":"Exp. Share", "capability":"item-acquisition",
+    "claim":"After delivering Steven's Letter, return to Mr. Stone at Devon Corporation in Rustboro City for an Exp. Share.",
+    "applicability":{"games":["ruby","sapphire","emerald"]}, "keywords":["exp share","experience share"],
+    "sources":["https://bulbapedia.bulbagarden.net/wiki/Letter"],
+    "source_note":"Use in Ruby, Sapphire and Emerald, checked against the Letter article; does not apply to the remakes.",
+    "reviewed_at":"2026-09-17", "review_status":"source-reviewed", "spoiler":"story", "availability":"available"
+  },
+  {
+    "id":"exp-share-sinnoh-aide", "subject":"Exp. Share", "capability":"item-acquisition",
+    "claim":"Speak to Rowan's assistant in Route 206's northern gate after registering at least 35 Pokémon as seen in your Pokédex to receive an Exp. Share.",
+    "applicability":{"games":["diamond","pearl","platinum"]}, "keywords":["exp share","experience share"],
+    "sources":["https://bulbapedia.bulbagarden.net/wiki/Sinnoh_Route_206"],
+    "source_note":"The item row is marked D/P/Pt, not BD/SP. The requirement is seen, not caught.",
+    "reviewed_at":"2026-09-17", "review_status":"source-reviewed", "spoiler":"story", "availability":"available"
+  },
+  {
+    "id":"exp-all-kanto-originals", "subject":"Exp. All", "capability":"item-acquisition",
+    "claim":"In these originals the item is called Exp. All. Oak's aide gives it on the second floor of the Route 15 gate after you have obtained 50 Pokémon species.",
+    "applicability":{"games":["red","blue","yellow"]}, "keywords":["exp all","exp share","experience share"],
+    "sources":["https://bulbapedia.bulbagarden.net/wiki/Exp._Share#Acquisition"],
+    "source_note":"Original international Red/Blue/Yellow row; the item is carried in the Bag, not held.",
+    "reviewed_at":"2026-09-17", "review_status":"source-reviewed", "spoiler":"story", "availability":"available"
+  },
+  {
+    "id":"exp-share-kanto-remakes", "subject":"Exp. Share", "capability":"item-acquisition",
+    "claim":"Oak's aide gives you an Exp. Share upstairs in the Route 15 gate after you have obtained 50 Pokémon species.",
+    "applicability":{"games":["firered","leafgreen"]}, "keywords":["exp share","experience share"],
+    "sources":["https://bulbapedia.bulbagarden.net/wiki/Exp._Share#Acquisition"],
+    "source_note":"FireRed/LeafGreen acquisition row, kept separate from the original Exp. All.",
+    "reviewed_at":"2026-09-17", "review_status":"source-reviewed", "spoiler":"story", "availability":"available"
+  }
+]

@@ -1,19 +1,18 @@
 # Rotom Dex
 
-An offline, evidence-backed **multi-game Pokémon data foundation and API**: exact game versions, version
-groups and generations modelled separately; historical stats, typings, type charts, move values and
-mechanics; learnsets, machines, evolution rules with typed conditions; encounters, gifts, trades, breeding
-and held items; items, prices and effects; natures; curated progression; and explicit coverage and
-provenance for every game and feature — with a React playthrough companion and a grounded assistant on
-top. It implements [the product spec](docs/product-spec.md): Emerald and Red are reviewed end to end,
-and Ask Rotom answers through typed tools over the same services the rest of the application uses.
+A game-aware Pokémon assistant with a chat-first React interface, browser-local conversations, optional teams and progress, and an evidence-backed FastAPI/SQLite foundation. Ask about locations, items, mechanics, stats, and team building for an exact game.
+
+Visitors connect their own Gemini key. It stays in tab memory and is sent only in a sensitive request header; public chat never uses the server owner's environment key. Reference lookups and the competitive workshop work without a key.
+
+**The core revamp is implemented; deep all-game content and live-model certification are still in progress.** Read [the implementation status](docs/revamp-status.md) before treating a selector entry or a passing unit test as a quality guarantee.
 
 ## Setup
 
-Requires [uv](https://docs.astral.sh/uv/) and Python 3.11+ (uv will pick one up).
+Requires [uv](https://docs.astral.sh/uv/), Python 3.11+, and Node 22+ for the frontend and battle adapter.
 
 ```sh
 uv sync                                                     # runtime + dev dependencies into .venv
+npm ci --prefix battle                                     # pinned Showdown and damage calculator
 uv run rotom import --db data/build/rotom.sqlite3           # every main-series game (~2 min, ~200 MB)
 uv run rotom import --db data/build/dev.sqlite3 --games emerald,red   # a small database in ~2 s
 uv run rotom check --db data/build/rotom.sqlite3            # integrity + mechanics-aware invariants
@@ -27,23 +26,13 @@ uv run pytest -q                                            # ~20 s: imports 7 g
 
 ## Ask Rotom
 
-Chat is optional and it is the only thing in this project that touches the network. Set a key and it
-answers; leave it unset and `/api/chat` returns `503` while **every other endpoint keeps working** —
-the Pokédex, team analysis, boss preparation and saved plans never call a model.
+Open the app at `/`, choose **Connect Gemini**, and enter your own key. No playthrough is required. The initial configured model is `gemini-3.8-flash`; availability depends on the visitor's account and still needs a live integration run.
 
-```sh
-export ROTOM_GEMINI_API_KEY=…        # server-side only; see .env.example for every setting
-uv run rotom serve --db data/build/rotom.sqlite3
-```
+The server resolves game mentions and comparisons, injects game scope into tools, validates arguments and output, and projects selected factual records into answers. Progress events stream during research. Keys never enter transcripts, exports, saved state or prompts. Reloading or disconnecting clears the key.
 
-The model never states a fact of its own. It chooses from seventeen typed tools backed by the same
-services the Dex uses, and every answer is checked before it is returned: each cited `evidence_id`
-must have come back from a tool in that request and resolve in the database, no recommendation may be
-more optimistic than the reachability check it is based on, `unavailable` can never be asserted, and
-a single spoiler leak discards the whole answer. Content past the player's spoiler frontier is removed
-before the model sees it, not after. Web research is off by default; when enabled its text is
-sanitised, wrapped as untrusted evidence, labelled as externally researched, and never written to the
-database. See [docs/chat.md](docs/chat.md).
+Reviewed records, calculated results and externally researched passages retain separate provenance. Research uses the visitor's key, is optional, and never changes the published database. Missing rows remain unknown. See [the chat contract](docs/chat.md).
+
+For **explicit local/CLI evaluation only**, set `ROTOM_GEMINI_API_KEY` and run `uv run rotom eval --live`. Public API requests ignore this environment credential.
 
 ## The web application
 
@@ -59,12 +48,11 @@ npm --prefix web run e2e                                    # playwright, deskto
 
 A game-aware Pokédex, moves, items and reference tools; a team editor with defensive and offensive
 analysis; saved playthroughs with a progress checklist, boss preparation and pinned plans; and
-validated JSON export/import. Playthroughs live in the browser and never reach the server, which
-stays read-only. In development the API is reached through Vite's proxy, so there is no cross-origin
+validated JSON export/import. Playthroughs and conversations are stored in the browser. Selected context and recent messages are sent to the server and Gemini for the current answer; the server does not persist them. In development the API is reached through Vite's proxy, so there is no cross-origin
 request and no CORS configuration; `rotom serve --cors ORIGIN` is the escape hatch. See
 [docs/web.md](docs/web.md), including what is honestly empty and why.
 
-Imports and API requests are fully offline: the source is a hash-verified cache of 108 PokéAPI CSV files
+Structured imports and reference lookups are offline: the source is a hash-verified cache of 108 PokéAPI CSV files
 pinned to one upstream commit (`data/sources/pokeapi/`). `uv run rotom fetch-sources` restores missing
 cache files; `--add name…` extends the cache at the same pinned revision (network, changes the snapshot).
 

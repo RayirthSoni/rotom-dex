@@ -18,3 +18,5 @@ data/build
 .env
 docs
 tests
+
+battle/node_modules

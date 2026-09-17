@@ -233,3 +233,9 @@ web/blob-report/
 
 # TypeScript incremental build state; churns on every `tsc -b`.
 *.tsbuildinfo
+
+# Reviewed knowledge and pinned battle adapter inputs
+!data/knowledge/**/*.json
+!battle/package.json
+!battle/package-lock.json
+battle/node_modules/

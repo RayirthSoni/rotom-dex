@@ -23,6 +23,10 @@ jobs:
       - uses: astral-sh/setup-uv@v5
         with:
           enable-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --prefix battle
       - run: uv sync --frozen
       - name: Lint
         run: |
@@ -41,6 +45,8 @@ jobs:
           test -s /tmp/coverage.md
       - name: Reviewed question set
         run: uv run rotom eval --db data/build/ci.sqlite3
+      - name: Reviewed content applicability
+        run: uv run rotom content-audit --db data/build/ci.sqlite3
 
   web:
     name: Web — typecheck and unit tests
@@ -55,6 +61,7 @@ jobs:
           cache-dependency-path: web/package-lock.json
       - run: npm --prefix web ci
       - run: npm --prefix web run typecheck
+      - run: npm --prefix web run lint
       - run: npm --prefix web run test
 
   e2e:
@@ -71,6 +78,7 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: web/package-lock.json
+      - run: npm ci --prefix battle
       - run: uv sync --frozen
       - run: npm --prefix web ci
       - run: npx --prefix web playwright install --with-deps chromium
@@ -107,4 +115,5 @@ jobs:
           done
           curl -fs http://127.0.0.1:8000/health | tee /dev/stderr | grep -q snapshot_id
           curl -fs "http://127.0.0.1:8000/api/pokemon/ralts?game=emerald" > /dev/null
+          curl -fs "http://127.0.0.1:8000/api/competitive/formats" > /dev/null
           docker rm -f rotom
