@@ -2,6 +2,13 @@ import { expect, test } from '@playwright/test'
 import { startPlaythrough } from './helpers'
 
 test.describe('Backend unavailable', () => {
+  test('detects a backend that stops after the page loaded',async({page}) => {
+    await page.goto('/')
+    await expect(page.getByTestId('backend-banner')).toHaveCount(0)
+    await page.route('**/health',route => route.abort('failed'))
+    await page.evaluate(() => window.dispatchEvent(new Event('focus')))
+    await expect(page.getByTestId('backend-banner')).toContainText('Rotom is disconnected')
+  })
   test('an unreachable API is reported without losing saved work', async ({ page, context }) => {
     await startPlaythrough(page, 'emerald', 'Hoenn run')
     await page.getByRole('checkbox', { name: /Arrive in Littleroot Town/ }).check()

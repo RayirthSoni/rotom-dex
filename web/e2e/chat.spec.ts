@@ -68,6 +68,16 @@ test('keyboard submission and multiline input work',async({page}) => {
   await expect(page.getByLabel('Gemini API key',{exact:true})).toBeVisible()
 })
 
+test('a stopped backend is explained in the connection panel',async({page}) => {
+  await page.goto('/')
+  await page.route('**/api/chat/connect',route => route.abort('failed'))
+  await page.getByRole('button',{name:'Connect Gemini',exact:true}).click()
+  await page.getByLabel('Gemini API key',{exact:true}).fill(KEY)
+  await page.getByRole('button',{name:'Connect',exact:true}).click()
+  await expect(page.getByRole('status')).toContainText('Cannot reach the Rotom server')
+  await expect(page.getByRole('status')).toContainText('does not mean your Gemini key is invalid')
+})
+
 test('choosing and clearing a game updates one conversation',async({page}) => {
   await page.goto('/')
   const selector=page.getByLabel('Game for this conversation')

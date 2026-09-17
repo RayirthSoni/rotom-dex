@@ -17,6 +17,7 @@ import urllib.request
 from dataclasses import dataclass, field
 
 from rotom_dex.chat.errors import ResearchUnavailable
+from rotom_dex.chat.http import post_json
 from rotom_dex.chat.protocols import ResearchCitation, ResearchResult
 
 INSTRUCTION = (
@@ -62,9 +63,7 @@ class GeminiGroundedSearch:
             method="POST",
         )
         try:
-            opener = self.opener or urllib.request.urlopen
-            with opener(request, timeout=timeout_s) as response:
-                payload = json.loads(response.read().decode())
+            payload = post_json(request, timeout_s=timeout_s, opener=self.opener)
         except TimeoutError as exc:
             raise ResearchUnavailable(f"web research timed out after {timeout_s:.0f}s") from exc
         except (urllib.error.URLError, OSError, ValueError) as exc:

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import queue
 import threading
 import time
@@ -25,6 +26,7 @@ from rotom_dex.repositories.common import envelope, resolve_game
 from rotom_dex.services.context import PlaythroughContext, validate
 
 router = APIRouter()
+logger = logging.getLogger("uvicorn.error")
 
 
 def respond(db, body: ConversationIn, config: ChatConfig, progress=None, cancelled=None):
@@ -138,12 +140,14 @@ def stream(body: ConversationIn, request: Request, db=Depends(get_db), config=De
     path = db.execute("PRAGMA database_list").fetchone()[2]
     events = queue.Queue()
     stopped = threading.Event()
+    started = time.monotonic()
 
     def work():
         try:
             with closing(connect(path, readonly=True)) as connection:
                 result = respond(connection, body, config, lambda message: events.put(("progress", {"message": message})), stopped)
                 events.put(("answer", result))
+                logger.info("Chat completed after %.1fs; abstained=%s", time.monotonic() - started, result["data"].get("abstained"))
         except Exception as exc:
             # Only domain errors are public; never echo provider requests or credentials.
             from rotom_dex.chat.errors import ChatError
@@ -157,6 +161,8 @@ def stream(body: ConversationIn, request: Request, db=Depends(get_db), config=De
                 else "Rotom could not finish this request. Please try again."
             )
             events.put(("error", {"detail": detail}))
+            # No prompts, arguments, response text or credentials in diagnostics.
+            logger.warning("Chat failed after %.1fs: %s", time.monotonic() - started, type(exc).__name__)
         finally:
             events.put(("done", {}))
             limits.release(lease)
@@ -166,6 +172,11 @@ def stream(body: ConversationIn, request: Request, db=Depends(get_db), config=De
     def generate():
         try:
             while True:
+                if time.monotonic() - started > config.deadline_s + 5:
+                    stopped.set()
+                    yield 'event: error\ndata: {"detail":"Rotom exceeded the response time limit. Please retry your question."}\n\n'
+                    yield "event: done\ndata: {}\n\n"
+                    break
                 try:
                     event, data = events.get(timeout=1)
                 except queue.Empty:
@@ -187,7 +198,7 @@ def connection(request: Request, config: ChatConfig = Depends(get_chat_config)):
         raise HTTPException(401, "Enter your own Gemini key.")
     lease = limits.acquire(config.api_key)
     try:
-        build_provider(config).complete(system="Reply with OK.", turns=[Turn("user", text="Connection test")], tools=[], response_schema=None, timeout_s=10)
+        build_provider(config).complete(system="Reply with OK.", turns=[Turn("user", text="Connection test")], tools=[], response_schema=None, timeout_s=30)
     finally:
         limits.release(lease)
     return {"connected": True, "model": config.model, "key_storage": "current-tab-memory"}

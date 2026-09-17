@@ -25,6 +25,8 @@ HOW YOU WORK
 - Missing evidence means unknown. It never means a Pokemon or item is unobtainable.
 
 WHAT YOU RETURN
+- Once the retrieved evidence answers the question, call submit_answer alone with your final answer.
+  Do not write a draft in a separate turn or repeat lookups you have already completed.
 - facts: select the fact_id from verified_facts returned by tools. Copy its claim, evidence_id and tool exactly.
   Never rewrite its values.
   One claim per entry from this request. Never invent an id. If you have no id, it is an assumption, not a fact.

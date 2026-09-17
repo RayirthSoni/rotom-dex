@@ -55,7 +55,11 @@ export function SnapshotProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let cancelled = false
-    plain<Health>('/health')
+    let busy = false
+    const check = () => {
+    if (busy) return
+    busy = true
+    plain<Health>('/health', AbortSignal.timeout(5000))
       .then((health) => {
         if (cancelled) return
         // A different snapshot means every cached answer describes a different database.
@@ -76,8 +80,15 @@ export function SnapshotProvider({ children }: { children: ReactNode }) {
           error,
         })
       })
+      .finally(() => {busy = false})
+    }
+    check()
+    const interval = window.setInterval(check, 15000)
+    window.addEventListener('focus', check)
     return () => {
       cancelled = true
+      window.clearInterval(interval)
+      window.removeEventListener('focus', check)
     }
   }, [attempt, client])
 

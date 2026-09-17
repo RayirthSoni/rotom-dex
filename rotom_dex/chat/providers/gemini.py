@@ -17,6 +17,7 @@ from collections.abc import Sequence
 from dataclasses import dataclass, field
 
 from rotom_dex.chat.errors import ProviderProtocolError, ProviderTimeout, ProviderUnavailable
+from rotom_dex.chat.http import post_json
 from rotom_dex.chat.protocols import ProviderReply, ToolCall, ToolSpec, Turn
 
 # Keys the OpenAPI subset understands. Everything else is dropped rather than sent and rejected.
@@ -86,18 +87,31 @@ class GeminiProvider:
             method="POST",
         )
         try:
-            opener = self.opener or urllib.request.urlopen
-            with opener(request, timeout=timeout_s) as response:
-                payload = json.loads(response.read().decode())
+            payload = post_json(request, timeout_s=timeout_s, opener=self.opener)
         except TimeoutError as exc:
             raise ProviderTimeout(f"Gemini did not respond within {timeout_s:.0f}s") from exc
         except urllib.error.HTTPError as exc:
-            # Provider error bodies can echo request data. Never expose them.
+            # Inspect only known machine-readable reasons; never expose provider bodies,
+            # which can echo request data or credentials.
+            reasons = set()
+            try:
+                error = json.loads(exc.read(65536)).get("error", {})
+                reasons = {d.get("reason") for d in error.get("details", []) if isinstance(d, dict)}
+            except (ValueError, AttributeError, TypeError):
+                pass
+            if reasons & {"API_KEY_INVALID", "API_KEY_EXPIRED"}:
+                raise ProviderUnavailable("Google rejected this Gemini API key. Check or replace the key in Google AI Studio, then reconnect.") from None
             if exc.code in (401, 403):
-                raise ProviderUnavailable("Gemini rejected the configured credential") from exc
+                raise ProviderUnavailable("Google denied access. Check the key's API restrictions and Gemini API permissions in its Google Cloud project.") from None
+            if exc.code == 404:
+                raise ProviderUnavailable(f"The configured model ({self.model}) is not available to this key. Check model access or ROTOM_CHAT_MODEL on the server.") from None
             if exc.code == 429:
-                raise ProviderUnavailable("Gemini rate limit reached") from exc
-            raise ProviderUnavailable(f"Gemini returned HTTP {exc.code}; check model access and request configuration") from exc
+                raise ProviderUnavailable("Gemini quota or rate limit reached. Check this key's project quota and billing in Google AI Studio, or retry later.") from None
+            if exc.code in {500, 502, 503, 504}:
+                raise ProviderUnavailable(
+                    f"Google's Gemini service is temporarily unavailable (HTTP {exc.code}) after bounded retries. This is not an invalid-key error. Please try again shortly."
+                ) from None
+            raise ProviderUnavailable(f"Gemini returned HTTP {exc.code}; check model access and request configuration") from None
         except (urllib.error.URLError, OSError) as exc:
             raise ProviderUnavailable(f"Gemini could not be reached: {exc}") from exc
         except ValueError as exc:

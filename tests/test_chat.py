@@ -127,6 +127,27 @@ def test_the_closing_turn_is_schema_constrained_and_tool_free(db):
     assert any(call["tools"] for call in provider.calls[:-1])
 
 
+def test_verified_answer_finishes_in_two_model_calls(db):
+    from rotom_dex.chat.evidence import EvidenceLedger
+
+    scope = resolve_game(db, "emerald")
+    playthrough = ctx(spoiler_level="full")
+    payload = REGISTRY["pokemon_acquisition"].handler(db, scope, playthrough, {"pokemon": "ralts"})
+    fact = EvidenceLedger().bind(orchestrator.compact(payload), "pokemon_acquisition", "emerald")[0]
+    final = json.loads(answer_json(facts=[{k: fact[k] for k in ("fact_id", "claim", "evidence_id", "tool")}]))
+    provider = ScriptedProvider(
+        script=[
+            ProviderReply(tool_calls=(ToolCall("lookup", "pokemon_acquisition", {"pokemon": "ralts"}),)),
+            ProviderReply(tool_calls=(ToolCall("finish", "submit_answer", final),)),
+        ]
+    )
+    result = orchestrator.answer(db, scope, playthrough, message="Where can I catch Ralts in Emerald?", provider=provider, config=CONFIG)
+    assert len(provider.calls) == 2
+    assert result["facts"] and not result["abstained"]
+    assert result["facts"][0]["game"] == "emerald"
+    assert any(t.name == "submit_answer" for t in provider.calls[0]["tools"])
+
+
 def test_a_repeated_identical_tool_call_is_served_from_cache(db):
     call = ToolCall("c1", "dex_lookup", {"pokemon": "zigzagoon"})
     provider = ScriptedProvider(

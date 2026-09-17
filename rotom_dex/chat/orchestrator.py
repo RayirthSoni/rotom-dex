@@ -1,9 +1,8 @@
 """The bounded tool loop.
 
-Every limit here is enforced in code rather than requested of the model, because a bound the model
-is merely asked to respect is not a bound. The loop ends with a separate, tools-less call that is
-constrained to the answer schema: the provider will not accept a tool list and a response schema in
-the same request, so the closing turn is structural, not stylistic.
+The model can finish through a typed submit_answer call. A separate schema-constrained closing
+call is a compatibility fallback for providers that do not use it. All final paths share the
+same evidence and runtime validation; no limit relies on the model obeying an instruction.
 """
 
 from __future__ import annotations
@@ -28,7 +27,7 @@ from rotom_dex.chat.errors import (
     ProviderUnavailable,
     ResearchUnavailable,
 )
-from rotom_dex.chat.protocols import ChatProvider, ResearchProvider, ToolResult, Turn
+from rotom_dex.chat.protocols import ChatProvider, ResearchProvider, ToolResult, ToolSpec, Turn
 from rotom_dex.errors import NotFound, SemanticError
 from rotom_dex.repositories.common import GameScope, snapshot_id
 from rotom_dex.services import spoilers
@@ -255,6 +254,12 @@ def answer(
     ledger = ev.EvidenceLedger()
     budget = _Budget(config)
     specs = tools_mod.specs(research_enabled=config.research_enabled and research is not None)
+    # Finishing through a typed function avoids asking for the same answer twice:
+    # once as prose in the tool loop, then again in a separate structured-output call.
+    specs = [
+        *specs,
+        ToolSpec("submit_answer", "Finish with the checked answer once you have sufficient tool evidence. Call this alone, with no other tools.", answer_mod.ANSWER_SCHEMA),
+    ]
 
     turns: list[Turn] = []
     for entry in list(history)[-config.max_history_turns :]:
@@ -264,23 +269,41 @@ def answer(
 
     seen: dict[str, str] = {}
     tools_used: list[dict] = []
+    final_raw = None
+    closing = None
     try:
         for _ in range(config.max_turns):
             budget.check_clock()
             if cancelled and cancelled.is_set():
                 raise BudgetExceeded("cancelled request")
+            if on_progress:
+                on_progress("Waiting for Gemini to choose the next lookup…")
             reply = provider.complete(system=prompt_mod.SYSTEM, turns=turns, tools=specs, response_schema=None, timeout_s=budget.timeout(config.provider_timeout_s))
             for key, value in reply.usage.items():
                 budget.usage[key] = budget.usage.get(key, 0) + value
             if reply.finish_reason == "safety":
                 raise ProviderRefused("the provider declined to answer this question")
+            if len(reply.tool_calls) == 1 and reply.tool_calls[0].name == "submit_answer":
+                final_raw = reply.tool_calls[0].arguments
+                break
             if not reply.tool_calls:
+                try:
+                    candidate = json.loads(reply.text)
+                    if Draft202012Validator(answer_mod.ANSWER_SCHEMA).is_valid(candidate):
+                        final_raw = candidate
+                except (ValueError, TypeError):
+                    pass
                 break
             results = []
             for call in reply.tool_calls:
                 budget.check_clock()
                 if cancelled and cancelled.is_set():
                     raise BudgetExceeded("cancelled request")
+                if call.name == "submit_answer":
+                    results.append(
+                        ev.wrap_tool_error(tool=call.name, call_id=call.id, kind="unfinished_lookups", detail="Review the other tool results first, then submit the answer alone.")
+                    )
+                    continue
                 if on_progress:
                     on_progress("Researching game-specific sources…" if call.name == "web_research" else "Checking game data…")
                 blocked = budget.allow(call.name)
@@ -313,13 +336,16 @@ def answer(
         budget.check_clock()
         if cancelled and cancelled.is_set():
             raise BudgetExceeded("cancelled request")
-        closing = provider.complete(
-            system=prompt_mod.SYSTEM,
-            turns=[*turns, Turn("user", text=prompt_mod.CLOSING)],
-            tools=[],
-            response_schema=answer_mod.ANSWER_SCHEMA,
-            timeout_s=budget.timeout(config.provider_timeout_s),
-        )
+        if final_raw is None:
+            if on_progress:
+                on_progress("Gemini is preparing the checked answer…")
+            closing = provider.complete(
+                system=prompt_mod.SYSTEM,
+                turns=[*turns, Turn("user", text=prompt_mod.CLOSING)],
+                tools=[],
+                response_schema=answer_mod.ANSWER_SCHEMA,
+                timeout_s=budget.timeout(config.provider_timeout_s),
+            )
     except ProviderRefused:
         return _finish(answer_mod.abstention("Rotom could not answer that one. The Pokedex and team tools are unaffected."), gate, tools_used, budget, [])
     except BudgetExceeded as exc:
@@ -330,13 +356,13 @@ def answer(
         return _finish(answer_mod.abstention("Rotom's answer could not be read, so nothing is shown rather than a guess."), gate, tools_used, budget, [str(exc)])
 
     try:
-        raw = json.loads(closing.text)
+        raw = final_raw if final_raw is not None else json.loads(closing.text)
         if not isinstance(raw, dict):
             raise ValueError("answer was not an object")
     except (ValueError, TypeError) as exc:
         return _finish(answer_mod.abstention("Rotom's answer could not be read, so nothing is shown rather than a guess."), gate, tools_used, budget, [str(exc)])
 
-    for key, value in closing.usage.items():
+    for key, value in (closing.usage if closing else {}).items():
         budget.usage[key] = budget.usage.get(key, 0) + value
     if time.monotonic() > budget.deadline:
         return _finish(answer_mod.abstention("The answer exceeded the time limit. Please retry."), gate, tools_used, budget, [])
